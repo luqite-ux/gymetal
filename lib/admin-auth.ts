@@ -45,7 +45,7 @@ export async function createAdminSession(
       .filter(Boolean)
       .join(" — ")
     return {
-      error: `无法写入会话：${reason || "未知错误"}。请确认 ① .env 里 service_role 与 URL 为同一项目 ② 已在 SQL 中创建 admin_sessions 表（scripts/001_create_tables.sql）③ 未把 anon 公钥错填成 SUPABASE_SERVICE_ROLE_KEY`,
+      error: `无法写入会话：${reason || "未知错误"}。请确认 ① 同一项目 ② 未误填 anon 为 service_role。若提示找不到 token 列，请在 Supabase SQL 执行 scripts/003_align_admin_sessions_token_column.sql（将旧列名 session_token 改为 token）`,
     }
   }
 
