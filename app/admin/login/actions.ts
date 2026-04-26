@@ -1,6 +1,7 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
 import { createAdminClient } from "@/lib/supabase/server"
 import { createAdminSession, verifyPassword } from "@/lib/admin-auth"
 
@@ -46,6 +47,6 @@ export async function loginAction(formData: FormData) {
   }
 
   revalidatePath("/admin")
-
-  return { success: true }
+  // 用服务端 redirect，使 Set-Cookie 与 303 在同一轮响应，避免仅客户端 assign 时 Cookie 未随 /admin 请求发出
+  redirect("/admin")
 }

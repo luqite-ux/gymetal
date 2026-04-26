@@ -10,6 +10,16 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, Shield } from "lucide-react"
 import { loginAction } from "./actions"
 
+function isNextRedirectError(e: unknown) {
+  return (
+    e !== null &&
+    typeof e === "object" &&
+    "digest" in e &&
+    typeof (e as { digest: unknown }).digest === "string" &&
+    String((e as { digest: string }).digest).includes("NEXT_REDIRECT")
+  )
+}
+
 function AdminLoginForm() {
   const searchParams = useSearchParams()
   const reason = searchParams.get("reason")
@@ -21,13 +31,21 @@ function AdminLoginForm() {
     setIsLoading(true)
     setError(null)
 
-    const result = await loginAction(formData)
-
-    if (result.error) {
-      setError(result.error)
-      setIsLoading(false)
-    } else {
+    try {
+      const result = await loginAction(formData)
+      if (result && "error" in result && result.error) {
+        setError(result.error)
+        setIsLoading(false)
+        return
+      }
+      // 若未触发 redirect 抛出（理论少见），回退为整页跳转
       window.location.assign("/admin")
+    } catch (e) {
+      if (isNextRedirectError(e)) {
+        return
+      }
+      setError("登录过程出错，请重试。")
+      setIsLoading(false)
     }
   }
 
