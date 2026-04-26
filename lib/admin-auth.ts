@@ -1,4 +1,5 @@
 import { cookies } from "next/headers"
+import { redirect } from "next/navigation"
 import { createClient } from "@/lib/supabase/server"
 import bcrypt from "bcryptjs"
 
@@ -24,7 +25,7 @@ export async function createAdminSession(tenantId: string, email: string): Promi
 
   await supabase.from("admin_sessions").insert({
     tenant_id: tenantId,
-    session_token: sessionToken,
+    token: sessionToken,
     expires_at: expiresAt.toISOString(),
   })
 
@@ -51,19 +52,19 @@ export async function getAdminSession(): Promise<TenantSession | null> {
   const { data: session } = await supabase
     .from("admin_sessions")
     .select("tenant_id, expires_at")
-    .eq("session_token", sessionToken)
+    .eq("token", sessionToken)
     .single()
 
   if (!session) return null
 
   if (new Date(session.expires_at) < new Date()) {
-    await supabase.from("admin_sessions").delete().eq("session_token", sessionToken)
+    await supabase.from("admin_sessions").delete().eq("token", sessionToken)
     return null
   }
 
   const { data: tenant } = await supabase
     .from("tenants")
-    .select("id, name, domain, email")
+    .select("id, site_name, domain, email")
     .eq("id", session.tenant_id)
     .single()
 
@@ -71,7 +72,7 @@ export async function getAdminSession(): Promise<TenantSession | null> {
 
   return {
     tenant_id: tenant.id,
-    tenant_name: tenant.name,
+    tenant_name: tenant.site_name,
     tenant_domain: tenant.domain,
     email: tenant.email,
   }
@@ -83,7 +84,7 @@ export async function destroyAdminSession(): Promise<void> {
 
   if (sessionToken) {
     const supabase = await createClient()
-    await supabase.from("admin_sessions").delete().eq("session_token", sessionToken)
+    await supabase.from("admin_sessions").delete().eq("token", sessionToken)
   }
 
   cookieStore.delete("admin_session")
@@ -92,7 +93,7 @@ export async function destroyAdminSession(): Promise<void> {
 export async function requireAdminSession(): Promise<TenantSession> {
   const session = await getAdminSession()
   if (!session) {
-    throw new Error("Unauthorized")
+    redirect("/admin/login")
   }
   return session
 }
