@@ -1,33 +1,31 @@
 import { NextResponse, type NextRequest } from "next/server"
-import { updateSession } from "@/lib/supabase/proxy"
+import { requestHeadersWithPathname, updateSession } from "@/lib/supabase/proxy"
 
+/**
+ * 注意：不能在「仅存在 admin_session」时把 /admin/login 重定向到 /admin。
+ * 若 cookie 与 DB 会话不一致，RSC 会 redirect 回登录，中间件再拉回 /admin，形成
+ * 无限重定向 + 白屏闪烁（线上 Vercel 比本地更容易触发）。
+ */
 export async function middleware(request: NextRequest) {
-  // Update Supabase session
-  const response = await updateSession(request)
-  
   const { pathname } = request.nextUrl
 
-  // Admin routes protection
-  if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
-    const sessionCookie = request.cookies.get("admin_session")
-    
-    if (!sessionCookie?.value) {
-      const loginUrl = new URL("/admin/login", request.url)
-      return NextResponse.redirect(loginUrl)
+  // 后台只校验自定义 admin_session，不经由 Supabase Auth 刷新，减少 Edge
+  // 一次网络、Cookie 被反复改写，也避免与 admin 自管 session 相互干扰
+  if (pathname.startsWith("/admin")) {
+    if (pathname === "/admin/login") {
+      return NextResponse.next({
+        request: { headers: requestHeadersWithPathname(request) },
+      })
     }
+    if (!request.cookies.get("admin_session")?.value) {
+      return NextResponse.redirect(new URL("/admin/login", request.url))
+    }
+    return NextResponse.next({
+      request: { headers: requestHeadersWithPathname(request) },
+    })
   }
 
-  // Redirect logged-in users away from login page
-  if (pathname === "/admin/login") {
-    const sessionCookie = request.cookies.get("admin_session")
-    
-    if (sessionCookie?.value) {
-      const adminUrl = new URL("/admin", request.url)
-      return NextResponse.redirect(adminUrl)
-    }
-  }
-
-  return response
+  return updateSession(request)
 }
 
 export const config = {
