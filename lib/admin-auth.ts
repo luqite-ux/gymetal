@@ -35,7 +35,8 @@ export async function createAdminSession(tenantId: string, email: string): Promi
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     expires: expiresAt,
-    path: "/admin",
+    // `/admin` 在少数环境下与 path 规则边界行为不一致，用 `/` 保证登录后整站请求都带上
+    path: "/",
   })
 
   return sessionToken
@@ -87,7 +88,8 @@ export async function destroyAdminSession(): Promise<void> {
     await supabase.from("admin_sessions").delete().eq("token", sessionToken)
   }
 
-  cookieStore.delete("admin_session")
+  cookieStore.set("admin_session", "", { path: "/", maxAge: 0 })
+  cookieStore.set("admin_session", "", { path: "/admin", maxAge: 0 })
 }
 
 export async function requireAdminSession(): Promise<TenantSession> {

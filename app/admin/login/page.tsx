@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -11,7 +10,6 @@ import { Loader2, Shield } from "lucide-react"
 import { loginAction } from "./actions"
 
 export default function AdminLoginPage() {
-  const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -25,8 +23,8 @@ export default function AdminLoginPage() {
       setError(result.error)
       setIsLoading(false)
     } else {
-      router.push("/admin")
-      router.refresh()
+      // 整页跳转，确保 Server Action 写入的 Cookie 一定随请求带上（软导航偶发白屏）
+      window.location.assign("/admin")
     }
   }
 

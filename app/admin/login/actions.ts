@@ -1,5 +1,6 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
 import { createClient } from "@/lib/supabase/server"
 import { createAdminSession, verifyPassword } from "@/lib/admin-auth"
 
@@ -37,6 +38,7 @@ export async function loginAction(formData: FormData) {
 
   // Create session
   await createAdminSession(tenant.id, tenant.email)
+  revalidatePath("/admin")
 
   return { success: true }
 }
