@@ -23,7 +23,13 @@ export async function createAdminSession(
   tenantId: string,
   _email: string
 ): Promise<{ error: string | null }> {
-  const supabase = await createAdminClient()
+  let supabase
+  try {
+    supabase = createAdminClient()
+  } catch (e) {
+    const m = e instanceof Error ? e.message : String(e)
+    return { error: `环境变量问题：${m}` }
+  }
   const sessionToken = crypto.randomUUID()
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days
 
@@ -35,7 +41,12 @@ export async function createAdminSession(
 
   if (insertError) {
     console.error("[admin-auth] admin_sessions insert failed:", insertError)
-    return { error: "无法写入会话，请检查数据库权限或环境变量 (SUPABASE_SERVICE_ROLE_KEY)" }
+    const reason = [insertError.message, insertError.hint, insertError.code]
+      .filter(Boolean)
+      .join(" — ")
+    return {
+      error: `无法写入会话：${reason || "未知错误"}。请确认 ① .env 里 service_role 与 URL 为同一项目 ② 已在 SQL 中创建 admin_sessions 表（scripts/001_create_tables.sql）③ 未把 anon 公钥错填成 SUPABASE_SERVICE_ROLE_KEY`,
+    }
   }
 
   const cookieStore = await cookies()
@@ -56,7 +67,12 @@ export async function getAdminSession(): Promise<TenantSession | null> {
 
   if (!sessionToken) return null
 
-  const supabase = await createAdminClient()
+  let supabase
+  try {
+    supabase = createAdminClient()
+  } catch {
+    return null
+  }
 
   const { data: session } = await supabase
     .from("admin_sessions")
@@ -92,8 +108,12 @@ export async function destroyAdminSession(): Promise<void> {
   const sessionToken = cookieStore.get("admin_session")?.value
 
   if (sessionToken) {
-    const supabase = await createAdminClient()
-    await supabase.from("admin_sessions").delete().eq("token", sessionToken)
+    try {
+      const supabase = createAdminClient()
+      await supabase.from("admin_sessions").delete().eq("token", sessionToken)
+    } catch {
+      // ignore
+    }
   }
 
   cookieStore.set("admin_session", "", { path: "/", maxAge: 0 })

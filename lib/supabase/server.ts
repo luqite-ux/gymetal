@@ -1,16 +1,13 @@
+import { createClient as createSupabaseServiceClient, type SupabaseClient } from '@supabase/supabase-js'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 export async function createClient() {
   const cookieStore = await cookies()
 
-  // TODO: 临时硬编码用于测试，测试完需要改回环境变量
-  const supabaseUrl = 'https://kznqbvcyehtjcsgkurso.supabase.co'
-  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bnFidmN5ZWh0amNzZ2t1cnNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5NTAxNjEsImV4cCI6MjA5MDUyNjE2MX0.Agcw-V6k4wxyfcn4jrzuYlft0lVpBSSbIltyRLXd5e0'
-
   return createServerClient(
-    supabaseUrl,
-    supabaseAnonKey,
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll() {
@@ -30,32 +27,47 @@ export async function createClient() {
   )
 }
 
-// Create admin client with service role for bypassing RLS
-export async function createAdminClient() {
-  const cookieStore = await cookies()
+function decodeJwtRole(key: string): string | null {
+  try {
+    const part = key.split('.')[1]
+    if (!part) return null
+    const b64 = part.replace(/-/g, '+').replace(/_/g, '/')
+    const json = JSON.parse(
+      typeof Buffer !== 'undefined'
+        ? Buffer.from(b64, 'base64').toString('utf8')
+        : atob(b64)
+    ) as { role?: string }
+    return json.role ?? null
+  } catch {
+    return null
+  }
+}
 
-  // TODO: 临时硬编码用于测试，测试完需要改回环境变量
-  const supabaseUrl = 'https://kznqbvcyehtjcsgkurso.supabase.co'
-  const serviceRoleKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bnFidmN5ZWh0amNzZ2t1cnNvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDk1MDE2MSwiZXhwIjoyMDkwNTI2MTYxfQ.LERIAxBkOi7-QgjRksmTrIjIU2uzCENKyoEPOlfQnzc'
-
-  return createServerClient(
-    supabaseUrl,
-    serviceRoleKey,
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll()
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options),
-            )
-          } catch {
-            // The "setAll" method was called from a Server Component.
-          }
-        },
-      },
+/**
+ * 后台专用：用 service role 直连 PostgREST，不绑 SSR Cookie。
+ * 若误把 anon 公钥填进 SUPABASE_SERVICE_ROLE_KEY，会在这里打印警告，插入会按 RLS 失败。
+ */
+export function createAdminClient(): SupabaseClient {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
+  if (!url || !key) {
+    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
+  }
+  if (key.length < 32) {
+    throw new Error('SUPABASE_SERVICE_ROLE_KEY looks too short; paste the full service_role value from Supabase')
+  }
+  const role = decodeJwtRole(key)
+  if (role && role !== 'service_role') {
+    console.error(
+      `[supabase] SUPABASE_SERVICE_ROLE_KEY 的 JWT role 是 "${role}"，应为 "service_role"。` +
+        ' 请使用 Supabase → Project Settings → API → service_role（secret），不要用 anon 公钥。'
+    )
+  }
+  return createSupabaseServiceClient(url, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
     },
-  )
+  })
 }

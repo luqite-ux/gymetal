@@ -16,7 +16,7 @@ export async function loginAction(formData: FormData) {
     return { error: "服务器未配置 SUPABASE_SERVICE_ROLE_KEY，无法登录" }
   }
 
-  const supabase = await createAdminClient()
+  const supabase = createAdminClient()
 
   // Find tenant by email
   const { data: tenant, error } = await supabase
