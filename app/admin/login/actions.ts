@@ -1,7 +1,7 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
-import { createClient } from "@/lib/supabase/server"
+import { createAdminClient } from "@/lib/supabase/server"
 import { createAdminSession, verifyPassword } from "@/lib/admin-auth"
 
 export async function loginAction(formData: FormData) {
@@ -12,7 +12,11 @@ export async function loginAction(formData: FormData) {
     return { error: "请填写邮箱和密码" }
   }
 
-  const supabase = await createClient()
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()) {
+    return { error: "服务器未配置 SUPABASE_SERVICE_ROLE_KEY，无法登录" }
+  }
+
+  const supabase = await createAdminClient()
 
   // Find tenant by email
   const { data: tenant, error } = await supabase
@@ -36,8 +40,11 @@ export async function loginAction(formData: FormData) {
     return { error: "邮箱或密码错误" }
   }
 
-  // Create session
-  await createAdminSession(tenant.id, tenant.email)
+  const sessionResult = await createAdminSession(tenant.id, tenant.email)
+  if (sessionResult.error) {
+    return { error: sessionResult.error }
+  }
+
   revalidatePath("/admin")
 
   return { success: true }

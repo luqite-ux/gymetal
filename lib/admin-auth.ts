@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
-import { createClient } from "@/lib/supabase/server"
+import { createAdminClient } from "@/lib/supabase/server"
 import bcrypt from "bcryptjs"
 
 export interface TenantSession {
@@ -18,16 +18,25 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
   return bcrypt.compare(password, hash)
 }
 
-export async function createAdminSession(tenantId: string, email: string): Promise<string> {
-  const supabase = await createClient()
+/** 用 service role 绕过 RLS。线上常开 RLS 时，anon 对 admin_sessions/tenants 的读写会失败，表现为「一登录就回登录页」。 */
+export async function createAdminSession(
+  tenantId: string,
+  _email: string
+): Promise<{ error: string | null }> {
+  const supabase = await createAdminClient()
   const sessionToken = crypto.randomUUID()
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days
 
-  await supabase.from("admin_sessions").insert({
+  const { error: insertError } = await supabase.from("admin_sessions").insert({
     tenant_id: tenantId,
     token: sessionToken,
     expires_at: expiresAt.toISOString(),
   })
+
+  if (insertError) {
+    console.error("[admin-auth] admin_sessions insert failed:", insertError)
+    return { error: "无法写入会话，请检查数据库权限或环境变量 (SUPABASE_SERVICE_ROLE_KEY)" }
+  }
 
   const cookieStore = await cookies()
   cookieStore.set("admin_session", sessionToken, {
@@ -35,11 +44,10 @@ export async function createAdminSession(tenantId: string, email: string): Promi
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     expires: expiresAt,
-    // `/admin` 在少数环境下与 path 规则边界行为不一致，用 `/` 保证登录后整站请求都带上
     path: "/",
   })
 
-  return sessionToken
+  return { error: null }
 }
 
 export async function getAdminSession(): Promise<TenantSession | null> {
@@ -48,8 +56,8 @@ export async function getAdminSession(): Promise<TenantSession | null> {
 
   if (!sessionToken) return null
 
-  const supabase = await createClient()
-  
+  const supabase = await createAdminClient()
+
   const { data: session } = await supabase
     .from("admin_sessions")
     .select("tenant_id, expires_at")
@@ -84,7 +92,7 @@ export async function destroyAdminSession(): Promise<void> {
   const sessionToken = cookieStore.get("admin_session")?.value
 
   if (sessionToken) {
-    const supabase = await createClient()
+    const supabase = await createAdminClient()
     await supabase.from("admin_sessions").delete().eq("token", sessionToken)
   }
 
