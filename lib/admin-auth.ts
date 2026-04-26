@@ -70,16 +70,24 @@ export async function getAdminSession(): Promise<TenantSession | null> {
   let supabase
   try {
     supabase = createAdminClient()
-  } catch {
+  } catch (e) {
+    console.error("[getAdminSession] createAdminClient failed:", e)
     return null
   }
 
-  const { data: session } = await supabase
+  const { data: session, error: sessionErr } = await supabase
     .from("admin_sessions")
     .select("tenant_id, expires_at")
     .eq("token", sessionToken)
     .single()
 
+  if (sessionErr) {
+    console.error(
+      "[getAdminSession] admin_sessions select:",
+      sessionErr.message,
+      sessionErr.code ?? "",
+    )
+  }
   if (!session) return null
 
   if (new Date(session.expires_at) < new Date()) {
@@ -87,12 +95,19 @@ export async function getAdminSession(): Promise<TenantSession | null> {
     return null
   }
 
-  const { data: tenant } = await supabase
+  const { data: tenant, error: tenantErr } = await supabase
     .from("tenants")
     .select("id, site_name, domain, email")
     .eq("id", session.tenant_id)
     .single()
 
+  if (tenantErr) {
+    console.error(
+      "[getAdminSession] tenants select:",
+      tenantErr.message,
+      tenantErr.code ?? "",
+    )
+  }
   if (!tenant) return null
 
   return {
@@ -123,7 +138,7 @@ export async function destroyAdminSession(): Promise<void> {
 export async function requireAdminSession(): Promise<TenantSession> {
   const session = await getAdminSession()
   if (!session) {
-    redirect("/admin/login")
+    redirect("/admin/login?reason=unauthorized")
   }
   return session
 }
