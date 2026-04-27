@@ -2,6 +2,7 @@
 
 import { requireAdminSession } from "@/lib/admin-auth"
 import { createAdminClient as createClient } from "@/lib/supabase/server"
+import { verifyPassword, hashPassword } from "@/lib/admin-auth"
 
 interface Settings {
   site_title: string
@@ -66,4 +67,32 @@ export async function saveSettings(settings: Settings) {
 
     if (error) throw error
   }
+}
+
+export async function changePassword(
+  currentPassword: string,
+  newPassword: string
+): Promise<{ error: string | null }> {
+  const session = await requireAdminSession()
+  const supabase = await createClient()
+
+  const { data: tenant, error: fetchError } = await supabase
+    .from("tenants")
+    .select("password_hash")
+    .eq("id", session.tenant_id)
+    .single()
+
+  if (fetchError || !tenant) return { error: "无法获取账号信息" }
+
+  const valid = await verifyPassword(currentPassword, tenant.password_hash)
+  if (!valid) return { error: "当前密码不正确" }
+
+  const newHash = await hashPassword(newPassword)
+  const { error: updateError } = await supabase
+    .from("tenants")
+    .update({ password_hash: newHash })
+    .eq("id", session.tenant_id)
+
+  if (updateError) return { error: "密码更新失败，请重试" }
+  return { error: null }
 }

@@ -8,8 +8,9 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, Save } from "lucide-react"
-import { saveSettings } from "./actions"
+import { saveSettings, changePassword } from "./actions"
 
 interface Settings {
   id?: string
@@ -52,10 +53,11 @@ export function SettingsForm({ settings: initialSettings }: SettingsFormProps) {
   return (
     <div className="space-y-6">
       <Tabs defaultValue="basic">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="basic">基本信息</TabsTrigger>
           <TabsTrigger value="contact">联系方式</TabsTrigger>
           <TabsTrigger value="seo">SEO 设置</TabsTrigger>
+          <TabsTrigger value="security">账号安全</TabsTrigger>
         </TabsList>
 
         <TabsContent value="basic" className="mt-6">
@@ -260,6 +262,9 @@ export function SettingsForm({ settings: initialSettings }: SettingsFormProps) {
             </CardContent>
           </Card>
         </TabsContent>
+        <TabsContent value="security" className="mt-6">
+          <PasswordForm />
+        </TabsContent>
       </Tabs>
 
       <div className="flex justify-end">
@@ -278,5 +283,101 @@ export function SettingsForm({ settings: initialSettings }: SettingsFormProps) {
         </Button>
       </div>
     </div>
+  )
+}
+
+function PasswordForm() {
+  const [current, setCurrent] = useState("")
+  const [next, setNext] = useState("")
+  const [confirm, setConfirm] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError(null)
+    setSuccess(false)
+
+    if (next.length < 6) {
+      setError("新密码至少 6 位")
+      return
+    }
+    if (next !== confirm) {
+      setError("两次输入的新密码不一致")
+      return
+    }
+
+    setIsLoading(true)
+    const result = await changePassword(current, next)
+    setIsLoading(false)
+
+    if (result.error) {
+      setError(result.error)
+    } else {
+      setSuccess(true)
+      setCurrent("")
+      setNext("")
+      setConfirm("")
+    }
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>修改密码</CardTitle>
+        <CardDescription>修改后需要重新登录</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-sm">
+          {error && (
+            <Alert variant="destructive">
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          )}
+          {success && (
+            <Alert>
+              <AlertDescription>密码已修改成功</AlertDescription>
+            </Alert>
+          )}
+          <div className="space-y-2">
+            <Label htmlFor="current_password">当前密码</Label>
+            <Input
+              id="current_password"
+              type="password"
+              value={current}
+              onChange={(e) => setCurrent(e.target.value)}
+              required
+              disabled={isLoading}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="new_password">新密码</Label>
+            <Input
+              id="new_password"
+              type="password"
+              value={next}
+              onChange={(e) => setNext(e.target.value)}
+              required
+              disabled={isLoading}
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="confirm_password">确认新密码</Label>
+            <Input
+              id="confirm_password"
+              type="password"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+              required
+              disabled={isLoading}
+            />
+          </div>
+          <Button type="submit" disabled={isLoading}>
+            {isLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />修改中...</> : "修改密码"}
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   )
 }
