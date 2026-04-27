@@ -57,10 +57,7 @@ function AdminLoginForm() {
             <Shield className="h-6 w-6 text-primary" />
           </div>
           <CardTitle className="text-2xl">管理后台登录</CardTitle>
-          <CardDescription>
-            演示账号见种子 <span className="font-mono text-xs">scripts/002_seed_demo_tenant.sql</span>：邮箱{" "}
-            <span className="whitespace-nowrap">admin@gymetall.com</span>，默认密码 <span className="font-mono">admin123</span>
-          </CardDescription>
+          <CardDescription>请输入你的管理员账号信息</CardDescription>
         </CardHeader>
         <CardContent>
           <form action={handleSubmit} className="space-y-4">
@@ -89,7 +86,7 @@ function AdminLoginForm() {
                 name="email"
                 type="email"
                 autoComplete="email"
-                placeholder="admin@gymetall.com"
+                placeholder="请输入邮箱"
                 required
                 disabled={isLoading}
               />
@@ -102,7 +99,7 @@ function AdminLoginForm() {
                 name="password"
                 type="password"
                 autoComplete="current-password"
-                placeholder="（种子默认）admin123"
+                placeholder="请输入密码"
                 required
                 disabled={isLoading}
               />
