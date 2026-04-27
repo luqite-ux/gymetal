@@ -97,7 +97,7 @@ export async function getAdminSession(): Promise<TenantSession | null> {
 
   const { data: tenant, error: tenantErr } = await supabase
     .from("tenants")
-    .select("id, site_name, domain, email")
+    .select("id, name, domain, email")
     .eq("id", session.tenant_id)
     .single()
 
@@ -112,7 +112,7 @@ export async function getAdminSession(): Promise<TenantSession | null> {
 
   return {
     tenant_id: tenant.id,
-    tenant_name: tenant.site_name,
+    tenant_name: tenant.name,
     tenant_domain: tenant.domain,
     email: tenant.email,
   }
