@@ -13,12 +13,17 @@ export default async function AdminLayout({
     path === "/admin/login" || path.startsWith("/admin/login/")
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       {session && !isLoginRoute ? (
         <div className="flex min-h-screen">
           <AdminSidebar session={session} />
-          <main className="flex-1 overflow-auto">
-            <div className="p-6 lg:p-8">{children}</div>
+          <main className="relative flex-1 overflow-auto">
+            <div className="sticky top-0 z-20 h-1.5 w-full bg-gradient-to-r from-blue-600 via-violet-600 to-rose-500" />
+            <div className="p-4 md:p-6 lg:p-8">
+              <div className="min-h-[calc(100vh-5rem)] rounded-3xl border border-slate-100 bg-white/85 p-5 shadow-sm backdrop-blur md:p-6 lg:p-8">
+                {children}
+              </div>
+            </div>
           </main>
         </div>
       ) : (

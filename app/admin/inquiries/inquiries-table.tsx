@@ -94,11 +94,11 @@ export function InquiriesTable({ inquiries }: InquiriesTableProps) {
 
   if (inquiries.length === 0) {
     return (
-      <Card>
+      <Card className="rounded-3xl border-slate-100 shadow-sm">
         <CardContent className="flex flex-col items-center justify-center py-16">
-          <Mail className="h-12 w-12 text-muted-foreground mb-4" />
-          <p className="text-lg font-medium">暂无询盘</p>
-          <p className="text-muted-foreground">当有客户提交询盘时，会在这里显示</p>
+          <Mail className="mb-4 h-12 w-12 text-slate-400" />
+          <p className="text-lg font-semibold text-slate-900">暂无询盘</p>
+          <p className="text-slate-500">当有客户提交询盘时，会在这里显示</p>
         </CardContent>
       </Card>
     )
@@ -106,10 +106,10 @@ export function InquiriesTable({ inquiries }: InquiriesTableProps) {
 
   return (
     <>
-      <Card>
+      <Card className="overflow-hidden rounded-3xl border-slate-100 shadow-sm">
         <Table>
           <TableHeader>
-            <TableRow>
+            <TableRow className="bg-slate-50/80 hover:bg-slate-50/80">
               <TableHead>姓名</TableHead>
               <TableHead>邮箱</TableHead>
               <TableHead>主题</TableHead>
@@ -120,12 +120,15 @@ export function InquiriesTable({ inquiries }: InquiriesTableProps) {
           </TableHeader>
           <TableBody>
             {inquiries.map((inquiry) => (
-              <TableRow key={inquiry.id} className={inquiry.status === "unread" ? "bg-muted/50" : ""}>
-                <TableCell className="font-medium">{inquiry.name}</TableCell>
+              <TableRow
+                key={inquiry.id}
+                className={inquiry.status === "unread" ? "bg-blue-50/40 hover:bg-blue-50/60" : "hover:bg-slate-50/70"}
+              >
+                <TableCell className="font-semibold text-slate-900">{inquiry.name}</TableCell>
                 <TableCell>{inquiry.email}</TableCell>
                 <TableCell className="max-w-[200px] truncate">{inquiry.subject || "-"}</TableCell>
                 <TableCell>{getStatusBadge(inquiry.status)}</TableCell>
-                <TableCell className="text-muted-foreground">
+                <TableCell className="text-slate-500">
                   {new Date(inquiry.created_at).toLocaleDateString("zh-CN")}
                 </TableCell>
                 <TableCell>

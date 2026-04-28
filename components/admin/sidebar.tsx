@@ -39,51 +39,61 @@ function SidebarContent({ session }: AdminSidebarProps) {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex h-16 items-center border-b px-6">
-        <Link href="/admin" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">
-            A
+      <div className="px-6 pb-8 pt-7">
+        <Link href="/admin" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-sm font-black text-white shadow-lg shadow-slate-200">
+            GY
           </div>
-          <span className="font-semibold">管理后台</span>
+          <div>
+            <p className="text-sm font-black tracking-tight text-slate-900">GY 管理后台</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600/70">Control Center</p>
+          </div>
         </Link>
       </div>
 
-      <ScrollArea className="flex-1 px-3 py-4">
+      <ScrollArea className="flex-1 px-4">
         <nav className="space-y-1">
           {navItems.map((item) => {
-            const isActive = pathname === item.href || 
+            const isActive = pathname === item.href ||
               (item.href !== "/admin" && pathname.startsWith(item.href))
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                  "group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-bold transition-all",
                   isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    ? "bg-slate-900 text-white shadow-lg shadow-slate-200"
+                    : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
                 )}
               >
-                <item.icon className="h-5 w-5" />
+                <item.icon className={cn("h-5 w-5", isActive ? "stroke-[2.4]" : "stroke-[2]")} />
                 {item.label}
-                {isActive && <ChevronRight className="ml-auto h-4 w-4" />}
+                {isActive && <ChevronRight className="ml-auto h-4 w-4 text-white/80" />}
               </Link>
             )
           })}
         </nav>
       </ScrollArea>
 
-      <div className="border-t p-4">
-        <div className="mb-3 px-2">
-          <p className="text-sm font-medium truncate">{session.tenant_name}</p>
-          <p className="text-xs text-muted-foreground truncate">{session.email}</p>
+      <div className="p-4">
+        <div className="rounded-3xl bg-slate-900 p-5">
+          <div className="mb-4 min-w-0">
+            <p className="truncate text-sm font-semibold text-white">{session.tenant_name}</p>
+            <p className="truncate text-xs text-slate-400">{session.email}</p>
+          </div>
+          <form action={logoutAction}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full justify-start border-white/15 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white"
+              type="submit"
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              退出登录
+            </Button>
+          </form>
         </div>
-        <form action={logoutAction}>
-          <Button variant="outline" size="sm" className="w-full justify-start" type="submit">
-            <LogOut className="mr-2 h-4 w-4" />
-            退出登录
-          </Button>
-        </form>
       </div>
     </div>
   )
@@ -95,7 +105,7 @@ export function AdminSidebar({ session }: AdminSidebarProps) {
   return (
     <>
       {/* Mobile trigger */}
-      <div className="fixed top-0 left-0 right-0 z-40 flex h-16 items-center border-b bg-background px-4 lg:hidden">
+      <div className="fixed left-0 right-0 top-0 z-40 flex h-16 items-center border-b border-slate-200 bg-white/95 px-4 backdrop-blur lg:hidden">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon">
@@ -106,11 +116,11 @@ export function AdminSidebar({ session }: AdminSidebarProps) {
             <SidebarContent session={session} />
           </SheetContent>
         </Sheet>
-        <span className="ml-3 font-semibold">管理后台</span>
+        <span className="ml-3 text-sm font-black tracking-tight text-slate-900">GY 管理后台</span>
       </div>
 
       {/* Desktop sidebar */}
-      <aside className="hidden w-64 shrink-0 border-r bg-card lg:block">
+      <aside className="hidden w-72 shrink-0 border-r border-slate-100 bg-white lg:block">
         <SidebarContent session={session} />
       </aside>
 

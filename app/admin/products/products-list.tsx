@@ -67,12 +67,12 @@ export function ProductsList({ products }: ProductsListProps) {
 
   if (products.length === 0) {
     return (
-      <Card>
+      <Card className="rounded-3xl border-slate-100 shadow-sm">
         <CardContent className="flex flex-col items-center justify-center py-16">
-          <Package className="h-12 w-12 text-muted-foreground mb-4" />
-          <p className="text-lg font-medium">暂无产品</p>
-          <p className="text-muted-foreground mb-4">开始添加您的第一个产品</p>
-          <Button asChild>
+          <Package className="mb-4 h-12 w-12 text-slate-400" />
+          <p className="text-lg font-semibold text-slate-900">暂无产品</p>
+          <p className="mb-4 text-slate-500">开始添加您的第一个产品</p>
+          <Button asChild className="rounded-xl bg-slate-900 text-white hover:bg-slate-800">
             <Link href="/admin/products/new">添加产品</Link>
           </Button>
         </CardContent>
@@ -81,11 +81,11 @@ export function ProductsList({ products }: ProductsListProps) {
   }
 
   return (
-    <Card>
+    <Card className="overflow-hidden rounded-3xl border-slate-100 shadow-sm">
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[80px]">图片</TableHead>
+          <TableRow className="bg-slate-50/80 hover:bg-slate-50/80">
+            <TableHead className="w-[80px] text-[11px] uppercase tracking-wide text-slate-400">图片</TableHead>
             <TableHead>名称</TableHead>
             <TableHead>分类</TableHead>
             <TableHead>状态</TableHead>
@@ -95,9 +95,9 @@ export function ProductsList({ products }: ProductsListProps) {
         </TableHeader>
         <TableBody>
           {products.map((product, index) => (
-            <TableRow key={product.id}>
+            <TableRow key={product.id} className="transition-colors hover:bg-slate-50/70">
               <TableCell>
-                <div className="relative h-12 w-12 rounded-lg overflow-hidden bg-muted">
+                <div className="relative h-12 w-12 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
                   {product.image_url ? (
                     <Image
                       src={product.image_url}
@@ -112,7 +112,7 @@ export function ProductsList({ products }: ProductsListProps) {
                   )}
                 </div>
               </TableCell>
-              <TableCell className="font-medium">{product.name}</TableCell>
+              <TableCell className="font-semibold text-slate-900">{product.name}</TableCell>
               <TableCell>
                 {product.category || "-"}
               </TableCell>

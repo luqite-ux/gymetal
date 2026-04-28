@@ -61,12 +61,12 @@ export function ArticlesList({ articles }: ArticlesListProps) {
 
   if (articles.length === 0) {
     return (
-      <Card>
+      <Card className="rounded-3xl border-slate-100 shadow-sm">
         <CardContent className="flex flex-col items-center justify-center py-16">
-          <FileText className="h-12 w-12 text-muted-foreground mb-4" />
-          <p className="text-lg font-medium">暂无文章</p>
-          <p className="text-muted-foreground mb-4">开始创作您的第一篇文章</p>
-          <Button asChild>
+          <FileText className="mb-4 h-12 w-12 text-slate-400" />
+          <p className="text-lg font-semibold text-slate-900">暂无文章</p>
+          <p className="mb-4 text-slate-500">开始创作您的第一篇文章</p>
+          <Button asChild className="rounded-xl bg-slate-900 text-white hover:bg-slate-800">
             <Link href="/admin/articles/new">新建文章</Link>
           </Button>
         </CardContent>
@@ -75,11 +75,11 @@ export function ArticlesList({ articles }: ArticlesListProps) {
   }
 
   return (
-    <Card>
+    <Card className="overflow-hidden rounded-3xl border-slate-100 shadow-sm">
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="w-[80px]">图片</TableHead>
+          <TableRow className="bg-slate-50/80 hover:bg-slate-50/80">
+            <TableHead className="w-[80px] text-[11px] uppercase tracking-wide text-slate-400">图片</TableHead>
             <TableHead>标题</TableHead>
             <TableHead>状态</TableHead>
             <TableHead>创建时间</TableHead>
@@ -88,9 +88,9 @@ export function ArticlesList({ articles }: ArticlesListProps) {
         </TableHeader>
         <TableBody>
           {articles.map((article) => (
-            <TableRow key={article.id}>
+            <TableRow key={article.id} className="transition-colors hover:bg-slate-50/70">
               <TableCell>
-                <div className="relative h-12 w-16 rounded-lg overflow-hidden bg-muted">
+                <div className="relative h-12 w-16 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
                   {article.featured_image ? (
                     <Image
                       src={article.featured_image}
@@ -107,8 +107,8 @@ export function ArticlesList({ articles }: ArticlesListProps) {
               </TableCell>
               <TableCell>
                 <div>
-                  <p className="font-medium">{article.title}</p>
-                  <p className="text-sm text-muted-foreground truncate max-w-[300px]">
+                  <p className="font-semibold text-slate-900">{article.title}</p>
+                  <p className="max-w-[300px] truncate text-sm text-slate-500">
                     {article.excerpt || article.slug}
                   </p>
                 </div>
