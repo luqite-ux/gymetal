@@ -1,0 +1,373 @@
+import React, { useState } from 'react';
+import { 
+  LayoutDashboard, 
+  Package, 
+  FileText, 
+  Settings, 
+  Search, 
+  Plus, 
+  MoreHorizontal, 
+  ArrowUp, 
+  ArrowDown, 
+  Filter, 
+  ChevronDown,
+  LogOut,
+  Inbox,
+  SearchCode,
+  Zap,
+  ChevronRight,
+  ShieldCheck,
+  CheckCircle2,
+  AlertCircle,
+  Sparkles
+} from 'lucide-react';
+
+// --- 通用组件 ---
+
+const SidebarItem = ({ icon: Icon, label, active, count, onClick }) => (
+  <div 
+    onClick={onClick}
+    className={`flex items-center justify-between px-4 py-3 rounded-2xl cursor-pointer transition-all duration-300 group mb-1
+    ${active 
+      ? 'bg-slate-900 text-white shadow-lg shadow-slate-200' 
+      : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'}`}
+  >
+    <div className="flex items-center space-x-3">
+      <Icon size={20} strokeWidth={active ? 2.5 : 2} />
+      <span className="font-bold text-sm">{label}</span>
+    </div>
+    {count && (
+      <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${active ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-400'}`}>
+        {count}
+      </span>
+    )}
+  </div>
+);
+
+// --- 仪表盘视图组件 (控制台模式) ---
+
+const ActionCard = ({ title, desc, icon: Icon, color, onClick }) => (
+  <div 
+    onClick={onClick}
+    className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+  >
+    <div className={`absolute -right-6 -bottom-6 w-32 h-32 rounded-full opacity-[0.03] ${color} transition-transform group-hover:scale-125 duration-700`}></div>
+    <div className="flex items-start justify-between relative z-10">
+      <div className={`p-4 rounded-3xl ${color} text-white shadow-lg shadow-opacity-20`}>
+        <Icon size={32} />
+      </div>
+      <div className="p-2 bg-slate-50 rounded-xl text-slate-400 group-hover:text-slate-900 group-hover:bg-white transition-all shadow-sm">
+        <ChevronRight size={20} />
+      </div>
+    </div>
+    <div className="mt-8 relative z-10">
+      <h3 className="text-xl font-black text-slate-900 mb-2">{title}</h3>
+      <p className="text-sm text-slate-500 font-medium leading-relaxed">{desc}</p>
+    </div>
+  </div>
+);
+
+const SEOScoreCard = () => (
+  <div className="bg-slate-900 rounded-[3rem] p-10 text-white shadow-2xl shadow-slate-200 relative overflow-hidden">
+    <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"></div>
+    <div className="flex flex-col md:flex-row items-center justify-between relative z-10 gap-8">
+      <div className="flex-1">
+        <div className="flex items-center space-x-2 text-blue-400 mb-4 uppercase tracking-[0.2em] font-black text-[10px]">
+          <SearchCode size={14} />
+          <span>SEO 智能诊断中心</span>
+        </div>
+        <h3 className="text-3xl font-black mb-4">网站搜索引擎表现：<span className="text-emerald-400 underline decoration-wavy underline-offset-8">良好</span></h3>
+        <p className="text-slate-400 font-medium mb-8 max-w-md text-sm leading-loose">
+          已完成 85% 的基础 SEO 设置。完善产品 Meta 描述和文章关键词将有助于在搜索结果中获得更高排名。
+        </p>
+        <div className="flex space-x-3">
+          <button className="bg-white text-slate-900 px-6 py-3 rounded-2xl font-bold text-xs hover:bg-blue-50 transition-all flex items-center space-x-2">
+            <Zap size={14} />
+            <span>一键优化设置</span>
+          </button>
+          <button className="bg-white/10 hover:bg-white/20 px-6 py-3 rounded-2xl font-bold text-xs transition-all border border-white/10">
+            查看详细报告
+          </button>
+        </div>
+      </div>
+      
+      <div className="relative flex items-center justify-center">
+        <svg className="w-48 h-48 transform -rotate-90">
+          <circle cx="96" cy="96" r="80" stroke="currentColor" strokeWidth="12" fill="transparent" className="text-white/5" />
+          <circle cx="96" cy="96" r="80" stroke="currentColor" strokeWidth="12" fill="transparent" strokeDasharray={502} strokeDashoffset={502 * (1 - 0.85)} className="text-emerald-400 transition-all duration-1000" />
+        </svg>
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="text-5xl font-black">85</span>
+          <span className="text-xs font-bold text-slate-500">健康分</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const DashboardView = ({ onNavigate }) => (
+  <div className="p-10 space-y-10 animate-in fade-in duration-700">
+    {/* 欢迎头部 */}
+    <div className="flex justify-between items-center">
+      <div className="space-y-1">
+        <h2 className="text-4xl font-black text-slate-900 tracking-tighter">控制台仪表盘</h2>
+        <div className="flex items-center space-x-2 text-slate-400 font-bold text-xs uppercase tracking-widest">
+          <ShieldCheck size={14} className="text-emerald-500" />
+          <span>系统运行稳定</span>
+          <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+        </div>
+      </div>
+      <div className="flex space-x-2">
+        <button className="p-3 bg-white border border-slate-100 rounded-2xl text-slate-400 hover:text-blue-600 shadow-sm transition-all">
+          <Sparkles size={20} />
+        </button>
+      </div>
+    </div>
+
+    {/* 三大入口模块 */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <ActionCard 
+        title="询盘管理" 
+        desc="处理来自全球客户的最新询价，当前有 12 条待回复消息。"
+        icon={Inbox}
+        color="bg-gradient-to-br from-blue-500 to-indigo-600"
+        onClick={() => onNavigate('询盘管理')}
+      />
+      <ActionCard 
+        title="产品管理" 
+        desc="编辑您的外贸产品目录，更新规格、价格及展示图片。"
+        icon={Package}
+        color="bg-gradient-to-br from-purple-500 to-pink-600"
+        onClick={() => onNavigate('产品管理')}
+      />
+      <ActionCard 
+        title="内容运营" 
+        desc="发布企业动态、行业文章，提升网站内容权威度与收录量。"
+        icon={FileText}
+        color="bg-gradient-to-br from-orange-400 to-rose-500"
+        onClick={() => onNavigate('内容运营')}
+      />
+    </div>
+
+    {/* SEO 诊断中心 */}
+    <SEOScoreCard />
+
+    {/* 任务状态概览 */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm p-8">
+        <h3 className="text-xl font-black mb-6 flex items-center space-x-2">
+          <CheckCircle2 size={24} className="text-blue-600" />
+          <span>待办任务</span>
+        </h3>
+        <div className="space-y-4">
+          {[
+            { t: '回复来自德国客户的精密零件询盘', p: '高优先级', s: '待处理' },
+            { t: '为“机加工零件”添加 Meta 描述', p: 'SEO 任务', s: '优化中' },
+            { t: '更新 4 月份企业动态博文', p: '内容运营', s: '草稿' },
+          ].map((task, i) => (
+            <div key={i} className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors cursor-pointer group">
+              <div className="flex items-center space-x-4">
+                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                <p className="text-sm font-bold text-slate-800">{task.t}</p>
+              </div>
+              <span className="text-[10px] font-black uppercase text-slate-400 group-hover:text-blue-600">{task.p}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm p-8">
+        <h3 className="text-xl font-black mb-6 flex items-center space-x-2">
+          <AlertCircle size={24} className="text-orange-500" />
+          <span>配置提醒</span>
+        </h3>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="p-5 bg-emerald-50 rounded-3xl border border-emerald-100">
+            <p className="text-[10px] font-black text-emerald-600 uppercase mb-2">站点地图 (Sitemap)</p>
+            <p className="text-lg font-black text-emerald-900 tracking-tight">已同步</p>
+          </div>
+          <div className="p-5 bg-blue-50 rounded-3xl border border-blue-100">
+            <p className="text-[10px] font-black text-blue-600 uppercase mb-2">SSL 安全证书</p>
+            <p className="text-lg font-black text-blue-900 tracking-tight">永久有效</p>
+          </div>
+          <div className="p-5 bg-rose-50 rounded-3xl border border-rose-100">
+            <p className="text-[10px] font-black text-rose-600 uppercase mb-2">TDK 未填项目</p>
+            <p className="text-lg font-black text-rose-900 tracking-tight">12 项</p>
+          </div>
+          <div className="p-5 bg-slate-50 rounded-3xl border border-slate-200">
+            <p className="text-[10px] font-black text-slate-400 uppercase mb-2">服务器节点</p>
+            <p className="text-lg font-black text-slate-800 tracking-tight">香港 CN2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// --- 产品列表视图组件 ---
+
+const StatusBadge = ({ status }) => {
+  const isOnline = status === '已上架';
+  return (
+    <div className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-black
+      ${isOnline ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-600'}`}>
+      <span className={`w-2 h-2 rounded-full ${isOnline ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`}></span>
+      <span>{status}</span>
+    </div>
+  );
+};
+
+const ProductListView = () => {
+  const products = [
+    { id: 1, name: '铸件', category: '铸造件', status: '已上架', sort: 1, image: '📦' },
+    { id: 2, name: '锻件', category: '锻造件', status: '已上架', sort: 2, image: '⚙️' },
+    { id: 3, name: '机加工零件', category: 'CNC加工件', status: '已上架', sort: 3, image: '🦾' },
+    { id: 4, name: '精密组件', category: '精密组件', status: '已下架', sort: 4, image: '🧩' },
+  ];
+
+  return (
+    <div className="p-10 max-w-6xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h2 className="text-3xl font-black tracking-tight">产品管理</h2>
+          <p className="text-slate-400 text-sm font-medium">管理您的全球产品目录与展示详情</p>
+        </div>
+        <button className="bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold flex items-center space-x-2 shadow-xl shadow-slate-200 hover:scale-105 transition-all">
+          <Plus size={20} />
+          <span>新增产品</span>
+        </button>
+      </div>
+
+      <div className="bg-white border border-slate-100 rounded-[2.5rem] shadow-sm overflow-hidden">
+        <div className="p-6 border-b border-slate-50 flex justify-between items-center bg-slate-50/30">
+          <div className="flex space-x-2">
+            <button className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold shadow-sm flex items-center space-x-2 hover:bg-slate-50 transition-all">
+              <Filter size={14} />
+              <span>智能筛选</span>
+            </button>
+          </div>
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300" size={14} />
+            <input type="text" placeholder="快捷搜索..." className="pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-100 w-48 transition-all" />
+          </div>
+        </div>
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] bg-slate-50/50">
+              <th className="px-8 py-5">预览</th>
+              <th className="px-8 py-5">基本信息</th>
+              <th className="px-8 py-5">状态</th>
+              <th className="px-8 py-5 text-center">优先级</th>
+              <th className="px-8 py-5 text-right">管理</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-50">
+            {products.map((p) => (
+              <tr key={p.id} className="group hover:bg-slate-50/50 transition-all duration-300">
+                <td className="px-8 py-5">
+                  <div className="w-14 h-14 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-3xl shadow-sm transition-all group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-md">
+                    {p.image}
+                  </div>
+                </td>
+                <td className="px-8 py-5">
+                  <div className="flex flex-col">
+                    <span className="font-black text-slate-800 text-base">{p.name}</span>
+                    <span className="text-xs text-blue-500 font-bold bg-blue-50 w-fit px-2 py-0.5 rounded-lg mt-1">{p.category}</span>
+                  </div>
+                </td>
+                <td className="px-8 py-5">
+                  <StatusBadge status={p.status} />
+                </td>
+                <td className="px-8 py-5">
+                  <div className="flex items-center justify-center space-x-4">
+                    <button className="text-slate-300 hover:text-blue-500 transition-colors"><ArrowUp size={16} /></button>
+                    <span className="text-sm font-mono font-black text-slate-400">{p.sort}</span>
+                    <button className="text-slate-300 hover:text-blue-500 transition-colors"><ArrowDown size={16} /></button>
+                  </div>
+                </td>
+                <td className="px-8 py-5 text-right">
+                  <button className="p-3 bg-white border border-slate-100 rounded-2xl text-slate-400 hover:text-slate-900 shadow-sm hover:shadow-md transition-all">
+                    <MoreHorizontal size={20} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+// --- 主程序入口 ---
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('仪表盘');
+
+  const renderContent = () => {
+    switch(activeTab) {
+      case '仪表盘': return <DashboardView onNavigate={setActiveTab} />;
+      case '产品管理': return <ProductListView />;
+      case '询盘管理': return <div className="p-20 text-center text-slate-300 font-bold">询盘管理功能开发中...</div>;
+      case '内容运营': return <div className="p-20 text-center text-slate-300 font-bold">内容运营功能开发中...</div>;
+      default: return <DashboardView onNavigate={setActiveTab} />;
+    }
+  };
+
+  return (
+    <div className="flex h-screen bg-[#FAFAFB] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      {/* 侧边栏 */}
+      <aside className="w-72 bg-white border-r border-slate-100 flex flex-col p-8 z-20">
+        <div className="flex items-center space-x-3 mb-12 px-2">
+          <div className="w-12 h-12 bg-slate-900 rounded-[1.25rem] flex items-center justify-center text-white font-black text-xl shadow-2xl shadow-slate-200">G</div>
+          <div>
+            <h1 className="text-lg font-black tracking-tighter leading-none">GY METAL</h1>
+            <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mt-1 opacity-70">CONTROL CENTER</p>
+          </div>
+        </div>
+
+        <nav className="flex-1 space-y-1">
+          <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] px-4 mb-4">主控制台</p>
+          <SidebarItem icon={LayoutDashboard} label="仪表盘" active={activeTab === '仪表盘'} onClick={() => setActiveTab('仪表盘')} />
+          <SidebarItem icon={Inbox} label="询盘管理" count="12" active={activeTab === '询盘管理'} onClick={() => setActiveTab('询盘管理')} />
+          <SidebarItem icon={Package} label="产品管理" active={activeTab === '产品管理'} onClick={() => setActiveTab('产品管理')} />
+          <SidebarItem icon={FileText} label="内容运营" active={activeTab === '内容运营'} onClick={() => setActiveTab('内容运营')} />
+          
+          <div className="pt-8">
+            <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] px-4 mb-4">系统设置</p>
+            <SidebarItem icon={Settings} label="网站设置" active={activeTab === '网站设置'} onClick={() => setActiveTab('网站设置')} />
+          </div>
+        </nav>
+
+        <div className="mt-auto">
+          <div className="bg-slate-900 rounded-3xl p-5 relative overflow-hidden group">
+            <div className="absolute -right-4 -bottom-4 w-20 h-20 bg-blue-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-400 to-indigo-600 p-0.5 flex items-center justify-center text-white font-bold text-xs">
+                AM
+              </div>
+              <div className="min-w-0">
+                <p className="text-white font-bold text-xs truncate">Super Admin</p>
+                <p className="text-slate-500 text-[10px] font-medium truncate">GY-Tech 管理后台</p>
+              </div>
+            </div>
+            <button className="w-full flex items-center justify-center space-x-2 text-slate-400 hover:text-white py-2 text-[10px] font-black uppercase tracking-widest transition-colors border border-white/10 rounded-xl">
+              <LogOut size={12} />
+              <span>安全退出</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      {/* 主界面 */}
+      <main className="flex-1 overflow-y-auto relative scroll-smooth">
+        {/* 顶部动态条 */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-blue-600 via-purple-600 to-rose-600 sticky top-0 z-30"></div>
+        
+        {renderContent()}
+      </main>
+    </div>
+  );
+};
+
+export default App;

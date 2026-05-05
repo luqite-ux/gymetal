@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS tenants (
   email TEXT UNIQUE NOT NULL,
   password_hash TEXT NOT NULL,
   domain TEXT UNIQUE NOT NULL,
-  site_name TEXT NOT NULL DEFAULT 'My Site',
+  name TEXT NOT NULL DEFAULT 'My Site',
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
