@@ -3,7 +3,6 @@
 import { requireAdminSession } from "@/lib/admin-auth"
 import { createAdminClient as createClient } from "@/lib/supabase/server"
 import { uploadToR2, deleteFromR2 } from "@/lib/r2"
-import { redirect } from "next/navigation"
 
 function generateSlug(title: string): string {
   return title
@@ -55,7 +54,6 @@ export async function createArticle(formData: FormData) {
   })
 
   if (error) throw new Error(`数据库写入失败: ${error.message}`)
-  redirect("/admin/articles")
 }
 
 export async function updateArticle(id: string, formData: FormData) {
@@ -119,8 +117,7 @@ export async function updateArticle(id: string, formData: FormData) {
     .eq("id", id)
     .eq("tenant_id", session.tenant_id)
 
-  if (error) throw error
-  redirect("/admin/articles")
+  if (error) throw new Error(`数据库写入失败: ${error.message}`)
 }
 
 export async function deleteArticle(id: string) {

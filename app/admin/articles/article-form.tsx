@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -31,6 +32,7 @@ interface ArticleFormProps {
 }
 
 export function ArticleForm({ article }: ArticleFormProps) {
+  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [isPublished, setIsPublished] = useState(article?.is_published ?? false)
   const [title, setTitle] = useState(article?.title ?? "")
@@ -118,6 +120,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
         await createArticle(formData)
       }
       localStorage.removeItem(draftKey)
+      router.push("/admin/articles")
     } catch (err) {
       const msg = err instanceof Error ? err.message : "保存失败，请重试"
       toast.error(msg)
