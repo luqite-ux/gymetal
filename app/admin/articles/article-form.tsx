@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Upload, X, ArrowLeft } from "lucide-react"
+import { toast } from "sonner"
 import { RichTextEditor } from "@/components/admin/rich-text-editor"
 import { createArticle, updateArticle } from "./actions"
 
@@ -110,13 +111,18 @@ export function ArticleForm({ article }: ArticleFormProps) {
       formData.set("existing_image", article.featured_image)
     }
 
-    if (article) {
-      await updateArticle(article.id, formData)
-    } else {
-      await createArticle(formData)
+    try {
+      if (article) {
+        await updateArticle(article.id, formData)
+      } else {
+        await createArticle(formData)
+      }
+      localStorage.removeItem(draftKey)
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "保存失败，请重试"
+      toast.error(msg)
+      setIsLoading(false)
     }
-    localStorage.removeItem(draftKey)
-    setIsLoading(false)
   }
 
   return (

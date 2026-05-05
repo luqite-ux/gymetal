@@ -1,30 +1,37 @@
 import { S3Client, PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3"
 
-const r2Endpoint = process.env.R2_S3_ENDPOINT?.trim()
-const r2PublicUrl =
-  process.env.R2_PUBLIC_URL?.trim() || process.env.R2_PUBLIC_URL_PREFIX?.trim()
+let _client: S3Client | null = null
+let _publicUrl: string | null = null
 
-if (!r2Endpoint || !r2PublicUrl) {
-  throw new Error("Missing R2_S3_ENDPOINT or R2_PUBLIC_URL(_PREFIX) in environment")
+function getR2(): { client: S3Client; publicUrl: string } {
+  if (!_client || !_publicUrl) {
+    const endpoint = process.env.R2_S3_ENDPOINT?.trim()
+    const publicUrl =
+      process.env.R2_PUBLIC_URL?.trim() || process.env.R2_PUBLIC_URL_PREFIX?.trim()
+
+    if (!endpoint || !publicUrl) {
+      throw new Error("Missing R2_S3_ENDPOINT or R2_PUBLIC_URL(_PREFIX) in environment")
+    }
+
+    _client = new S3Client({
+      region: "auto",
+      endpoint,
+      credentials: {
+        accessKeyId: process.env.R2_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
+      },
+    })
+    _publicUrl = publicUrl
+  }
+  return { client: _client, publicUrl: _publicUrl }
 }
 
-const R2 = new S3Client({
-  region: "auto",
-  endpoint: r2Endpoint,
-  credentials: {
-    accessKeyId: process.env.R2_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
-  },
-})
-
-export async function uploadToR2(
-  file: File,
-  folder: string
-): Promise<string> {
+export async function uploadToR2(file: File, folder: string): Promise<string> {
+  const { client, publicUrl } = getR2()
   const buffer = Buffer.from(await file.arrayBuffer())
   const filename = `${folder}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`
 
-  await R2.send(
+  await client.send(
     new PutObjectCommand({
       Bucket: process.env.R2_BUCKET_NAME!,
       Key: filename,
@@ -33,15 +40,16 @@ export async function uploadToR2(
     })
   )
 
-  return `${r2PublicUrl}/${filename}`
+  return `${publicUrl}/${filename}`
 }
 
 export async function deleteFromR2(url: string): Promise<void> {
-  if (!url.startsWith(r2PublicUrl)) return
+  const { client, publicUrl } = getR2()
+  if (!url.startsWith(publicUrl)) return
 
-  const key = url.replace(`${r2PublicUrl}/`, "")
+  const key = url.replace(`${publicUrl}/`, "")
 
-  await R2.send(
+  await client.send(
     new DeleteObjectCommand({
       Bucket: process.env.R2_BUCKET_NAME!,
       Key: key,
