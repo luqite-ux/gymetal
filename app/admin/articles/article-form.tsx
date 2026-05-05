@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Loader2, Upload, X, ArrowLeft } from "lucide-react"
 import { RichTextEditor } from "@/components/admin/rich-text-editor"
 import { createArticle, updateArticle } from "./actions"
@@ -33,9 +32,55 @@ interface ArticleFormProps {
 export function ArticleForm({ article }: ArticleFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [isPublished, setIsPublished] = useState(article?.is_published ?? false)
+  const [title, setTitle] = useState(article?.title ?? "")
+  const [excerpt, setExcerpt] = useState(article?.excerpt ?? "")
   const [content, setContent] = useState(article?.content ?? "")
   const [preview, setPreview] = useState<string | null>(article?.featured_image ?? null)
+  const [lastSavedAt, setLastSavedAt] = useState<string>("")
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const draftKey = useMemo(
+    () => `article-editor-draft:${article?.id ?? "new"}`,
+    [article?.id]
+  )
+
+  useEffect(() => {
+    const raw = localStorage.getItem(draftKey)
+    if (!raw) return
+
+    try {
+      const draft = JSON.parse(raw) as {
+        title?: string
+        excerpt?: string
+        content?: string
+        isPublished?: boolean
+      }
+
+      if (draft.title) setTitle(draft.title)
+      if (typeof draft.excerpt === "string") setExcerpt(draft.excerpt)
+      if (draft.content) setContent(draft.content)
+      if (typeof draft.isPublished === "boolean") setIsPublished(draft.isPublished)
+      setLastSavedAt("已恢复草稿")
+    } catch {
+      // ignore broken local draft payload
+    }
+  }, [draftKey])
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      localStorage.setItem(
+        draftKey,
+        JSON.stringify({
+          title,
+          excerpt,
+          content,
+          isPublished,
+        })
+      )
+      setLastSavedAt(`草稿自动保存：${new Date().toLocaleTimeString("zh-CN")}`)
+    }, 800)
+
+    return () => window.clearTimeout(timer)
+  }, [content, draftKey, excerpt, isPublished, title])
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -57,6 +102,8 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
   const handleSubmit = async (formData: FormData) => {
     setIsLoading(true)
+    formData.set("title", title)
+    formData.set("excerpt", excerpt)
     formData.set("content", content)
     formData.set("is_published", isPublished.toString())
     if (article?.featured_image && !formData.get("featured_image")) {
@@ -68,6 +115,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
     } else {
       await createArticle(formData)
     }
+    localStorage.removeItem(draftKey)
     setIsLoading(false)
   }
 
@@ -81,6 +129,9 @@ export function ArticleForm({ article }: ArticleFormProps) {
         </Button>
         <div className="flex-1" />
         <div className="flex items-center gap-2">
+          {lastSavedAt ? (
+            <span className="text-xs text-muted-foreground">{lastSavedAt}</span>
+          ) : null}
           <Switch
             checked={isPublished}
             onCheckedChange={setIsPublished}
@@ -102,7 +153,8 @@ export function ArticleForm({ article }: ArticleFormProps) {
                 <Input
                   id="title"
                   name="title"
-                  defaultValue={article?.title}
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
                   required
                   disabled={isLoading}
                   className="text-lg"
@@ -114,7 +166,8 @@ export function ArticleForm({ article }: ArticleFormProps) {
                 <Textarea
                   id="excerpt"
                   name="excerpt"
-                  defaultValue={article?.excerpt ?? ""}
+                  value={excerpt}
+                  onChange={(event) => setExcerpt(event.target.value)}
                   rows={2}
                   disabled={isLoading}
                   placeholder="文章简短描述..."

@@ -312,3 +312,48 @@ html {
 .stagger-children > * {
   animation-delay: var(--stagger-delay);
 }
+
+.news-content {
+  color: hsl(var(--foreground));
+  line-height: 1.8;
+}
+
+.news-content h1,
+.news-content h2,
+.news-content h3,
+.news-content h4 {
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  font-weight: 700;
+}
+
+.news-content p {
+  margin: 0.8em 0;
+}
+
+.news-content ul,
+.news-content ol {
+  margin: 0.8em 0 0.8em 1.2em;
+}
+
+.news-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.news-content th,
+.news-content td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem 0.75rem;
+}
+
+.news-content th {
+  background-color: hsl(var(--muted));
+}
+
+.news-content mark {
+  background-color: #fde68a;
+  border-radius: 0.25rem;
+  padding: 0 0.15rem;
+}

@@ -29,7 +29,7 @@ export async function createArticle(formData: FormData) {
 
   let featuredImage: string | null = null
   if (image && image.size > 0) {
-    featuredImage = await uploadToR2(image, `articles/${session.tenant_id}`)
+    featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
   }
 
   const slug = generateSlug(title) + "-" + Date.now()
@@ -76,7 +76,7 @@ export async function updateArticle(id: string, formData: FormData) {
         // Ignore delete errors
       }
     }
-    featuredImage = await uploadToR2(image, `articles/${session.tenant_id}`)
+    featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
   }
 
   // Get current article to check publish status change

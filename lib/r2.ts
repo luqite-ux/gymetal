@@ -1,8 +1,16 @@
 import { S3Client, PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3"
 
+const r2Endpoint = process.env.R2_S3_ENDPOINT?.trim()
+const r2PublicUrl =
+  process.env.R2_PUBLIC_URL?.trim() || process.env.R2_PUBLIC_URL_PREFIX?.trim()
+
+if (!r2Endpoint || !r2PublicUrl) {
+  throw new Error("Missing R2_S3_ENDPOINT or R2_PUBLIC_URL(_PREFIX) in environment")
+}
+
 const R2 = new S3Client({
   region: "auto",
-  endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+  endpoint: r2Endpoint,
   credentials: {
     accessKeyId: process.env.R2_ACCESS_KEY_ID!,
     secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
@@ -25,14 +33,13 @@ export async function uploadToR2(
     })
   )
 
-  return `${process.env.R2_PUBLIC_URL}/${filename}`
+  return `${r2PublicUrl}/${filename}`
 }
 
 export async function deleteFromR2(url: string): Promise<void> {
-  const publicUrl = process.env.R2_PUBLIC_URL!
-  if (!url.startsWith(publicUrl)) return
+  if (!url.startsWith(r2PublicUrl)) return
 
-  const key = url.replace(`${publicUrl}/`, "")
+  const key = url.replace(`${r2PublicUrl}/`, "")
 
   await R2.send(
     new DeleteObjectCommand({
