@@ -29,7 +29,13 @@ export async function createArticle(formData: FormData) {
 
   let featuredImage: string | null = null
   if (image && image.size > 0) {
-    featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+    try {
+      featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e)
+      console.error("[createArticle] R2 upload failed:", msg)
+      throw new Error(`图片上传失败: ${msg}`)
+    }
   }
 
   const slug = generateSlug(title) + "-" + Date.now()
@@ -48,7 +54,7 @@ export async function createArticle(formData: FormData) {
     published_at: isPublished ? new Date().toISOString() : null,
   })
 
-  if (error) throw error
+  if (error) throw new Error(`数据库写入失败: ${error.message}`)
   redirect("/admin/articles")
 }
 
@@ -76,7 +82,13 @@ export async function updateArticle(id: string, formData: FormData) {
         // Ignore delete errors
       }
     }
-    featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+    try {
+      featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e)
+      console.error("[updateArticle] R2 upload failed:", msg)
+      throw new Error(`图片上传失败: ${msg}`)
+    }
   }
 
   // Get current article to check publish status change
