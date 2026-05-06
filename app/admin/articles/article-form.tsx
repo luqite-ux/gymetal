@@ -113,19 +113,18 @@ export function ArticleForm({ article }: ArticleFormProps) {
       formData.set("existing_image", article.featured_image)
     }
 
-    try {
-      if (article) {
-        await updateArticle(article.id, formData)
-      } else {
-        await createArticle(formData)
-      }
-      localStorage.removeItem(draftKey)
-      router.push("/admin/articles")
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "保存失败，请重试"
-      toast.error(msg)
+    const result = article
+      ? await updateArticle(article.id, formData)
+      : await createArticle(formData)
+
+    if (result?.error) {
+      toast.error(result.error)
       setIsLoading(false)
+      return
     }
+
+    localStorage.removeItem(draftKey)
+    router.push("/admin/articles")
   }
 
   return (
