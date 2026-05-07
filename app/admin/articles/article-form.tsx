@@ -220,7 +220,7 @@ export function ArticleForm({ article, tenantDomain }: ArticleFormProps) {
   }
 
   return (
-    <form action={handleSubmit} className="space-y-6 pb-24">
+    <form action={handleSubmit} className="space-y-6">
       <div className="flex flex-wrap items-center gap-3">
         <Button variant="outline" size="icon" asChild>
           <Link href="/admin/articles">
@@ -415,47 +415,37 @@ export function ArticleForm({ article, tenantDomain }: ArticleFormProps) {
               </div>
             </CardContent>
           </Card>
+
+          <div className="flex flex-col gap-2 pt-1">
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              className="w-full justify-center bg-background shadow-sm"
+              asChild
+            >
+              <a href={homeUrl} target="_blank" rel="noopener noreferrer">
+                <Home className="mr-2 h-4 w-4" />
+                前往主页
+              </a>
+            </Button>
+            <Button type="submit" disabled={isLoading} size="lg" className="w-full justify-center shadow-sm">
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  保存中…
+                </>
+              ) : (
+                "保存文章"
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 
       <div className="flex justify-end gap-4">
         <Button variant="outline" asChild>
           <Link href="/admin/articles">取消</Link>
-        </Button>
-      </div>
-
-      <div
-        className={
-          "fixed right-5 top-24 z-40 flex flex-col items-stretch gap-2 max-md:right-3 max-md:top-20"
-        }
-      >
-        <Button
-          type="button"
-          variant="outline"
-          size="lg"
-          className="w-[140px] justify-center bg-background shadow-md max-md:w-[120px]"
-          asChild
-        >
-          <a href={homeUrl} target="_blank" rel="noopener noreferrer">
-            <Home className="mr-2 h-4 w-4" />
-            前往主页
-          </a>
-        </Button>
-
-        <Button
-          type="submit"
-          disabled={isLoading}
-          size="lg"
-          className="w-[140px] justify-center shadow-lg max-md:w-[120px]"
-        >
-          {isLoading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              保存中…
-            </>
-          ) : (
-            "保存文章"
-          )}
         </Button>
       </div>
     </form>
