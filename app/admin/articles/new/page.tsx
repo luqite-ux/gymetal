@@ -1,6 +1,9 @@
+import { requireAdminSession } from "@/lib/admin-auth"
 import { ArticleForm } from "../article-form"
 
-export default function NewArticlePage() {
+export default async function NewArticlePage() {
+  const session = await requireAdminSession()
+
   return (
     <div className="space-y-6">
       <div>
@@ -8,7 +11,7 @@ export default function NewArticlePage() {
         <p className="text-muted-foreground">创作一篇新文章</p>
       </div>
 
-      <ArticleForm />
+      <ArticleForm tenantDomain={session.tenant_domain} />
     </div>
   )
 }

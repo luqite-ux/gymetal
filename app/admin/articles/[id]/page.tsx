@@ -37,7 +37,7 @@ export default async function EditArticlePage({
         <p className="text-muted-foreground">修改文章内容</p>
       </div>
 
-      <ArticleForm article={article} />
+      <ArticleForm article={article} tenantDomain={session.tenant_domain} />
     </div>
   )
 }

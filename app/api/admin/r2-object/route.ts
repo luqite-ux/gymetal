@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { getAdminSession } from "@/lib/admin-auth"
-import { fetchR2ObjectStream } from "@/lib/r2"
+import { fetchR2ObjectBytes } from "@/lib/r2"
 
 /**
  * 后台专用的 R2 对象代理：浏览器直连 r2.dev 公网 URL 返回 401（未启用 r2.dev
@@ -9,6 +9,7 @@ import { fetchR2ObjectStream } from "@/lib/r2"
  * 仅允许读取 `news/<tenant_id>/...` 与 `products/<tenant_id>/...` 下的对象。
  */
 export const dynamic = "force-dynamic"
+export const runtime = "nodejs"
 
 export async function GET(request: Request) {
   const session = await getAdminSession()
@@ -36,20 +37,18 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { body, contentType, contentLength, etag } = await fetchR2ObjectStream(key)
+    const { bytes, contentType, contentLength, etag } = await fetchR2ObjectBytes(key)
 
     const headers = new Headers({
       "Content-Type": contentType || "application/octet-stream",
+      "Content-Length": String(contentLength),
       "Cache-Control": "private, max-age=300, must-revalidate",
     })
-    if (typeof contentLength === "number") {
-      headers.set("Content-Length", String(contentLength))
-    }
     if (etag) {
       headers.set("ETag", etag)
     }
 
-    return new Response(body, { status: 200, headers })
+    return new Response(bytes, { status: 200, headers })
   } catch (error) {
     const message = error instanceof Error ? error.message : "读取对象失败"
     const isMissing = /NoSuchKey|NotFound|404/i.test(message)

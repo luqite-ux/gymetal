@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2, Upload, X, ArrowLeft } from "lucide-react"
+import { Loader2, Upload, X, ArrowLeft, Home, CalendarClock } from "lucide-react"
 import { toast } from "sonner"
 import { RichTextEditor } from "@/components/admin/rich-text-editor"
 import { createArticle, updateArticle } from "./actions"
@@ -22,6 +22,7 @@ interface Article {
   excerpt: string | null
   featured_image: string | null
   is_published: boolean
+  published_at?: string | null
   seo_title: string | null
   seo_description: string | null
   seo_keywords: string | null
@@ -29,15 +30,39 @@ interface Article {
 
 interface ArticleFormProps {
   article?: Article
+  /** 当前租户绑定的域名，用于「前往主页」按钮；未配置时回退到 gymetaltech.com */
+  tenantDomain?: string | null
 }
 
-export function ArticleForm({ article }: ArticleFormProps) {
+/** 取本地时区下的 yyyy-MM-ddTHH:mm，用作 <input type="datetime-local"> 的初始值 */
+function toDatetimeLocalInput(value: string | null | undefined): string {
+  if (!value) return ""
+  const d = new Date(value)
+  if (Number.isNaN(d.getTime())) return ""
+  const pad = (n: number) => String(n).padStart(2, "0")
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`
+}
+
+function buildHomeUrl(domain?: string | null): string {
+  const raw = (domain ?? "").trim().toLowerCase()
+  if (!raw) return "https://www.gymetaltech.com/"
+  if (/^https?:\/\//.test(raw)) {
+    return raw.endsWith("/") ? raw : `${raw}/`
+  }
+  return `https://${raw.replace(/\/$/, "")}/`
+}
+
+export function ArticleForm({ article, tenantDomain }: ArticleFormProps) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [isPublished, setIsPublished] = useState(article?.is_published ?? false)
   const [title, setTitle] = useState(article?.title ?? "")
   const [excerpt, setExcerpt] = useState(article?.excerpt ?? "")
   const [content, setContent] = useState(article?.content ?? "")
+  /** 自定义发布时间；空字符串=不覆盖（沿用「首次发布即 now()」逻辑） */
+  const [publishedAt, setPublishedAt] = useState<string>(
+    toDatetimeLocalInput(article?.published_at)
+  )
   /** 当前特色图（已有 R2 地址或上传成功后写入），用于提交到 DB */
   const [coverUrl, setCoverUrl] = useState<string | null>(article?.featured_image ?? null)
   /** 当前特色图在后台的预览地址：优先走带凭证的代理路由，避免依赖 r2.dev 公开访问 */
@@ -52,6 +77,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
     () => `article-editor-draft:${article?.id ?? "new"}`,
     [article?.id]
   )
+  const homeUrl = useMemo(() => buildHomeUrl(tenantDomain), [tenantDomain])
 
   useEffect(() => {
     const raw = localStorage.getItem(draftKey)
@@ -63,6 +89,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
         excerpt?: string
         content?: string
         isPublished?: boolean
+        publishedAt?: string
         coverUrl?: string | null
         coverExplicitlyRemoved?: boolean
       }
@@ -71,6 +98,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
       if (typeof draft.excerpt === "string") setExcerpt(draft.excerpt)
       if (draft.content) setContent(draft.content)
       if (typeof draft.isPublished === "boolean") setIsPublished(draft.isPublished)
+      if (typeof draft.publishedAt === "string") setPublishedAt(draft.publishedAt)
       if ("coverUrl" in draft) {
         setCoverUrl(draft.coverUrl ?? null)
         setCoverPreviewUrl(draft.coverUrl ? buildAdminPreviewUrl(draft.coverUrl) : null)
@@ -93,6 +121,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
           excerpt,
           content,
           isPublished,
+          publishedAt,
           coverUrl,
           coverExplicitlyRemoved,
         })
@@ -101,7 +130,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
     }, 800)
 
     return () => window.clearTimeout(timer)
-  }, [content, coverExplicitlyRemoved, coverUrl, draftKey, excerpt, isPublished, title])
+  }, [content, coverExplicitlyRemoved, coverUrl, draftKey, excerpt, isPublished, publishedAt, title])
 
   const uploadCoverFile = async (file: File) => {
     setCoverUploading(true)
@@ -156,6 +185,14 @@ export function ArticleForm({ article }: ArticleFormProps) {
     formData.set("excerpt", excerpt)
     formData.set("content", content)
     formData.set("is_published", isPublished.toString())
+    if (publishedAt) {
+      const isoCandidate = new Date(publishedAt).toISOString()
+      if (!Number.isNaN(new Date(isoCandidate).getTime())) {
+        formData.set("published_at", isoCandidate)
+      }
+    } else {
+      formData.set("published_at", "")
+    }
 
     if (coverExplicitlyRemoved) {
       formData.set("remove_featured_image", "1")
@@ -184,23 +221,56 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
   return (
     <form action={handleSubmit} className="space-y-6 pb-24">
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-3">
         <Button variant="outline" size="icon" asChild>
           <Link href="/admin/articles">
             <ArrowLeft className="h-4 w-4" />
           </Link>
         </Button>
         <div className="flex-1" />
-        <div className="flex items-center gap-2">
-          {lastSavedAt ? (
-            <span className="text-xs text-muted-foreground">{lastSavedAt}</span>
-          ) : null}
-          <Switch
-            checked={isPublished}
-            onCheckedChange={setIsPublished}
-            disabled={isLoading}
-          />
-          <Label>{isPublished ? "已发布" : "草稿"}</Label>
+        {lastSavedAt ? (
+          <span className="text-xs text-muted-foreground">{lastSavedAt}</span>
+        ) : null}
+
+        <div className="flex flex-wrap items-center gap-3 rounded-lg border bg-card px-3 py-2 shadow-sm">
+          <div className="flex items-center gap-2">
+            <CalendarClock className="h-4 w-4 text-muted-foreground" />
+            <Label htmlFor="published_at" className="text-xs text-muted-foreground">
+              发布日期
+            </Label>
+            <Input
+              id="published_at"
+              type="datetime-local"
+              value={publishedAt}
+              onChange={(event) => setPublishedAt(event.target.value)}
+              disabled={isLoading}
+              className="h-8 w-[210px] text-xs"
+              step={60}
+            />
+            {publishedAt ? (
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="h-7 px-2 text-xs"
+                onClick={() => setPublishedAt("")}
+                disabled={isLoading}
+              >
+                清除
+              </Button>
+            ) : null}
+          </div>
+
+          <div className="h-6 w-px bg-border" />
+
+          <div className="flex items-center gap-2">
+            <Switch
+              checked={isPublished}
+              onCheckedChange={setIsPublished}
+              disabled={isLoading}
+            />
+            <Label className="text-sm">{isPublished ? "已发布" : "草稿"}</Label>
+          </div>
         </div>
       </div>
 
@@ -354,21 +424,40 @@ export function ArticleForm({ article }: ArticleFormProps) {
         </Button>
       </div>
 
-      <Button
-        type="submit"
-        disabled={isLoading}
-        className="fixed right-5 top-1/2 z-40 min-w-[104px] -translate-y-1/2 shadow-lg max-md:right-3 max-md:min-w-[88px]"
-        size="lg"
+      <div
+        className={
+          "fixed right-5 top-24 z-40 flex flex-col items-stretch gap-2 max-md:right-3 max-md:top-20"
+        }
       >
-        {isLoading ? (
-          <>
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            保存中…
-          </>
-        ) : (
-          "保存文章"
-        )}
-      </Button>
+        <Button
+          type="button"
+          variant="outline"
+          size="lg"
+          className="w-[140px] justify-center bg-background shadow-md max-md:w-[120px]"
+          asChild
+        >
+          <a href={homeUrl} target="_blank" rel="noopener noreferrer">
+            <Home className="mr-2 h-4 w-4" />
+            前往主页
+          </a>
+        </Button>
+
+        <Button
+          type="submit"
+          disabled={isLoading}
+          size="lg"
+          className="w-[140px] justify-center shadow-lg max-md:w-[120px]"
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              保存中…
+            </>
+          ) : (
+            "保存文章"
+          )}
+        </Button>
+      </div>
     </form>
   )
 }

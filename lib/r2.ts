@@ -108,10 +108,16 @@ export function r2KeyFromPublicUrl(url: string): string | null {
   }
 }
 
-/** 通过 S3 凭证读取 R2 对象，提供给后台代理路由 */
-export async function fetchR2ObjectStream(
+/**
+ * 通过 S3 凭证读取 R2 对象。
+ *
+ * 在 Node runtime 下 GetObject.Body 是 Node `Readable`，并非 Web `ReadableStream`，
+ * 直接传给 Web `Response` 既不兼容也容易报错。这里用 AWS SDK 自带的 `transformToByteArray`
+ * 缓冲为 Uint8Array（封面/插图体积通常不大），路由层直接交给 `Response` 即可。
+ */
+export async function fetchR2ObjectBytes(
   key: string
-): Promise<{ body: ReadableStream; contentType: string; contentLength?: number; etag?: string }> {
+): Promise<{ bytes: Uint8Array; contentType: string; contentLength: number; etag?: string }> {
   const { client, bucket } = getR2()
   const result = await client.send(
     new GetObjectCommand({
@@ -119,14 +125,18 @@ export async function fetchR2ObjectStream(
       Key: key,
     })
   )
-  const body = result.Body as unknown
-  if (!body || typeof (body as ReadableStream).getReader !== "function") {
-    throw new Error("R2 object body is not a readable stream")
+  const body = result.Body as
+    | { transformToByteArray?: () => Promise<Uint8Array> }
+    | undefined
+  if (!body || typeof body.transformToByteArray !== "function") {
+    throw new Error("R2 object body has no transformToByteArray helper")
   }
+  const bytes = await body.transformToByteArray()
   return {
-    body: body as ReadableStream,
+    bytes,
     contentType: result.ContentType || "application/octet-stream",
-    contentLength: typeof result.ContentLength === "number" ? result.ContentLength : undefined,
+    contentLength:
+      typeof result.ContentLength === "number" ? result.ContentLength : bytes.byteLength,
     etag: result.ETag,
   }
 }

@@ -47,9 +47,9 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
           <aside className="lg:sticky lg:top-24">
             <div className="rounded-2xl border bg-card p-5 shadow-sm">
-              <h2 className="text-lg font-semibold text-foreground">相关文章</h2>
+              <h2 className="text-lg font-semibold text-foreground">Related Articles</h2>
               {related.length === 0 ? (
-                <p className="mt-3 text-sm text-muted-foreground">暂无其他已发布文章。</p>
+                <p className="mt-3 text-sm text-muted-foreground">No related articles yet.</p>
               ) : (
                 <ul className="mt-4 space-y-4">
                   {related.map((item) => (
@@ -74,7 +74,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
                             {item.title}
                           </p>
                           <p className="mt-1 text-xs text-muted-foreground">
-                            {new Date(item.published_at ?? item.created_at).toLocaleDateString("zh-CN")}
+                            {new Date(item.published_at ?? item.created_at).toLocaleDateString("en-US")}
                           </p>
                         </div>
                       </Link>
