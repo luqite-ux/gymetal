@@ -1,4 +1,4 @@
-import { S3Client, PutObjectCommand, DeleteObjectCommand } from "@aws-sdk/client-s3"
+import { S3Client, PutObjectCommand, DeleteObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3"
 import { stripHeaderUnsafeEnv } from "@/lib/env-strip"
 
 let _client: S3Client | null = null
@@ -70,22 +70,65 @@ function safeContentType(file: File): string {
   return token
 }
 
-export async function uploadToR2(file: File, folder: string): Promise<string> {
+export interface UploadResult {
+  /** 公网可见 URL（写入数据库 / 前台展示），需要在 Cloudflare R2 启用 r2.dev 公开访问或自定义域名才能匿名访问 */
+  url: string
+  /** R2 对象 Key，用于后台代理流式访问，不依赖公开访问设置 */
+  key: string
+}
+
+export async function uploadToR2(file: File, folder: string): Promise<UploadResult> {
   const { client, publicUrl, bucket } = getR2()
   const buffer = Buffer.from(await file.arrayBuffer())
-  const filename = `${folder}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`
+  const key = `${folder}/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`
   const contentType = safeContentType(file)
 
   await client.send(
     new PutObjectCommand({
       Bucket: bucket,
-      Key: filename,
+      Key: key,
       Body: buffer,
       ContentType: contentType,
     })
   )
 
-  return `${publicUrl}/${filename}`
+  return { url: `${publicUrl}/${key}`, key }
+}
+
+/** 把已经存在的公网 URL 还原成 R2 Key（不在公网前缀范围内则返回 null） */
+export function r2KeyFromPublicUrl(url: string): string | null {
+  if (!url) return null
+  try {
+    const { publicUrl } = getR2()
+    const base = publicUrl.replace(/\/$/, "")
+    if (!url.startsWith(`${base}/`)) return null
+    return url.slice(base.length + 1)
+  } catch {
+    return null
+  }
+}
+
+/** 通过 S3 凭证读取 R2 对象，提供给后台代理路由 */
+export async function fetchR2ObjectStream(
+  key: string
+): Promise<{ body: ReadableStream; contentType: string; contentLength?: number; etag?: string }> {
+  const { client, bucket } = getR2()
+  const result = await client.send(
+    new GetObjectCommand({
+      Bucket: bucket,
+      Key: key,
+    })
+  )
+  const body = result.Body as unknown
+  if (!body || typeof (body as ReadableStream).getReader !== "function") {
+    throw new Error("R2 object body is not a readable stream")
+  }
+  return {
+    body: body as ReadableStream,
+    contentType: result.ContentType || "application/octet-stream",
+    contentLength: typeof result.ContentLength === "number" ? result.ContentLength : undefined,
+    etag: result.ETag,
+  }
 }
 
 /** 仅允许本站已上传的 R2 地址写入数据库，防止通过表单伪造外链 */

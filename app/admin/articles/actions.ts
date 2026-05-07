@@ -30,7 +30,8 @@ export async function createArticle(formData: FormData): Promise<{ error?: strin
 
     let featuredImage: string | null = null
     if (image && image.size > 0) {
-      featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+      const uploaded = await uploadToR2(image, `news/${session.tenant_id}`)
+      featuredImage = uploaded.url
     } else if (preUploadedUrl && isTrustedR2PublicUrl(preUploadedUrl)) {
       featuredImage = preUploadedUrl
     }
@@ -92,7 +93,8 @@ export async function updateArticle(id: string, formData: FormData): Promise<{ e
           await deleteFromR2(existingImage)
         } catch {}
       }
-      featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+      const uploaded = await uploadToR2(image, `news/${session.tenant_id}`)
+      featuredImage = uploaded.url
     } else if (preUploadedUrl && isTrustedR2PublicUrl(preUploadedUrl)) {
       if (existingImage && existingImage !== preUploadedUrl) {
         try {

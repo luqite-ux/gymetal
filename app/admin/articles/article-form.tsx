@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,6 +13,7 @@ import { Loader2, Upload, X, ArrowLeft } from "lucide-react"
 import { toast } from "sonner"
 import { RichTextEditor } from "@/components/admin/rich-text-editor"
 import { createArticle, updateArticle } from "./actions"
+import { buildAdminPreviewUrl } from "@/lib/admin-image"
 
 interface Article {
   id: string
@@ -38,8 +38,12 @@ export function ArticleForm({ article }: ArticleFormProps) {
   const [title, setTitle] = useState(article?.title ?? "")
   const [excerpt, setExcerpt] = useState(article?.excerpt ?? "")
   const [content, setContent] = useState(article?.content ?? "")
-  /** 当前特色图（已有 R2 地址或上传成功后写入），用于展示与提交 */
+  /** 当前特色图（已有 R2 地址或上传成功后写入），用于提交到 DB */
   const [coverUrl, setCoverUrl] = useState<string | null>(article?.featured_image ?? null)
+  /** 当前特色图在后台的预览地址：优先走带凭证的代理路由，避免依赖 r2.dev 公开访问 */
+  const [coverPreviewUrl, setCoverPreviewUrl] = useState<string | null>(
+    article?.featured_image ? buildAdminPreviewUrl(article.featured_image) : null
+  )
   /** 用户点击删除后，更新文章时需清空数据库中的特色图 */
   const [coverExplicitlyRemoved, setCoverExplicitlyRemoved] = useState(false)
   const [coverUploading, setCoverUploading] = useState(false)
@@ -67,7 +71,10 @@ export function ArticleForm({ article }: ArticleFormProps) {
       if (typeof draft.excerpt === "string") setExcerpt(draft.excerpt)
       if (draft.content) setContent(draft.content)
       if (typeof draft.isPublished === "boolean") setIsPublished(draft.isPublished)
-      if ("coverUrl" in draft) setCoverUrl(draft.coverUrl ?? null)
+      if ("coverUrl" in draft) {
+        setCoverUrl(draft.coverUrl ?? null)
+        setCoverPreviewUrl(draft.coverUrl ? buildAdminPreviewUrl(draft.coverUrl) : null)
+      }
       if (typeof draft.coverExplicitlyRemoved === "boolean") {
         setCoverExplicitlyRemoved(draft.coverExplicitlyRemoved)
       }
@@ -107,7 +114,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
         body: formData,
         credentials: "include",
       })
-      const data = (await response.json()) as { url?: string; error?: string }
+      const data = (await response.json()) as { url?: string; key?: string; error?: string }
       if (!response.ok) {
         throw new Error(data.error || "上传失败")
       }
@@ -115,6 +122,11 @@ export function ArticleForm({ article }: ArticleFormProps) {
         throw new Error("返回地址为空")
       }
       setCoverUrl(data.url)
+      setCoverPreviewUrl(
+        data.key
+          ? `/api/admin/r2-object?key=${encodeURIComponent(data.key)}`
+          : buildAdminPreviewUrl(data.url)
+      )
       setCoverExplicitlyRemoved(false)
     } catch (error) {
       const message = error instanceof Error ? error.message : "上传图片失败"
@@ -134,6 +146,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
   const removeImage = () => {
     setCoverUrl(null)
+    setCoverPreviewUrl(null)
     setCoverExplicitlyRemoved(true)
   }
 
@@ -244,11 +257,18 @@ export function ArticleForm({ article }: ArticleFormProps) {
             <CardContent>
               {coverUrl ? (
                 <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
-                  <Image
-                    src={coverUrl}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={coverPreviewUrl ?? coverUrl}
                     alt="Preview"
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    onError={(event) => {
+                      const target = event.currentTarget as HTMLImageElement
+                      // 走代理失败时回退到公网地址，便于排查 Cloudflare 公共访问设置
+                      if (coverPreviewUrl && target.src !== coverUrl && coverUrl) {
+                        target.src = coverUrl
+                      }
+                    }}
                   />
                   <Button
                     type="button"

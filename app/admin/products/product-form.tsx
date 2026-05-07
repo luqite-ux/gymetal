@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,6 +10,7 @@ import { Switch } from "@/components/ui/switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Upload, X, ArrowLeft } from "lucide-react"
 import { createProduct, updateProduct } from "./actions"
+import { buildAdminPreviewUrl } from "@/lib/admin-image"
 
 interface Product {
   id: string
@@ -30,7 +30,9 @@ interface ProductFormProps {
 export function ProductForm({ product }: ProductFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [isActive, setIsActive] = useState(product?.is_active ?? true)
-  const [preview, setPreview] = useState<string | null>(product?.image_url ?? null)
+  const [preview, setPreview] = useState<string | null>(
+    product?.image_url ? buildAdminPreviewUrl(product.image_url) : null
+  )
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -162,11 +164,11 @@ export function ProductForm({ product }: ProductFormProps) {
             <div className="space-y-4">
               {preview ? (
                 <div className="relative aspect-square rounded-lg overflow-hidden bg-muted">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={preview}
                     alt="Preview"
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <Button
                     type="button"

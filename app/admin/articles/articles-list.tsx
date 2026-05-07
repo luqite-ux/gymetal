@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
+import { buildAdminPreviewUrl } from "@/lib/admin-image"
 import { useRouter } from "next/navigation"
 import {
   Table,
@@ -92,11 +92,11 @@ export function ArticlesList({ articles }: ArticlesListProps) {
               <TableCell>
                 <div className="relative h-12 w-16 overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
                   {article.featured_image ? (
-                    <Image
-                      src={article.featured_image}
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={buildAdminPreviewUrl(article.featured_image) ?? article.featured_image}
                       alt={article.title}
-                      fill
-                      className="object-cover"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   ) : (
                     <div className="flex items-center justify-center h-full">

@@ -19,7 +19,8 @@ export async function createProduct(formData: FormData) {
 
   let imageUrl: string | null = null
   if (image && image.size > 0) {
-    imageUrl = await uploadToR2(image, `products/${session.tenant_id}`)
+    const uploaded = await uploadToR2(image, `products/${session.tenant_id}`)
+    imageUrl = uploaded.url
   }
 
   // Get max sort order
@@ -73,7 +74,8 @@ export async function updateProduct(id: string, formData: FormData) {
         // Ignore delete errors
       }
     }
-    imageUrl = await uploadToR2(image, `products/${session.tenant_id}`)
+    const uploaded = await uploadToR2(image, `products/${session.tenant_id}`)
+    imageUrl = uploaded.url
   }
 
   const { error } = await supabase

@@ -34,8 +34,8 @@ export async function POST(request: Request) {
         ? `news/${session.tenant_id}`
         : `news/${session.tenant_id}/content`
 
-    const url = await uploadToR2(file, folder)
-    return NextResponse.json({ url })
+    const { url, key } = await uploadToR2(file, folder)
+    return NextResponse.json({ url, key })
   } catch (error) {
     const message = error instanceof Error ? error.message : "上传失败"
     return NextResponse.json({ error: message }, { status: 500 })
