@@ -1,13 +1,14 @@
 import { createClient as createSupabaseServiceClient, type SupabaseClient } from '@supabase/supabase-js'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
+import { stripHeaderUnsafeEnv } from '@/lib/env-strip'
 
 export async function createClient() {
   const cookieStore = await cookies()
 
   return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_SUPABASE_URL) ?? '',
+    stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) ?? '',
     {
       cookies: {
         getAll() {
@@ -48,8 +49,8 @@ function decodeJwtRole(key: string): string | null {
  * 若误把 anon 公钥填进 SUPABASE_SERVICE_ROLE_KEY，会在这里打印警告，插入会按 RLS 失败。
  */
 export function createAdminClient(): SupabaseClient {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
+  const url = stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_SUPABASE_URL)
+  const key = stripHeaderUnsafeEnv(process.env.SUPABASE_SERVICE_ROLE_KEY)
   if (!url || !key) {
     throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
   }
