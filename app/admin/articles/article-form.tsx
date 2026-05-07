@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
@@ -38,9 +38,12 @@ export function ArticleForm({ article }: ArticleFormProps) {
   const [title, setTitle] = useState(article?.title ?? "")
   const [excerpt, setExcerpt] = useState(article?.excerpt ?? "")
   const [content, setContent] = useState(article?.content ?? "")
-  const [preview, setPreview] = useState<string | null>(article?.featured_image ?? null)
+  /** 当前特色图（已有 R2 地址或上传成功后写入），用于展示与提交 */
+  const [coverUrl, setCoverUrl] = useState<string | null>(article?.featured_image ?? null)
+  /** 用户点击删除后，更新文章时需清空数据库中的特色图 */
+  const [coverExplicitlyRemoved, setCoverExplicitlyRemoved] = useState(false)
+  const [coverUploading, setCoverUploading] = useState(false)
   const [lastSavedAt, setLastSavedAt] = useState<string>("")
-  const fileInputRef = useRef<HTMLInputElement>(null)
   const draftKey = useMemo(
     () => `article-editor-draft:${article?.id ?? "new"}`,
     [article?.id]
@@ -56,12 +59,18 @@ export function ArticleForm({ article }: ArticleFormProps) {
         excerpt?: string
         content?: string
         isPublished?: boolean
+        coverUrl?: string | null
+        coverExplicitlyRemoved?: boolean
       }
 
       if (draft.title) setTitle(draft.title)
       if (typeof draft.excerpt === "string") setExcerpt(draft.excerpt)
       if (draft.content) setContent(draft.content)
       if (typeof draft.isPublished === "boolean") setIsPublished(draft.isPublished)
+      if ("coverUrl" in draft) setCoverUrl(draft.coverUrl ?? null)
+      if (typeof draft.coverExplicitlyRemoved === "boolean") {
+        setCoverExplicitlyRemoved(draft.coverExplicitlyRemoved)
+      }
       setLastSavedAt("已恢复草稿")
     } catch {
       // ignore broken local draft payload
@@ -77,30 +86,55 @@ export function ArticleForm({ article }: ArticleFormProps) {
           excerpt,
           content,
           isPublished,
+          coverUrl,
+          coverExplicitlyRemoved,
         })
       )
       setLastSavedAt(`草稿自动保存：${new Date().toLocaleTimeString("zh-CN")}`)
     }, 800)
 
     return () => window.clearTimeout(timer)
-  }, [content, draftKey, excerpt, isPublished, title])
+  }, [content, coverExplicitlyRemoved, coverUrl, draftKey, excerpt, isPublished, title])
+
+  const uploadCoverFile = async (file: File) => {
+    setCoverUploading(true)
+    try {
+      const formData = new FormData()
+      formData.set("file", file)
+      formData.set("purpose", "cover")
+      const response = await fetch("/api/admin/uploads/editor-image", {
+        method: "POST",
+        body: formData,
+        credentials: "include",
+      })
+      const data = (await response.json()) as { url?: string; error?: string }
+      if (!response.ok) {
+        throw new Error(data.error || "上传失败")
+      }
+      if (!data.url) {
+        throw new Error("返回地址为空")
+      }
+      setCoverUrl(data.url)
+      setCoverExplicitlyRemoved(false)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "上传图片失败"
+      toast.error(message)
+    } finally {
+      setCoverUploading(false)
+    }
+  }
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setPreview(reader.result as string)
-      }
-      reader.readAsDataURL(file)
+      void uploadCoverFile(file)
     }
+    e.target.value = ""
   }
 
   const removeImage = () => {
-    setPreview(null)
-    if (fileInputRef.current) {
-      fileInputRef.current.value = ""
-    }
+    setCoverUrl(null)
+    setCoverExplicitlyRemoved(true)
   }
 
   const handleSubmit = async (formData: FormData) => {
@@ -109,7 +143,15 @@ export function ArticleForm({ article }: ArticleFormProps) {
     formData.set("excerpt", excerpt)
     formData.set("content", content)
     formData.set("is_published", isPublished.toString())
-    if (article?.featured_image && !formData.get("featured_image")) {
+
+    if (coverExplicitlyRemoved) {
+      formData.set("remove_featured_image", "1")
+    } else if (coverUrl) {
+      formData.set("featured_image_url", coverUrl)
+      if (article?.featured_image) {
+        formData.set("existing_image", article.featured_image)
+      }
+    } else if (article?.featured_image) {
       formData.set("existing_image", article.featured_image)
     }
 
@@ -128,7 +170,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
   }
 
   return (
-    <form action={handleSubmit} className="space-y-6">
+    <form action={handleSubmit} className="space-y-6 pb-24">
       <div className="flex items-center gap-4">
         <Button variant="outline" size="icon" asChild>
           <Link href="/admin/articles">
@@ -200,10 +242,10 @@ export function ArticleForm({ article }: ArticleFormProps) {
               <CardTitle>特色图片</CardTitle>
             </CardHeader>
             <CardContent>
-              {preview ? (
-                <div className="relative aspect-video rounded-lg overflow-hidden bg-muted">
+              {coverUrl ? (
+                <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
                   <Image
-                    src={preview}
+                    src={coverUrl}
                     alt="Preview"
                     fill
                     className="object-cover"
@@ -212,30 +254,33 @@ export function ArticleForm({ article }: ArticleFormProps) {
                     type="button"
                     variant="destructive"
                     size="icon"
-                    className="absolute top-2 right-2"
+                    className="absolute right-2 top-2"
                     onClick={removeImage}
-                    disabled={isLoading}
+                    disabled={isLoading || coverUploading}
                   >
                     <X className="h-4 w-4" />
                   </Button>
                 </div>
               ) : (
-                <div
-                  className="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-primary transition-colors"
-                  onClick={() => fileInputRef.current?.click()}
+                <button
+                  type="button"
+                  className="w-full cursor-pointer rounded-lg border-2 border-dashed p-6 text-center transition-colors hover:border-primary disabled:pointer-events-none disabled:opacity-50"
+                  onClick={() => document.getElementById("article-cover-file")?.click()}
+                  disabled={isLoading || coverUploading}
                 >
-                  <Upload className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
-                  <p className="text-sm font-medium">上传图片</p>
-                </div>
+                  <Upload className="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
+                  <p className="text-sm font-medium">
+                    {coverUploading ? "正在上传…" : "上传图片"}
+                  </p>
+                </button>
               )}
               <input
-                ref={fileInputRef}
+                id="article-cover-file"
                 type="file"
-                name="featured_image"
                 accept="image/*"
                 className="hidden"
                 onChange={handleImageChange}
-                disabled={isLoading}
+                disabled={isLoading || coverUploading}
               />
             </CardContent>
           </Card>
@@ -287,17 +332,23 @@ export function ArticleForm({ article }: ArticleFormProps) {
         <Button variant="outline" asChild>
           <Link href="/admin/articles">取消</Link>
         </Button>
-        <Button type="submit" disabled={isLoading}>
-          {isLoading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              保存中...
-            </>
-          ) : (
-            "保存文章"
-          )}
-        </Button>
       </div>
+
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className="fixed right-5 top-1/2 z-40 min-w-[104px] -translate-y-1/2 shadow-lg max-md:right-3 max-md:min-w-[88px]"
+        size="lg"
+      >
+        {isLoading ? (
+          <>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            保存中…
+          </>
+        ) : (
+          "保存文章"
+        )}
+      </Button>
     </form>
   )
 }

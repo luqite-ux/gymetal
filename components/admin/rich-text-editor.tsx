@@ -1,9 +1,9 @@
 ﻿"use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { useEditor, EditorContent } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
-import Link from "@tiptap/extension-link"
+import TiptapLink from "@tiptap/extension-link"
 import Image from "@tiptap/extension-image"
 import Placeholder from "@tiptap/extension-placeholder"
 import { Highlight } from "@tiptap/extension-highlight"
@@ -16,6 +16,15 @@ import { Color } from "@tiptap/extension-color"
 import { TextAlign } from "@tiptap/extension-text-align"
 import { Button } from "@/components/ui/button"
 import { Toggle } from "@/components/ui/toggle"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 import {
   Bold,
   Italic,
@@ -41,8 +50,31 @@ import {
   AlignLeft,
   AlignCenter,
   AlignRight,
+  FileCode2,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+const LinkWithColor = TiptapLink.extend({
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      linkColor: {
+        default: null as string | null,
+        parseHTML: (element) => {
+          const style = element.getAttribute("style") || ""
+          const m = style.match(/(?:^|;)\s*color:\s*([^;]+)/i)
+          return m?.[1]?.trim().replace(/^["']|["']$/g, "") || null
+        },
+        renderHTML: (attributes) => {
+          if (!attributes.linkColor) {
+            return {}
+          }
+          return { style: `color: ${attributes.linkColor}` }
+        },
+      },
+    }
+  },
+})
 
 interface RichTextEditorProps {
   content: string
@@ -53,6 +85,14 @@ interface RichTextEditorProps {
 
 const FONT_SIZES = ["12px", "14px", "16px", "18px", "20px", "24px", "28px", "32px"]
 const COLOR_PRESETS = ["#111827", "#dc2626", "#ea580c", "#16a34a", "#2563eb", "#9333ea"]
+const LINK_COLOR_PRESETS = [
+  "#2563eb",
+  "#111827",
+  "#dc2626",
+  "#16a34a",
+  "#9333ea",
+  "#ea580c",
+]
 
 export function RichTextEditor({
   content,
@@ -65,6 +105,13 @@ export function RichTextEditor({
   const [fontSizeValue, setFontSizeValue] = useState("16px")
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  const [linkDialogOpen, setLinkDialogOpen] = useState(false)
+  const [linkHref, setLinkHref] = useState("https://")
+  const [linkColor, setLinkColor] = useState<string | null>("#2563eb")
+
+  const [sourceDialogOpen, setSourceDialogOpen] = useState(false)
+  const [sourceHtml, setSourceHtml] = useState("")
+
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -72,7 +119,7 @@ export function RichTextEditor({
           levels: [1, 2, 3],
         },
       }),
-      Link.configure({
+      LinkWithColor.configure({
         openOnClick: false,
       }),
       Image,
@@ -148,7 +195,7 @@ export function RichTextEditor({
     if (!editor) return
     editor.setEditable(!disabled)
   }, [disabled, editor])
-  
+
   useEffect(() => {
     if (!editor) return
     const syncFontSize = () => {
@@ -164,43 +211,75 @@ export function RichTextEditor({
     }
   }, [editor])
 
-  if (!editor) {
-    return null
-  }
+  const openLinkDialog = useCallback(() => {
+    if (!editor) return
+    const prev = editor.getAttributes("link") as { href?: string; linkColor?: string | null }
+    setLinkHref((prev.href as string) || "https://")
+    setLinkColor((prev.linkColor as string | null) ?? "#2563eb")
+    setLinkDialogOpen(true)
+  }, [editor])
 
-  const addLink = () => {
-    const url = window.prompt("请输入链接地址:")
-    if (!url) return
-    editor.chain().focus().setLink({ href: url }).run()
-  }
+  const applyLink = useCallback(() => {
+    if (!editor) return
+    const href = linkHref.trim()
+    if (!href) {
+      editor.chain().focus().extendMarkRange("link").unsetLink().run()
+      setLinkDialogOpen(false)
+      return
+    }
+    const color = linkColor?.trim() || null
+    editor
+      .chain()
+      .focus()
+      .extendMarkRange("link")
+      .setLink({
+        href,
+        ...(color ? { linkColor: color } : { linkColor: null }),
+      })
+      .run()
+    setLinkDialogOpen(false)
+  }, [editor, linkColor, linkHref])
 
-  const addImageByUrl = () => {
-    const url = window.prompt("请输入图片地址:")
-    if (!url) return
-    editor.chain().focus().setImage({ src: url }).run()
-  }
+  const removeLink = useCallback(() => {
+    if (!editor) return
+    editor.chain().focus().extendMarkRange("link").unsetLink().run()
+    setLinkDialogOpen(false)
+  }, [editor])
+
+  const openSourceDialog = useCallback(() => {
+    if (!editor) return
+    setSourceHtml(editor.getHTML())
+    setSourceDialogOpen(true)
+  }, [editor])
+
+  const applySourceHtml = useCallback(() => {
+    if (!editor) return
+    editor.commands.setContent(sourceHtml, { emitUpdate: true })
+    setSourceDialogOpen(false)
+  }, [editor, sourceHtml])
 
   const uploadImageToServer = async (file: File) => {
     setIsUploadingImage(true)
     try {
       const formData = new FormData()
       formData.set("file", file)
+      formData.set("purpose", "editor")
 
       const response = await fetch("/api/admin/uploads/editor-image", {
         method: "POST",
         body: formData,
+        credentials: "include",
       })
 
+      const data = (await response.json()) as { url?: string; error?: string }
       if (!response.ok) {
-        throw new Error("上传失败")
+        throw new Error(data.error || "上传失败")
       }
-
-      const data = (await response.json()) as { url?: string }
       if (!data.url) {
         throw new Error("返回地址为空")
       }
 
-      editor.chain().focus().setImage({ src: data.url }).run()
+      editor?.chain().focus().setImage({ src: data.url }).run()
     } catch (error) {
       const message = error instanceof Error ? error.message : "上传图片失败"
       window.alert(message)
@@ -212,6 +291,16 @@ export function RichTextEditor({
     }
   }
 
+  if (!editor) {
+    return null
+  }
+
+  const addImageByUrl = () => {
+    const url = window.prompt("请输入图片地址:")
+    if (!url) return
+    editor.chain().focus().setImage({ src: url }).run()
+  }
+
   return (
     <div
       className={cn(
@@ -219,6 +308,84 @@ export function RichTextEditor({
         isFullscreen && "fixed inset-4 z-50 flex flex-col rounded-2xl shadow-2xl"
       )}
     >
+      <Dialog open={linkDialogOpen} onOpenChange={setLinkDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>插入 / 编辑超链接</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-3 py-2">
+            <div className="space-y-2">
+              <Label htmlFor="rte-link-href">链接地址</Label>
+              <Input
+                id="rte-link-href"
+                value={linkHref}
+                onChange={(e) => setLinkHref(e.target.value)}
+                placeholder="https://"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>链接文字颜色</Label>
+              <div className="flex flex-wrap items-center gap-2">
+                {LINK_COLOR_PRESETS.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className={cn(
+                      "h-8 w-8 rounded border-2 transition-opacity",
+                      linkColor === c ? "ring-2 ring-ring ring-offset-2" : ""
+                    )}
+                    style={{ backgroundColor: c }}
+                    title={c}
+                    onClick={() => setLinkColor(c)}
+                  />
+                ))}
+                <Button type="button" variant="outline" size="sm" onClick={() => setLinkColor(null)}>
+                  默认色
+                </Button>
+              </div>
+            </div>
+          </div>
+          <DialogFooter className="gap-2 sm:justify-between">
+            <Button type="button" variant="ghost" onClick={removeLink}>
+              移除链接
+            </Button>
+            <div className="flex gap-2">
+              <Button type="button" variant="outline" onClick={() => setLinkDialogOpen(false)}>
+                取消
+              </Button>
+              <Button type="button" onClick={applyLink}>
+                确定
+              </Button>
+            </div>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={sourceDialogOpen} onOpenChange={setSourceDialogOpen}>
+        <DialogContent className="max-h-[85vh] max-w-3xl">
+          <DialogHeader>
+            <DialogTitle>HTML 源码</DialogTitle>
+          </DialogHeader>
+          <p className="text-xs text-muted-foreground">
+            可直接编辑 HTML，确定后将替换当前正文。请谨慎使用，错误标签可能影响排版。
+          </p>
+          <textarea
+            className="font-mono text-sm min-h-[320px] w-full resize-y rounded-md border bg-muted/30 p-3"
+            value={sourceHtml}
+            onChange={(e) => setSourceHtml(e.target.value)}
+            spellCheck={false}
+          />
+          <DialogFooter>
+            <Button type="button" variant="outline" onClick={() => setSourceDialogOpen(false)}>
+              取消
+            </Button>
+            <Button type="button" onClick={applySourceHtml}>
+              应用到编辑器
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
       <div className="flex flex-wrap items-center gap-1 border-b bg-muted/50 p-2">
         <Toggle size="sm" pressed={editor.isActive("heading", { level: 1 })} onPressedChange={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} disabled={disabled}>
           <Heading1 className="h-4 w-4" />
@@ -311,7 +478,7 @@ export function RichTextEditor({
 
         <div className="mx-1 h-6 w-px bg-border" />
 
-        <Button type="button" variant="ghost" size="sm" onClick={addLink} disabled={disabled}>
+        <Button type="button" variant="ghost" size="sm" onClick={openLinkDialog} disabled={disabled}>
           <LinkIcon className="h-4 w-4" />
         </Button>
         <Button type="button" variant="ghost" size="sm" onClick={addImageByUrl} disabled={disabled} title="通过 URL 插图">
@@ -339,6 +506,10 @@ export function RichTextEditor({
             }
           }}
         />
+
+        <Button type="button" variant="ghost" size="sm" onClick={openSourceDialog} disabled={disabled} title="编辑 HTML 源码">
+          <FileCode2 className="h-4 w-4" />
+        </Button>
 
         <div className="mx-1 h-6 w-px bg-border" />
 
@@ -373,24 +544,32 @@ export function RichTextEditor({
           {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
         </Button>
       </div>
-      <EditorContent
-        editor={editor}
+
+      <div
         className={cn(
-          "min-h-[300px] p-4",
-          isFullscreen && "flex-1 overflow-auto",
-          "[&_.ProseMirror]:min-h-[280px] [&_.ProseMirror]:outline-none",
-          isFullscreen && "[&_.ProseMirror]:min-h-[calc(100vh-220px)]",
-          "[&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none",
-          "[&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left",
-          "[&_.ProseMirror_p.is-editor-empty:first-child::before]:h-0",
-          "[&_.ProseMirror_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)]",
-          "[&_.ProseMirror_p.is-editor-empty:first-child::before]:text-muted-foreground",
-          "[&_.ProseMirror_table]:w-full [&_.ProseMirror_table]:border-collapse",
-          "[&_.ProseMirror_td]:border [&_.ProseMirror_td]:p-2",
-          "[&_.ProseMirror_th]:border [&_.ProseMirror_th]:bg-muted [&_.ProseMirror_th]:p-2",
-          "[&_.ProseMirror_mark]:rounded [&_.ProseMirror_mark]:bg-yellow-200 [&_.ProseMirror_mark]:px-1"
+          "max-h-[min(70vh,720px)] overflow-y-auto overflow-x-hidden bg-background",
+          isFullscreen && "min-h-0 flex-1 max-h-none"
         )}
-      />
+      >
+        <EditorContent
+          editor={editor}
+          className={cn(
+            "min-h-[300px] p-4",
+            isFullscreen && "[&_.ProseMirror]:min-h-[calc(100vh-260px)]",
+            "[&_.ProseMirror]:min-h-[280px] [&_.ProseMirror]:outline-none",
+            "[&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none",
+            "[&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left",
+            "[&_.ProseMirror_p.is-editor-empty:first-child::before]:h-0",
+            "[&_.ProseMirror_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)]",
+            "[&_.ProseMirror_p.is-editor-empty:first-child::before]:text-muted-foreground",
+            "[&_.ProseMirror_table]:w-full [&_.ProseMirror_table]:border-collapse",
+            "[&_.ProseMirror_td]:border [&_.ProseMirror_td]:p-2",
+            "[&_.ProseMirror_th]:border [&_.ProseMirror_th]:bg-muted [&_.ProseMirror_th]:p-2",
+            "[&_.ProseMirror_mark]:rounded [&_.ProseMirror_mark]:bg-yellow-200 [&_.ProseMirror_mark]:px-1",
+            "[&_a]:underline [&_a]:underline-offset-2"
+          )}
+        />
+      </div>
     </div>
   )
 }

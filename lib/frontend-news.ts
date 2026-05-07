@@ -71,6 +71,32 @@ export const getPublishedNews = cache(async (): Promise<PublishedArticle[]> => {
   return (data ?? []) as PublishedArticle[]
 })
 
+/** 同站点已发布文章（排除当前篇），用于详情页侧栏 */
+export const getRelatedPublishedNews = cache(
+  async (excludeArticleId: string, limit = 6): Promise<PublishedArticle[]> => {
+    const tenantId = await getTenantIdForHost()
+    if (!tenantId) return []
+
+    const supabase = createAdminClient()
+    const { data, error } = await supabase
+      .from("articles")
+      .select("id, slug, title, excerpt, content, featured_image, created_at, published_at")
+      .eq("tenant_id", tenantId)
+      .eq("is_published", true)
+      .neq("id", excludeArticleId)
+      .order("published_at", { ascending: false, nullsFirst: false })
+      .order("created_at", { ascending: false })
+      .limit(limit)
+
+    if (error) {
+      console.error("[frontend-news] related articles failed:", error.message)
+      return []
+    }
+
+    return (data ?? []) as PublishedArticle[]
+  }
+)
+
 export const getNewsBySlug = cache(
   async (slug: string): Promise<PublishedArticle | null> => {
     const tenantId = await getTenantIdForHost()

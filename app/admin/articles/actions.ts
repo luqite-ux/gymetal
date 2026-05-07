@@ -2,7 +2,7 @@
 
 import { requireAdminSession } from "@/lib/admin-auth"
 import { createAdminClient as createClient } from "@/lib/supabase/server"
-import { uploadToR2, deleteFromR2 } from "@/lib/r2"
+import { uploadToR2, deleteFromR2, isTrustedR2PublicUrl } from "@/lib/r2"
 
 function generateSlug(title: string): string {
   return title
@@ -26,10 +26,13 @@ export async function createArticle(formData: FormData): Promise<{ error?: strin
     const seoKeywords = formData.get("seo_keywords") as string
     const isPublished = formData.get("is_published") === "true"
     const image = formData.get("featured_image") as File | null
+    const preUploadedUrl = (formData.get("featured_image_url") as string | null)?.trim() ?? ""
 
     let featuredImage: string | null = null
     if (image && image.size > 0) {
       featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+    } else if (preUploadedUrl && isTrustedR2PublicUrl(preUploadedUrl)) {
+      featuredImage = preUploadedUrl
     }
 
     const slug = generateSlug(title) + "-" + Date.now()
@@ -69,16 +72,34 @@ export async function updateArticle(id: string, formData: FormData): Promise<{ e
     const seoDescription = formData.get("seo_description") as string
     const seoKeywords = formData.get("seo_keywords") as string
     const isPublished = formData.get("is_published") === "true"
+    const removeFeatured = formData.get("remove_featured_image") === "1"
     const image = formData.get("featured_image") as File | null
-    const existingImage = formData.get("existing_image") as string
+    const existingImage = (formData.get("existing_image") as string) || ""
+    const preUploadedUrl = (formData.get("featured_image_url") as string | null)?.trim() ?? ""
 
-    let featuredImage = existingImage || null
+    let featuredImage: string | null = existingImage || null
 
-    if (image && image.size > 0) {
+    if (removeFeatured) {
       if (existingImage) {
-        try { await deleteFromR2(existingImage) } catch {}
+        try {
+          await deleteFromR2(existingImage)
+        } catch {}
+      }
+      featuredImage = null
+    } else if (image && image.size > 0) {
+      if (existingImage) {
+        try {
+          await deleteFromR2(existingImage)
+        } catch {}
       }
       featuredImage = await uploadToR2(image, `news/${session.tenant_id}`)
+    } else if (preUploadedUrl && isTrustedR2PublicUrl(preUploadedUrl)) {
+      if (existingImage && existingImage !== preUploadedUrl) {
+        try {
+          await deleteFromR2(existingImage)
+        } catch {}
+      }
+      featuredImage = preUploadedUrl
     }
 
     const { data: currentArticle } = await supabase
