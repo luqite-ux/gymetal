@@ -27,7 +27,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="GY Metal Tech"
               width={120}
               height={120}
