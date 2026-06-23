@@ -1,8 +1,11 @@
 import type { MetadataRoute } from "next"
+import { getPublishedNews } from "@/lib/frontend-news"
 
 const BASE_URL = "https://www.gymetaltech.com"
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -56,5 +59,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return staticPages
+  let articlePages: MetadataRoute.Sitemap = []
+  try {
+    const articles = await getPublishedNews()
+    articlePages = articles.map((article) => ({
+      url: `${BASE_URL}/news/${article.slug}`,
+      lastModified: new Date(article.published_at ?? article.created_at),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }))
+  } catch (error) {
+    console.error("[sitemap] failed to load articles:", error)
+  }
+
+  return [...staticPages, ...articlePages]
 }
