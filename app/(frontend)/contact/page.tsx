@@ -10,18 +10,24 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { InquiryCaptchaField } from '@/components/inquiry-captcha-field'
 
 export default function ContactPage() {
   const { t } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [captchaRefreshKey, setCaptchaRefreshKey] = useState(0)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    setError('')
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries())
+    const response = await fetch('/api/inquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+    setCaptchaRefreshKey(key => key + 1)
     setIsSubmitting(false)
+    if (!response.ok) { setError('Submission failed. Please check the verification code and try again.'); return }
     setSubmitted(true)
   }
 
@@ -96,6 +102,8 @@ export default function ContactPage() {
                   <p className="text-muted-foreground">
                     Thank you for contacting us. We will get back to you soon.
                   </p>
+                  <InquiryCaptchaField refreshKey={captchaRefreshKey} />
+                  {error ? <p role="alert" className="text-sm text-red-700">{error}</p> : null}
                   <Button
                     className="mt-6 bg-transparent"
                     variant="outline"
