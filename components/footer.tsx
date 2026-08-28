@@ -31,7 +31,7 @@ export function Footer() {
               alt="GY Metal Tech"
               width={120}
               height={120}
-              className="h-20 w-auto brightness-0 invert"
+              className="h-20 w-auto object-contain"
             />
             <p className="text-sm text-primary-foreground/70">
               {t.footer.description}

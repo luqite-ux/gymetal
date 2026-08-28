@@ -13,6 +13,45 @@ export interface PublishedArticle {
   published_at: string | null
 }
 
+type LocalizedArticleText = Record<string, unknown> | null
+
+type PublishedArticleRow = PublishedArticle & {
+  title_i18n: LocalizedArticleText
+  excerpt_i18n: LocalizedArticleText
+  content_i18n: LocalizedArticleText
+}
+
+const articleSelect =
+  "id, slug, title, excerpt, content, title_i18n, excerpt_i18n, content_i18n, featured_image, created_at, published_at"
+
+function resolveLocalizedText(localized: LocalizedArticleText, legacy: string | null) {
+  const legacyText = legacy?.trim() ?? ""
+  if (legacyText && legacyText !== "<p></p>") return legacyText
+
+  const english = typeof localized?.en === "string" ? localized.en.trim() : ""
+  if (english) return english
+
+  for (const value of Object.values(localized ?? {})) {
+    if (typeof value === "string" && value.trim() && value.trim() !== "<p></p>") {
+      return value.trim()
+    }
+  }
+  return ""
+}
+
+function normalizeArticle(row: PublishedArticleRow): PublishedArticle {
+  return {
+    id: row.id,
+    slug: row.slug,
+    title: resolveLocalizedText(row.title_i18n, row.title),
+    excerpt: resolveLocalizedText(row.excerpt_i18n, row.excerpt) || null,
+    content: resolveLocalizedText(row.content_i18n, row.content) || null,
+    featured_image: row.featured_image,
+    created_at: row.created_at,
+    published_at: row.published_at,
+  }
+}
+
 function normalizeHost(host: string): string {
   const withoutPort = host.split(":")[0]?.trim().toLowerCase() ?? ""
   return withoutPort.startsWith("www.") ? withoutPort.slice(4) : withoutPort
@@ -41,13 +80,7 @@ const getTenantIdForHost = cache(async (): Promise<string | null> => {
     }
   }
 
-  const { data: fallbackTenant } = await supabase
-    .from("tenants")
-    .select("id")
-    .limit(1)
-    .maybeSingle()
-
-  return (fallbackTenant?.id as string | undefined) ?? null
+  return process.env.NEXT_PUBLIC_TENANT_ID?.trim() || null
 })
 
 export const getPublishedNews = cache(async (): Promise<PublishedArticle[]> => {
@@ -57,7 +90,7 @@ export const getPublishedNews = cache(async (): Promise<PublishedArticle[]> => {
   const supabase = createAdminClient()
   const { data, error } = await supabase
     .from("articles")
-    .select("id, slug, title, excerpt, content, featured_image, created_at, published_at")
+    .select(articleSelect)
     .eq("tenant_id", tenantId)
     .eq("is_published", true)
     .order("published_at", { ascending: false, nullsFirst: false })
@@ -68,7 +101,7 @@ export const getPublishedNews = cache(async (): Promise<PublishedArticle[]> => {
     return []
   }
 
-  return (data ?? []) as PublishedArticle[]
+  return ((data ?? []) as PublishedArticleRow[]).map(normalizeArticle)
 })
 
 /** 同站点已发布文章（排除当前篇），用于详情页侧栏 */
@@ -80,7 +113,7 @@ export const getRelatedPublishedNews = cache(
     const supabase = createAdminClient()
     const { data, error } = await supabase
       .from("articles")
-      .select("id, slug, title, excerpt, content, featured_image, created_at, published_at")
+      .select(articleSelect)
       .eq("tenant_id", tenantId)
       .eq("is_published", true)
       .neq("id", excludeArticleId)
@@ -93,7 +126,7 @@ export const getRelatedPublishedNews = cache(
       return []
     }
 
-    return (data ?? []) as PublishedArticle[]
+    return ((data ?? []) as PublishedArticleRow[]).map(normalizeArticle)
   }
 )
 
@@ -105,7 +138,7 @@ export const getNewsBySlug = cache(
     const supabase = createAdminClient()
     const { data, error } = await supabase
       .from("articles")
-      .select("id, slug, title, excerpt, content, featured_image, created_at, published_at")
+      .select(articleSelect)
       .eq("tenant_id", tenantId)
       .eq("is_published", true)
       .eq("slug", slug)
@@ -116,6 +149,6 @@ export const getNewsBySlug = cache(
       return null
     }
 
-    return (data as PublishedArticle | null) ?? null
+    return data ? normalizeArticle(data as PublishedArticleRow) : null
   }
 )

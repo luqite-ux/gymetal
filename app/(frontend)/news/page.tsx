@@ -23,27 +23,27 @@ export default async function NewsPage() {
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {articles.map((article) => (
-              <Link
+            {articles.map((article) => {
+              const imageUrl = article.featured_image || "/images/precision-parts.jpg"
+              return (
+                <Link
                 key={article.id}
                 href={`/news/${article.slug}`}
                 aria-label={article.title}
-                className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="group block h-full overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg focus-visible:-translate-y-1 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                <article>
-                  {article.featured_image ? (
-                    <div className="relative h-48 w-full overflow-hidden">
-                      <Image
-                        src={article.featured_image}
-                        alt={article.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        unoptimized
-                      />
-                    </div>
-                  ) : null}
+                <article className="flex h-full flex-col">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                    <Image
+                      src={imageUrl}
+                      alt={article.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      unoptimized
+                    />
+                  </div>
 
-                  <div className="space-y-3 p-5">
+                  <div className="flex flex-1 flex-col space-y-3 p-5">
                     <p className="text-xs uppercase tracking-wide text-muted-foreground">
                       {new Date(article.published_at ?? article.created_at).toLocaleDateString("en-US")}
                     </p>
@@ -53,14 +53,15 @@ export default async function NewsPage() {
                     <p className="line-clamp-3 text-sm text-muted-foreground">
                       {article.excerpt || "Read more details in this update."}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">
+                    <span className="mt-auto inline-flex items-center gap-1 pt-1 text-sm font-semibold text-accent">
                       Read more
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
                 </article>
-              </Link>
-            ))}
+                </Link>
+              )
+            })}
           </div>
         )}
       </div>
