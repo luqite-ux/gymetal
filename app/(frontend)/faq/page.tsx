@@ -210,12 +210,6 @@ export default function FAQPage() {
           aEn: 'Do analysis and replace the NG components.',
           aZh: '进行分析并更换不合格部件。',
         },
-        {
-          qEn: 'Is there a quality warranty period?',
-          qZh: '是否有质量保证期？',
-          aEn: 'Yes',
-          aZh: '是',
-        },
       ],
     },
   ]
@@ -234,8 +228,8 @@ export default function FAQPage() {
           <MotionDiv animation="fade-up" delay={200}>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/80">
               {isEn 
-                ? 'Find answers to common questions about our products, services, pricing, and quality assurance.'
-                : '查找有关我们产品、服务、价格和质量保证的常见问题解答。'}
+                ? 'Find answers to common questions about our products, services, pricing, and quality inspection.'
+                : '查找有关我们产品、服务、价格和质量检验的常见问题解答。'}
             </p>
           </MotionDiv>
         </div>

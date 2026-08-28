@@ -190,7 +190,7 @@ const machiningEquipment = [
     descCn: '加工范围：5200 × 3600 × 800 mm。加工精度：0.01 mm。',
     accuracy: '0.01mm',
     range: '5200 × 3600 × 800 mm',
-    image: '/images/equipment/mcr-a5c2.jpg',
+    image: '/images/equipment/mcr-a5cii.jpg',
   },
   {
     id: 'mpc-e2-2650',
@@ -203,7 +203,7 @@ const machiningEquipment = [
     descCn: '加工范围：5500 × 3400 × 1750 mm。加工精度：0.01 mm。',
     accuracy: '0.01mm',
     range: '5500 × 3400 × 1750 mm',
-    image: '/images/equipment/mpc-e2-2650.jpg',
+    image: '/images/equipment/mpc-eii-2650.jpg',
   },
   {
     id: 'csw-1160',
@@ -305,7 +305,7 @@ const testingEquipment = [
     descEn: 'High-precision coordinate measuring machine for dimensional inspection and quality control.',
     descCn: '高精度三坐标测量仪，用于尺寸检测和质量控制。',
     accuracy: '-',
-    image: '/images/equipment/hexacon-15-30-10.jpg',
+    image: null,
   },
 ]
 
@@ -394,16 +394,18 @@ export default function EquipmentPage() {
                   <MotionDiv key={item.id} animation="fade-up" delay={index * 50}>
                     <Card className="group overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl card-shine">
                       <div className="relative aspect-video bg-muted">
-                        <Image
-                          src={item.image || '/images/placeholder-equipment.jpg'}
-                          alt={isEn ? item.nameEn : item.nameCn}
-                          fill
-                          className="object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement
-                            target.src = '/images/3.jpg'
-                          }}
-                        />
+                        {item.image ? (
+                          <Image
+                            src={item.image}
+                            alt={isEn ? item.nameEn : item.nameCn}
+                            fill
+                            className="object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement
+                              target.src = '/images/3.jpg'
+                            }}
+                          />
+                        ) : null}
                         <Badge className="absolute right-2 top-2 bg-accent text-accent-foreground">
                           {isEn ? item.category : item.categoryCn}
                         </Badge>
@@ -455,16 +457,18 @@ export default function EquipmentPage() {
                   <MotionDiv key={item.id} animation="fade-up" delay={index * 50}>
                     <Card className="group overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl card-shine">
                       <div className="relative aspect-video bg-muted">
-                        <Image
-                          src={item.image || '/images/placeholder-equipment.jpg'}
-                          alt={isEn ? item.nameEn : item.nameCn}
-                          fill
-                          className="object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement
-                            target.src = '/images/9.jpg'
-                          }}
-                        />
+                        {item.image ? (
+                          <Image
+                            src={item.image}
+                            alt={isEn ? item.nameEn : item.nameCn}
+                            fill
+                            className="object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement
+                              target.src = '/images/9.jpg'
+                            }}
+                          />
+                        ) : null}
                         <Badge className="absolute right-2 top-2 bg-accent text-accent-foreground">
                           {isEn ? item.category : item.categoryCn}
                         </Badge>

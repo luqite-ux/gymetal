@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import test from 'node:test'
 
@@ -17,6 +17,24 @@ test('footer preserves the original logo colors', () => {
   const logoEnd = source.indexOf('/>', logoStart)
   assert.ok(logoStart >= 0 && logoEnd > logoStart)
   assert.doesNotMatch(source.slice(logoStart, logoEnd), /brightness-0|invert/)
+})
+
+test('customer-facing FAQ contains no warranty or guarantee promises', () => {
+  const source = read('app/(frontend)/faq/page.tsx')
+  assert.doesNotMatch(source, /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i)
+})
+
+test('every equipment image reference resolves to a bundled customer asset', () => {
+  const source = read('app/(frontend)/equipment/page.tsx')
+  const references = [...source.matchAll(/image:\s*'([^']+)'/g)].map((match) => match[1])
+  assert.ok(references.length > 0)
+  for (const reference of references) {
+    assert.equal(
+      existsSync(path.join(root, 'public', reference.replace(/^\//, ''))),
+      true,
+      `missing equipment asset: ${reference}`,
+    )
+  }
 })
 
 test('published news resolves English i18n fields before legacy fields', () => {
