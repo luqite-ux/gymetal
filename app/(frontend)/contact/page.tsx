@@ -102,7 +102,6 @@ export default function ContactPage() {
                   <p className="text-muted-foreground">
                     Thank you for contacting us. We will get back to you soon.
                   </p>
-                  <InquiryCaptchaField refreshKey={captchaRefreshKey} />
                   {error ? <p role="alert" className="text-sm text-red-700">{error}</p> : null}
                   <Button
                     className="mt-6 bg-transparent"
@@ -152,6 +151,8 @@ export default function ContactPage() {
                       placeholder="Tell us about your project requirements..."
                     />
                   </div>
+                  <InquiryCaptchaField refreshKey={captchaRefreshKey} />
+                  {error ? <p role="alert" className="text-sm text-red-700">{error}</p> : null}
                   <Button
                     type="submit"
                     size="lg"
