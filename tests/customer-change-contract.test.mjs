@@ -8,7 +8,9 @@ const read = (file) => readFileSync(path.join(root, file), 'utf8')
 
 test('contact map requests an English Google Maps interface', () => {
   const source = read('app/(frontend)/contact/page.tsx')
-  assert.match(source, /google\.com\/maps\/embed\?hl=en&pb=/)
+  assert.match(source, /maps\.google\.com\/maps\?hl=en&gl=us&q=/)
+  assert.match(source, /output=embed/)
+  assert.doesNotMatch(source, /maps\/embed\?hl=en&pb=/)
 })
 
 test('footer preserves the original logo colors', () => {
