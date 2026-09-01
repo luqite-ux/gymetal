@@ -179,7 +179,7 @@ export const translations = {
       services: '服务能力',
       equipment: '设备展示',
       products: '产品展示',
-      news: 'News',
+      news: '新闻资讯',
       faq: '常见问题',
       contact: '联系我们',
     },

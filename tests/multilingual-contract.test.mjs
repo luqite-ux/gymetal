@@ -79,6 +79,12 @@ test('reviewed generated dictionaries exist for every new target locale', () => 
   }
 })
 
+test('Chinese navigation does not retain the English News label', () => {
+  const source = read('lib/i18n.ts')
+  const chineseBlock = source.slice(source.indexOf('  zh: {'), source.indexOf('\n  },\n} as const'))
+  assert.match(chineseBlock, /news:\s*'新闻资讯'/)
+})
+
 test('tenant translation utility requires two DeepSeek passes and exact tenant scoping', () => {
   const source = read('scripts/translate-tenant-content.mjs')
   assert.match(source, /7114167b-c383-4ef7-8c09-2af19a94882b/)
@@ -86,6 +92,9 @@ test('tenant translation utility requires two DeepSeek passes and exact tenant s
   assert.match(source, /reviewPass/)
   assert.match(source, /tenant_id=eq\./)
   assert.match(source, /warrant\(\?:y\|ies\)/)
+  assert.match(source, /--locales=/, 'translation utility must support targeted locale repair')
+  assert.match(source, /zh:\s*'Simplified Chinese'/, 'translation utility must be able to repair Chinese content')
+  assert.match(source, /locale === 'zh'.*CJK_PATTERN\.test/s, 'Chinese completeness must require Chinese text')
 })
 
 test('long article HTML translates only text nodes while preserving source tags byte-for-byte', () => {
@@ -98,6 +107,8 @@ test('long article HTML translates only text nodes while preserving source tags 
   assert.match(source, /HTML entity mismatch/)
   assert.match(source, /ENTITY_TOKEN_PATTERN/)
   assert.match(source, /current\.length >= 15/)
+  assert.match(source, /translateBatchWithSplit/)
+  assert.match(source, /batch\.slice\(0, midpoint\)/)
 })
 
 test('a malformed DeepSeek review retries the complete review unit before failing', () => {

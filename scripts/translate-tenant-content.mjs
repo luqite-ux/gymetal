@@ -4,11 +4,22 @@ import process from 'node:process'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 const TENANT_ID = '7114167b-c383-4ef7-8c09-2af19a94882b'
-const TARGETS = {
+const AVAILABLE_TARGETS = {
+  zh: 'Simplified Chinese',
   es: 'Spanish', pt: 'Portuguese', fr: 'French', ar: 'Arabic',
   el: 'Greek', ru: 'Russian', de: 'German',
 }
-const ENABLED = ['en', 'zh', ...Object.keys(TARGETS)]
+const DEFAULT_TARGET_LOCALES = ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de']
+const localeArgument = process.argv.find((argument) => argument.startsWith('--locales='))
+const requestedLocales = localeArgument
+  ? localeArgument.slice('--locales='.length).split(',').map((locale) => locale.trim()).filter(Boolean)
+  : DEFAULT_TARGET_LOCALES
+const unsupportedLocales = requestedLocales.filter((locale) => !AVAILABLE_TARGETS[locale])
+if (!requestedLocales.length || unsupportedLocales.length) {
+  throw new Error(`Unsupported --locales value: ${unsupportedLocales.join(',') || '(empty)'}`)
+}
+const TARGETS = Object.fromEntries(requestedLocales.map((locale) => [locale, AVAILABLE_TARGETS[locale]]))
+const ENABLED = ['en', 'zh', ...DEFAULT_TARGET_LOCALES]
 const FORBIDDEN = /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i
 const APPLY = process.argv.includes('--apply')
 const PLAN = process.argv.includes('--plan')
@@ -125,8 +136,11 @@ async function deepSeekJson(apiKey, messages) {
 }
 
 async function translatePass(apiKey, source, language, context) {
+  const residueRule = language === 'Simplified Chinese'
+    ? 'Use natural Simplified Chinese throughout.'
+    : 'Do not leave Chinese text in the result.'
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. Do not leave Chinese text in the result. Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
+    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. ${residueRule} Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify(source) },
   ])
 }
@@ -169,7 +183,9 @@ async function reviewedTranslation(config, source, locale, context) {
           ? reviewedNormalized[key]
           : translated[key],
       ]))
-      const residueKeys = Object.keys(reviewed).filter((key) => CJK_PATTERN.test(reviewed[key]))
+      const residueKeys = locale === 'zh'
+        ? []
+        : Object.keys(reviewed).filter((key) => CJK_PATTERN.test(reviewed[key]))
       const repairedResidues = await Promise.all(residueKeys.map(async (key) => {
         const singleSource = { [key]: source[key] }
         const repairedRaw = await translateChineseResiduePass(config.deepSeek, singleSource, TARGETS[locale], `${context} Chinese residue ${key}`)
@@ -186,7 +202,7 @@ async function reviewedTranslation(config, source, locale, context) {
       Object.assign(reviewed, Object.fromEntries(repairedResidues))
       validate(source, reviewed, `${context}.${locale}.review`)
       for (const [key, value] of Object.entries(reviewed)) {
-        if (CJK_PATTERN.test(value)) throw new Error(`${context}.${locale}.review.${key} contains Chinese residue`)
+        if (locale !== 'zh' && CJK_PATTERN.test(value)) throw new Error(`${context}.${locale}.review.${key} contains Chinese residue`)
       }
       return reviewed
     } catch (error) {
@@ -226,6 +242,21 @@ function restoreTranslatedTextNodes(tokens, nodes, translations) {
   return restored.join('')
 }
 
+async function translateBatchWithSplit(config, batch, locale, context) {
+  const source = Object.fromEntries(batch.map((node) => [node.key, node.core]))
+  try {
+    return await reviewedTranslation(config, source, locale, context)
+  } catch (error) {
+    if (batch.length === 1) throw error
+    const midpoint = Math.ceil(batch.length / 2)
+    const [left, right] = await Promise.all([
+      translateBatchWithSplit(config, batch.slice(0, midpoint), locale, `${context} split-left`),
+      translateBatchWithSplit(config, batch.slice(midpoint), locale, `${context} split-right`),
+    ])
+    return { ...left, ...right }
+  }
+}
+
 async function translateLongHtml(config, html, locale, context) {
   const { tokens, nodes } = extractTranslatableTextNodes(html)
   const batches = []
@@ -243,8 +274,7 @@ async function translateLongHtml(config, html, locale, context) {
   if (current.length) batches.push(current)
 
   const translatedBatches = await Promise.all(batches.map(async (batch, index) => {
-    const source = Object.fromEntries(batch.map((node) => [node.key, node.core]))
-    const reviewed = await reviewedTranslation(config, source, locale, `${context} text batch ${index + 1}/${batches.length}`)
+    const reviewed = await translateBatchWithSplit(config, batch, locale, `${context} text batch ${index + 1}/${batches.length}`)
     for (const node of batch) {
       if (/[<>]/.test(reviewed[node.key])) throw new Error(`${context}.${locale}.${node.key} injected HTML`)
     }
@@ -341,7 +371,11 @@ async function translateRows(config, table, fieldConfig) {
     if (!Object.keys(source).length) continue
     const rowComplete = Object.keys(source).every((field) => Object.keys(TARGETS).every((locale) => {
       const value = row[`${field}_i18n`]?.[locale]
-      return typeof value === 'string' && value.trim() && !CJK_PATTERN.test(value)
+      if (typeof value !== 'string' || !value.trim()) return false
+      if (locale === 'zh') {
+        return CJK_PATTERN.test(value) || !/[A-Za-z]/.test(source[field])
+      }
+      return !CJK_PATTERN.test(value)
     }))
     if (!FORCE && rowComplete) {
       process.stdout.write(`${table} ${index + 1}/${rows.length} already reviewed; skipped\n`)
