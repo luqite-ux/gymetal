@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Menu, X, Globe } from 'lucide-react'
@@ -13,6 +12,8 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import { SUPPORTED_LOCALES } from '@/lib/locales'
+import { LocalizedLink } from '@/components/localized-link'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,7 +47,7 @@ export function Header() {
         : "border-transparent bg-transparent"
     )}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
+        <LocalizedLink href="/" className="flex items-center gap-2">
           <Image
             src="/logo.webp"
             alt="GY Metal Tech"
@@ -54,12 +55,12 @@ export function Header() {
             height={120}
             className="h-20 w-auto"
           />
-        </Link>
+        </LocalizedLink>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item, index) => (
-            <Link
+            <LocalizedLink
               key={item.href}
               href={item.href}
               className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -67,7 +68,7 @@ export function Header() {
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
+            </LocalizedLink>
           ))}
         </nav>
 
@@ -77,25 +78,26 @@ export function Header() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="gap-2">
                 <Globe className="h-4 w-4" />
-                <span className="hidden sm:inline">{locale === 'en' ? 'EN' : '中文'}</span>
+                <span className="hidden sm:inline">
+                  {SUPPORTED_LOCALES.find((item) => item.code === locale)?.shortLabel ?? 'EN'}
+                </span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setLocale('en')}>
-                English
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setLocale('zh')}>
-                中文
-              </DropdownMenuItem>
+              {SUPPORTED_LOCALES.map((item) => (
+                <DropdownMenuItem key={item.code} onClick={() => setLocale(item.code)}>
+                  {item.label}
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
 
           {/* CTA Button */}
-          <Link href="/contact" className="hidden sm:block">
+          <LocalizedLink href="/contact" className="hidden sm:block">
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
               {t.hero.cta}
             </Button>
-          </Link>
+          </LocalizedLink>
 
           {/* Mobile Menu Button */}
           <button
@@ -115,7 +117,7 @@ export function Header() {
       )}>
         <nav className="container mx-auto flex flex-col px-4 py-4">
           {navItems.map((item, index) => (
-            <Link
+            <LocalizedLink
               key={item.href}
               href={item.href}
               className={cn(
@@ -126,13 +128,13 @@ export function Header() {
               onClick={() => setIsOpen(false)}
             >
               {item.label}
-            </Link>
+            </LocalizedLink>
           ))}
-          <Link href="/contact" className="mt-4" onClick={() => setIsOpen(false)}>
+          <LocalizedLink href="/contact" className="mt-4" onClick={() => setIsOpen(false)}>
             <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 transition-transform hover:scale-[1.02]">
               {t.hero.cta}
             </Button>
-          </Link>
+          </LocalizedLink>
         </nav>
       </div>
     </header>

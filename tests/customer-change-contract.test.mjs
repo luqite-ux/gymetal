@@ -42,8 +42,8 @@ test('every equipment image reference resolves to a bundled customer asset', () 
 test('published news resolves English i18n fields before legacy fields', () => {
   const source = read('lib/frontend-news.ts')
   assert.match(source, /title_i18n, excerpt_i18n, content_i18n/)
-  assert.match(source, /resolveLocalizedText\(row\.title_i18n, row\.title\)/)
-  assert.match(source, /resolveLocalizedText\(row\.content_i18n, row\.content\)/)
+  assert.match(source, /resolveLocalizedText\(row\.title_i18n, row\.title, locale\)/)
+  assert.match(source, /resolveLocalizedText\(row\.content_i18n, row\.content, locale\)/)
   const resolver = source.slice(
     source.indexOf('function resolveLocalizedText'),
     source.indexOf('function normalizeArticle'),

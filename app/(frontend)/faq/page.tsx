@@ -10,10 +10,12 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { MotionDiv } from '@/components/motion'
 import { Package, DollarSign, FlaskConical, Truck, Shield } from 'lucide-react'
+import { pageText } from '@/lib/page-content'
+import { LocalizedLink } from '@/components/localized-link'
 
 export default function FAQPage() {
   const { locale } = useLanguage()
-  const isEn = locale === 'en'
+  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
 
   const faqCategories = [
     {
@@ -222,14 +224,12 @@ export default function FAQPage() {
         <div className="container relative mx-auto px-4 text-center lg:px-8">
           <MotionDiv animation="fade-up">
             <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-              {isEn ? 'Frequently Asked Questions' : '常见问题（FAQ）'}
+              {l('Frequently Asked Questions', '常见问题（FAQ）')}
             </h1>
           </MotionDiv>
           <MotionDiv animation="fade-up" delay={200}>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/80">
-              {isEn 
-                ? 'Find answers to common questions about our products, services, pricing, and quality inspection.'
-                : '查找有关我们产品、服务、价格和质量检验的常见问题解答。'}
+              {l('Find answers to common questions about our products, services, pricing, and quality inspection.', '查找有关我们产品、服务、价格和质量检验的常见问题解答。')}
             </p>
           </MotionDiv>
         </div>
@@ -248,10 +248,10 @@ export default function FAQPage() {
                     </div>
                     <div>
                       <h2 className="text-xl font-bold">
-                        {isEn ? category.titleEn : category.titleZh}
+                        {l(category.titleEn, category.titleZh)}
                       </h2>
                       <Badge variant="secondary" className="mt-1">
-                        {category.questions.length} {isEn ? 'questions' : '个问题'}
+                        {category.questions.length} {l('questions', '个问题')}
                       </Badge>
                     </div>
                   </div>
@@ -259,12 +259,12 @@ export default function FAQPage() {
                   <Accordion type="single" collapsible className="w-full">
                     {category.questions.map((q, qIndex) => (
                       <AccordionItem key={qIndex} value={`${category.id}-${qIndex}`} className="border-border">
-                        <AccordionTrigger className="text-left hover:no-underline hover:text-accent">
-                          <span className="pr-4">{isEn ? q.qEn : q.qZh}</span>
+                        <AccordionTrigger className="text-start hover:no-underline hover:text-accent">
+                          <span className="pe-4">{l(q.qEn, q.qZh)}</span>
                         </AccordionTrigger>
                         <AccordionContent className="text-muted-foreground">
                           <div className="rounded-lg bg-muted/50 p-4">
-                            {isEn ? q.aEn : q.aZh}
+                            {l(q.aEn, q.aZh)}
                           </div>
                         </AccordionContent>
                       </AccordionItem>
@@ -282,20 +282,18 @@ export default function FAQPage() {
         <div className="container mx-auto px-4 text-center lg:px-8">
           <MotionDiv animation="fade-up">
             <h2 className="mb-4 text-2xl font-bold">
-              {isEn ? 'Still have questions?' : '还有其他问题？'}
+              {l('Still have questions?', '还有其他问题？')}
             </h2>
             <p className="mb-8 text-muted-foreground">
-              {isEn 
-                ? 'Contact us directly and we\'ll be happy to help.'
-                : '直接联系我们，我们很乐意为您提供帮助。'}
+              {l("Contact us directly and we'll be happy to help.", '直接联系我们，我们很乐意为您提供帮助。')}
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
+              <LocalizedLink
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 font-medium text-accent-foreground transition-all hover:bg-accent/90 hover:scale-105"
               >
-                {isEn ? 'Contact Us' : '联系我们'}
-              </a>
+                {l('Contact Us', '联系我们')}
+              </LocalizedLink>
               <a
                 href="mailto:support@gymetaltech.com"
                 className="inline-flex items-center justify-center rounded-md border border-border bg-background px-8 py-3 font-medium transition-all hover:bg-muted hover:scale-105"

@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
+import { LocalizedLink } from '@/components/localized-link'
 
 export default function ProductsPage() {
   const { t } = useLanguage()
@@ -170,12 +170,12 @@ export default function ProductsPage() {
           <p className="mx-auto mb-8 max-w-2xl text-primary-foreground/70">
             {t.about.missionText}
           </p>
-          <Link href="/contact">
+          <LocalizedLink href="/contact">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               {t.hero.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </LocalizedLink>
         </div>
       </section>
     </div>

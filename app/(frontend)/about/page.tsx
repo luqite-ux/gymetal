@@ -1,19 +1,21 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Building2, Target, Shield, Clock } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
+import { LocalizedLink } from '@/components/localized-link'
+import { pageText } from '@/lib/page-content'
 
 export default function AboutPage() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
 
   const milestones = [
-    { year: '2007', title: 'Founded', desc: 'Established in Wuxi, China' },
-    { year: '2010', title: 'Expansion', desc: 'Moved to 4,500m² facility' },
-    { year: '2015', title: 'ISO 9001', desc: 'Quality certification achieved' },
-    { year: '2020', title: 'Global', desc: 'Export to 20+ countries' },
+    { year: '2007', title: l('Founded', '成立'), desc: l('Established in Wuxi, China', '在中国无锡成立') },
+    { year: '2010', title: l('Expansion', '扩建'), desc: l('Moved to 4,500m² facility', '迁入4,500平方米厂区') },
+    { year: '2015', title: 'ISO 9001', desc: l('Quality certification achieved', '通过质量体系认证') },
+    { year: '2020', title: l('Global', '全球业务'), desc: l('Export to 20+ countries', '出口至20多个国家') },
   ]
 
   const values = [
@@ -28,7 +30,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/1.jpg"
-            alt="Our Facility"
+            alt={l('Our Facility', '我们的厂区')}
             fill
             className="object-cover opacity-30"
             priority
@@ -83,7 +85,7 @@ export default function AboutPage() {
             <div className="relative aspect-square overflow-hidden rounded-lg lg:aspect-[4/5]">
               <Image
                 src="/images/8.jpg"
-                alt="Our Team"
+                alt={l('Our Team', '我们的团队')}
                 fill
                 className="object-cover"
               />
@@ -97,7 +99,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mb-12 text-center">
             <h2 className="text-balance text-3xl font-bold text-foreground md:text-4xl">
-              Our Journey
+              {l('Our Journey', '发展历程')}
             </h2>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -163,12 +165,12 @@ export default function AboutPage() {
           <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
             {t.about.missionText}
           </p>
-          <Link href="/contact">
+          <LocalizedLink href="/contact">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               {t.hero.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </LocalizedLink>
         </div>
       </section>
     </div>

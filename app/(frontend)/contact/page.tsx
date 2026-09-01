@@ -11,9 +11,11 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { InquiryCaptchaField } from '@/components/inquiry-captcha-field'
+import { pageText } from '@/lib/page-content'
 
 export default function ContactPage() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
@@ -27,7 +29,7 @@ export default function ContactPage() {
     const response = await fetch('/api/inquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
     setCaptchaRefreshKey(key => key + 1)
     setIsSubmitting(false)
-    if (!response.ok) { setError('Submission failed. Please check the verification code and try again.'); return }
+    if (!response.ok) { setError(l('Submission failed. Please check the verification code and try again.', '提交失败，请检查验证码后重试。')); return }
     setSubmitted(true)
   }
 
@@ -97,10 +99,10 @@ export default function ContactPage() {
                     <Send className="h-8 w-8 text-accent" />
                   </div>
                   <h3 className="mb-2 text-xl font-semibold text-foreground">
-                    Message Sent!
+                    {l('Message Sent!', '消息已发送！')}
                   </h3>
                   <p className="text-muted-foreground">
-                    Thank you for contacting us. We will get back to you soon.
+                    {l('Thank you for contacting us. We will get back to you soon.', '感谢您的联系，我们会尽快回复。')}
                   </p>
                   {error ? <p role="alert" className="text-sm text-red-700">{error}</p> : null}
                   <Button
@@ -108,7 +110,7 @@ export default function ContactPage() {
                     variant="outline"
                     onClick={() => setSubmitted(false)}
                   >
-                    Send Another Message
+                    {l('Send Another Message', '发送另一条消息')}
                   </Button>
                 </div>
               ) : (
@@ -148,7 +150,7 @@ export default function ContactPage() {
                       name="message"
                       required
                       rows={5}
-                      placeholder="Tell us about your project requirements..."
+                      placeholder={l('Tell us about your project requirements...', '请告诉我们您的项目需求……')}
                     />
                   </div>
                   <InquiryCaptchaField refreshKey={captchaRefreshKey} />
@@ -159,7 +161,7 @@ export default function ContactPage() {
                     className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Sending...' : t.contact.submit}
+                    {isSubmitting ? l('Sending...', '发送中……') : t.contact.submit}
                   </Button>
                 </form>
               )}
@@ -198,20 +200,20 @@ export default function ContactPage() {
               <div className="rounded-lg border border-border bg-card p-6">
                 <div className="mb-4 flex items-center gap-3">
                   <Clock className="h-5 w-5 text-accent" />
-                  <h3 className="font-semibold text-foreground">Business Hours</h3>
+                  <h3 className="font-semibold text-foreground">{l('Business Hours', '营业时间')}</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Monday - Friday</span>
+                    <span className="text-muted-foreground">{l('Monday - Friday', '周一至周五')}</span>
                     <span className="text-foreground">8:00 AM - 6:00 PM (CST)</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Saturday</span>
+                    <span className="text-muted-foreground">{l('Saturday', '周六')}</span>
                     <span className="text-foreground">8:00 AM - 12:00 PM (CST)</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Sunday</span>
-                    <span className="text-foreground">Closed</span>
+                    <span className="text-muted-foreground">{l('Sunday', '周日')}</span>
+                    <span className="text-foreground">{l('Closed', '休息')}</span>
                   </div>
                 </div>
               </div>
@@ -224,7 +226,7 @@ export default function ContactPage() {
       <section className="bg-secondary py-20">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-foreground">Our Location</h2>
+            <h2 className="text-2xl font-bold text-foreground">{l('Our Location', '我们的位置')}</h2>
             <p className="mt-2 text-muted-foreground">{t.contact.addressValue}</p>
           </div>
           <div className="relative aspect-[21/9] overflow-hidden rounded-lg border border-border">

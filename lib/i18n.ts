@@ -1,7 +1,10 @@
-export type Locale = 'en' | 'zh'
+import generatedTranslations from './generated-translations.json'
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from './locales'
 
-export const locales: Locale[] = ['en', 'zh']
-export const defaultLocale: Locale = 'en'
+export type { Locale } from './locales'
+
+export const locales: Locale[] = SUPPORTED_LOCALES.map((locale) => locale.code)
+export const defaultLocale: Locale = DEFAULT_LOCALE
 
 export const translations = {
   en: {
@@ -15,6 +18,17 @@ export const translations = {
       news: 'News',
       faq: 'FAQ',
       contact: 'Contact',
+    },
+    news: {
+      latestUpdates: 'Latest Updates',
+      title: 'News',
+      emptyTitle: 'No published news yet.',
+      emptyDescription: 'New articles will appear here after publication.',
+      readMore: 'Read more',
+      back: 'Back to News',
+      related: 'Related Articles',
+      noRelated: 'No related articles yet.',
+      noContent: 'No content.',
     },
     // Hero
     hero: {
@@ -124,6 +138,15 @@ export const translations = {
       whatsapp: 'WhatsApp',
       emailLabel: 'Email',
     },
+    captcha: {
+      label: 'Verification code',
+      imageAlt: 'Four-character verification code image',
+      loading: 'Loading…',
+      loadFailed: 'Failed to load',
+      placeholder: 'Enter code',
+      refresh: 'New code',
+      refreshError: 'The verification code failed to load. Select “New code” to try again.',
+    },
     // Footer
     footer: {
       description: 'Your trusted partner for precision metal manufacturing since 2007.',
@@ -159,6 +182,17 @@ export const translations = {
       news: 'News',
       faq: '常见问题',
       contact: '联系我们',
+    },
+    news: {
+      latestUpdates: '最新动态',
+      title: '新闻资讯',
+      emptyTitle: '暂无已发布新闻。',
+      emptyDescription: '后台发布文章后将在此自动显示。',
+      readMore: '阅读更多',
+      back: '返回新闻列表',
+      related: '相关文章',
+      noRelated: '暂无相关文章。',
+      noContent: '暂无正文。',
     },
     // Hero
     hero: {
@@ -268,6 +302,15 @@ export const translations = {
       whatsapp: 'WhatsApp',
       emailLabel: '邮箱',
     },
+    captcha: {
+      label: '验证码',
+      imageAlt: '四位验证码图片',
+      loading: '正在加载…',
+      loadFailed: '加载失败',
+      placeholder: '输入验证码',
+      refresh: '换一张',
+      refreshError: '验证码加载失败，请点击“换一张”重试。',
+    },
     // Footer
     footer: {
       description: '自2007年以来，您值得信赖的精密金属制造合作伙伴。',
@@ -296,6 +339,11 @@ export const translations = {
 
 export type TranslationKey = keyof typeof translations.en
 
+const allTranslations = {
+  ...translations,
+  ...generatedTranslations,
+} as unknown as Record<Locale, typeof translations.en>
+
 export function getTranslations(locale: Locale) {
-  return translations[locale] || translations.en
+  return allTranslations[locale] || translations.en
 }

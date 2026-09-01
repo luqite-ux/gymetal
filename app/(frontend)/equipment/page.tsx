@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Wrench, Microscope, Settings, Target, Ruler, Activity } from 'lucide-react'
 import { MotionDiv } from '@/components/motion'
+import { pageText } from '@/lib/page-content'
 
 // Equipment data with bilingual support
 const machiningEquipment = [
@@ -311,7 +312,7 @@ const testingEquipment = [
 
 export default function EquipmentPage() {
   const { locale, t } = useLanguage()
-  const isEn = locale === 'en'
+  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
 
   return (
     <div className="min-h-screen bg-background">
@@ -347,25 +348,25 @@ export default function EquipmentPage() {
             <div className="text-center">
               <div className="mb-2 text-3xl font-bold text-accent">{machiningEquipment.length}</div>
               <div className="text-sm text-muted-foreground">
-                {isEn ? 'Machining Machines' : '台机加工设备'}
+                {l('Machining Machines', '台机加工设备')}
               </div>
             </div>
             <div className="text-center">
               <div className="mb-2 text-3xl font-bold text-accent">{testingEquipment.length}</div>
               <div className="text-sm text-muted-foreground">
-                {isEn ? 'Testing Devices' : '台检测设备'}
+                {l('Testing Devices', '台检测设备')}
               </div>
             </div>
             <div className="text-center">
               <div className="mb-2 text-3xl font-bold text-accent">0.001mm</div>
               <div className="text-sm text-muted-foreground">
-                {isEn ? 'Best Accuracy' : '最高精度'}
+                {l('Best Accuracy', '最高精度')}
               </div>
             </div>
             <div className="text-center">
               <div className="mb-2 text-3xl font-bold text-accent">5500mm</div>
               <div className="text-sm text-muted-foreground">
-                {isEn ? 'Max Machining Size' : '最大加工尺寸'}
+                {l('Max Machining Size', '最大加工尺寸')}
               </div>
             </div>
           </div>
@@ -397,7 +398,7 @@ export default function EquipmentPage() {
                         {item.image ? (
                           <Image
                             src={item.image}
-                            alt={isEn ? item.nameEn : item.nameCn}
+                            alt={l(item.nameEn, item.nameCn)}
                             fill
                             className="object-cover"
                             onError={(e) => {
@@ -406,8 +407,8 @@ export default function EquipmentPage() {
                             }}
                           />
                         ) : null}
-                        <Badge className="absolute right-2 top-2 bg-accent text-accent-foreground">
-                          {isEn ? item.category : item.categoryCn}
+                        <Badge className="absolute end-2 top-2 bg-accent text-accent-foreground">
+                          {l(item.category, item.categoryCn)}
                         </Badge>
                       </div>
                       <CardHeader className="pb-2">
@@ -416,12 +417,12 @@ export default function EquipmentPage() {
                           {item.model}
                         </CardTitle>
                         <p className="text-sm text-muted-foreground">
-                          {isEn ? item.nameEn : item.nameCn}
+                          {l(item.nameEn, item.nameCn)}
                         </p>
                       </CardHeader>
                       <CardContent>
                         <p className="mb-4 text-sm text-muted-foreground line-clamp-3">
-                          {isEn ? item.descEn : item.descCn}
+                          {l(item.descEn, item.descCn)}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {item.accuracy && item.accuracy !== '-' && (
@@ -460,7 +461,7 @@ export default function EquipmentPage() {
                         {item.image ? (
                           <Image
                             src={item.image}
-                            alt={isEn ? item.nameEn : item.nameCn}
+                            alt={l(item.nameEn, item.nameCn)}
                             fill
                             className="object-cover"
                             onError={(e) => {
@@ -469,8 +470,8 @@ export default function EquipmentPage() {
                             }}
                           />
                         ) : null}
-                        <Badge className="absolute right-2 top-2 bg-accent text-accent-foreground">
-                          {isEn ? item.category : item.categoryCn}
+                        <Badge className="absolute end-2 top-2 bg-accent text-accent-foreground">
+                          {l(item.category, item.categoryCn)}
                         </Badge>
                       </div>
                       <CardHeader className="pb-2">
@@ -479,12 +480,12 @@ export default function EquipmentPage() {
                           {item.model}
                         </CardTitle>
                         <p className="text-sm text-muted-foreground">
-                          {isEn ? item.nameEn : item.nameCn}
+                          {l(item.nameEn, item.nameCn)}
                         </p>
                       </CardHeader>
                       <CardContent>
                         <p className="mb-4 text-sm text-muted-foreground line-clamp-3">
-                          {isEn ? item.descEn : item.descCn}
+                          {l(item.descEn, item.descCn)}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {item.accuracy && item.accuracy !== '-' && (
@@ -509,15 +510,15 @@ export default function EquipmentPage() {
         <div className="container mx-auto px-4 lg:px-8">
           <MotionDiv animation="fade-up">
             <h2 className="mb-8 text-center text-2xl font-bold">
-              {isEn ? 'Equipment Categories' : '设备类别'}
+              {l('Equipment Categories', '设备类别')}
             </h2>
           </MotionDiv>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: isEn ? 'CNC Lathes' : '数控车床', count: 7, icon: Settings },
-              { name: isEn ? 'Vertical Lathes' : '数控立车', count: 3, icon: Wrench },
-              { name: isEn ? 'Boring Mills' : '镗铣床', count: 3, icon: Target },
-              { name: isEn ? 'Machining Centers' : '加工中心', count: 5, icon: Activity },
+              { name: l('CNC Lathes', '数控车床'), count: 7, icon: Settings },
+              { name: l('Vertical Lathes', '数控立车'), count: 3, icon: Wrench },
+              { name: l('Boring Mills', '镗铣床'), count: 3, icon: Target },
+              { name: l('Machining Centers', '加工中心'), count: 5, icon: Activity },
             ].map((cat, idx) => (
               <MotionDiv key={idx} animation="zoom-in" delay={idx * 100}>
                 <Card className="group text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">

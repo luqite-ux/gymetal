@@ -1,0 +1,1066 @@
+{
+  "es": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre Nosotros",
+      "services": "Servicios",
+      "equipment": "Equipos",
+      "products": "Productos",
+      "news": "Noticias",
+      "faq": "Preguntas Frecuentes",
+      "contact": "Contacto"
+    },
+    "hero": {
+      "title": "Fabricación de Metales de Precisión",
+      "subtitle": "Su Socio de Confianza para Mecanizado CNC de Alta Precisión",
+      "description": "Fabricante certificado ISO 9001 especializado en piezas de precisión para las industrias médica, aeroespacial, automotriz y de semiconductores.",
+      "cta": "Solicitar Cotización",
+      "learnMore": "Más Información"
+    },
+    "stats": {
+      "years": "Años de Experiencia",
+      "precision": "Precisión",
+      "employees": "Empleados",
+      "machines": "Máquinas CNC"
+    },
+    "about": {
+      "title": "Acerca de GY Metal Tech",
+      "subtitle": "Excelencia en fabricación de precisión desde 2007",
+      "description": "Wuxi Guangyue Metal Technology Co., Ltd. fue fundada en 2007, ubicada en el No. 219 Xinzhou Road, Meicun, Distrito de Xinwu, Ciudad de Wuxi. Nuestra base de producción cubre aproximadamente 4,500 metros cuadrados con más de 50 empleados y más de 20 máquinas herramienta de alta precisión importadas.",
+      "description2": "Nos especializamos en mecanizado de piezas de alta precisión, capaces de producir piezas fundidas y forjadas en acero al carbono, acero inoxidable, aleación de aluminio y materiales de cobre.",
+      "mission": "Nuestra Misión",
+      "missionText": "Alta calidad, precios competitivos, entrega oportuna y excelente servicio: poniendo al cliente primero.",
+      "certification": "Certificado ISO9001",
+      "certificationText": "Hemos pasado la certificación del sistema de gestión de calidad ISO9001 y tenemos derechos de importación y exportación independientes."
+    },
+    "services": {
+      "title": "Nuestras Capacidades",
+      "subtitle": "Servicios Integrales de Mecanizado de Precisión",
+      "turning": "Torneado CNC",
+      "turningDesc": "Operaciones de torneado de alta precisión para piezas cilíndricas complejas",
+      "milling": "Fresado CNC",
+      "millingDesc": "Fresado multieje para geometrías y superficies intrincadas",
+      "drilling": "Taladrado",
+      "drillingDesc": "Operaciones de taladrado de precisión con tolerancias ajustadas",
+      "grinding": "Rectificado",
+      "grindingDesc": "Rectificado de superficies y cilíndrico para acabado superior",
+      "wirecut": "Corte por Hilo (EDM)",
+      "wirecutDesc": "Corte por hilo para formas complejas y materiales duros",
+      "edm": "EDM",
+      "edmDesc": "Mecanizado por descarga eléctrica para cavidades detalladas",
+      "laser": "Corte Láser",
+      "laserDesc": "Corte láser de alta precisión para diversos materiales",
+      "sheetmetal": "Chapa Metálica",
+      "sheetmetalDesc": "Servicios completos de fabricación de chapa metálica"
+    },
+    "materials": {
+      "title": "Materiales con los que Trabajamos",
+      "carbonSteel": "Acero al Carbono",
+      "stainlessSteel": "Acero Inoxidable",
+      "aluminum": "Aleación de Aluminio",
+      "copper": "Cobre"
+    },
+    "industries": {
+      "title": "Industrias a las que servimos",
+      "subtitle": "Con la confianza de empresas líderes en todo el mundo",
+      "medical": "Médico",
+      "electronics": "Electrónica",
+      "aerospace": "Aeroespacial",
+      "automotive": "Automotriz",
+      "semiconductor": "Semiconductores",
+      "optical": "Óptica",
+      "newEnergy": "Nueva energía",
+      "automation": "Automatización"
+    },
+    "specs": {
+      "title": "Especificaciones Técnicas",
+      "sizeRange": "Rango de Tamaños",
+      "sizeValue": "20mm - 5000mm",
+      "precision": "Precisión",
+      "precisionValue": "±0.005mm",
+      "facility": "Tamaño de Instalaciones",
+      "facilityValue": "4,500 m²",
+      "equipment": "Equipamiento",
+      "equipmentValue": "20+ Máquinas CNC"
+    },
+    "products": {
+      "title": "Nuestros Productos",
+      "subtitle": "Piezas de Precisión para Cada Industria",
+      "castings": "Fundiciones",
+      "castingsDesc": "Fundiciones metálicas de alta calidad en diversos materiales",
+      "forgings": "Forjas",
+      "forgingsDesc": "Componentes forjados de precisión para aplicaciones exigentes",
+      "machined": "Piezas Mecanizadas",
+      "machinedDesc": "Componentes personalizados mecanizados por CNC según sus especificaciones",
+      "assemblies": "Ensamblajes",
+      "assembliesDesc": "Subensamblajes completos y ensamblajes mecánicos"
+    },
+    "contact": {
+      "title": "Contáctenos",
+      "subtitle": "Póngase en contacto para su próximo proyecto",
+      "name": "Su nombre",
+      "email": "Dirección de correo electrónico",
+      "phone": "Número de teléfono",
+      "message": "Su mensaje",
+      "submit": "Enviar mensaje",
+      "address": "Dirección",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "Teléfono",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "Correo electrónico"
+    },
+    "footer": {
+      "description": "Su socio de confianza en la fabricación de metales de precisión desde 2007.",
+      "quickLinks": "Enlaces rápidos",
+      "contactInfo": "Información de contacto",
+      "rights": "Todos los derechos reservados.",
+      "company": "Wuxi Guangyue Metal Technology Co., Ltd."
+    },
+    "equipment": {
+      "title": "Nuestro Equipo",
+      "subtitle": "Máquinas CNC Avanzadas y Equipos de Prueba",
+      "machining": "Equipo de Mecanizado",
+      "testing": "Equipo de Pruebas",
+      "model": "Modelo",
+      "category": "Categoría",
+      "description": "Descripción",
+      "specs": "Especificaciones",
+      "machiningRange": "Rango de Mecanizado",
+      "accuracy": "Precisión",
+      "maxDiameter": "Diámetro Máximo",
+      "application": "Aplicación"
+    },
+    "news": {
+      "latestUpdates": "Últimas actualizaciones",
+      "title": "Noticias",
+      "emptyTitle": "Aún no hay noticias publicadas.",
+      "emptyDescription": "Los nuevos artículos aparecerán aquí después de su publicación.",
+      "readMore": "Leer más",
+      "back": "Volver a Noticias",
+      "related": "Artículos relacionados",
+      "noRelated": "Aún no hay artículos relacionados.",
+      "noContent": "Sin contenido."
+    },
+    "captcha": {
+      "label": "Código de verificación",
+      "imageAlt": "Imagen de código de verificación de cuatro caracteres",
+      "loading": "Cargando…",
+      "loadFailed": "Error al cargar",
+      "placeholder": "Introduce el código",
+      "refresh": "Nuevo código",
+      "refreshError": "No se pudo cargar el código de verificación. Selecciona “Nuevo código” para intentarlo de nuevo."
+    }
+  },
+  "pt": {
+    "nav": {
+      "home": "Início",
+      "about": "Sobre Nós",
+      "services": "Serviços",
+      "equipment": "Equipamentos",
+      "products": "Produtos",
+      "news": "Notícias",
+      "faq": "FAQ",
+      "contact": "Contato"
+    },
+    "hero": {
+      "title": "Fabricação de Metais de Precisão",
+      "subtitle": "Seu Parceiro de Confiança para Usinagem CNC de Alta Precisão",
+      "description": "Fabricante certificado ISO 9001 especializado em peças de precisão para as indústrias médica, aeroespacial, automotiva e de semicondutores.",
+      "cta": "Solicitar Orçamento",
+      "learnMore": "Saiba Mais"
+    },
+    "stats": {
+      "years": "Anos de Experiência",
+      "precision": "Precisão",
+      "employees": "Funcionários",
+      "machines": "Máquinas CNC"
+    },
+    "about": {
+      "title": "Sobre a GY Metal Tech",
+      "subtitle": "Excelência em Manufatura de Precisão desde 2007",
+      "description": "A Wuxi Guangyue Metal Technology Co., Ltd. foi fundada em 2007, localizada na No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Nossa base de produção cobre aproximadamente 4.500 metros quadrados, com mais de 50 funcionários e mais de 20 máquinas-ferramenta importadas de alta precisão.",
+      "description2": "Somos especializados em usinagem de peças de alta precisão, capazes de produzir fundidos e forjados em aço carbono, aço inoxidável, liga de alumínio e cobre.",
+      "mission": "Nossa Missão",
+      "missionText": "Alta qualidade, preços competitivos, entrega pontual e excelente serviço - colocando os clientes em primeiro lugar.",
+      "certification": "Certificado ISO9001",
+      "certificationText": "Passamos pela certificação do sistema de gestão de qualidade ISO9001 e possuímos direitos independentes de importação e exportação."
+    },
+    "services": {
+      "title": "Nossas Capacidades",
+      "subtitle": "Serviços Abrangentes de Usinagem de Precisão",
+      "turning": "Torneamento CNC",
+      "turningDesc": "Operações de torneamento de alta precisão para peças cilíndricas complexas",
+      "milling": "Fresamento CNC",
+      "millingDesc": "Fresamento multieixos para geometrias e superfícies intrincadas",
+      "drilling": "Furação",
+      "drillingDesc": "Operações de furação de precisão com tolerâncias apertadas",
+      "grinding": "Retificação",
+      "grindingDesc": "Retificação de superfície e cilíndrica para acabamento superior",
+      "wirecut": "EDM a Fio",
+      "wirecutDesc": "Corte a fio para formas complexas e materiais duros",
+      "edm": "EDM",
+      "edmDesc": "Usinagem por descarga elétrica para cavidades detalhadas",
+      "laser": "Corte a Laser",
+      "laserDesc": "Corte a laser de alta precisão para vários materiais",
+      "sheetmetal": "Chapas Metálicas",
+      "sheetmetalDesc": "Serviços completos de fabricação de chapas metálicas"
+    },
+    "materials": {
+      "title": "Materiais com os quais Trabalhamos",
+      "carbonSteel": "Aço Carbono",
+      "stainlessSteel": "Aço Inoxidável",
+      "aluminum": "Liga de Alumínio",
+      "copper": "Cobre"
+    },
+    "industries": {
+      "title": "Setores que Atendemos",
+      "subtitle": "Confiado por Empresas Líderes em Todo o Mundo",
+      "medical": "Médico",
+      "electronics": "Eletrônicos",
+      "aerospace": "Aeroespacial",
+      "automotive": "Automotivo",
+      "semiconductor": "Semicondutores",
+      "optical": "Óptico",
+      "newEnergy": "Nova Energia",
+      "automation": "Automação"
+    },
+    "specs": {
+      "title": "Especificações Técnicas",
+      "sizeRange": "Faixa de Tamanho",
+      "sizeValue": "20mm - 5000mm",
+      "precision": "Precisão",
+      "precisionValue": "±0.005mm",
+      "facility": "Tamanho da Instalação",
+      "facilityValue": "4.500 m²",
+      "equipment": "Equipamentos",
+      "equipmentValue": "20+ Máquinas CNC"
+    },
+    "products": {
+      "title": "Nossos Produtos",
+      "subtitle": "Peças de Precisão para Cada Indústria",
+      "castings": "Fundidos",
+      "castingsDesc": "Fundidos metálicos de alta qualidade em vários materiais",
+      "forgings": "Forjados",
+      "forgingsDesc": "Componentes forjados de precisão para aplicações exigentes",
+      "machined": "Peças Usinadas",
+      "machinedDesc": "Componentes personalizados usinados por CNC conforme suas especificações",
+      "assemblies": "Conjuntos",
+      "assembliesDesc": "Subconjuntos completos e conjuntos mecânicos"
+    },
+    "contact": {
+      "title": "Fale Conosco",
+      "subtitle": "Entre em Contato para o Seu Próximo Projeto",
+      "name": "Seu Nome",
+      "email": "Endereço de E-mail",
+      "phone": "Número de Telefone",
+      "message": "Sua Mensagem",
+      "submit": "Enviar Mensagem",
+      "address": "Endereço",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "Telefone",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "E-mail"
+    },
+    "footer": {
+      "description": "Seu parceiro de confiança em fabricação de precisão de metais desde 2007.",
+      "quickLinks": "Links Rápidos",
+      "contactInfo": "Informações de Contato",
+      "rights": "Todos os direitos reservados.",
+      "company": "Wuxi Guangyue Metal Technology Co., Ltd."
+    },
+    "equipment": {
+      "title": "Nossos Equipamentos",
+      "subtitle": "Máquinas CNC Avançadas e Equipamentos de Teste",
+      "machining": "Equipamentos de Usinagem",
+      "testing": "Equipamentos de Teste",
+      "model": "Modelo",
+      "category": "Categoria",
+      "description": "Descrição",
+      "specs": "Especificações",
+      "machiningRange": "Faixa de Usinagem",
+      "accuracy": "Precisão",
+      "maxDiameter": "Diâmetro Máximo",
+      "application": "Aplicação"
+    },
+    "news": {
+      "latestUpdates": "Últimas Atualizações",
+      "title": "Notícias",
+      "emptyTitle": "Nenhuma notícia publicada ainda.",
+      "emptyDescription": "Novos artigos aparecerão aqui após a publicação.",
+      "readMore": "Leia mais",
+      "back": "Voltar para Notícias",
+      "related": "Artigos Relacionados",
+      "noRelated": "Nenhum artigo relacionado ainda.",
+      "noContent": "Sem conteúdo."
+    },
+    "captcha": {
+      "label": "Código de verificação",
+      "imageAlt": "Imagem do código de verificação de quatro caracteres",
+      "loading": "Carregando…",
+      "loadFailed": "Falha ao carregar",
+      "placeholder": "Digite o código",
+      "refresh": "Novo código",
+      "refreshError": "Falha ao carregar o código de verificação. Selecione “Novo código” para tentar novamente."
+    }
+  },
+  "fr": {
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "services": "Services",
+      "equipment": "Équipement",
+      "products": "Produits",
+      "news": "Actualités",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title": "Fabrication de précision en métal",
+      "subtitle": "Votre partenaire de confiance pour l'usinage CNC de haute précision",
+      "description": "Fabricant certifié ISO9001 spécialisé dans les pièces de précision pour les industries médicale, aérospatiale, automobile et des semi-conducteurs.",
+      "cta": "Obtenir un devis",
+      "learnMore": "En savoir plus"
+    },
+    "stats": {
+      "years": "Années d'expérience",
+      "precision": "Précision",
+      "employees": "Employés",
+      "machines": "Machines CNC"
+    },
+    "about": {
+      "title": "À propos de GY Metal Tech",
+      "subtitle": "Excellence dans la fabrication de précision depuis 2007",
+      "description": "Wuxi Guangyue Metal Technology Co., Ltd. a été fondée en 2007, située au 219 Xinzhou Road, Meicun, district de Xinwu, ville de Wuxi. Notre base de production couvre environ 4 500 mètres carrés avec plus de 50 employés et plus de 20 machines-outils de haute précision importées.",
+      "description2": "Nous sommes spécialisés dans l'usinage de pièces de haute précision, capables de produire des pièces moulées et forgées en acier au carbone, acier inoxydable, alliage d'aluminium et cuivre.",
+      "mission": "Notre mission",
+      "missionText": "Haute qualité, prix compétitifs, livraison rapide et excellent service - placer les clients en premier.",
+      "certification": "Certifié ISO9001",
+      "certificationText": "Nous avons obtenu la certification du système de gestion de la qualité ISO9001 et détenons des droits d'importation et d'exportation indépendants."
+    },
+    "services": {
+      "title": "Nos capacités",
+      "subtitle": "Services complets d'usinage de précision",
+      "turning": "Tournage CNC",
+      "turningDesc": "Opérations de tournage de haute précision pour pièces cylindriques complexes",
+      "milling": "Fraisage CNC",
+      "millingDesc": "Fraisage multi-axes pour géométries et surfaces complexes",
+      "drilling": "Perçage",
+      "drillingDesc": "Opérations de perçage de précision avec tolérances serrées",
+      "grinding": "Rectification",
+      "grindingDesc": "Rectification plane et cylindrique pour une finition supérieure",
+      "wirecut": "Électroérosion à fil",
+      "wirecutDesc": "Découpe au fil pour formes complexes et matériaux durs",
+      "edm": "Électroérosion",
+      "edmDesc": "Usinage par décharge électrique pour cavités détaillées",
+      "laser": "Découpe laser",
+      "laserDesc": "Découpe laser de haute précision pour divers matériaux",
+      "sheetmetal": "Tôlerie",
+      "sheetmetalDesc": "Services complets de fabrication de tôlerie"
+    },
+    "materials": {
+      "title": "Matériaux avec lesquels nous travaillons",
+      "carbonSteel": "Acier au carbone",
+      "stainlessSteel": "Acier inoxydable",
+      "aluminum": "Alliage d'aluminium",
+      "copper": "Cuivre"
+    },
+    "industries": {
+      "title": "Secteurs que nous servons",
+      "subtitle": "Approuvé par les grandes entreprises du monde entier",
+      "medical": "Médical",
+      "electronics": "Électronique",
+      "aerospace": "Aérospatial",
+      "automotive": "Automobile",
+      "semiconductor": "Semi-conducteur",
+      "optical": "Optique",
+      "newEnergy": "Nouvelles énergies",
+      "automation": "Automatisation"
+    },
+    "specs": {
+      "title": "Spécifications techniques",
+      "sizeRange": "Plage de tailles",
+      "sizeValue": "20 mm - 5 000 mm",
+      "precision": "Précision",
+      "precisionValue": "±0,005 mm",
+      "facility": "Taille de l'installation",
+      "facilityValue": "4 500 m²",
+      "equipment": "Équipement",
+      "equipmentValue": "20+ machines CNC"
+    },
+    "products": {
+      "title": "Nos Produits",
+      "subtitle": "Pièces de Précision pour Chaque Industrie",
+      "castings": "Pièces Coulées",
+      "castingsDesc": "Pièces coulées en métal de haute qualité dans divers matériaux",
+      "forgings": "Pièces Forgées",
+      "forgingsDesc": "Composants forgés de précision pour applications exigeantes",
+      "machined": "Pièces Usinées",
+      "machinedDesc": "Composants usinés CNC personnalisés selon vos spécifications",
+      "assemblies": "Assemblages",
+      "assembliesDesc": "Sous-ensembles complets et assemblages mécaniques"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "subtitle": "Entrez en contact pour votre prochain projet",
+      "name": "Votre nom",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
+      "message": "Votre message",
+      "submit": "Envoyer le message",
+      "address": "Adresse",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "Téléphone",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "E-mail"
+    },
+    "footer": {
+      "description": "Votre partenaire de confiance pour la fabrication de précision en métal depuis 2007.",
+      "quickLinks": "Liens rapides",
+      "contactInfo": "Coordonnées",
+      "rights": "Tous droits réservés.",
+      "company": "Wuxi Guangyue Metal Technology Co., Ltd."
+    },
+    "equipment": {
+      "title": "Notre équipement",
+      "subtitle": "Machines CNC avancées et équipements de test",
+      "machining": "Équipement d'usinage",
+      "testing": "Équipement de test",
+      "model": "Modèle",
+      "category": "Catégorie",
+      "description": "Description",
+      "specs": "Spécifications",
+      "machiningRange": "Gamme d'usinage",
+      "accuracy": "Précision",
+      "maxDiameter": "Diamètre maximal",
+      "application": "Application"
+    },
+    "news": {
+      "latestUpdates": "Dernières mises à jour",
+      "title": "Actualités",
+      "emptyTitle": "Aucune actualité publiée pour le moment.",
+      "emptyDescription": "Les nouveaux articles apparaîtront ici après leur publication.",
+      "readMore": "Lire la suite",
+      "back": "Retour aux actualités",
+      "related": "Articles connexes",
+      "noRelated": "Aucun article connexe pour le moment.",
+      "noContent": "Aucun contenu."
+    },
+    "captcha": {
+      "label": "Code de vérification",
+      "imageAlt": "Image de code de vérification à quatre caractères",
+      "loading": "Chargement…",
+      "loadFailed": "Échec du chargement",
+      "placeholder": "Saisissez le code",
+      "refresh": "Nouveau code",
+      "refreshError": "Le code de vérification n'a pas pu être chargé. Sélectionnez « Nouveau code » pour réessayer."
+    }
+  },
+  "ar": {
+    "nav": {
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "services": "الخدمات",
+      "equipment": "المعدات",
+      "products": "المنتجات",
+      "news": "الأخبار",
+      "faq": "الأسئلة الشائعة",
+      "contact": "اتصل بنا"
+    },
+    "hero": {
+      "title": "تصنيع المعادن بدقة عالية",
+      "subtitle": "شريكك الموثوق للتصنيع باستخدام الحاسب الآلي عالي الدقة",
+      "description": "مصنع معتمد ISO9001 متخصص في الأجزاء الدقيقة لصناعات الطبية والفضاء والسيارات وأشباه الموصلات.",
+      "cta": "احصل على عرض سعر",
+      "learnMore": "اعرف المزيد"
+    },
+    "stats": {
+      "years": "سنوات الخبرة",
+      "precision": "الدقة",
+      "employees": "الموظفون",
+      "machines": "ماكينات CNC"
+    },
+    "about": {
+      "title": "حول GY Metal Tech",
+      "subtitle": "التميز في التصنيع الدقيق منذ 2007",
+      "description": "تأسست شركة Wuxi Guangyue Metal Technology Co., Ltd. في عام 2007، وتقع في No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. تبلغ مساحة قاعدة الإنتاج لدينا حوالي 4,500 متر مربع مع أكثر من 50 موظفًا وأكثر من 20 أداة آلية عالية الدقة مستوردة.",
+      "description2": "نحن متخصصون في تصنيع الأجزاء عالية الدقة، وقادرون على إنتاج المسبوكات والمطروقات من الفولاذ الكربوني والفولاذ المقاوم للصدأ وسبائك الألومنيوم والنحاس.",
+      "mission": "مهمتنا",
+      "missionText": "جودة عالية، أسعار تنافسية، تسليم في الوقت المحدد، وخدمة ممتازة - وضع العملاء أولاً.",
+      "certification": "معتمد ISO9001",
+      "certificationText": "لقد اجتزنا شهادة نظام إدارة الجودة ISO9001 ولدينا حقوق استيراد وتصدير مستقلة."
+    },
+    "services": {
+      "title": "قدراتنا",
+      "subtitle": "خدمات تصنيع دقيقة شاملة",
+      "turning": "خراطة CNC",
+      "turningDesc": "عمليات خراطة عالية الدقة للأجزاء الأسطوانية المعقدة",
+      "milling": "تفريز CNC",
+      "millingDesc": "تفريز متعدد المحاور للأشكال والأسطح المعقدة",
+      "drilling": "حفر",
+      "drillingDesc": "عمليات حفر دقيقة بتفاوتات ضيقة",
+      "grinding": "تجليخ",
+      "grindingDesc": "تجليخ سطحي وأسطواني لتشطيب فائق",
+      "wirecut": "قطع بالأسلاك (EDM)",
+      "wirecutDesc": "قطع بالأسلاك للأشكال المعقدة والمواد الصلبة",
+      "edm": "EDM",
+      "edmDesc": "تصنيع بالتفريغ الكهربائي للتجاويف التفصيلية",
+      "laser": "قطع بالليزر",
+      "laserDesc": "قطع بالليزر عالي الدقة لمختلف المواد",
+      "sheetmetal": "صفائح معدنية",
+      "sheetmetalDesc": "خدمات تصنيع الصفائح المعدنية الكاملة"
+    },
+    "materials": {
+      "title": "المواد التي نعمل بها",
+      "carbonSteel": "الفولاذ الكربوني",
+      "stainlessSteel": "الفولاذ المقاوم للصدأ",
+      "aluminum": "سبائك الألومنيوم",
+      "copper": "النحاس"
+    },
+    "industries": {
+      "title": "الصناعات التي نخدمها",
+      "subtitle": "موثوق به من قبل الشركات الرائدة عالميًا",
+      "medical": "القطاع الطبي",
+      "electronics": "الإلكترونيات",
+      "aerospace": "الفضاء الجوي",
+      "automotive": "السيارات",
+      "semiconductor": "أشباه الموصلات",
+      "optical": "البصريات",
+      "newEnergy": "الطاقة الجديدة",
+      "automation": "الأتمتة"
+    },
+    "specs": {
+      "title": "المواصفات الفنية",
+      "sizeRange": "نطاق الحجم",
+      "sizeValue": "20 مم - 5000 مم",
+      "precision": "الدقة",
+      "precisionValue": "±0.005 مم",
+      "facility": "حجم المنشأة",
+      "facilityValue": "4,500 م²",
+      "equipment": "المعدات",
+      "equipmentValue": "20+ ماكينات CNC"
+    },
+    "products": {
+      "title": "منتجاتنا",
+      "subtitle": "أجزاء دقيقة لكل صناعة",
+      "castings": "المسبوكات",
+      "castingsDesc": "مسبوكات معدنية عالية الجودة بمواد مختلفة",
+      "forgings": "المطروقات",
+      "forgingsDesc": "مكونات مطروقة بدقة للتطبيقات الصعبة",
+      "machined": "الأجزاء المشغلة",
+      "machinedDesc": "مكونات مخصصة مشغلة بالتحكم الرقمي حسب مواصفاتك",
+      "assemblies": "التجميعات",
+      "assembliesDesc": "تجميعات فرعية وتجميعات ميكانيكية كاملة"
+    },
+    "contact": {
+      "title": "اتصل بنا",
+      "subtitle": "تواصل معنا لمشروعك القادم",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "message": "رسالتك",
+      "submit": "إرسال",
+      "address": "العنوان",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "الهاتف",
+      "whatsapp": "واتساب",
+      "emailLabel": "البريد الإلكتروني"
+    },
+    "footer": {
+      "description": "شريكك الموثوق في تصنيع المعادن الدقيقة منذ عام 2007.",
+      "quickLinks": "روابط سريعة",
+      "contactInfo": "معلومات الاتصال",
+      "rights": "جميع الحقوق محفوظة.",
+      "company": "شركة ووشي قوانغيو لتكنولوجيا المعادن المحدودة"
+    },
+    "equipment": {
+      "title": "معداتنا",
+      "subtitle": "آلات CNC المتقدمة ومعدات الاختبار",
+      "machining": "معدات التصنيع",
+      "testing": "معدات الاختبار",
+      "model": "الطراز",
+      "category": "الفئة",
+      "description": "الوصف",
+      "specs": "المواصفات",
+      "machiningRange": "نطاق التصنيع",
+      "accuracy": "الدقة",
+      "maxDiameter": "الحد الأقصى للقطر",
+      "application": "التطبيق"
+    },
+    "news": {
+      "latestUpdates": "آخر التحديثات",
+      "title": "الأخبار",
+      "emptyTitle": "لا توجد أخبار منشورة بعد.",
+      "emptyDescription": "ستظهر المقالات الجديدة هنا بعد النشر.",
+      "readMore": "اقرأ المزيد",
+      "back": "العودة إلى الأخبار",
+      "related": "مقالات ذات صلة",
+      "noRelated": "لا توجد مقالات ذات صلة بعد.",
+      "noContent": "لا يوجد محتوى."
+    },
+    "captcha": {
+      "label": "رمز التحقق",
+      "imageAlt": "صورة رمز التحقق المكون من أربعة أحرف",
+      "loading": "جارٍ التحميل…",
+      "loadFailed": "فشل التحميل",
+      "placeholder": "أدخل الرمز",
+      "refresh": "رمز جديد",
+      "refreshError": "فشل تحميل رمز التحقق. اختر “رمز جديد” للمحاولة مرة أخرى."
+    }
+  },
+  "el": {
+    "nav": {
+      "home": "Αρχική",
+      "about": "Σχετικά με εμάς",
+      "services": "Υπηρεσίες",
+      "equipment": "Εξοπλισμός",
+      "products": "Προϊόντα",
+      "news": "Νέα",
+      "faq": "Συχνές Ερωτήσεις",
+      "contact": "Επικοινωνία"
+    },
+    "hero": {
+      "title": "Κατασκευή Μεταλλικών Προϊόντων Ακριβείας",
+      "subtitle": "Ο Αξιόπιστος Συνεργάτης σας για Κατεργασία CNC Υψηλής Ακρίβειας",
+      "description": "Πιστοποιημένος κατασκευαστής ISO9001 που ειδικεύεται σε εξαρτήματα ακριβείας για ιατρικές, αεροδιαστημικές, αυτοκινητοβιομηχανίες και βιομηχανίες ημιαγωγών.",
+      "cta": "Λάβετε Προσφορά",
+      "learnMore": "Μάθετε Περισσότερα"
+    },
+    "stats": {
+      "years": "Χρόνια Εμπειρίας",
+      "precision": "Ακρίβεια",
+      "employees": "Εργαζόμενοι",
+      "machines": "Μηχανές CNC"
+    },
+    "about": {
+      "title": "Σχετικά με την GY Metal Tech",
+      "subtitle": "Αριστεία στην Κατεργασία Ακριβείας από το 2007",
+      "description": "Η Wuxi Guangyue Metal Technology Co., Ltd. ιδρύθηκε το 2007 και βρίσκεται στο No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Η παραγωγική μας βάση καλύπτει περίπου 4.500 τετραγωνικά μέτρα με περισσότερους από 50 υπαλλήλους και περισσότερα από 20 εισαγόμενα μηχανήματα υψηλής ακρίβειας.",
+      "description2": "Ειδικευόμαστε στην κατεργασία εξαρτημάτων υψηλής ακρίβειας, με δυνατότητα παραγωγής χυτών και σφυρηλατητών από ανθρακούχο χάλυβα, ανοξείδωτο χάλυβα, κράμα αλουμινίου και χαλκό.",
+      "mission": "Η Αποστολή μας",
+      "missionText": "Υψηλή ποιότητα, ανταγωνιστικές τιμές, έγκαιρη παράδοση και εξαιρετική εξυπηρέτηση - με τον πελάτη πρώτο.",
+      "certification": "Πιστοποίηση ISO9001",
+      "certificationText": "Έχουμε περάσει την πιστοποίηση συστήματος διαχείρισης ποιότητας ISO9001 και διαθέτουμε ανεξάρτητα δικαιώματα εισαγωγών και εξαγωγών."
+    },
+    "services": {
+      "title": "Οι Δυνατότητές μας",
+      "subtitle": "Ολοκληρωμένες Υπηρεσίες Κατεργασίας Ακριβείας",
+      "turning": "Τόρνευση CNC",
+      "turningDesc": "Εργασίες τόρνευσης υψηλής ακρίβειας για πολύπλοκα κυλινδρικά εξαρτήματα",
+      "milling": "Φρεζάρισμα CNC",
+      "millingDesc": "Φρεζάρισμα πολλαπλών αξόνων για πολύπλοκες γεωμετρίες και επιφάνειες",
+      "drilling": "Διάτρηση",
+      "drillingDesc": "Εργασίες διάτρησης ακριβείας με αυστηρές ανοχές",
+      "grinding": "Λείανση",
+      "grindingDesc": "Επιφανειακή και κυλινδρική λείανση για ανώτερο φινίρισμα",
+      "wirecut": "Κοπή με Σύρμα EDM",
+      "wirecutDesc": "Κοπή με σύρμα για πολύπλοκα σχήματα και σκληρά υλικά",
+      "edm": "EDM",
+      "edmDesc": "Κατεργασία με ηλεκτρικές εκκενώσεις για λεπτομερείς κοιλότητες",
+      "laser": "Κοπή με Laser",
+      "laserDesc": "Κοπή με laser υψηλής ακρίβειας για διάφορα υλικά",
+      "sheetmetal": "Λαμαρίνα",
+      "sheetmetalDesc": "Ολοκληρωμένες υπηρεσίες κατασκευής λαμαρίνας"
+    },
+    "materials": {
+      "title": "Υλικά με τα οποία Εργαζόμαστε",
+      "carbonSteel": "Ανθρακούχος Χάλυβας",
+      "stainlessSteel": "Ανοξείδωτος Χάλυβας",
+      "aluminum": "Κράμα Αλουμινίου",
+      "copper": "Χαλκός"
+    },
+    "industries": {
+      "title": "Κλάδοι που Εξυπηρετούμε",
+      "subtitle": "Αξιόπιστοι από Κορυφαίες Εταιρείες Παγκοσμίως",
+      "medical": "Ιατρικός",
+      "electronics": "Ηλεκτρονικά",
+      "aerospace": "Αεροδιαστημικός",
+      "automotive": "Αυτοκινητοβιομηχανία",
+      "semiconductor": "Ημιαγωγοί",
+      "optical": "Οπτικός",
+      "newEnergy": "Νέα Ενέργεια",
+      "automation": "Αυτοματισμός"
+    },
+    "specs": {
+      "title": "Τεχνικές Προδιαγραφές",
+      "sizeRange": "Εύρος Μεγεθών",
+      "sizeValue": "20mm - 5000mm",
+      "precision": "Ακρίβεια",
+      "precisionValue": "±0.005mm",
+      "facility": "Μέγεθος Εγκατάστασης",
+      "facilityValue": "4.500 m²",
+      "equipment": "Εξοπλισμός",
+      "equipmentValue": "20+ Μηχανές CNC"
+    },
+    "products": {
+      "title": "Τα Προϊόντα μας",
+      "subtitle": "Εξαρτήματα Ακριβείας για Κάθε Βιομηχανία",
+      "castings": "Χυτά",
+      "castingsDesc": "Χυτά μεταλλικά εξαρτήματα υψηλής ποιότητας σε διάφορα υλικά",
+      "forgings": "Σφυρήλατα",
+      "forgingsDesc": "Σφυρήλατα εξαρτήματα ακριβείας για απαιτητικές εφαρμογές",
+      "machined": "Κατεργασμένα Εξαρτήματα",
+      "machinedDesc": "Προσαρμοσμένα εξαρτήματα CNC σύμφωνα με τις προδιαγραφές σας",
+      "assemblies": "Συναρμολογήσεις",
+      "assembliesDesc": "Πλήρεις υποσυναρμολογήσεις και μηχανικές συναρμολογήσεις"
+    },
+    "contact": {
+      "title": "Επικοινωνήστε μαζί μας",
+      "subtitle": "Ελάτε σε επαφή για το επόμενο έργο σας",
+      "name": "Το όνομά σας",
+      "email": "Διεύθυνση email",
+      "phone": "Αριθμός τηλεφώνου",
+      "message": "Το μήνυμά σας",
+      "submit": "Αποστολή μηνύματος",
+      "address": "Διεύθυνση",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "Τηλέφωνο",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "Email"
+    },
+    "footer": {
+      "description": "Ο αξιόπιστος συνεργάτης σας στην κατασκευή ακριβείας μετάλλων από το 2007.",
+      "quickLinks": "Γρήγοροι Σύνδεσμοι",
+      "contactInfo": "Στοιχεία Επικοινωνίας",
+      "rights": "Με επιφύλαξη παντός δικαιώματος.",
+      "company": "Wuxi Guangyue Metal Technology Co., Ltd."
+    },
+    "equipment": {
+      "title": "Ο Εξοπλισμός μας",
+      "subtitle": "Προηγμένες Μηχανές CNC & Εξοπλισμός Δοκιμών",
+      "machining": "Εξοπλισμός Κατεργασίας",
+      "testing": "Εξοπλισμός Δοκιμών",
+      "model": "Μοντέλο",
+      "category": "Κατηγορία",
+      "description": "Περιγραφή",
+      "specs": "Προδιαγραφές",
+      "machiningRange": "Εύρος Κατεργασίας",
+      "accuracy": "Ακρίβεια",
+      "maxDiameter": "Μέγιστη Διάμετρος",
+      "application": "Εφαρμογή"
+    },
+    "news": {
+      "latestUpdates": "Τελευταίες Ενημερώσεις",
+      "title": "Νέα",
+      "emptyTitle": "Δεν υπάρχουν δημοσιευμένα νέα ακόμα.",
+      "emptyDescription": "Νέα άρθρα θα εμφανίζονται εδώ μετά τη δημοσίευση.",
+      "readMore": "Διαβάστε περισσότερα",
+      "back": "Επιστροφή στα Νέα",
+      "related": "Σχετικά Άρθρα",
+      "noRelated": "Δεν υπάρχουν σχετικά άρθρα ακόμα.",
+      "noContent": "Δεν υπάρχει περιεχόμενο."
+    },
+    "captcha": {
+      "label": "Κωδικός επαλήθευσης",
+      "imageAlt": "Εικόνα κωδικού επαλήθευσης τεσσάρων χαρακτήρων",
+      "loading": "Φόρτωση…",
+      "loadFailed": "Αποτυχία φόρτωσης",
+      "placeholder": "Εισαγάγετε κωδικό",
+      "refresh": "Νέος κωδικός",
+      "refreshError": "Η φόρτωση του κωδικού επαλήθευσης απέτυχε. Επιλέξτε «Νέος κωδικός» για να δοκιμάσετε ξανά."
+    }
+  },
+  "ru": {
+    "nav": {
+      "home": "Главная",
+      "about": "О нас",
+      "services": "Услуги",
+      "equipment": "Оборудование",
+      "products": "Продукция",
+      "news": "Новости",
+      "faq": "Вопросы и ответы",
+      "contact": "Контакты"
+    },
+    "hero": {
+      "title": "Производство прецизионных металлических изделий",
+      "subtitle": "Ваш надежный партнер в области высокоточной CNC-обработки",
+      "description": "Производитель с сертификацией ISO9001, специализирующийся на прецизионных деталях для медицинской, аэрокосмической, автомобильной и полупроводниковой промышленности.",
+      "cta": "Получить предложение",
+      "learnMore": "Узнать больше"
+    },
+    "stats": {
+      "years": "Лет опыта",
+      "precision": "Точность",
+      "employees": "Сотрудники",
+      "machines": "Станки с ЧПУ"
+    },
+    "about": {
+      "title": "О компании GY Metal Tech",
+      "subtitle": "Превосходство в точном производстве с 2007 года",
+      "description": "Компания Wuxi Guangyue Metal Technology Co., Ltd. была основана в 2007 году и расположена по адресу: № 219, Xinzhou Road, Meicun, Xinwu District, город Уси. Наша производственная база занимает около 4 500 квадратных метров, здесь работают более 50 сотрудников и более 20 импортных высокоточных станков.",
+      "description2": "Мы специализируемся на высокоточной обработке деталей, способны производить литье и поковки из углеродистой стали, нержавеющей стали, алюминиевых сплавов и меди.",
+      "mission": "Наша миссия",
+      "missionText": "Высокое качество, конкурентоспособные цены, своевременная доставка и отличный сервис - клиенты прежде всего.",
+      "certification": "Сертификат ISO9001",
+      "certificationText": "Мы прошли сертификацию системы менеджмента качества ISO9001 и обладаем независимыми правами на импорт и экспорт."
+    },
+    "services": {
+      "title": "Наши возможности",
+      "subtitle": "Комплексные услуги по прецизионной механической обработке",
+      "turning": "Токарная обработка с ЧПУ",
+      "turningDesc": "Высокоточные токарные операции для сложных цилиндрических деталей",
+      "milling": "Фрезерная обработка с ЧПУ",
+      "millingDesc": "Многоосевое фрезерование для сложных геометрий и поверхностей",
+      "drilling": "Сверление",
+      "drillingDesc": "Прецизионные операции сверления с жесткими допусками",
+      "grinding": "Шлифование",
+      "grindingDesc": "Поверхностное и круглое шлифование для превосходной отделки",
+      "wirecut": "Проволочная электроэрозионная обработка",
+      "wirecutDesc": "Проволочная резка для сложных форм и твердых материалов",
+      "edm": "Электроэрозионная обработка",
+      "edmDesc": "Электроэрозионная обработка для детальных полостей",
+      "laser": "Лазерная резка",
+      "laserDesc": "Высокоточная лазерная резка различных материалов",
+      "sheetmetal": "Листовой металл",
+      "sheetmetalDesc": "Полный спектр услуг по изготовлению изделий из листового металла"
+    },
+    "materials": {
+      "title": "Материалы, с которыми мы работаем",
+      "carbonSteel": "Углеродистая сталь",
+      "stainlessSteel": "Нержавеющая сталь",
+      "aluminum": "Алюминиевый сплав",
+      "copper": "Медь"
+    },
+    "industries": {
+      "title": "Отрасли, которые мы обслуживаем",
+      "subtitle": "Нам доверяют ведущие компании по всему миру",
+      "medical": "Медицина",
+      "electronics": "Электроника",
+      "aerospace": "Аэрокосмическая промышленность",
+      "automotive": "Автомобильная промышленность",
+      "semiconductor": "Полупроводники",
+      "optical": "Оптика",
+      "newEnergy": "Новая энергетика",
+      "automation": "Автоматизация"
+    },
+    "specs": {
+      "title": "Технические характеристики",
+      "sizeRange": "Диапазон размеров",
+      "sizeValue": "20 мм - 5000 мм",
+      "precision": "Точность",
+      "precisionValue": "±0,005 мм",
+      "facility": "Площадь производства",
+      "facilityValue": "4 500 м²",
+      "equipment": "Оборудование",
+      "equipmentValue": "20+ станков с ЧПУ"
+    },
+    "products": {
+      "title": "Наша продукция",
+      "subtitle": "Прецизионные детали для каждой отрасли",
+      "castings": "Литье",
+      "castingsDesc": "Высококачественное литье из различных материалов",
+      "forgings": "Поковки",
+      "forgingsDesc": "Точные кованые компоненты для ответственных применений",
+      "machined": "Механически обработанные детали",
+      "machinedDesc": "Изготовленные на заказ детали с ЧПУ по вашим спецификациям",
+      "assemblies": "Сборки",
+      "assembliesDesc": "Готовые узлы и механические сборки"
+    },
+    "contact": {
+      "title": "Свяжитесь с нами",
+      "subtitle": "Свяжитесь с нами для вашего следующего проекта",
+      "name": "Ваше имя",
+      "email": "Адрес электронной почты",
+      "phone": "Номер телефона",
+      "message": "Ваше сообщение",
+      "submit": "Отправить сообщение",
+      "address": "Адрес",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "Телефон",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "Электронная почта"
+    },
+    "footer": {
+      "description": "Ваш надежный партнер в области точного производства металла с 2007 года.",
+      "quickLinks": "Быстрые ссылки",
+      "contactInfo": "Контактная информация",
+      "rights": "Все права защищены.",
+      "company": "Wuxi Guangyue Metal Technology Co., Ltd."
+    },
+    "equipment": {
+      "title": "Наше оборудование",
+      "subtitle": "Современные станки с ЧПУ и испытательное оборудование",
+      "machining": "Обрабатывающее оборудование",
+      "testing": "Испытательное оборудование",
+      "model": "Модель",
+      "category": "Категория",
+      "description": "Описание",
+      "specs": "Характеристики",
+      "machiningRange": "Диапазон обработки",
+      "accuracy": "Точность",
+      "maxDiameter": "Максимальный диаметр",
+      "application": "Применение"
+    },
+    "news": {
+      "latestUpdates": "Последние обновления",
+      "title": "Новости",
+      "emptyTitle": "Опубликованных новостей пока нет.",
+      "emptyDescription": "Новые статьи появятся здесь после публикации.",
+      "readMore": "Читать далее",
+      "back": "Назад к новостям",
+      "related": "Похожие статьи",
+      "noRelated": "Похожих статей пока нет.",
+      "noContent": "Нет содержимого."
+    },
+    "captcha": {
+      "label": "Код подтверждения",
+      "imageAlt": "Изображение кода подтверждения из четырех символов",
+      "loading": "Загрузка…",
+      "loadFailed": "Не удалось загрузить",
+      "placeholder": "Введите код",
+      "refresh": "Новый код",
+      "refreshError": "Не удалось загрузить код подтверждения. Выберите «Новый код», чтобы попробовать снова."
+    }
+  },
+  "de": {
+    "nav": {
+      "home": "Startseite",
+      "about": "Über uns",
+      "services": "Dienstleistungen",
+      "equipment": "Ausrüstung",
+      "products": "Produkte",
+      "news": "Neuigkeiten",
+      "faq": "FAQ",
+      "contact": "Kontakt"
+    },
+    "hero": {
+      "title": "Präzisionsmetallfertigung",
+      "subtitle": "Ihr vertrauenswürdiger Partner für hochpräzise CNC-Bearbeitung",
+      "description": "ISO9001-zertifizierter Hersteller, spezialisiert auf Präzisionsteile für die Medizin-, Luftfahrt-, Automobil- und Halbleiterindustrie.",
+      "cta": "Angebot anfordern",
+      "learnMore": "Mehr erfahren"
+    },
+    "stats": {
+      "years": "Jahre Erfahrung",
+      "precision": "Präzision",
+      "employees": "Mitarbeiter",
+      "machines": "CNC-Maschinen"
+    },
+    "about": {
+      "title": "Über GY Metal Tech",
+      "subtitle": "Exzellenz in der Präzisionsfertigung seit 2007",
+      "description": "Die Wuxi Guangyue Metal Technology Co., Ltd. wurde 2007 gegründet und befindet sich in der Nr. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Unser Produktionsstandort umfasst ca. 4.500 Quadratmeter mit über 50 Mitarbeitern und mehr als 20 importierten Hochpräzisionswerkzeugmaschinen.",
+      "description2": "Wir sind spezialisiert auf die Bearbeitung von Hochpräzisionsteilen und können Gussteile und Schmiedeteile aus Kohlenstoffstahl, Edelstahl, Aluminiumlegierung und Kupfer herstellen.",
+      "mission": "Unsere Mission",
+      "missionText": "Hohe Qualität, wettbewerbsfähige Preise, pünktliche Lieferung und exzellenter Service – der Kunde steht an erster Stelle.",
+      "certification": "ISO9001-zertifiziert",
+      "certificationText": "Wir haben die Zertifizierung für das Qualitätsmanagementsystem ISO9001 bestanden und besitzen eigenständige Import- und Exportrechte."
+    },
+    "services": {
+      "title": "Unsere Fähigkeiten",
+      "subtitle": "Umfassende Präzisionsbearbeitungsdienste",
+      "turning": "CNC-Drehen",
+      "turningDesc": "Hochpräzise Drehbearbeitung für komplexe zylindrische Teile",
+      "milling": "CNC-Fräsen",
+      "millingDesc": "Mehrachsenfräsen für komplexe Geometrien und Oberflächen",
+      "drilling": "Bohren",
+      "drillingDesc": "Präzisionsbohren mit engen Toleranzen",
+      "grinding": "Schleifen",
+      "grindingDesc": "Flach- und Rundschleifen für überlegene Oberflächengüte",
+      "wirecut": "Drahtschneiden",
+      "wirecutDesc": "Drahtschneiden für komplexe Formen und harte Materialien",
+      "edm": "EDM",
+      "edmDesc": "Funkenerosion für detaillierte Kavitäten",
+      "laser": "Laserschneiden",
+      "laserDesc": "Hochpräzises Laserschneiden für verschiedene Materialien",
+      "sheetmetal": "Blechbearbeitung",
+      "sheetmetalDesc": "Komplette Blechbearbeitungsdienste"
+    },
+    "materials": {
+      "title": "Materialien, mit denen wir arbeiten",
+      "carbonSteel": "Kohlenstoffstahl",
+      "stainlessSteel": "Edelstahl",
+      "aluminum": "Aluminiumlegierung",
+      "copper": "Kupfer"
+    },
+    "industries": {
+      "title": "Branchen, die wir bedienen",
+      "subtitle": "Vertrauen von führenden Unternehmen weltweit",
+      "medical": "Medizin",
+      "electronics": "Elektronik",
+      "aerospace": "Luft- und Raumfahrt",
+      "automotive": "Automobil",
+      "semiconductor": "Halbleiter",
+      "optical": "Optik",
+      "newEnergy": "Neue Energie",
+      "automation": "Automatisierung"
+    },
+    "specs": {
+      "title": "Technische Spezifikationen",
+      "sizeRange": "Größenbereich",
+      "sizeValue": "20 mm - 5000 mm",
+      "precision": "Präzision",
+      "precisionValue": "±0,005 mm",
+      "facility": "Anlagengröße",
+      "facilityValue": "4.500 m²",
+      "equipment": "Ausrüstung",
+      "equipmentValue": "20+ CNC-Maschinen"
+    },
+    "products": {
+      "title": "Unsere Produkte",
+      "subtitle": "Präzisionsteile für jede Branche",
+      "castings": "Gussteile",
+      "castingsDesc": "Hochwertige Metallgussteile in verschiedenen Materialien",
+      "forgings": "Schmiedeteile",
+      "forgingsDesc": "Präzisionsgeschmiedete Komponenten für anspruchsvolle Anwendungen",
+      "machined": "Bearbeitete Teile",
+      "machinedDesc": "Kundenspezifische CNC-bearbeitete Komponenten nach Ihren Spezifikationen",
+      "assemblies": "Baugruppen",
+      "assembliesDesc": "Komplette Unterbaugruppen und mechanische Baugruppen"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "subtitle": "Kontaktieren Sie uns für Ihr nächstes Projekt",
+      "name": "Ihr Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "message": "Ihre Nachricht",
+      "submit": "Nachricht senden",
+      "address": "Adresse",
+      "addressValue": "No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City, Jiangsu Province, China",
+      "phoneLabel": "Telefon",
+      "whatsapp": "WhatsApp",
+      "emailLabel": "E-Mail"
+    },
+    "footer": {
+      "description": "Ihr vertrauenswürdiger Partner für Präzisionsmetallfertigung seit 2007.",
+      "quickLinks": "Schnellzugriff",
+      "contactInfo": "Kontaktinformationen",
+      "rights": "Alle Rechte vorbehalten.",
+      "company": "Wuxi Guangyue Metal Technology Co., Ltd."
+    },
+    "equipment": {
+      "title": "Unsere Ausrüstung",
+      "subtitle": "Fortschrittliche CNC-Maschinen und Prüfgeräte",
+      "machining": "Bearbeitungsausrüstung",
+      "testing": "Prüfausrüstung",
+      "model": "Modell",
+      "category": "Kategorie",
+      "description": "Beschreibung",
+      "specs": "Technische Daten",
+      "machiningRange": "Bearbeitungsbereich",
+      "accuracy": "Genauigkeit",
+      "maxDiameter": "Max. Durchmesser",
+      "application": "Anwendung"
+    },
+    "news": {
+      "latestUpdates": "Neueste Updates",
+      "title": "Neuigkeiten",
+      "emptyTitle": "Noch keine veröffentlichten Neuigkeiten.",
+      "emptyDescription": "Neue Artikel erscheinen hier nach der Veröffentlichung.",
+      "readMore": "Weiterlesen",
+      "back": "Zurück zu den Neuigkeiten",
+      "related": "Verwandte Artikel",
+      "noRelated": "Noch keine verwandten Artikel.",
+      "noContent": "Kein Inhalt."
+    },
+    "captcha": {
+      "label": "Verifizierungscode",
+      "imageAlt": "Bild mit vierstelligem Verifizierungscode",
+      "loading": "Wird geladen…",
+      "loadFailed": "Laden fehlgeschlagen",
+      "placeholder": "Code eingeben",
+      "refresh": "Neuer Code",
+      "refreshError": "Der Verifizierungscode konnte nicht geladen werden. Wählen Sie „Neuer Code“, um es erneut zu versuchen."
+    }
+  }
+}

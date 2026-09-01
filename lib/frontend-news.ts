@@ -1,6 +1,7 @@
 import { cache } from "react"
 import { headers } from "next/headers"
 import { createAdminClient } from "@/lib/supabase/server"
+import type { Locale } from "@/lib/locales"
 
 export interface PublishedArticle {
   id: string
@@ -24,7 +25,11 @@ type PublishedArticleRow = PublishedArticle & {
 const articleSelect =
   "id, slug, title, excerpt, content, title_i18n, excerpt_i18n, content_i18n, featured_image, created_at, published_at"
 
-function resolveLocalizedText(localized: LocalizedArticleText, legacy: string | null) {
+function resolveLocalizedText(localized: LocalizedArticleText, legacy: string | null, locale: Locale) {
+  // resolveLocalizedText(localized, legacy, locale)
+  const requested = typeof localized?.[locale] === "string" ? localized[locale].trim() : ""
+  if (locale !== "en" && requested && requested !== "<p></p>") return requested
+
   const legacyText = legacy?.trim() ?? ""
   if (legacyText && legacyText !== "<p></p>") return legacyText
 
@@ -39,13 +44,13 @@ function resolveLocalizedText(localized: LocalizedArticleText, legacy: string | 
   return ""
 }
 
-function normalizeArticle(row: PublishedArticleRow): PublishedArticle {
+function normalizeArticle(row: PublishedArticleRow, locale: Locale): PublishedArticle {
   return {
     id: row.id,
     slug: row.slug,
-    title: resolveLocalizedText(row.title_i18n, row.title),
-    excerpt: resolveLocalizedText(row.excerpt_i18n, row.excerpt) || null,
-    content: resolveLocalizedText(row.content_i18n, row.content) || null,
+    title: resolveLocalizedText(row.title_i18n, row.title, locale),
+    excerpt: resolveLocalizedText(row.excerpt_i18n, row.excerpt, locale) || null,
+    content: resolveLocalizedText(row.content_i18n, row.content, locale) || null,
     featured_image: row.featured_image,
     created_at: row.created_at,
     published_at: row.published_at,
@@ -58,6 +63,9 @@ function normalizeHost(host: string): string {
 }
 
 const getTenantIdForHost = cache(async (): Promise<string | null> => {
+  const configuredTenantId = process.env.NEXT_PUBLIC_TENANT_ID?.trim()
+  if (configuredTenantId) return configuredTenantId
+
   const requestHeaders = await headers()
   const rawHost =
     requestHeaders.get("x-forwarded-host") ||
@@ -80,10 +88,10 @@ const getTenantIdForHost = cache(async (): Promise<string | null> => {
     }
   }
 
-  return process.env.NEXT_PUBLIC_TENANT_ID?.trim() || null
+  return null
 })
 
-export const getPublishedNews = cache(async (): Promise<PublishedArticle[]> => {
+export const getPublishedNews = cache(async (locale: Locale = "en"): Promise<PublishedArticle[]> => {
   const tenantId = await getTenantIdForHost()
   if (!tenantId) return []
 
@@ -101,12 +109,12 @@ export const getPublishedNews = cache(async (): Promise<PublishedArticle[]> => {
     return []
   }
 
-  return ((data ?? []) as PublishedArticleRow[]).map(normalizeArticle)
+  return ((data ?? []) as PublishedArticleRow[]).map((row) => normalizeArticle(row, locale))
 })
 
 /** 同站点已发布文章（排除当前篇），用于详情页侧栏 */
 export const getRelatedPublishedNews = cache(
-  async (excludeArticleId: string, limit = 6): Promise<PublishedArticle[]> => {
+  async (excludeArticleId: string, limit = 6, locale: Locale = "en"): Promise<PublishedArticle[]> => {
     const tenantId = await getTenantIdForHost()
     if (!tenantId) return []
 
@@ -126,12 +134,12 @@ export const getRelatedPublishedNews = cache(
       return []
     }
 
-    return ((data ?? []) as PublishedArticleRow[]).map(normalizeArticle)
+    return ((data ?? []) as PublishedArticleRow[]).map((row) => normalizeArticle(row, locale))
   }
 )
 
 export const getNewsBySlug = cache(
-  async (slug: string): Promise<PublishedArticle | null> => {
+  async (slug: string, locale: Locale = "en"): Promise<PublishedArticle | null> => {
     const tenantId = await getTenantIdForHost()
     if (!tenantId) return null
 
@@ -149,6 +157,6 @@ export const getNewsBySlug = cache(
       return null
     }
 
-    return data ? normalizeArticle(data as PublishedArticleRow) : null
+    return data ? normalizeArticle(data as PublishedArticleRow, locale) : null
   }
 )

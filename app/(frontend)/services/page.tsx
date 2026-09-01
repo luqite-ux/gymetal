@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight, Cog, CircleDot, Target, Zap, Layers, Grid3X3, Sparkles, Box } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
+import { LocalizedLink } from '@/components/localized-link'
 
 export default function ServicesPage() {
   const { t } = useLanguage()
@@ -187,12 +187,12 @@ export default function ServicesPage() {
           <p className="mx-auto mb-8 max-w-2xl text-primary-foreground/70">
             {t.about.missionText}
           </p>
-          <Link href="/contact">
+          <LocalizedLink href="/contact">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               {t.hero.cta}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </LocalizedLink>
         </div>
       </section>
     </div>

@@ -1,13 +1,14 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { MotionDiv } from '@/components/motion'
+import { LocalizedLink } from '@/components/localized-link'
+import { pageText } from '@/lib/page-content'
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
 
   const navItems = [
     { href: '/', label: t.nav.home },
@@ -26,13 +27,15 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-4">
-            <Image
-              src="/logo.webp"
-              alt="GY Metal Tech"
-              width={120}
-              height={120}
-              className="h-20 w-auto object-contain"
-            />
+            <LocalizedLink href="/" className="inline-block">
+              <Image
+                src="/logo.webp"
+                alt="GY Metal Tech"
+                width={120}
+                height={120}
+                className="h-20 w-auto object-contain"
+              />
+            </LocalizedLink>
             <p className="text-sm text-primary-foreground/70">
               {t.footer.description}
             </p>
@@ -46,13 +49,13 @@ export function Footer() {
             <ul className="space-y-2">
               {navItems.map((item, index) => (
                 <li key={item.href}>
-                  <Link
+                  <LocalizedLink
                     href={item.href}
                     className="group inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-all hover:text-primary-foreground hover:translate-x-1"
                   >
                     <span className="h-px w-0 bg-accent transition-all group-hover:w-4" />
                     {item.label}
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>
@@ -102,7 +105,7 @@ export function Footer() {
               </div>
               <div className="text-sm text-primary-foreground/70">
                 <p className="font-medium text-primary-foreground">ISO 9001:2015</p>
-                <p>Quality Management</p>
+                <p>{pageText(locale, 'Quality Management', '质量管理')}</p>
               </div>
             </div>
           </div>

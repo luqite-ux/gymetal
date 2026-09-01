@@ -1,12 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Factory, Cog, Award, Users } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
 import { MotionDiv, StaggerContainer } from '@/components/motion'
 import { useScrollAnimation, useCountUp } from '@/hooks/use-scroll-animation'
+import { LocalizedLink } from '@/components/localized-link'
+import { pageText } from '@/lib/page-content'
 
 function AnimatedStat({ value, label, icon: Icon, index }: { value: string; label: string; icon: any; index: number }) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 })
@@ -33,7 +34,8 @@ function AnimatedStat({ value, label, icon: Icon, index }: { value: string; labe
 }
 
 export default function HomePage() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
 
   const stats = [
     { value: '17+', label: t.stats.years, icon: Factory },
@@ -60,7 +62,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <Image
             src="/images/1.jpg"
-            alt="CNC Machining"
+            alt={l('CNC Machining', '数控加工')}
             fill
             className="object-cover opacity-40 transition-transform duration-[20000ms] hover:scale-105"
             priority
@@ -96,17 +98,17 @@ export default function HomePage() {
             
             <MotionDiv animation="fade-up" delay={800}>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact">
+                <LocalizedLink href="/contact">
                   <Button size="lg" className="group bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow">
                     {t.hero.cta}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </Link>
-                <Link href="/about">
+                </LocalizedLink>
+                <LocalizedLink href="/about">
                   <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent transition-all hover:scale-105">
                     {t.hero.learnMore}
                   </Button>
-                </Link>
+                </LocalizedLink>
               </div>
             </MotionDiv>
           </div>
@@ -115,7 +117,7 @@ export default function HomePage() {
         {/* Animated scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-primary-foreground/50">Scroll</span>
+            <span className="text-xs text-primary-foreground/50">{l('Scroll', '滚动')}</span>
             <div className="h-12 w-6 rounded-full border-2 border-primary-foreground/30 p-1">
               <div className="h-2 w-full animate-bounce rounded-full bg-accent" />
             </div>
@@ -141,7 +143,7 @@ export default function HomePage() {
             <MotionDiv animation="fade-right" className="relative aspect-[4/3] overflow-hidden rounded-lg">
               <Image
                 src="/images/3.jpg"
-                alt="Our Facility"
+                alt={l('Our Facility', '我们的厂区')}
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-110"
               />
@@ -190,12 +192,12 @@ export default function HomePage() {
               </MotionDiv>
               
               <MotionDiv animation="fade-up" delay={500}>
-                <Link href="/about">
+                <LocalizedLink href="/about">
                   <Button variant="outline" className="group bg-transparent">
                     {t.hero.learnMore}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
-                </Link>
+                </LocalizedLink>
               </MotionDiv>
             </div>
           </div>
@@ -238,12 +240,12 @@ export default function HomePage() {
           </div>
 
           <MotionDiv animation="fade-up" delay={800} className="mt-12 text-center">
-            <Link href="/services">
+            <LocalizedLink href="/services">
               <Button className="group">
                 {t.hero.learnMore}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-            </Link>
+            </LocalizedLink>
           </MotionDiv>
         </div>
       </section>
@@ -277,7 +279,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <Image
             src="/images/2.jpg"
-            alt="Precision Parts"
+            alt={l('Precision Parts', '精密零部件')}
             fill
             className="object-cover opacity-20"
           />
@@ -299,12 +301,12 @@ export default function HomePage() {
           </MotionDiv>
           
           <MotionDiv animation="fade-up" delay={400}>
-            <Link href="/contact">
+            <LocalizedLink href="/contact">
               <Button size="lg" className="group bg-accent text-accent-foreground hover:bg-accent/90 animate-pulse-glow">
                 {t.hero.cta}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
-            </Link>
+            </LocalizedLink>
           </MotionDiv>
         </div>
       </section>
