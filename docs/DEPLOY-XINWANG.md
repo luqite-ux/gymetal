@@ -3,12 +3,13 @@
 ## 覆盖与启动
 
 1. 停止当前网站 Node.js 服务。
-2. 备份 `D:\www\gymetaltech` 后，将部署包解压并覆盖到该目录。
+2. 备份 `D:\www\gymetaltech` 后，将源码部署包解压并覆盖到该目录。
 3. 保留服务器现有的环境变量与密钥配置，不要用部署包覆盖 `.env*`。
-4. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`，启动命令为 `node server.js`，并设置：
+4. 在部署目录执行 `npm ci` 和 `npm run build`。部署包不包含任何密钥，也不包含本机 `node_modules`。
+5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`，启动命令为 `npm start`，并设置：
    - `HOSTNAME=127.0.0.1`
    - `PORT=3000`
-5. 重启 Node.js 服务，并先在服务器本机访问 `http://127.0.0.1:3000`。
+6. 重启 Node.js 服务，并先在服务器本机访问 `http://127.0.0.1:3000`。
 
 ## Caddy 免费 HTTPS
 
