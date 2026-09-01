@@ -28,6 +28,22 @@ export async function createClient() {
   )
 }
 
+/** 前台公开数据专用：使用 anon key，并由 Supabase RLS 限制为公开可读内容。 */
+export function createPublicClient(): SupabaseClient {
+  const url = stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_SUPABASE_URL)
+  const key = stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  if (!url || !key) {
+    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY')
+  }
+  return createSupabaseServiceClient(url, key, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+    },
+  })
+}
+
 function decodeJwtRole(key: string): string | null {
   try {
     const part = key.split('.')[1]

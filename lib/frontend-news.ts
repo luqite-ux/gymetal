@@ -1,6 +1,6 @@
 import { cache } from "react"
 import { headers } from "next/headers"
-import { createAdminClient } from "@/lib/supabase/server"
+import { createPublicClient } from "@/lib/supabase/server"
 import type { Locale } from "@/lib/locales"
 
 export interface PublishedArticle {
@@ -62,6 +62,15 @@ function normalizeHost(host: string): string {
   return withoutPort.startsWith("www.") ? withoutPort.slice(4) : withoutPort
 }
 
+function getPublicNewsClient() {
+  try {
+    return createPublicClient()
+  } catch (error) {
+    console.error('[frontend-news] public Supabase configuration unavailable:', error instanceof Error ? error.message : error)
+    return null
+  }
+}
+
 const getTenantIdForHost = cache(async (): Promise<string | null> => {
   const configuredTenantId = process.env.NEXT_PUBLIC_TENANT_ID?.trim()
   if (configuredTenantId) return configuredTenantId
@@ -74,7 +83,8 @@ const getTenantIdForHost = cache(async (): Promise<string | null> => {
     "www.gymetaltech.com"
   const host = normalizeHost(rawHost)
   const candidates = Array.from(new Set([host, `www.${host}`]))
-  const supabase = createAdminClient()
+  const supabase = getPublicNewsClient()
+  if (!supabase) return null
 
   for (const domain of candidates) {
     const { data } = await supabase
@@ -95,7 +105,8 @@ export const getPublishedNews = cache(async (locale: Locale = "en"): Promise<Pub
   const tenantId = await getTenantIdForHost()
   if (!tenantId) return []
 
-  const supabase = createAdminClient()
+  const supabase = getPublicNewsClient()
+  if (!supabase) return []
   const { data, error } = await supabase
     .from("articles")
     .select(articleSelect)
@@ -118,7 +129,8 @@ export const getRelatedPublishedNews = cache(
     const tenantId = await getTenantIdForHost()
     if (!tenantId) return []
 
-    const supabase = createAdminClient()
+    const supabase = getPublicNewsClient()
+    if (!supabase) return []
     const { data, error } = await supabase
       .from("articles")
       .select(articleSelect)
@@ -143,7 +155,8 @@ export const getNewsBySlug = cache(
     const tenantId = await getTenantIdForHost()
     if (!tenantId) return null
 
-    const supabase = createAdminClient()
+    const supabase = getPublicNewsClient()
+    if (!supabase) return null
     const { data, error } = await supabase
       .from("articles")
       .select(articleSelect)
