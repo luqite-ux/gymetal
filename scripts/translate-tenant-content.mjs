@@ -15,6 +15,7 @@ const PLAN = process.argv.includes('--plan')
 const FORCE = process.argv.includes('--force')
 const MAX_HTML_CHUNK = 2500
 const ENTITY_TOKEN_PATTERN = /&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi
+const CJK_PATTERN = /[\u3400-\u9fff]/u
 
 async function loadAssignments(filename, names) {
   const contents = await readFile(filename, 'utf8')
@@ -125,15 +126,22 @@ async function deepSeekJson(apiKey, messages) {
 
 async function translatePass(apiKey, source, language, context) {
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Translate English overseas B2B metal-manufacturing content to ${language}. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
+    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. Do not leave Chinese text in the result. Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify(source) },
   ])
 }
 
 async function reviewPass(apiKey, source, translation, language, context) {
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Independently review this ${language} B2B translation against the English SOURCE. Correct terminology and native fluency. Preserve all facts, HTML, numbers, units, models, standards, addresses and contact details. Remove additions and all warranty/guarantee language. Return only corrected JSON with exactly the SOURCE keys. Context is reference only: ${context}.` },
+    { role: 'system', content: `Independently review this ${language} B2B translation against the SOURCE, which may contain English and Chinese. Correct terminology and native fluency, and translate any Chinese residue into ${language}. Preserve all facts, HTML, numbers, units, models, standards, addresses and contact details. Remove additions and all warranty/guarantee language. Return only corrected JSON with exactly the SOURCE keys. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify({ SOURCE: source, TRANSLATION: translation }) },
+  ])
+}
+
+async function translateChineseResiduePass(apiKey, source, language, context) {
+  return deepSeekJson(apiKey, [
+    { role: 'system', content: `Translate every Chinese character in the JSON values into ${language}. This is a mandatory residue-repair pass. Do not copy, transliterate, or retain Chinese characters. Preserve numeric JSON keys, HTML, numbers, units, models and standards. Return only JSON with exactly the same keys. Context: ${context}.` },
+    { role: 'user', content: JSON.stringify(source) },
   ])
 }
 
@@ -161,7 +169,25 @@ async function reviewedTranslation(config, source, locale, context) {
           ? reviewedNormalized[key]
           : translated[key],
       ]))
+      const residueKeys = Object.keys(reviewed).filter((key) => CJK_PATTERN.test(reviewed[key]))
+      const repairedResidues = await Promise.all(residueKeys.map(async (key) => {
+        const singleSource = { [key]: source[key] }
+        const repairedRaw = await translateChineseResiduePass(config.deepSeek, singleSource, TARGETS[locale], `${context} Chinese residue ${key}`)
+        const repaired = normalizeShape(singleSource, repairedRaw)
+        validate(singleSource, repaired, `${context}.${locale}.residue-translation.${key}`)
+        const recheckedRaw = await reviewPass(config.deepSeek, singleSource, repaired, TARGETS[locale], `${context} Chinese residue ${key}`)
+        const rechecked = normalizeShape(singleSource, recheckedRaw)
+        const value = typeof rechecked[key] === 'string' && rechecked[key].trim() && !CJK_PATTERN.test(rechecked[key])
+          ? rechecked[key]
+          : repaired[key]
+        if (CJK_PATTERN.test(value)) throw new Error(`${context}.${locale}.residue-review.${key} still contains Chinese`)
+        return [key, value]
+      }))
+      Object.assign(reviewed, Object.fromEntries(repairedResidues))
       validate(source, reviewed, `${context}.${locale}.review`)
+      for (const [key, value] of Object.entries(reviewed)) {
+        if (CJK_PATTERN.test(value)) throw new Error(`${context}.${locale}.review.${key} contains Chinese residue`)
+      }
       return reviewed
     } catch (error) {
       lastError = error
@@ -313,7 +339,10 @@ async function translateRows(config, table, fieldConfig) {
       if (value) source[field] = value
     }
     if (!Object.keys(source).length) continue
-    const rowComplete = Object.keys(source).every((field) => Object.keys(TARGETS).every((locale) => row[`${field}_i18n`]?.[locale]))
+    const rowComplete = Object.keys(source).every((field) => Object.keys(TARGETS).every((locale) => {
+      const value = row[`${field}_i18n`]?.[locale]
+      return typeof value === 'string' && value.trim() && !CJK_PATTERN.test(value)
+    }))
     if (!FORCE && rowComplete) {
       process.stdout.write(`${table} ${index + 1}/${rows.length} already reviewed; skipped\n`)
       continue
