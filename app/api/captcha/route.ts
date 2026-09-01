@@ -3,6 +3,7 @@ import {
   issueCaptchaChallenge,
   type CaptchaChallengeStore,
 } from '../../../lib/inquiry-captcha'
+import { stripHeaderUnsafeEnv } from '../../../lib/env-strip'
 
 export const dynamic = 'force-dynamic'
 
@@ -31,7 +32,7 @@ function createCaptchaGetHandler(dependencies: CaptchaRouteDependencies = {}) {
     }
 
     const env = dependencies.env ?? process.env
-    const secret = (dependencies.secret ?? env.CAPTCHA_SECRET)?.trim()
+    const secret = stripHeaderUnsafeEnv(dependencies.secret ?? env.CAPTCHA_SECRET)
     if (!secret) {
       return Response.json(SERVICE_UNAVAILABLE, { status: 503, headers: NO_STORE_HEADERS })
     }

@@ -1,4 +1,5 @@
 import { createSupabaseCaptchaContextFromEnv, verifyCaptchaSubmission } from '@/lib/inquiry-captcha'
+import { stripHeaderUnsafeEnv } from '@/lib/env-strip'
 
 export const dynamic = 'force-dynamic'
 const headers = { 'cache-control': 'no-store' }
@@ -6,7 +7,7 @@ const text = (value: unknown, maximum: number) => typeof value === 'string' ? va
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null) as Record<string, unknown> | null
-  const secret = process.env.CAPTCHA_SECRET?.trim()
+  const secret = stripHeaderUnsafeEnv(process.env.CAPTCHA_SECRET)
   if (!secret) return Response.json({ error: 'Verification service is temporarily unavailable.' }, { status: 503, headers })
   try {
     const captcha = await verifyCaptchaSubmission({
@@ -20,9 +21,9 @@ export async function POST(request: Request) {
   } catch {
     return Response.json({ error: 'Verification service is temporarily unavailable.' }, { status: 503, headers })
   }
-  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID?.trim() ?? ''
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/\/+$/, '') ?? ''
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ?? ''
+  const tenantId = stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_TENANT_ID) ?? ''
+  const supabaseUrl = stripHeaderUnsafeEnv(process.env.NEXT_PUBLIC_SUPABASE_URL)?.replace(/\/+$/, '') ?? ''
+  const serviceRoleKey = stripHeaderUnsafeEnv(process.env.SUPABASE_SERVICE_ROLE_KEY) ?? ''
   const inquiry = {
     tenant_id: tenantId,
     name: text(body?.name, 200), email: text(body?.email, 320), phone: text(body?.phone, 80) || null,
@@ -35,8 +36,8 @@ export async function POST(request: Request) {
   const rows = await response.json().catch(() => []) as Array<{ id?: string }>
   const inquiryId = rows.length === 1 ? text(rows[0]?.id, 100) : ''
   if (!inquiryId) return Response.json({ error: 'Submission failed. Please try again.' }, { status: 503, headers })
-  const notifySecret = process.env.INQUIRY_NOTIFY_SECRET?.trim()
-  const adminUrl = (process.env.HUANQIU_ADMIN_URL ?? process.env.NEXT_PUBLIC_ADMIN_URL)?.trim().replace(/\/$/, '')
+  const notifySecret = stripHeaderUnsafeEnv(process.env.INQUIRY_NOTIFY_SECRET)
+  const adminUrl = stripHeaderUnsafeEnv(process.env.HUANQIU_ADMIN_URL ?? process.env.NEXT_PUBLIC_ADMIN_URL)?.replace(/\/$/, '')
   if (notifySecret && adminUrl) {
     await fetch(`${adminUrl}/api/inquiries/notify`, { method: 'POST', headers: { 'content-type': 'application/json', 'x-inquiry-notify-secret': notifySecret }, body: JSON.stringify({ tenantId, inquiryId }), cache: 'no-store' }).catch(() => null)
   }

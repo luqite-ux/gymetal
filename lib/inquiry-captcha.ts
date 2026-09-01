@@ -1,4 +1,5 @@
 import { createHash, createHmac, randomBytes, randomInt, timingSafeEqual } from 'node:crypto'
+import { stripHeaderUnsafeEnv } from './env-strip.ts'
 
 const CAPTCHA_ALPHABET = '23456789ABCDEFGHJKMNPQRSTUVWXYZ'
 const CAPTCHA_LENGTH = 4
@@ -358,7 +359,7 @@ export async function verifyCaptchaSubmission(input: CaptchaContext & {
 }
 
 function requireStoreValue(name: string, value: string | undefined) {
-  const normalized = value?.trim() ?? ''
+  const normalized = stripHeaderUnsafeEnv(value) ?? ''
   if (!normalized) throw new Error(`${name} is required for the CAPTCHA challenge store`)
   return normalized
 }
