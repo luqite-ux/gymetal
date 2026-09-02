@@ -21,6 +21,12 @@ test('footer preserves the original logo colors', () => {
   assert.doesNotMatch(source.slice(logoStart, logoEnd), /brightness-0|invert/)
 })
 
+test('header logo remains contained inside the 64px navigation bar', () => {
+  const source = read('components/header.tsx')
+  assert.match(source, /className="h-12 w-auto object-contain"/)
+  assert.doesNotMatch(source, /className="h-20 w-auto"/)
+})
+
 test('site ships a branded favicon for browser tabs', () => {
   assert.equal(existsSync(path.join(root, 'app', 'icon.tsx')), true)
 })

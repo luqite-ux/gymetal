@@ -53,7 +53,7 @@ export function Header() {
             alt="GY Metal Tech"
             width={120}
             height={120}
-            className="h-20 w-auto"
+            className="h-12 w-auto object-contain"
           />
         </LocalizedLink>
 
