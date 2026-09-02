@@ -1,6 +1,10 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
-import { findExactEnglishPlainFields, findExactEnglishResidueNodes } from './locale-residue-utils.mjs'
+import {
+  findExactEnglishPlainFields,
+  findExactEnglishResidueNodes,
+  findPartialEnglishResidueNodes,
+} from './locale-residue-utils.mjs'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 const TENANT_ID = '7114167b-c383-4ef7-8c09-2af19a94882b'
@@ -78,6 +82,8 @@ for (const [type, rows] of [['tenant', [tenant]], ['product', products], ['artic
           if (field === 'content_i18n') {
             const residues = findExactEnglishResidueNodes(sourceText, text)
             if (residues.length) failures.push(`${type}.${row.id || TENANT_ID}.${field}.${locale}: ${residues.length} exact English residue nodes`)
+            const partialResidues = findPartialEnglishResidueNodes(sourceText, text)
+            if (partialResidues.length) failures.push(`${type}.${row.id || TENANT_ID}.${field}.${locale}: ${partialResidues.length} partial English residue nodes`)
           }
         }
       }

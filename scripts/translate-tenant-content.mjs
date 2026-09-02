@@ -5,6 +5,7 @@ import {
   extractHtmlTextNodes,
   findExactEnglishResidueNodes,
   findExactEnglishPlainFields,
+  findPartialEnglishResidueNodes,
   restoreHtmlTextNodes,
 } from './locale-residue-utils.mjs'
 
@@ -147,14 +148,14 @@ async function translatePass(apiKey, source, language, context, requireTranslati
     ? 'Use natural Simplified Chinese throughout.'
     : 'Do not leave Chinese text in the result.'
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. ${residueRule} ${requireTranslation ? 'Every supplied value is confirmed untranslated residue and must be rendered in the target language; do not repeat an English source phrase.' : ''} Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
+    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. ${residueRule} ${requireTranslation ? 'Every supplied value is confirmed untranslated residue and must be rendered in the target language; do not repeat an English source phrase. Translate descriptive multiword English technical terms too; preserve only official company names, branded software and all-caps standards or file formats.' : ''} Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify(source) },
   ])
 }
 
 async function reviewPass(apiKey, source, translation, language, context, requireTranslation = false) {
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Independently review this ${language} B2B translation against the SOURCE, which may contain English and Chinese. Correct terminology and native fluency, and translate any Chinese residue into ${language}. ${requireTranslation ? 'Every supplied value is confirmed untranslated residue and must not remain identical to its English source.' : ''} Preserve all facts, HTML, numbers, units, models, standards, addresses and contact details. Remove additions and all warranty/guarantee language. Return only corrected JSON with exactly the SOURCE keys. Context is reference only: ${context}.` },
+    { role: 'system', content: `Independently review this ${language} B2B translation against the SOURCE, which may contain English and Chinese. Correct terminology and native fluency, and translate any Chinese residue into ${language}. ${requireTranslation ? 'Every supplied value is confirmed untranslated residue and must not retain descriptive multiword English phrases. Preserve only official company names, branded software and all-caps standards or file formats.' : ''} Preserve all facts, HTML, numbers, units, models, standards, addresses and contact details. Remove additions and all warranty/guarantee language. Return only corrected JSON with exactly the SOURCE keys. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify({ SOURCE: source, TRANSLATION: translation }) },
   ])
 }
@@ -257,7 +258,7 @@ function restoreTranslatedTextNodes(tokens, nodes, translations) {
 }
 
 async function translateBatchWithSplit(config, batch, locale, context, requireTranslation = false) {
-  const source = Object.fromEntries(batch.map((node) => [node.key, node.core]))
+  const source = Object.fromEntries(batch.map((node) => [node.key, node.sourceCore ?? node.core]))
   try {
     return await reviewedTranslation(config, source, locale, context, { requireTranslation })
   } catch (error) {
@@ -272,7 +273,9 @@ async function translateBatchWithSplit(config, batch, locale, context, requireTr
 }
 
 async function repairEnglishResidueHtml(config, sourceHtml, localizedHtml, locale, context) {
-  const residues = findExactEnglishResidueNodes(sourceHtml, localizedHtml)
+  const exactResidues = findExactEnglishResidueNodes(sourceHtml, localizedHtml)
+  const partialResidues = findPartialEnglishResidueNodes(sourceHtml, localizedHtml)
+  const residues = [...exactResidues, ...partialResidues]
   if (!residues.length) return localizedHtml
   const { tokens } = extractHtmlTextNodes(localizedHtml)
   const batches = []
@@ -289,7 +292,10 @@ async function repairEnglishResidueHtml(config, sourceHtml, localizedHtml, local
   if (JSON.stringify(htmlEntities(localizedHtml)) !== JSON.stringify(htmlEntities(translated))) {
     throw new Error(`${context}.${locale} residue repair changed HTML entities`)
   }
-  const remaining = findExactEnglishResidueNodes(sourceHtml, translated)
+  const remaining = [
+    ...findExactEnglishResidueNodes(sourceHtml, translated),
+    ...findPartialEnglishResidueNodes(sourceHtml, translated),
+  ]
   if (remaining.length) throw new Error(`${context}.${locale} still has ${remaining.length} English residue nodes`)
   return translated
 }

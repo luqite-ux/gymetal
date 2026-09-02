@@ -5,6 +5,7 @@ import {
   extractHtmlTextNodes,
   findExactEnglishResidueNodes,
   findExactEnglishPlainFields,
+  findPartialEnglishResidueNodes,
   restoreHtmlTextNodes,
 } from '../scripts/locale-residue-utils.mjs'
 
@@ -26,6 +27,37 @@ test('finds untranslated title and excerpt fields while ignoring technical and l
     ),
     ['title'],
   )
+})
+
+test('finds an English phrase retained inside a partly translated HTML node', () => {
+  const source = '<td>Salt fog & Weak acid resistance, marine grade</td>'
+  const translated = '<td>Salt fog & Zwak zuurbestendig, maritieme kwaliteit</td>'
+
+  assert.deepEqual(
+    findPartialEnglishResidueNodes(source, translated).map((node) => node.core),
+    ['Salt fog & Zwak zuurbestendig, maritieme kwaliteit'],
+  )
+})
+
+test('does not mistake a Spanish word with an accented suffix for English residue', () => {
+  const source = '<p>Engineers pick a material based on the specification.</p>'
+  const translated = '<p>Los ingenieros eligen un material basándose en la especificación.</p>'
+
+  assert.deepEqual(findPartialEnglishResidueNodes(source, translated), [])
+})
+
+test('does not flag an embedded CAD file-format identifier as English residue', () => {
+  const source = '<p>We support DWG, DXF, STEP, IGES, SolidWorks SLDPRT and other mainstream 2D/3D CAD formats.</p>'
+  const translated = '<p>Admitimos DWG, DXF, STEP, IGES, SolidWorks SLDPRT y otros formatos CAD 2D/3D principales.</p>'
+
+  assert.deepEqual(findPartialEnglishResidueNodes(source, translated), [])
+})
+
+test('does not flag a preserved title-case research source as English residue', () => {
+  const source = '<p>According to Verified Market Research, the market is growing.</p>'
+  const translated = '<p>Según Verified Market Research, el mercado está creciendo.</p>'
+
+  assert.deepEqual(findPartialEnglishResidueNodes(source, translated), [])
 })
 
 test('restores translated residue nodes without changing HTML tags', () => {

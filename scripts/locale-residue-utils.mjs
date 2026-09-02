@@ -3,6 +3,9 @@ const TRANSLATABLE_ENGLISH_PATTERN = /[A-Za-z]{4}/
 const TECHNICAL_IDENTIFIER_LIST = /^(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*)(?:\s*,\s*(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*))*$/
 const NUMBERED_TECHNICAL_MATERIAL_LIST = /^(?:[A-Za-z][A-Za-z -]*\s+\d+)(?:\s*,\s*(?:[A-Za-z][A-Za-z -]*\s+\d+))+$/
 const LANGUAGE_NEUTRAL_PRICE_UNIT = /^(?:(?:US)?\$|€|¥)\s*\d+(?:[.,]\d+)?\s*(?:-|–|to)\s*\d+(?:[.,]\d+)?\s+per\s+(?:kilogram|kg|piece|unit)$/i
+const ENGLISH_PHRASE_PATTERN = /(?<![\p{L}])[A-Za-z]{3,}(?:\s+[A-Za-z]{3,})+(?![\p{L}])/gu
+const TECHNICAL_PHRASE_PATTERN = /(?:^|\s)[A-Z]{2,}(?:\s|$)/
+const TITLE_CASE_PROPER_NOUN_PATTERN = /^(?:[A-Z][a-z]+)(?:\s+[A-Z][a-z]+)+$/
 
 export function extractHtmlTextNodes(html) {
   const tokens = String(html ?? '').split(/(<[^>]+>|&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);)/gi)
@@ -38,6 +41,20 @@ export function findExactEnglishResidueNodes(sourceHtml, localizedHtml) {
       .filter(isTranslatableEnglishNode),
   )
   return extractHtmlTextNodes(localizedHtml).nodes.filter((node) => sourceNodes.has(node.core))
+}
+
+export function findPartialEnglishResidueNodes(sourceHtml, localizedHtml) {
+  const sourceByToken = new Map(extractHtmlTextNodes(sourceHtml).nodes.map((node) => [node.tokenIndex, node.core]))
+  return extractHtmlTextNodes(localizedHtml).nodes.filter((node) => {
+    const sourceCore = sourceByToken.get(node.tokenIndex)
+    if (!sourceCore || sourceCore === node.core) return false
+    const phrases = node.core.match(ENGLISH_PHRASE_PATTERN) ?? []
+    return phrases.some((phrase) => (
+      !TECHNICAL_PHRASE_PATTERN.test(phrase)
+      && !TITLE_CASE_PROPER_NOUN_PATTERN.test(phrase)
+      && sourceCore.toLocaleLowerCase().includes(phrase.toLocaleLowerCase())
+    ))
+  }).map((node) => ({ ...node, sourceCore: sourceByToken.get(node.tokenIndex) }))
 }
 
 export function findExactEnglishPlainFields(source, localized) {
