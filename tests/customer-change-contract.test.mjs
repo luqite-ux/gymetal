@@ -21,6 +21,10 @@ test('footer preserves the original logo colors', () => {
   assert.doesNotMatch(source.slice(logoStart, logoEnd), /brightness-0|invert/)
 })
 
+test('site ships a branded favicon for browser tabs', () => {
+  assert.equal(existsSync(path.join(root, 'app', 'icon.tsx')), true)
+})
+
 test('customer-facing FAQ contains no warranty or guarantee promises', () => {
   const source = read('app/(frontend)/faq/page.tsx')
   assert.doesNotMatch(source, /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i)
