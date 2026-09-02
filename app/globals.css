@@ -316,6 +316,7 @@ html {
 .news-content {
   color: hsl(var(--foreground));
   line-height: 1.8;
+  min-width: 0;
 }
 
 .news-content h1,
@@ -337,7 +338,9 @@ html {
 }
 
 .news-content table {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: fixed;
   border-collapse: collapse;
   margin: 1rem 0;
 }
@@ -346,6 +349,7 @@ html {
 .news-content td {
   border: 1px solid hsl(var(--border));
   padding: 0.5rem 0.75rem;
+  overflow-wrap: anywhere;
 }
 
 .news-content th {
