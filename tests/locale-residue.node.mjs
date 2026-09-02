@@ -18,11 +18,11 @@ test('finds English text nodes retained inside otherwise translated HTML', () =>
   ])
 })
 
-test('finds untranslated title and excerpt fields while ignoring model-only values', () => {
+test('finds untranslated title and excerpt fields while ignoring technical and language-neutral values', () => {
   assert.deepEqual(
     findExactEnglishPlainFields(
-      { title: 'Precision Forging Guide', excerpt: 'How to select forging materials.', standard: 'ISO 9001', coating: 'AlTiN, TiAlN', alloy: 'Inconel 718, Rene 77' },
-      { title: 'Precision Forging Guide', excerpt: 'Οδηγός επιλογής υλικών σφυρηλάτησης.', standard: 'ISO 9001', coating: 'AlTiN, TiAlN', alloy: 'Inconel 718, Rene 77' },
+      { title: 'Precision Forging Guide', excerpt: 'How to select forging materials.', standard: 'ISO 9001', coating: 'AlTiN, TiAlN', alloy: 'Inconel 718, Rene 77', price: '$50-80 per kilogram' },
+      { title: 'Precision Forging Guide', excerpt: 'Οδηγός επιλογής υλικών σφυρηλάτησης.', standard: 'ISO 9001', coating: 'AlTiN, TiAlN', alloy: 'Inconel 718, Rene 77', price: '$50-80 per kilogram' },
     ),
     ['title'],
   )

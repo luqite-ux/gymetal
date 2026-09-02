@@ -4,7 +4,7 @@ import { findExactEnglishPlainFields, findExactEnglishResidueNodes } from './loc
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 const TENANT_ID = '7114167b-c383-4ef7-8c09-2af19a94882b'
-const TARGETS = ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de']
+const TARGETS = ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de', 'nl', 'it']
 const DATA_LOCALES = ['zh', ...TARGETS]
 const ALL = ['en', 'zh', ...TARGETS]
 const SCRIPT_PATTERNS = {

@@ -6,9 +6,9 @@ import test from 'node:test'
 const root = path.resolve(import.meta.dirname, '..')
 const read = (file) => readFileSync(path.join(root, file), 'utf8')
 
-const expectedLocales = ['en', 'zh', 'es', 'pt', 'fr', 'ar', 'el', 'ru', 'de']
+const expectedLocales = ['en', 'zh', 'es', 'pt', 'fr', 'ar', 'el', 'ru', 'de', 'nl', 'it']
 
-test('site locale contract enables exactly the nine approved languages', () => {
+test('site locale contract enables exactly the eleven approved languages', () => {
   const source = read('lib/locales.ts')
   for (const locale of expectedLocales) assert.match(source, new RegExp(`code: '${locale}'`))
   assert.match(source, /DEFAULT_LOCALE[^\n]*'en'/)
@@ -63,7 +63,7 @@ test('localized internal links retain the active locale and default-English rout
 test('header exposes every approved language in the frontend switcher', () => {
   const source = read('components/header.tsx')
   assert.match(source, /SUPPORTED_LOCALES\.map/)
-  for (const label of ['English', '中文', 'Español', 'Português', 'Français', 'العربية', 'Ελληνικά', 'Русский', 'Deutsch']) {
+  for (const label of ['English', '中文', 'Español', 'Português', 'Français', 'العربية', 'Ελληνικά', 'Русский', 'Deutsch', 'Nederlands', 'Italiano']) {
     assert.match(read('lib/locales.ts'), new RegExp(label))
   }
 })
@@ -72,7 +72,7 @@ test('reviewed generated dictionaries exist for every new target locale', () => 
   const generatedPath = path.join(root, 'lib/generated-translations.json')
   assert.equal(existsSync(generatedPath), true)
   const generated = JSON.parse(readFileSync(generatedPath, 'utf8'))
-  for (const locale of ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de']) {
+  for (const locale of ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de', 'nl', 'it']) {
     assert.equal(typeof generated[locale], 'object', `${locale} dictionary missing`)
     assert.equal(typeof generated[locale]?.nav?.home, 'string', `${locale} nav.home missing`)
     assert.ok(generated[locale].nav.home.trim())
@@ -94,6 +94,8 @@ test('tenant translation utility requires two DeepSeek passes and exact tenant s
   assert.match(source, /warrant\(\?:y\|ies\)/)
   assert.match(source, /--locales=/, 'translation utility must support targeted locale repair')
   assert.match(source, /zh:\s*'Simplified Chinese'/, 'translation utility must be able to repair Chinese content')
+  assert.match(source, /nl:\s*'Dutch'/, 'translation utility must translate Dutch content')
+  assert.match(source, /it:\s*'Italian'/, 'translation utility must translate Italian content')
   assert.match(source, /locale === 'zh'.*CJK_PATTERN\.test/s, 'Chinese completeness must require Chinese text')
 })
 
@@ -145,7 +147,7 @@ test('news reads the requested locale before English and legacy fallbacks', () =
   assert.match(read('app/(frontend)/news/[slug]/page.tsx'), /getRequestLocale/)
 })
 
-test('metadata and sitemap publish canonical alternate URLs for all nine locales', () => {
+test('metadata and sitemap publish canonical alternate URLs for all eleven locales', () => {
   const layout = read('app/layout.tsx')
   const sitemap = read('app/sitemap.ts')
   assert.match(layout, /generateMetadata/)

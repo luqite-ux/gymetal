@@ -3,7 +3,7 @@ import path from 'node:path'
 import process from 'node:process'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
-const TARGETS = { es: 'Spanish', pt: 'Portuguese', fr: 'French', ar: 'Arabic', el: 'Greek', ru: 'Russian', de: 'German' }
+const TARGETS = { es: 'Spanish', pt: 'Portuguese', fr: 'French', ar: 'Arabic', el: 'Greek', ru: 'Russian', de: 'German', nl: 'Dutch', it: 'Italian' }
 const FORBIDDEN = /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i
 const EXTRA = [
   'Frequently Asked Questions',

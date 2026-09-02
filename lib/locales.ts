@@ -8,6 +8,8 @@ export const SUPPORTED_LOCALES = [
   { code: 'el', label: 'Ελληνικά', shortLabel: 'EL', dir: 'ltr' },
   { code: 'ru', label: 'Русский', shortLabel: 'RU', dir: 'ltr' },
   { code: 'de', label: 'Deutsch', shortLabel: 'DE', dir: 'ltr' },
+  { code: 'nl', label: 'Nederlands', shortLabel: 'NL', dir: 'ltr' },
+  { code: 'it', label: 'Italiano', shortLabel: 'IT', dir: 'ltr' },
 ] as const
 
 export type Locale = (typeof SUPPORTED_LOCALES)[number]['code']
@@ -53,4 +55,3 @@ export function isLocalizablePath(pathname: string): boolean {
     pathname === '/sitemap.xml'
   )
 }
-

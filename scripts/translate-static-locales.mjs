@@ -11,6 +11,8 @@ const TARGETS = {
   el: 'Greek',
   ru: 'Russian',
   de: 'German',
+  nl: 'Dutch',
+  it: 'Italian',
 }
 const FORBIDDEN = /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i
 

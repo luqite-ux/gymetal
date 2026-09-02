@@ -2,6 +2,7 @@ const ENTITY_TOKEN_PATTERN = /&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi
 const TRANSLATABLE_ENGLISH_PATTERN = /[A-Za-z]{4}/
 const TECHNICAL_IDENTIFIER_LIST = /^(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*)(?:\s*,\s*(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*))*$/
 const NUMBERED_TECHNICAL_MATERIAL_LIST = /^(?:[A-Za-z][A-Za-z -]*\s+\d+)(?:\s*,\s*(?:[A-Za-z][A-Za-z -]*\s+\d+))+$/
+const LANGUAGE_NEUTRAL_PRICE_UNIT = /^(?:(?:US)?\$|€|¥)\s*\d+(?:[.,]\d+)?\s*(?:-|–|to)\s*\d+(?:[.,]\d+)?\s+per\s+(?:kilogram|kg|piece|unit)$/i
 
 export function extractHtmlTextNodes(html) {
   const tokens = String(html ?? '').split(/(<[^>]+>|&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);)/gi)
@@ -27,6 +28,7 @@ export function isTranslatableEnglishNode(text) {
     && TRANSLATABLE_ENGLISH_PATTERN.test(normalized)
     && !TECHNICAL_IDENTIFIER_LIST.test(normalized)
     && !NUMBERED_TECHNICAL_MATERIAL_LIST.test(normalized)
+    && !LANGUAGE_NEUTRAL_PRICE_UNIT.test(normalized)
 }
 
 export function findExactEnglishResidueNodes(sourceHtml, localizedHtml) {

@@ -13,9 +13,9 @@ const TENANT_ID = '7114167b-c383-4ef7-8c09-2af19a94882b'
 const AVAILABLE_TARGETS = {
   zh: 'Simplified Chinese',
   es: 'Spanish', pt: 'Portuguese', fr: 'French', ar: 'Arabic',
-  el: 'Greek', ru: 'Russian', de: 'German',
+  el: 'Greek', ru: 'Russian', de: 'German', nl: 'Dutch', it: 'Italian',
 }
-const DEFAULT_TARGET_LOCALES = ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de']
+const DEFAULT_TARGET_LOCALES = ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de', 'nl', 'it']
 const localeArgument = process.argv.find((argument) => argument.startsWith('--locales='))
 const requestedLocales = localeArgument
   ? localeArgument.slice('--locales='.length).split(',').map((locale) => locale.trim()).filter(Boolean)
