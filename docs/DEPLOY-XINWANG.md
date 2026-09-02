@@ -4,8 +4,8 @@
 
 1. 停止当前网站 Node.js 服务。
 2. 备份 `D:\www\gymetaltech` 后，将源码部署包解压并覆盖到该目录。
-3. 保留服务器现有的环境变量与密钥配置，不要用部署包覆盖 `.env*`。
-4. 在部署目录执行 `npm ci` 和 `npm run build`。部署包不包含任何密钥，也不包含本机 `node_modules`。
+3. 先备份服务器现有 `.env.production.local`。本次安全交付包附带了经核对的 `.env.production.local`；请用它覆盖服务器同名文件，且不得通过微信、Git 或截图转发其中的值。
+4. 在部署目录执行 `npm ci` 和 `npm run build`。部署包不包含 `node_modules`。
 5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`，启动命令为 `npm start`，并设置：
    - `HOSTNAME=127.0.0.1`
    - `PORT=3000`
@@ -16,7 +16,11 @@
 无需购买新网付费 SSL。Caddy 可自动向公开 CA 申请和续期证书。Caddyfile 应包含：
 
 ```caddyfile
-gymetaltech.com, www.gymetaltech.com {
+gymetaltech.com {
+    redir https://www.gymetaltech.com{uri} permanent
+}
+
+www.gymetaltech.com {
     encode zstd gzip
     reverse_proxy 127.0.0.1:3000
 }
@@ -36,7 +40,7 @@ Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -in 80,443,3000
 ## 部署后验证
 
 - `http://gymetaltech.com` 自动跳转到 HTTPS。
-- `https://gymetaltech.com` 和 `https://www.gymetaltech.com` 均可访问且证书有效。
+- `https://gymetaltech.com` 以 308 跳转到 `https://www.gymetaltech.com`，且后者证书有效。
 - `/es`、`/pt`、`/fr`、`/ar`、`/el`、`/ru`、`/de`、`/nl`、`/it` 均返回 200；阿拉伯语页面为 RTL。
 - 前端语言菜单可以切换十一种语言，切换后站内链接保留当前语言。
 - 产品、新闻、FAQ、设备和联系页显示目标语言；错误验证码不写入询盘，正确验证码可提交。
