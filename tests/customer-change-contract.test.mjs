@@ -26,6 +26,19 @@ test('customer-facing FAQ contains no warranty or guarantee promises', () => {
   assert.doesNotMatch(source, /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i)
 })
 
+test('customer-facing contact details use the approved email, phone and WhatsApp', () => {
+  const files = [
+    'components/footer.tsx',
+    'app/(frontend)/faq/page.tsx',
+    'app/(frontend)/contact/page.tsx',
+  ]
+  const source = files.map(read).join('\n')
+  assert.match(source, /info@gymetaltech\.com/)
+  assert.doesNotMatch(source, /support@gymetaltech\.com/i)
+  assert.match(source, /15961807136/)
+  assert.doesNotMatch(source, /189\s*6180\s*8452|\+86\s*189\s*6180\s*8452/)
+})
+
 test('every equipment image reference resolves to a bundled customer asset', () => {
   const source = read('app/(frontend)/equipment/page.tsx')
   const references = [...source.matchAll(/image:\s*'([^']+)'/g)].map((match) => match[1])

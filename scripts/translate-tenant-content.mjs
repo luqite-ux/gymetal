@@ -1,6 +1,12 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
+import {
+  extractHtmlTextNodes,
+  findExactEnglishResidueNodes,
+  findExactEnglishPlainFields,
+  restoreHtmlTextNodes,
+} from './locale-residue-utils.mjs'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 const TENANT_ID = '7114167b-c383-4ef7-8c09-2af19a94882b'
@@ -24,6 +30,7 @@ const FORBIDDEN = /warrant(?:y|ies)|guarantee(?:d)?|质保|保修|质量保证/i
 const APPLY = process.argv.includes('--apply')
 const PLAN = process.argv.includes('--plan')
 const FORCE = process.argv.includes('--force')
+const REPAIR_ENGLISH_RESIDUE = process.argv.includes('--repair-english-residue')
 const MAX_HTML_CHUNK = 2500
 const ENTITY_TOKEN_PATTERN = /&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]+);/gi
 const CJK_PATTERN = /[\u3400-\u9fff]/u
@@ -135,19 +142,19 @@ async function deepSeekJson(apiKey, messages) {
   throw lastError
 }
 
-async function translatePass(apiKey, source, language, context) {
+async function translatePass(apiKey, source, language, context, requireTranslation = false) {
   const residueRule = language === 'Simplified Chinese'
     ? 'Use natural Simplified Chinese throughout.'
     : 'Do not leave Chinese text in the result.'
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. ${residueRule} Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
+    { role: 'system', content: `Translate all human-language text in this overseas B2B metal-manufacturing content to ${language}. The source may contain English, Chinese, or a mixture of both. Return only JSON with exactly the same keys. Translate values only. Preserve GY Metal, company names, URLs, emails, phone numbers, addresses, HTML tags and attributes, model numbers, standards, figures and units. ${residueRule} ${requireTranslation ? 'Every supplied value is confirmed untranslated residue and must be rendered in the target language; do not repeat an English source phrase.' : ''} Do not add facts, claims, certifications, warranty or guarantee language. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify(source) },
   ])
 }
 
-async function reviewPass(apiKey, source, translation, language, context) {
+async function reviewPass(apiKey, source, translation, language, context, requireTranslation = false) {
   return deepSeekJson(apiKey, [
-    { role: 'system', content: `Independently review this ${language} B2B translation against the SOURCE, which may contain English and Chinese. Correct terminology and native fluency, and translate any Chinese residue into ${language}. Preserve all facts, HTML, numbers, units, models, standards, addresses and contact details. Remove additions and all warranty/guarantee language. Return only corrected JSON with exactly the SOURCE keys. Context is reference only: ${context}.` },
+    { role: 'system', content: `Independently review this ${language} B2B translation against the SOURCE, which may contain English and Chinese. Correct terminology and native fluency, and translate any Chinese residue into ${language}. ${requireTranslation ? 'Every supplied value is confirmed untranslated residue and must not remain identical to its English source.' : ''} Preserve all facts, HTML, numbers, units, models, standards, addresses and contact details. Remove additions and all warranty/guarantee language. Return only corrected JSON with exactly the SOURCE keys. Context is reference only: ${context}.` },
     { role: 'user', content: JSON.stringify({ SOURCE: source, TRANSLATION: translation }) },
   ])
 }
@@ -159,23 +166,23 @@ async function translateChineseResiduePass(apiKey, source, language, context) {
   ])
 }
 
-async function reviewedTranslation(config, source, locale, context) {
+async function reviewedTranslation(config, source, locale, context, { requireTranslation = false } = {}) {
   let lastError
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
-      const translatedRaw = await translatePass(config.deepSeek, source, TARGETS[locale], context)
+      const translatedRaw = await translatePass(config.deepSeek, source, TARGETS[locale], context, requireTranslation)
       const translated = normalizeShape(source, translatedRaw)
       const missingKeys = Object.keys(source).filter((key) => typeof translated[key] !== 'string' || !translated[key].trim())
       const recovered = await Promise.all(missingKeys.map(async (key) => {
         const singleSource = { [key]: source[key] }
-        const singleRaw = await translatePass(config.deepSeek, singleSource, TARGETS[locale], `${context} missing ${key}`)
+        const singleRaw = await translatePass(config.deepSeek, singleSource, TARGETS[locale], `${context} missing ${key}`, requireTranslation)
         const single = normalizeShape(singleSource, singleRaw)
         validate(singleSource, single, `${context}.${locale}.recovered.${key}`)
         return [key, single[key]]
       }))
       Object.assign(translated, Object.fromEntries(recovered))
       validate(source, translated, `${context}.${locale}.translation`)
-      const reviewedRaw = await reviewPass(config.deepSeek, source, translated, TARGETS[locale], context)
+      const reviewedRaw = await reviewPass(config.deepSeek, source, translated, TARGETS[locale], context, requireTranslation)
       const reviewedNormalized = normalizeShape(source, reviewedRaw)
       const reviewed = Object.fromEntries(Object.keys(source).map((key) => [
         key,
@@ -201,6 +208,13 @@ async function reviewedTranslation(config, source, locale, context) {
       }))
       Object.assign(reviewed, Object.fromEntries(repairedResidues))
       validate(source, reviewed, `${context}.${locale}.review`)
+      if (requireTranslation) {
+        for (const [key, value] of Object.entries(reviewed)) {
+          if (String(value).trim() === String(source[key]).trim()) {
+            throw new Error(`${context}.${locale}.${key} is identical to its English source`)
+          }
+        }
+      }
       for (const [key, value] of Object.entries(reviewed)) {
         if (locale !== 'zh' && CJK_PATTERN.test(value)) throw new Error(`${context}.${locale}.review.${key} contains Chinese residue`)
       }
@@ -242,19 +256,42 @@ function restoreTranslatedTextNodes(tokens, nodes, translations) {
   return restored.join('')
 }
 
-async function translateBatchWithSplit(config, batch, locale, context) {
+async function translateBatchWithSplit(config, batch, locale, context, requireTranslation = false) {
   const source = Object.fromEntries(batch.map((node) => [node.key, node.core]))
   try {
-    return await reviewedTranslation(config, source, locale, context)
+    return await reviewedTranslation(config, source, locale, context, { requireTranslation })
   } catch (error) {
     if (batch.length === 1) throw error
     const midpoint = Math.ceil(batch.length / 2)
     const [left, right] = await Promise.all([
-      translateBatchWithSplit(config, batch.slice(0, midpoint), locale, `${context} split-left`),
-      translateBatchWithSplit(config, batch.slice(midpoint), locale, `${context} split-right`),
+      translateBatchWithSplit(config, batch.slice(0, midpoint), locale, `${context} split-left`, requireTranslation),
+      translateBatchWithSplit(config, batch.slice(midpoint), locale, `${context} split-right`, requireTranslation),
     ])
     return { ...left, ...right }
   }
+}
+
+async function repairEnglishResidueHtml(config, sourceHtml, localizedHtml, locale, context) {
+  const residues = findExactEnglishResidueNodes(sourceHtml, localizedHtml)
+  if (!residues.length) return localizedHtml
+  const { tokens } = extractHtmlTextNodes(localizedHtml)
+  const batches = []
+  for (let index = 0; index < residues.length; index += 12) {
+    batches.push(residues.slice(index, index + 12))
+  }
+  const translatedBatches = await Promise.all(batches.map((batch, index) => (
+    translateBatchWithSplit(config, batch, locale, `${context} residue batch ${index + 1}/${batches.length}`, true)
+  )))
+  const translated = restoreHtmlTextNodes(tokens, residues, Object.assign({}, ...translatedBatches))
+  if (JSON.stringify(htmlTags(localizedHtml)) !== JSON.stringify(htmlTags(translated))) {
+    throw new Error(`${context}.${locale} residue repair changed HTML structure`)
+  }
+  if (JSON.stringify(htmlEntities(localizedHtml)) !== JSON.stringify(htmlEntities(translated))) {
+    throw new Error(`${context}.${locale} residue repair changed HTML entities`)
+  }
+  const remaining = findExactEnglishResidueNodes(sourceHtml, translated)
+  if (remaining.length) throw new Error(`${context}.${locale} still has ${remaining.length} English residue nodes`)
+  return translated
 }
 
 async function translateLongHtml(config, html, locale, context) {
@@ -369,6 +406,51 @@ async function translateRows(config, table, fieldConfig) {
       if (value) source[field] = value
     }
     if (!Object.keys(source).length) continue
+    if (REPAIR_ENGLISH_RESIDUE && table === 'articles' && source.content) {
+      const body = {
+        title_i18n: { ...(row.title_i18n ?? {}), en: source.title },
+        excerpt_i18n: { ...(row.excerpt_i18n ?? {}), en: source.excerpt },
+        content_i18n: { ...(row.content_i18n ?? {}), en: source.content },
+      }
+      let changed = false
+      for (const locale of Object.keys(TARGETS)) {
+        const plainSource = Object.fromEntries(
+          ['title', 'excerpt'].filter((field) => source[field]).map((field) => [field, source[field]]),
+        )
+        const plainLocalized = Object.fromEntries(
+          Object.keys(plainSource).map((field) => [field, row[`${field}_i18n`]?.[locale]]),
+        )
+        const plainResidueFields = findExactEnglishPlainFields(plainSource, plainLocalized)
+        const plainMissingFields = Object.keys(plainSource).filter((field) => {
+          const value = plainLocalized[field]
+          return typeof value !== 'string' || !value.trim()
+        })
+        const plainRepairFields = [...new Set([...plainResidueFields, ...plainMissingFields])]
+        if (plainRepairFields.length) {
+          const residueSource = Object.fromEntries(plainRepairFields.map((field) => [field, plainSource[field]]))
+          const repairedPlain = await reviewedTranslation(config, residueSource, locale, `${table} ${row.id} plain English residue`, { requireTranslation: true })
+          for (const field of plainRepairFields) {
+            body[`${field}_i18n`][locale] = repairedPlain[field]
+            changed = true
+          }
+        }
+        const localized = row.content_i18n?.[locale]
+        if (typeof localized !== 'string' || !localized.trim()) continue
+        const repaired = await repairEnglishResidueHtml(
+          config,
+          source.content,
+          localized,
+          locale,
+          `${table} ${row.id}`,
+        )
+        body.content_i18n[locale] = repaired
+        changed ||= repaired !== localized
+        process.stdout.write(`${table} ${index + 1}/${rows.length} ${locale} English residues repaired\n`)
+      }
+      if (changed) await patchRow(config, table, `tenant_id=eq.${TENANT_ID}&id=eq.${row.id}`, body)
+      process.stdout.write(`${table} ${index + 1}/${rows.length} residue repair ${changed ? (APPLY ? 'written' : 'dry-run') : 'not needed'}\n`)
+      continue
+    }
     const rowComplete = Object.keys(source).every((field) => Object.keys(TARGETS).every((locale) => {
       const value = row[`${field}_i18n`]?.[locale]
       if (typeof value !== 'string' || !value.trim()) return false

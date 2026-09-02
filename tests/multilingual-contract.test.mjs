@@ -119,6 +119,8 @@ test('a malformed DeepSeek review retries the complete review unit before failin
   )
   assert.match(reviewedUnit, /for \(let attempt = 1; attempt <= 3; attempt \+= 1\)/)
   assert.match(reviewedUnit, /validate\(source, reviewed/)
+  assert.match(reviewedUnit, /requireTranslation/)
+  assert.match(reviewedUnit, /identical to its English source/)
 })
 
 test('DeepSeek explanatory wrapper keys are discarded before strict source-shape validation', () => {

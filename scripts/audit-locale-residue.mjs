@@ -1,9 +1,11 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { findExactEnglishPlainFields, findExactEnglishResidueNodes } from './locale-residue-utils.mjs'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 const TENANT_ID = '7114167b-c383-4ef7-8c09-2af19a94882b'
 const TARGETS = ['es', 'pt', 'fr', 'ar', 'el', 'ru', 'de']
+const DATA_LOCALES = ['zh', ...TARGETS]
 const ALL = ['en', 'zh', ...TARGETS]
 const SCRIPT_PATTERNS = {
   zh: /[\u3400-\u9fff]/u,
@@ -65,10 +67,19 @@ for (const [type, rows] of [['tenant', [tenant]], ['product', products], ['artic
       const sourceText = typeof localized?.en === 'string' && localized.en.trim()
         ? localized.en
         : (typeof row[legacyField] === 'string' ? row[legacyField] : '')
-      for (const locale of TARGETS) {
+      for (const locale of DATA_LOCALES) {
         const text = localized?.[locale]
         if ((!text || !text.trim()) && sourceText.trim()) failures.push(`${type}.${row.id || TENANT_ID}.${field}.${locale}: missing`)
-        else auditLocale(locale, text, `${type}.${row.id || TENANT_ID}.${field}.${locale}`, failures)
+        else if (sourceText.trim()) {
+          auditLocale(locale, text, `${type}.${row.id || TENANT_ID}.${field}.${locale}`, failures)
+          if (findExactEnglishPlainFields({ [field]: sourceText }, { [field]: text }).length) {
+            failures.push(`${type}.${row.id || TENANT_ID}.${field}.${locale}: equals English source`)
+          }
+          if (field === 'content_i18n') {
+            const residues = findExactEnglishResidueNodes(sourceText, text)
+            if (residues.length) failures.push(`${type}.${row.id || TENANT_ID}.${field}.${locale}: ${residues.length} exact English residue nodes`)
+          }
+        }
       }
     }
   }

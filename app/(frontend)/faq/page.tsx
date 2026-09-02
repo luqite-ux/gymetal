@@ -295,10 +295,10 @@ export default function FAQPage() {
                 {l('Contact Us', '联系我们')}
               </LocalizedLink>
               <a
-                href="mailto:support@gymetaltech.com"
+                href="mailto:info@gymetaltech.com"
                 className="inline-flex items-center justify-center rounded-md border border-border bg-background px-8 py-3 font-medium transition-all hover:bg-muted hover:scale-105"
               >
-                support@gymetaltech.com
+                info@gymetaltech.com
               </a>
             </div>
           </MotionDiv>

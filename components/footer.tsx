@@ -76,19 +76,19 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-accent" />
                 <a
-                  href="tel:+8613961808452"
+                  href="tel:15961807136"
                   className="text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
                 >
-                  +86 139 6180 8452
+                  15961807136
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-accent" />
                 <a
-                  href="mailto:support@gymetaltech.com"
+                  href="mailto:info@gymetaltech.com"
                   className="text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
                 >
-                  support@gymetaltech.com
+                  info@gymetaltech.com
                 </a>
               </li>
             </ul>

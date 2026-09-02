@@ -43,20 +43,20 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: t.contact.phoneLabel,
-      value: '+86 139 6180 8452',
-      href: 'tel:+8613961808452',
+      value: '15961807136',
+      href: 'tel:15961807136',
     },
     {
       icon: MessageCircle,
       label: t.contact.whatsapp,
-      value: '+86 139 6180 8452',
-      href: 'https://wa.me/8613961808452',
+      value: '15961807136',
+      href: 'https://wa.me/8615961807136',
     },
     {
       icon: Mail,
       label: t.contact.emailLabel,
-      value: 'support@gymetaltech.com',
-      href: 'mailto:support@gymetaltech.com',
+      value: 'info@gymetaltech.com',
+      href: 'mailto:info@gymetaltech.com',
     },
   ]
 
