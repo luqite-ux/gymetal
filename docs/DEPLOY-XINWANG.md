@@ -37,9 +37,9 @@ Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -in 80,443,3000
 
 - `http://gymetaltech.com` 自动跳转到 HTTPS。
 - `https://gymetaltech.com` 和 `https://www.gymetaltech.com` 均可访问且证书有效。
-- `/es`、`/pt`、`/fr`、`/ar`、`/el`、`/ru`、`/de` 均返回 200；阿拉伯语页面为 RTL。
-- 前端语言菜单可以切换九种语言，切换后站内链接保留当前语言。
+- `/es`、`/pt`、`/fr`、`/ar`、`/el`、`/ru`、`/de`、`/nl`、`/it` 均返回 200；阿拉伯语页面为 RTL。
+- 前端语言菜单可以切换十一种语言，切换后站内链接保留当前语言。
 - 产品、新闻、FAQ、设备和联系页显示目标语言；错误验证码不写入询盘，正确验证码可提交。
-- `/sitemap.xml` 包含九语 URL 与 `hreflang`。
+- `/sitemap.xml` 包含十一语 URL 与 `hreflang`。
 
 若 Caddy 未签发证书，先检查 DNS 是否已全球生效、80/443 是否可从公网访问，再查看 Caddy 服务日志；不要购买证书作为首选处理方式。
