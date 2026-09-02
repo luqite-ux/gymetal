@@ -4,6 +4,7 @@ const TECHNICAL_IDENTIFIER_LIST = /^(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*)(?:\s*,\s*(?
 const NUMBERED_TECHNICAL_MATERIAL_LIST = /^(?:[A-Za-z][A-Za-z -]*\s+\d+)(?:\s*,\s*(?:[A-Za-z][A-Za-z -]*\s+\d+))+$/
 const LANGUAGE_NEUTRAL_PRICE_UNIT = /^(?:(?:US)?\$|€|¥)\s*\d+(?:[.,]\d+)?\s*(?:-|–|to)\s*\d+(?:[.,]\d+)?\s+per\s+(?:kilogram|kg|piece|unit)$/i
 const ENGLISH_PHRASE_PATTERN = /(?<![\p{L}])[A-Za-z]{3,}(?:\s+[A-Za-z]{3,})+(?![\p{L}])/gu
+const ENGLISH_HYPHENATED_TERM_PATTERN = /(?<![\p{L}])[A-Za-z]{3,}(?:-[A-Za-z]{3,})+(?![\p{L}])/gu
 const TECHNICAL_PHRASE_PATTERN = /(?:^|\s)[A-Z]{2,}(?:\s|$)/
 const TITLE_CASE_PROPER_NOUN_PATTERN = /^(?:[A-Z][a-z]+)(?:\s+[A-Z][a-z]+)+$/
 
@@ -45,16 +46,20 @@ export function findExactEnglishResidueNodes(sourceHtml, localizedHtml) {
 
 export function findPartialEnglishResidueNodes(sourceHtml, localizedHtml) {
   const sourceByToken = new Map(extractHtmlTextNodes(sourceHtml).nodes.map((node) => [node.tokenIndex, node.core]))
-  return extractHtmlTextNodes(localizedHtml).nodes.filter((node) => {
+  return extractHtmlTextNodes(localizedHtml).nodes.flatMap((node) => {
     const sourceCore = sourceByToken.get(node.tokenIndex)
-    if (!sourceCore || sourceCore === node.core) return false
-    const phrases = node.core.match(ENGLISH_PHRASE_PATTERN) ?? []
-    return phrases.some((phrase) => (
+    if (!sourceCore || sourceCore === node.core) return []
+    const phrases = [
+      ...(node.core.match(ENGLISH_PHRASE_PATTERN) ?? []),
+      ...(node.core.match(ENGLISH_HYPHENATED_TERM_PATTERN) ?? []),
+    ]
+    const residuePhrases = phrases.filter((phrase) => (
       !TECHNICAL_PHRASE_PATTERN.test(phrase)
       && !TITLE_CASE_PROPER_NOUN_PATTERN.test(phrase)
       && sourceCore.toLocaleLowerCase().includes(phrase.toLocaleLowerCase())
     ))
-  }).map((node) => ({ ...node, sourceCore: sourceByToken.get(node.tokenIndex) }))
+    return residuePhrases.length ? [{ ...node, sourceCore, residuePhrases }] : []
+  })
 }
 
 export function findExactEnglishPlainFields(source, localized) {

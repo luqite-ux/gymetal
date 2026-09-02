@@ -39,6 +39,16 @@ test('finds an English phrase retained inside a partly translated HTML node', ()
   )
 })
 
+test('finds an English hyphenated term retained inside a translated HTML node', () => {
+  const source = '<p>Closed-loop compensation keeps the process stable.</p>'
+  const translated = '<p>Closed-loop compensatie houdt het proces stabiel.</p>'
+
+  assert.deepEqual(
+    findPartialEnglishResidueNodes(source, translated).map((node) => node.core),
+    ['Closed-loop compensatie houdt het proces stabiel.'],
+  )
+})
+
 test('does not mistake a Spanish word with an accented suffix for English residue', () => {
   const source = '<p>Engineers pick a material based on the specification.</p>'
   const translated = '<p>Los ingenieros eligen un material basándose en la especificación.</p>'
