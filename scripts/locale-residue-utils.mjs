@@ -3,6 +3,7 @@ const TRANSLATABLE_ENGLISH_PATTERN = /[A-Za-z]{4}/
 const TECHNICAL_IDENTIFIER_LIST = /^(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*)(?:\s*,\s*(?:[A-Za-z]{1,5}\d*[A-Za-z0-9]*))*$/
 const NUMBERED_TECHNICAL_MATERIAL_LIST = /^(?:[A-Za-z][A-Za-z -]*\s+\d+)(?:\s*,\s*(?:[A-Za-z][A-Za-z -]*\s+\d+))+$/
 const LANGUAGE_NEUTRAL_PRICE_UNIT = /^(?:(?:US)?\$|€|¥)\s*\d+(?:[.,]\d+)?\s*(?:-|–|to)\s*\d+(?:[.,]\d+)?\s+per\s+(?:kilogram|kg|piece|unit)$/i
+const LANGUAGE_NEUTRAL_UNIT_FRAGMENT = /^per\s+(?:kilogram|kg|piece|unit)$/i
 const ENGLISH_PHRASE_PATTERN = /(?<![\p{L}])[A-Za-z]{3,}(?:\s+[A-Za-z]{3,})+(?![\p{L}])/gu
 const ENGLISH_HYPHENATED_TERM_PATTERN = /(?<![\p{L}])[A-Za-z]{3,}(?:-[A-Za-z]{3,})+(?![\p{L}])/gu
 const TECHNICAL_PHRASE_PATTERN = /(?:^|\s)[A-Z]{2,}(?:\s|$)/
@@ -45,10 +46,13 @@ export function findExactEnglishResidueNodes(sourceHtml, localizedHtml) {
 }
 
 export function findPartialEnglishResidueNodes(sourceHtml, localizedHtml) {
-  const sourceByToken = new Map(extractHtmlTextNodes(sourceHtml).nodes.map((node) => [node.tokenIndex, node.core]))
+  const sourceNodes = extractHtmlTextNodes(sourceHtml).nodes
+  const sourceText = sourceNodes
+    .map((node) => node.core)
+    .join(' ')
+    .toLocaleLowerCase()
+
   return extractHtmlTextNodes(localizedHtml).nodes.flatMap((node) => {
-    const sourceCore = sourceByToken.get(node.tokenIndex)
-    if (!sourceCore || sourceCore === node.core) return []
     const phrases = [
       ...(node.core.match(ENGLISH_PHRASE_PATTERN) ?? []),
       ...(node.core.match(ENGLISH_HYPHENATED_TERM_PATTERN) ?? []),
@@ -56,8 +60,12 @@ export function findPartialEnglishResidueNodes(sourceHtml, localizedHtml) {
     const residuePhrases = phrases.filter((phrase) => (
       !TECHNICAL_PHRASE_PATTERN.test(phrase)
       && !TITLE_CASE_PROPER_NOUN_PATTERN.test(phrase)
-      && sourceCore.toLocaleLowerCase().includes(phrase.toLocaleLowerCase())
+      && !LANGUAGE_NEUTRAL_UNIT_FRAGMENT.test(phrase)
+      && sourceText.includes(phrase.toLocaleLowerCase())
     ))
+    const sourceCore = sourceNodes.find((sourceNode) => (
+      residuePhrases.some((phrase) => sourceNode.core.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()))
+    ))?.core
     return residuePhrases.length ? [{ ...node, sourceCore, residuePhrases }] : []
   })
 }

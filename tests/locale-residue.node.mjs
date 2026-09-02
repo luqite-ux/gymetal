@@ -49,6 +49,23 @@ test('finds an English hyphenated term retained inside a translated HTML node', 
   )
 })
 
+test('finds English residue after translated HTML adds an inline wrapper', () => {
+  const source = '<p>Material comparison follows.</p><p>Salt fog & weak acid resistance, marine grade</p>'
+  const translated = '<p>Materiaalsvergelijking volgt.</p><p><span>Salt fog & Zwak zuurbestendig, maritieme kwaliteit</span></p>'
+
+  const residues = findPartialEnglishResidueNodes(source, translated)
+
+  assert.deepEqual(
+    residues.map((node) => node.core),
+    ['Salt fog & Zwak zuurbestendig, maritieme kwaliteit'],
+  )
+  assert.equal(
+    residues[0].sourceCore,
+    'Salt fog & weak acid resistance, marine grade',
+    'residue repair must translate from the original English node, not from the mixed localized node',
+  )
+})
+
 test('does not mistake a Spanish word with an accented suffix for English residue', () => {
   const source = '<p>Engineers pick a material based on the specification.</p>'
   const translated = '<p>Los ingenieros eligen un material basándose en la especificación.</p>'
@@ -59,6 +76,13 @@ test('does not mistake a Spanish word with an accented suffix for English residu
 test('does not flag an embedded CAD file-format identifier as English residue', () => {
   const source = '<p>We support DWG, DXF, STEP, IGES, SolidWorks SLDPRT and other mainstream 2D/3D CAD formats.</p>'
   const translated = '<p>Admitimos DWG, DXF, STEP, IGES, SolidWorks SLDPRT y otros formatos CAD 2D/3D principales.</p>'
+
+  assert.deepEqual(findPartialEnglishResidueNodes(source, translated), [])
+})
+
+test('does not flag the locale-neutral per-kilogram unit as English residue', () => {
+  const source = '<p>Indicative price: $50-80 per kilogram</p>'
+  const translated = '<p>Indicatieve prijs: $50-80 per kilogram</p>'
 
   assert.deepEqual(findPartialEnglishResidueNodes(source, translated), [])
 })

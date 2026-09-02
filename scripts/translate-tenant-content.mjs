@@ -283,7 +283,14 @@ async function repairEnglishResidueHtml(config, sourceHtml, localizedHtml, local
     batches.push(residues.slice(index, index + 12))
   }
   const translatedBatches = await Promise.all(batches.map((batch, index) => (
-    translateBatchWithSplit(config, batch, locale, `${context} residue batch ${index + 1}/${batches.length}`, true)
+    translateBatchWithSplit(
+      config,
+      batch,
+      locale,
+      `${context} residue batch ${index + 1}/${batches.length}`,
+      true,
+      batch.flatMap((node) => node.residuePhrases ?? [node.sourceCore ?? node.core]),
+    )
   )))
   const translated = restoreHtmlTextNodes(tokens, residues, Object.assign({}, ...translatedBatches))
   if (JSON.stringify(htmlTags(localizedHtml)) !== JSON.stringify(htmlTags(translated))) {
