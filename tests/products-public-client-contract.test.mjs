@@ -29,6 +29,7 @@ test('products page renders the published backend catalog instead of a fixed fou
   const source = read('app/(frontend)/products/page.tsx')
   assert.match(source, /getPublishedProducts/)
   assert.match(source, /getProductImage/)
+  assert.match(source, /getLegacyFeatures/)
   assert.doesNotMatch(source, /const products = \[/)
   assert.doesNotMatch(source, /'\/images\/3\.jpg'/)
 })

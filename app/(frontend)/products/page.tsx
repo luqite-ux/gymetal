@@ -8,6 +8,18 @@ import { getRequestLocale } from '@/lib/request-locale'
 
 export const dynamic = 'force-dynamic'
 
+function getLegacyFeatures(name: string, t: ReturnType<typeof getTranslations>): string[] | null {
+  const normalizedName = name.trim().toLowerCase()
+  const materials = [t.materials.carbonSteel, t.materials.stainlessSteel, t.materials.aluminum, t.materials.copper]
+  const machining = [t.services.turning, t.services.milling, t.services.drilling, t.services.grinding]
+  const assemblies = [t.services.wirecut, t.services.edm, t.services.laser, t.services.sheetmetal]
+
+  if (normalizedName === '铸件' || normalizedName === 'castings' || normalizedName === '锻件' || normalizedName === 'forgings') return materials
+  if (normalizedName === '机加工工件' || normalizedName === 'machined parts') return machining
+  if (normalizedName === '精密组件' || normalizedName === 'assemblies') return assemblies
+  return null
+}
+
 export default async function ProductsPage() {
   const locale = await getRequestLocale()
   const t = getTranslations(locale)
@@ -46,7 +58,9 @@ export default async function ProductsPage() {
             </div>
           ) : (
             <div className="space-y-16">
-              {products.map((product, index) => (
+              {products.map((product, index) => {
+                const legacyFeatures = getLegacyFeatures(product.name, t)
+                return (
                 <article key={product.id} className={`grid items-center gap-12 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                   <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-secondary">
@@ -57,7 +71,16 @@ export default async function ProductsPage() {
                     {product.category ? <p className="mb-3 text-sm font-medium uppercase tracking-widest text-accent">{product.category}</p> : null}
                     <h2 className="mb-4 text-3xl font-bold text-foreground">{product.name}</h2>
                     {product.description ? <p className="mb-6 text-lg text-muted-foreground">{product.description}</p> : null}
-                    {product.category ? (
+                    {legacyFeatures ? (
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {legacyFeatures.map((feature) => (
+                          <div key={feature} className="flex items-center gap-2">
+                            <CheckCircle2 className="h-5 w-5 shrink-0 text-accent" />
+                            <span className="text-foreground">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : product.category ? (
                       <div className="flex items-center gap-2 text-foreground">
                         <CheckCircle2 className="h-5 w-5 shrink-0 text-accent" />
                         <span>{product.category}</span>
@@ -65,7 +88,8 @@ export default async function ProductsPage() {
                     ) : null}
                   </div>
                 </article>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>
