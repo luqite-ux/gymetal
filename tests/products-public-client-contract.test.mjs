@@ -18,11 +18,17 @@ test('public products load the active tenant catalog in backend order', () => {
   assert.match(source, /\.order\("sort_order", \{ ascending: true \}\)/)
   assert.match(source, /name_en/)
   assert.match(source, /description_en/)
+  assert.match(source, /legacyProductImages/)
+  assert.match(source, /铸件/)
+  assert.match(source, /锻件/)
+  assert.match(source, /机加工工件/)
+  assert.match(source, /精密组件/)
 })
 
 test('products page renders the published backend catalog instead of a fixed four-item array', () => {
   const source = read('app/(frontend)/products/page.tsx')
   assert.match(source, /getPublishedProducts/)
+  assert.match(source, /getProductImage/)
   assert.doesNotMatch(source, /const products = \[/)
   assert.doesNotMatch(source, /'\/images\/3\.jpg'/)
 })

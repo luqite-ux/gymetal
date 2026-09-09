@@ -58,6 +58,22 @@ function resolveLocalizedText(primary: string | null, english: string | null, lo
   return english?.trim() || primary?.trim() || ''
 }
 
+const legacyProductImages: Record<string, string> = {
+  '铸件': '/images/3.jpg',
+  castings: '/images/3.jpg',
+  '锻件': '/images/2.jpg',
+  forgings: '/images/2.jpg',
+  '机加工工件': '/images/8.jpg',
+  'machined parts': '/images/8.jpg',
+  '精密组件': '/images/7.jpg',
+  assemblies: '/images/7.jpg',
+}
+
+export function getProductImage(product: Pick<PublishedProduct, 'name' | 'image_url'>): string {
+  if (product.image_url) return product.image_url
+  return legacyProductImages[product.name.trim().toLowerCase()] || '/images/precision-parts.jpg'
+}
+
 export const getPublishedProducts = cache(async (locale: Locale = 'en'): Promise<PublishedProduct[]> => {
   const tenantId = await getTenantIdForHost()
   if (!tenantId) return []

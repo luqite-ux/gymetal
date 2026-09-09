@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { LocalizedLink } from '@/components/localized-link'
-import { getPublishedProducts } from '@/lib/frontend-products'
+import { getProductImage, getPublishedProducts } from '@/lib/frontend-products'
 import { getTranslations } from '@/lib/i18n'
 import { getRequestLocale } from '@/lib/request-locale'
 
@@ -50,7 +50,7 @@ export default async function ProductsPage() {
                 <article key={product.id} className={`grid items-center gap-12 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                   <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-secondary">
-                      <Image src={product.image_url || '/images/precision-parts.jpg'} alt={product.name} fill className="object-contain p-4" unoptimized />
+                      <Image src={getProductImage(product)} alt={product.name} fill className="object-contain p-4" unoptimized />
                     </div>
                   </div>
                   <div>
