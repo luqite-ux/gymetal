@@ -6,7 +6,12 @@
 2. 备份 `D:\www\gymetaltech` 后，将源码部署包解压并覆盖到该目录。
 3. 先备份服务器现有 `.env.production.local`。本次安全交付包附带了经核对的 `.env.production.local`；请用它覆盖服务器同名文件，且不得通过微信、Git 或截图转发其中的值。
 4. 在部署目录执行 `npm ci` 和 `npm run build`。部署包不包含 `node_modules`。
-5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`。`npm run build` 后会生成 `.next\standalone\server.js`，服务可使用该入口或既有的 `npm start`，并设置：
+5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`。`npm run build` 后执行：
+   ```powershell
+   Copy-Item -Recurse -Force .next\static .next\standalone\.next\static
+   Copy-Item -Recurse -Force public .next\standalone\public
+   ```
+   再以 `node .next\standalone\server.js` 启动服务，并设置：
    - `HOSTNAME=127.0.0.1`
    - `PORT=3000`
 6. 重启 Node.js 服务，并先在服务器本机访问 `http://127.0.0.1:3000`。
