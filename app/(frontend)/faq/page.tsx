@@ -10,12 +10,12 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { MotionDiv } from '@/components/motion'
 import { Package, DollarSign, FlaskConical, Truck, Shield } from 'lucide-react'
-import { pageText } from '@/lib/page-content'
+import { usePageText } from '@/lib/use-page-text'
 import { LocalizedLink } from '@/components/localized-link'
 
 export default function FAQPage() {
   const { locale } = useLanguage()
-  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
+  const l = usePageText()
 
   const faqCategories = [
     {
@@ -260,11 +260,11 @@ export default function FAQPage() {
                     {category.questions.map((q, qIndex) => (
                       <AccordionItem key={qIndex} value={`${category.id}-${qIndex}`} className="border-border">
                         <AccordionTrigger className="text-start hover:no-underline hover:text-accent">
-                          <span className="pe-4">{l(q.qEn, q.qZh)}</span>
+                          <span className="pe-4">{l(q.qEn, q.qZh, 'faq:'+q.qEn+':question')}</span>
                         </AccordionTrigger>
                         <AccordionContent className="text-muted-foreground">
                           <div className="rounded-lg bg-muted/50 p-4">
-                            {l(q.aEn, q.aZh)}
+                            {l(q.aEn, q.aZh, 'faq:'+q.qEn+':answer')}
                           </div>
                         </AccordionContent>
                       </AccordionItem>

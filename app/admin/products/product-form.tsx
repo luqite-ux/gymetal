@@ -56,9 +56,9 @@ export function ProductForm({ product }: ProductFormProps) {
   const handleSubmit = async (formData: FormData) => {
     setIsLoading(true)
     formData.set("is_active", isActive.toString())
-    if (product?.image_url && !formData.get("image")) {
-      formData.set("existing_image", product.image_url)
-    }
+    // An unselected file input still submits an empty File (which is truthy).
+    // Keep the original reference unless the user explicitly removed its preview.
+    formData.set("existing_image", preview ? product?.image_url ?? "" : "")
     
     if (product) {
       await updateProduct(product.id, formData)

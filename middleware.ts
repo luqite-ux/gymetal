@@ -44,7 +44,7 @@ export async function middleware(request: NextRequest) {
 
     if (isSupportedLocale(firstSegment) && firstSegment !== DEFAULT_LOCALE) {
       const localized = stripLocalePrefix(pathname)
-      const url = request.nextUrl.clone()
+      const url = new URL(request.url)
       url.pathname = localized.pathname
       const headers = requestHeadersWithPathname(request)
       headers.set('x-site-locale', localized.locale)

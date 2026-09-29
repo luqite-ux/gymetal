@@ -1,15 +1,15 @@
 'use client'
 
-import Image from 'next/image'
+import Image from '@/components/managed-image'
 import { ArrowRight, CheckCircle2, Building2, Target, Shield, Clock } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
 import { LocalizedLink } from '@/components/localized-link'
-import { pageText } from '@/lib/page-content'
+import { usePageText } from '@/lib/use-page-text'
 
 export default function AboutPage() {
   const { t, locale } = useLanguage()
-  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
+  const l = usePageText()
 
   const milestones = [
     { year: '2007', title: l('Founded', '成立'), desc: l('Established in Wuxi, China', '在中国无锡成立') },

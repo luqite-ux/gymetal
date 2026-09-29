@@ -1,0 +1,646 @@
+{
+  "t.hero.title": {
+    "label": "精密金属制造",
+    "page": "通用图文 / 参数"
+  },
+  "t.hero.subtitle": {
+    "label": "您值得信赖的高精密CNC加工合作伙伴",
+    "page": "通用图文 / 参数"
+  },
+  "t.hero.description": {
+    "label": "ISO9001认证制造商，专注于医疗、航空、汽车和半导体行业的精密零部件加工。",
+    "page": "通用图文 / 参数"
+  },
+  "t.hero.cta": {
+    "label": "获取报价",
+    "page": "通用图文 / 参数"
+  },
+  "t.hero.learnMore": {
+    "label": "了解更多",
+    "page": "通用图文 / 参数"
+  },
+  "t.stats.years": {
+    "label": "年经验",
+    "page": "通用图文 / 参数"
+  },
+  "t.stats.precision": {
+    "label": "加工精度",
+    "page": "通用图文 / 参数"
+  },
+  "t.stats.employees": {
+    "label": "名员工",
+    "page": "通用图文 / 参数"
+  },
+  "t.stats.machines": {
+    "label": "台数控机床",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.title": {
+    "label": "关于广跃金属",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.subtitle": {
+    "label": "自2007年以来的精密制造专家",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.description": {
+    "label": "无锡广跃金属科技有限公司成立于2007年，位于无锡市新吴区梅村新洲路219号。生产基地面积约4500平方米，员工50余人，拥有各类进口高精度机床20多台。",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.description2": {
+    "label": "公司主要从事高精密零部件机械加工，能够生产碳钢、不锈钢、铝合金、铜等材料铸件及锻件。",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.mission": {
+    "label": "我们的宗旨",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.missionText": {
+    "label": "以高质量、低价格、交货及时、服务周到、客户第一为宗旨，愿为广大客户提供优质服务。",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.certification": {
+    "label": "ISO9001认证",
+    "page": "通用图文 / 参数"
+  },
+  "t.about.certificationText": {
+    "label": "公司已通过ISO9001质量体系认证，拥有自主进出口权。",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.title": {
+    "label": "加工能力",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.subtitle": {
+    "label": "全面的精密加工服务",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.turning": {
+    "label": "车削加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.turningDesc": {
+    "label": "高精度车削加工，适用于复杂圆柱形零件",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.milling": {
+    "label": "铣削加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.millingDesc": {
+    "label": "多轴铣削，适用于复杂几何形状和表面",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.drilling": {
+    "label": "钻孔加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.drillingDesc": {
+    "label": "精密钻孔加工，公差严格",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.grinding": {
+    "label": "磨削加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.grindingDesc": {
+    "label": "平面和圆柱磨削，表面质量优异",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.wirecut": {
+    "label": "线切割",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.wirecutDesc": {
+    "label": "适用于复杂形状和硬质材料的线切割",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.edm": {
+    "label": "电火花加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.edmDesc": {
+    "label": "用于精细型腔的电火花加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.laser": {
+    "label": "激光切割",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.laserDesc": {
+    "label": "各种材料的高精度激光切割",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.sheetmetal": {
+    "label": "钣金加工",
+    "page": "通用图文 / 参数"
+  },
+  "t.services.sheetmetalDesc": {
+    "label": "完整的钣金制造服务",
+    "page": "通用图文 / 参数"
+  },
+  "t.materials.title": {
+    "label": "加工材料",
+    "page": "通用图文 / 参数"
+  },
+  "t.materials.carbonSteel": {
+    "label": "碳钢",
+    "page": "通用图文 / 参数"
+  },
+  "t.materials.stainlessSteel": {
+    "label": "不锈钢",
+    "page": "通用图文 / 参数"
+  },
+  "t.materials.aluminum": {
+    "label": "铝合金",
+    "page": "通用图文 / 参数"
+  },
+  "t.materials.copper": {
+    "label": "铜",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.title": {
+    "label": "服务行业",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.subtitle": {
+    "label": "受到全球领先企业的信赖",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.medical": {
+    "label": "医疗",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.electronics": {
+    "label": "电子",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.aerospace": {
+    "label": "航空",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.automotive": {
+    "label": "汽车",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.semiconductor": {
+    "label": "半导体",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.optical": {
+    "label": "光学",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.newEnergy": {
+    "label": "新能源",
+    "page": "通用图文 / 参数"
+  },
+  "t.industries.automation": {
+    "label": "精密自动化",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.title": {
+    "label": "技术规格",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.sizeRange": {
+    "label": "尺寸范围",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.sizeValue": {
+    "label": "20mm - 5000mm",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.precision": {
+    "label": "加工精度",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.precisionValue": {
+    "label": "±0.005mm",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.facility": {
+    "label": "厂房面积",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.facilityValue": {
+    "label": "4,500 平方米",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.equipment": {
+    "label": "设备",
+    "page": "通用图文 / 参数"
+  },
+  "t.specs.equipmentValue": {
+    "label": "20+ 台数控机床",
+    "page": "通用图文 / 参数"
+  },
+  "t.equipment.title": {
+    "label": "设备展示",
+    "page": "通用图文 / 参数"
+  },
+  "t.equipment.subtitle": {
+    "label": "先进的数控机床及检测设备",
+    "page": "通用图文 / 参数"
+  },
+  "t.equipment.machining": {
+    "label": "机械加工设备",
+    "page": "通用图文 / 参数"
+  },
+  "t.equipment.testing": {
+    "label": "检测设备",
+    "page": "通用图文 / 参数"
+  },
+  "t.equipment.accuracy": {
+    "label": "精度",
+    "page": "通用图文 / 参数"
+  },
+  "l:CNC Machining": {
+    "label": "数控加工",
+    "page": "首页"
+  },
+  "l:Scroll": {
+    "label": "滚动",
+    "page": "首页"
+  },
+  "l:Our Facility": {
+    "label": "我们的厂区",
+    "page": "关于我们"
+  },
+  "l:Precision Parts": {
+    "label": "精密零部件",
+    "page": "首页"
+  },
+  "l:Founded": {
+    "label": "成立",
+    "page": "关于我们"
+  },
+  "l:Established in Wuxi, China": {
+    "label": "在中国无锡成立",
+    "page": "关于我们"
+  },
+  "l:Expansion": {
+    "label": "扩建",
+    "page": "关于我们"
+  },
+  "l:Moved to 4,500m² facility": {
+    "label": "迁入4,500平方米厂区",
+    "page": "关于我们"
+  },
+  "l:Quality certification achieved": {
+    "label": "通过质量体系认证",
+    "page": "关于我们"
+  },
+  "l:Global": {
+    "label": "全球业务",
+    "page": "关于我们"
+  },
+  "l:Export to 20+ countries": {
+    "label": "出口至20多个国家",
+    "page": "关于我们"
+  },
+  "l:Our Team": {
+    "label": "我们的团队",
+    "page": "关于我们"
+  },
+  "l:Our Journey": {
+    "label": "发展历程",
+    "page": "关于我们"
+  },
+  "l:Machining Machines": {
+    "label": "台机加工设备",
+    "page": "设备页"
+  },
+  "l:Testing Devices": {
+    "label": "台检测设备",
+    "page": "设备页"
+  },
+  "l:Best Accuracy": {
+    "label": "最高精度",
+    "page": "设备页"
+  },
+  "l:Max Machining Size": {
+    "label": "最大加工尺寸",
+    "page": "设备页"
+  },
+  "l:Equipment Categories": {
+    "label": "设备类别",
+    "page": "设备页"
+  },
+  "l:CNC Lathes": {
+    "label": "数控车床",
+    "page": "设备页"
+  },
+  "l:Vertical Lathes": {
+    "label": "数控立车",
+    "page": "设备页"
+  },
+  "l:Boring Mills": {
+    "label": "镗铣床",
+    "page": "设备页"
+  },
+  "l:Machining Centers": {
+    "label": "加工中心",
+    "page": "设备页"
+  },
+  "l:Products & Specifications": {
+    "label": "产品与规格类",
+    "page": "常见问题"
+  },
+  "l:faq:What specifications or models are available?:question": {
+    "label": "你们的产品有哪些规格/型号可选？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:What specifications or models are available?:answer": {
+    "label": "你们的产品有哪些规格/型号可选？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support customized size, material, color, or process?:question": {
+    "label": "是否支持定制尺寸 / 材质 / 颜色 / 工艺？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support customized size, material, color, or process?:answer": {
+    "label": "是否支持定制尺寸 / 材质 / 颜色 / 工艺？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Can you provide samples?:question": {
+    "label": "是否可以提供样品？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Can you provide samples?:answer": {
+    "label": "是否可以提供样品？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you provide technical data sheets or test reports?:question": {
+    "label": "产品是否有技术参数表 / 检测报告？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you provide technical data sheets or test reports?:answer": {
+    "label": "产品是否有技术参数表 / 检测报告？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:What industries or applications are your products suitable for?:question": {
+    "label": "产品适用于哪些行业或应用场景？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:What industries or applications are your products suitable for?:answer": {
+    "label": "产品适用于哪些行业或应用场景？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support OEM / ODM services?:question": {
+    "label": "是否支持 OEM / ODM？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support OEM / ODM services?:answer": {
+    "label": "是否支持 OEM / ODM？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:What is the service life or performance advantage of the product?:question": {
+    "label": "产品的使用寿命 / 性能优势是什么？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:What is the service life or performance advantage of the product?:answer": {
+    "label": "产品的使用寿命 / 性能优势是什么？ · 答案",
+    "page": "常见问题"
+  },
+  "l:MOQ & Pricing": {
+    "label": "起订量与价格类",
+    "page": "常见问题"
+  },
+  "l:faq:What is the minimum order quantity (MOQ)?:question": {
+    "label": "最小起订量（MOQ）是多少？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:What is the minimum order quantity (MOQ)?:answer": {
+    "label": "最小起订量（MOQ）是多少？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you offer tiered pricing?:question": {
+    "label": "价格是否为阶梯报价？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you offer tiered pricing?:answer": {
+    "label": "价格是否为阶梯报价？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Does the price include packaging, shipping, or taxes?:question": {
+    "label": "报价是否包含包装、运输或税费？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Does the price include packaging, shipping, or taxes?:answer": {
+    "label": "报价是否包含包装、运输或税费？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you offer long-term cooperation pricing or bulk discounts?:question": {
+    "label": "是否支持长期合作价格 / 批量折扣？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you offer long-term cooperation pricing or bulk discounts?:answer": {
+    "label": "是否支持长期合作价格 / 批量折扣？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Will prices fluctuate due to raw materials or exchange rates?:question": {
+    "label": "价格是否会随原材料或汇率波动？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Will prices fluctuate due to raw materials or exchange rates?:answer": {
+    "label": "价格是否会随原材料或汇率波动？ · 答案",
+    "page": "常见问题"
+  },
+  "l:Samples": {
+    "label": "样品与打样类",
+    "page": "常见问题"
+  },
+  "l:faq:Can samples be shipped?:question": {
+    "label": "是否可以寄送样品？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Can samples be shipped?:answer": {
+    "label": "是否可以寄送样品？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Are samples charged? Are they refundable?:question": {
+    "label": "样品是否收费？是否可退？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Are samples charged? Are they refundable?:answer": {
+    "label": "样品是否收费？是否可退？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:What is the sample lead time?:question": {
+    "label": "样品交期是多久？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:What is the sample lead time?:answer": {
+    "label": "样品交期是多久？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support sample approval before mass production?:question": {
+    "label": "定制产品是否支持先打样确认？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support sample approval before mass production?:answer": {
+    "label": "定制产品是否支持先打样确认？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Are samples consistent with mass production?:question": {
+    "label": "样品与大货是否一致？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Are samples consistent with mass production?:answer": {
+    "label": "样品与大货是否一致？ · 答案",
+    "page": "常见问题"
+  },
+  "l:Production & Delivery": {
+    "label": "生产与交期类",
+    "page": "常见问题"
+  },
+  "l:faq:What is the production lead time after ordering?:question": {
+    "label": "下单后的生产周期是多久？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:What is the production lead time after ordering?:answer": {
+    "label": "下单后的生产周期是多久？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Is the delivery time for bulk orders stable?:question": {
+    "label": "大货交期是否稳定？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Is the delivery time for bulk orders stable?:answer": {
+    "label": "大货交期是否稳定？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Will lead time be extended during peak seasons?:question": {
+    "label": "旺季是否会延长交期？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Will lead time be extended during peak seasons?:answer": {
+    "label": "旺季是否会延长交期？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support urgent or expedited production?:question": {
+    "label": "是否支持加急生产？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support urgent or expedited production?:answer": {
+    "label": "是否支持加急生产？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Can you provide production progress updates?:question": {
+    "label": "生产过程中是否可提供进度反馈？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Can you provide production progress updates?:answer": {
+    "label": "生产过程中是否可提供进度反馈？ · 答案",
+    "page": "常见问题"
+  },
+  "l:Quality & Inspection": {
+    "label": "质量与质检类",
+    "page": "常见问题"
+  },
+  "l:faq:Do you have a quality control process?:question": {
+    "label": "是否有质量控制流程？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you have a quality control process?:answer": {
+    "label": "是否有质量控制流程？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support third-party inspection?:question": {
+    "label": "是否支持第三方验货？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you support third-party inspection?:answer": {
+    "label": "是否支持第三方验货？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:Do you provide inspection or quality reports?:question": {
+    "label": "是否提供质检报告 / 出厂验？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:Do you provide inspection or quality reports?:answer": {
+    "label": "是否提供质检报告 / 出厂验？ · 答案",
+    "page": "常见问题"
+  },
+  "l:faq:How do you handle quality issues?:question": {
+    "label": "出现质量问题如何处理？ · 问题",
+    "page": "常见问题"
+  },
+  "l:faq:How do you handle quality issues?:answer": {
+    "label": "出现质量问题如何处理？ · 答案",
+    "page": "常见问题"
+  },
+  "l:Frequently Asked Questions": {
+    "label": "常见问题（FAQ）",
+    "page": "常见问题"
+  },
+  "l:Find answers to common questions about our products, services, pricing, and quality inspection.": {
+    "label": "查找有关我们产品、服务、价格和质量检验的常见问题解答。",
+    "page": "常见问题"
+  },
+  "l:questions": {
+    "label": "个问题",
+    "page": "常见问题"
+  },
+  "l:Still have questions?": {
+    "label": "还有其他问题？",
+    "page": "常见问题"
+  },
+  "l:Contact us directly and we'll be happy to help.": {
+    "label": "直接联系我们，我们很乐意为您提供帮助。",
+    "page": "常见问题"
+  },
+  "l:Contact Us": {
+    "label": "联系我们",
+    "page": "常见问题"
+  },
+  "l:Submission failed. Please check the verification code and try again.": {
+    "label": "提交失败，请检查验证码后重试。",
+    "page": "联系页"
+  },
+  "l:Message Sent!": {
+    "label": "消息已发送！",
+    "page": "联系页"
+  },
+  "l:Thank you for contacting us. We will get back to you soon.": {
+    "label": "感谢您的联系，我们会尽快回复。",
+    "page": "联系页"
+  },
+  "l:Send Another Message": {
+    "label": "发送另一条消息",
+    "page": "联系页"
+  },
+  "l:Tell us about your project requirements...": {
+    "label": "请告诉我们您的项目需求……",
+    "page": "联系页"
+  },
+  "l:Sending...": {
+    "label": "发送中……",
+    "page": "联系页"
+  },
+  "l:Business Hours": {
+    "label": "营业时间",
+    "page": "联系页"
+  },
+  "l:Monday - Friday": {
+    "label": "周一至周五",
+    "page": "联系页"
+  },
+  "l:Saturday": {
+    "label": "周六",
+    "page": "联系页"
+  },
+  "l:Sunday": {
+    "label": "周日",
+    "page": "联系页"
+  },
+  "l:Closed": {
+    "label": "休息",
+    "page": "联系页"
+  },
+  "l:Our Location": {
+    "label": "我们的位置",
+    "page": "联系页"
+  }
+}

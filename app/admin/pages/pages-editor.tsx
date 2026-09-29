@@ -44,7 +44,7 @@ export function PagesEditor({ homePage }: PagesEditorProps) {
 
   const handleSave = async () => {
     setIsLoading(true)
-    await savePage("home", content)
+      await savePage("home", { ...content })
     router.refresh()
     setIsLoading(false)
   }

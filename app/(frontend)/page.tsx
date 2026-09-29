@@ -1,13 +1,14 @@
 'use client'
 
-import Image from 'next/image'
+import Image from '@/components/managed-image'
 import { ArrowRight, CheckCircle2, Factory, Cog, Award, Users } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
 import { MotionDiv, StaggerContainer } from '@/components/motion'
 import { useScrollAnimation, useCountUp } from '@/hooks/use-scroll-animation'
 import { LocalizedLink } from '@/components/localized-link'
-import { pageText } from '@/lib/page-content'
+import { usePageText } from '@/lib/use-page-text'
+import { useSiteContent } from '@/lib/site-content-context'
 
 function AnimatedStat({ value, label, icon: Icon, index }: { value: string; label: string; icon: any; index: number }) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 })
@@ -35,13 +36,14 @@ function AnimatedStat({ value, label, icon: Icon, index }: { value: string; labe
 
 export default function HomePage() {
   const { t, locale } = useLanguage()
-  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
+  const l = usePageText()
+  const content = useSiteContent()
 
   const stats = [
-    { value: '17+', label: t.stats.years, icon: Factory },
-    { value: '±0.005mm', label: t.stats.precision, icon: Cog },
-    { value: '50+', label: t.stats.employees, icon: Users },
-    { value: '20+', label: t.stats.machines, icon: Award },
+    { value: content?.parameters.homeYears ?? '17+', label: t.stats.years, icon: Factory },
+    { value: content?.parameters.homePrecision ?? '±0.005mm', label: t.stats.precision, icon: Cog },
+    { value: content?.parameters.homeEmployees ?? '50+', label: t.stats.employees, icon: Users },
+    { value: content?.parameters.homeMachines ?? '20+', label: t.stats.machines, icon: Award },
   ]
 
   const industries = [
@@ -119,7 +121,7 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-2">
             <span className="text-xs text-primary-foreground/50">{l('Scroll', '滚动')}</span>
             <div className="h-12 w-6 rounded-full border-2 border-primary-foreground/30 p-1">
-              <div className="h-2 w-full animate-bounce rounded-full bg-accent" />
+              <div className="h-2 w-full animate-pulse rounded-full bg-accent" />
             </div>
           </div>
         </div>

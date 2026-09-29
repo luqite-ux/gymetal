@@ -26,7 +26,7 @@ const navItems = [
   { href: "/admin/inquiries", label: "询盘管理", icon: MessageSquare },
   { href: "/admin/products", label: "产品管理", icon: Package },
   { href: "/admin/articles", label: "文章管理", icon: FileText },
-  { href: "/admin/pages", label: "页面编辑", icon: Layout },
+  { href: "/admin/content", label: "设备与页面内容", icon: Layout },
   { href: "/admin/settings", label: "网站设置", icon: Settings },
 ]
 

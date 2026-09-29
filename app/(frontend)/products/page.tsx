@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { LocalizedLink } from '@/components/localized-link'
 import { getProductImage, getPublishedProducts } from '@/lib/frontend-products'
 import { getTranslations } from '@/lib/i18n'
+import { getSiteTranslations } from '@/lib/site-content-server'
 import { getRequestLocale } from '@/lib/request-locale'
 
 export const dynamic = 'force-dynamic'
@@ -22,7 +23,7 @@ function getLegacyFeatures(name: string, t: ReturnType<typeof getTranslations>):
 
 export default async function ProductsPage() {
   const locale = await getRequestLocale()
-  const t = getTranslations(locale)
+  const t = await getSiteTranslations(locale)
   const products = await getPublishedProducts(locale)
   const industries = [
     { name: t.industries.medical, icon: '🏥' },

@@ -32,8 +32,8 @@ function getR2(): { client: S3Client; publicUrl: string; bucket: string } {
       endpoint,
       // AWS SDK v3.200+ enables CRC32 checksums by default; Cloudflare R2
       // rejects these headers — disable them explicitly.
-      requestChecksumCalculation: "when_required",
-      responseChecksumValidation: "when_required",
+      requestChecksumCalculation: "WHEN_REQUIRED",
+      responseChecksumValidation: "WHEN_REQUIRED",
       credentials: {
         accessKeyId,
         secretAccessKey,

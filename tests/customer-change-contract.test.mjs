@@ -50,8 +50,8 @@ test('customer-facing contact details use the approved email, phone and WhatsApp
 })
 
 test('every equipment image reference resolves to a bundled customer asset', () => {
-  const source = read('app/(frontend)/equipment/page.tsx')
-  const references = [...source.matchAll(/image:\s*'([^']+)'/g)].map((match) => match[1])
+  const source = JSON.parse(read('lib/site-content-defaults.json'))
+  const references = source.equipment.map(item => item.image).filter(Boolean)
   assert.ok(references.length > 0)
   for (const reference of references) {
     assert.equal(

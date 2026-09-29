@@ -4,14 +4,14 @@
 
 1. 停止当前网站 Node.js 服务。
 2. 备份 `D:\www\gymetaltech` 后，将源码部署包解压并覆盖到该目录。
-3. 先备份服务器现有 `.env.production.local`。本次安全交付包附带了经核对的 `.env.production.local`；请用它覆盖服务器同名文件，且不得通过微信、Git 或截图转发其中的值。
-4. 在部署目录执行 `npm ci` 和 `npm run build`。部署包不包含 `node_modules`。
-5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`。`npm run build` 后执行：
+3. 保留服务器现有 `.env.production.local` 和其它 `.env*` 文件。本次内容维护包不包含任何环境文件，禁止用空文件或本机配置覆盖服务器配置；邮件转发、验证码和数据库凭据全部沿用现有值。
+4. 在部署目录执行 `npm ci` 和 `npm run build:windows`。部署包不包含 `node_modules`；Windows 使用 npm 安装，避免 pnpm 符号链接导致 standalone 打包权限错误。
+5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`。`npm run build:windows` 后执行：
    ```powershell
    Copy-Item -Recurse -Force .next\static .next\standalone\.next\static
    Copy-Item -Recurse -Force public .next\standalone\public
    ```
-   再以 `node .next\standalone\server.js` 启动服务，并设置：
+   再以 `node --env-file=.env.production.local .next\standalone\server.js` 启动服务，并设置（如现有服务注入其它环境文件，继续沿用，勿丢失配置）：
    - `HOSTNAME=127.0.0.1`
    - `PORT=3000`
 6. 重启 Node.js 服务，并先在服务器本机访问 `http://127.0.0.1:3000`。

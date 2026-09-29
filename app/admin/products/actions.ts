@@ -2,7 +2,7 @@
 
 import { requireAdminSession } from "@/lib/admin-auth"
 import { createAdminClient as createClient } from "@/lib/supabase/server"
-import { uploadToR2, deleteFromR2 } from "@/lib/r2"
+import { uploadToR2 } from "@/lib/r2"
 import { redirect } from "next/navigation"
 
 export async function createProduct(formData: FormData) {
@@ -66,14 +66,7 @@ export async function updateProduct(id: string, formData: FormData) {
   let imageUrl = existingImage || null
   
   if (image && image.size > 0) {
-    // Delete old image if exists
-    if (existingImage) {
-      try {
-        await deleteFromR2(existingImage)
-      } catch (e) {
-        // Ignore delete errors
-      }
-    }
+    // Keep the old file: a failed save or another content reference must not lose it.
     const uploaded = await uploadToR2(image, `products/${session.tenant_id}`)
     imageUrl = uploaded.url
   }
@@ -100,21 +93,7 @@ export async function deleteProduct(id: string) {
   const session = await requireAdminSession()
   const supabase = await createClient()
 
-  // Get product to delete image
-  const { data: product } = await supabase
-    .from("products")
-    .select("image_url")
-    .eq("id", id)
-    .eq("tenant_id", session.tenant_id)
-    .single()
-
-  if (product?.image_url) {
-    try {
-      await deleteFromR2(product.image_url)
-    } catch (e) {
-      // Ignore delete errors
-    }
-  }
+  // Removing a product does not delete a potentially shared image file.
 
   const { error } = await supabase
     .from("products")

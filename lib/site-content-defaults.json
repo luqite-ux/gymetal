@@ -1,0 +1,3569 @@
+{
+  "version": 1,
+  "texts": {
+    "t.hero.title": {
+      "en": "Precision Metal Manufacturing",
+      "zh": "精密金属制造",
+      "es": "Precision Metal Manufacturing",
+      "pt": "Precision Metal Manufacturing",
+      "fr": "Precision Metal Manufacturing",
+      "ar": "Precision Metal Manufacturing",
+      "el": "Precision Metal Manufacturing",
+      "ru": "Precision Metal Manufacturing",
+      "de": "Precision Metal Manufacturing",
+      "nl": "Precision Metal Manufacturing",
+      "it": "Precision Metal Manufacturing"
+    },
+    "t.hero.subtitle": {
+      "en": "Your Trusted Partner for High-Precision CNC Machining",
+      "zh": "您值得信赖的高精密CNC加工合作伙伴",
+      "es": "Your Trusted Partner for High-Precision CNC Machining",
+      "pt": "Your Trusted Partner for High-Precision CNC Machining",
+      "fr": "Your Trusted Partner for High-Precision CNC Machining",
+      "ar": "Your Trusted Partner for High-Precision CNC Machining",
+      "el": "Your Trusted Partner for High-Precision CNC Machining",
+      "ru": "Your Trusted Partner for High-Precision CNC Machining",
+      "de": "Your Trusted Partner for High-Precision CNC Machining",
+      "nl": "Your Trusted Partner for High-Precision CNC Machining",
+      "it": "Your Trusted Partner for High-Precision CNC Machining"
+    },
+    "t.hero.description": {
+      "en": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "zh": "ISO9001认证制造商，专注于医疗、航空、汽车和半导体行业的精密零部件加工。",
+      "es": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "pt": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "fr": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "ar": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "el": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "ru": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "de": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "nl": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries.",
+      "it": "ISO9001 certified manufacturer specializing in precision parts for medical, aerospace, automotive, and semiconductor industries."
+    },
+    "t.hero.cta": {
+      "en": "Get a Quote",
+      "zh": "获取报价",
+      "es": "Get a Quote",
+      "pt": "Get a Quote",
+      "fr": "Get a Quote",
+      "ar": "Get a Quote",
+      "el": "Get a Quote",
+      "ru": "Get a Quote",
+      "de": "Get a Quote",
+      "nl": "Get a Quote",
+      "it": "Get a Quote"
+    },
+    "t.hero.learnMore": {
+      "en": "Learn More",
+      "zh": "了解更多",
+      "es": "Learn More",
+      "pt": "Learn More",
+      "fr": "Learn More",
+      "ar": "Learn More",
+      "el": "Learn More",
+      "ru": "Learn More",
+      "de": "Learn More",
+      "nl": "Learn More",
+      "it": "Learn More"
+    },
+    "t.stats.years": {
+      "en": "Years Experience",
+      "zh": "年经验",
+      "es": "Years Experience",
+      "pt": "Years Experience",
+      "fr": "Years Experience",
+      "ar": "Years Experience",
+      "el": "Years Experience",
+      "ru": "Years Experience",
+      "de": "Years Experience",
+      "nl": "Years Experience",
+      "it": "Years Experience"
+    },
+    "t.stats.precision": {
+      "en": "Precision",
+      "zh": "加工精度",
+      "es": "Precision",
+      "pt": "Precision",
+      "fr": "Precision",
+      "ar": "Precision",
+      "el": "Precision",
+      "ru": "Precision",
+      "de": "Precision",
+      "nl": "Precision",
+      "it": "Precision"
+    },
+    "t.stats.employees": {
+      "en": "Employees",
+      "zh": "名员工",
+      "es": "Employees",
+      "pt": "Employees",
+      "fr": "Employees",
+      "ar": "Employees",
+      "el": "Employees",
+      "ru": "Employees",
+      "de": "Employees",
+      "nl": "Employees",
+      "it": "Employees"
+    },
+    "t.stats.machines": {
+      "en": "CNC Machines",
+      "zh": "台数控机床",
+      "es": "CNC Machines",
+      "pt": "CNC Machines",
+      "fr": "CNC Machines",
+      "ar": "CNC Machines",
+      "el": "CNC Machines",
+      "ru": "CNC Machines",
+      "de": "CNC Machines",
+      "nl": "CNC Machines",
+      "it": "CNC Machines"
+    },
+    "t.about.title": {
+      "en": "About GY Metal Tech",
+      "zh": "关于广跃金属",
+      "es": "About GY Metal Tech",
+      "pt": "About GY Metal Tech",
+      "fr": "About GY Metal Tech",
+      "ar": "About GY Metal Tech",
+      "el": "About GY Metal Tech",
+      "ru": "About GY Metal Tech",
+      "de": "About GY Metal Tech",
+      "nl": "About GY Metal Tech",
+      "it": "About GY Metal Tech"
+    },
+    "t.about.subtitle": {
+      "en": "Excellence in Precision Manufacturing Since 2007",
+      "zh": "自2007年以来的精密制造专家",
+      "es": "Excellence in Precision Manufacturing Since 2007",
+      "pt": "Excellence in Precision Manufacturing Since 2007",
+      "fr": "Excellence in Precision Manufacturing Since 2007",
+      "ar": "Excellence in Precision Manufacturing Since 2007",
+      "el": "Excellence in Precision Manufacturing Since 2007",
+      "ru": "Excellence in Precision Manufacturing Since 2007",
+      "de": "Excellence in Precision Manufacturing Since 2007",
+      "nl": "Excellence in Precision Manufacturing Since 2007",
+      "it": "Excellence in Precision Manufacturing Since 2007"
+    },
+    "t.about.description": {
+      "en": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "zh": "无锡广跃金属科技有限公司成立于2007年，位于无锡市新吴区梅村新洲路219号。生产基地面积约4500平方米，员工50余人，拥有各类进口高精度机床20多台。",
+      "es": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "pt": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "fr": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "ar": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "el": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "ru": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "de": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "nl": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools.",
+      "it": "Wuxi Guangyue Metal Technology Co., Ltd. was established in 2007, located at No. 219 Xinzhou Road, Meicun, Xinwu District, Wuxi City. Our production base covers approximately 4,500 square meters with over 50 employees and more than 20 imported high-precision machine tools."
+    },
+    "t.about.description2": {
+      "en": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "zh": "公司主要从事高精密零部件机械加工，能够生产碳钢、不锈钢、铝合金、铜等材料铸件及锻件。",
+      "es": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "pt": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "fr": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "ar": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "el": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "ru": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "de": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "nl": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials.",
+      "it": "We specialize in high-precision parts machining, capable of producing castings and forgings in carbon steel, stainless steel, aluminum alloy, and copper materials."
+    },
+    "t.about.mission": {
+      "en": "Our Mission",
+      "zh": "我们的宗旨",
+      "es": "Our Mission",
+      "pt": "Our Mission",
+      "fr": "Our Mission",
+      "ar": "Our Mission",
+      "el": "Our Mission",
+      "ru": "Our Mission",
+      "de": "Our Mission",
+      "nl": "Our Mission",
+      "it": "Our Mission"
+    },
+    "t.about.missionText": {
+      "en": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "zh": "以高质量、低价格、交货及时、服务周到、客户第一为宗旨，愿为广大客户提供优质服务。",
+      "es": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "pt": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "fr": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "ar": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "el": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "ru": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "de": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "nl": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first.",
+      "it": "High quality, competitive pricing, timely delivery, and excellent service - putting customers first."
+    },
+    "t.about.certification": {
+      "en": "ISO9001 Certified",
+      "zh": "ISO9001认证",
+      "es": "ISO9001 Certified",
+      "pt": "ISO9001 Certified",
+      "fr": "ISO9001 Certified",
+      "ar": "ISO9001 Certified",
+      "el": "ISO9001 Certified",
+      "ru": "ISO9001 Certified",
+      "de": "ISO9001 Certified",
+      "nl": "ISO9001 Certified",
+      "it": "ISO9001 Certified"
+    },
+    "t.about.certificationText": {
+      "en": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "zh": "公司已通过ISO9001质量体系认证，拥有自主进出口权。",
+      "es": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "pt": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "fr": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "ar": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "el": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "ru": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "de": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "nl": "We have passed ISO9001 quality management system certification and hold independent import and export rights.",
+      "it": "We have passed ISO9001 quality management system certification and hold independent import and export rights."
+    },
+    "t.services.title": {
+      "en": "Our Capabilities",
+      "zh": "加工能力",
+      "es": "Our Capabilities",
+      "pt": "Our Capabilities",
+      "fr": "Our Capabilities",
+      "ar": "Our Capabilities",
+      "el": "Our Capabilities",
+      "ru": "Our Capabilities",
+      "de": "Our Capabilities",
+      "nl": "Our Capabilities",
+      "it": "Our Capabilities"
+    },
+    "t.services.subtitle": {
+      "en": "Comprehensive Precision Machining Services",
+      "zh": "全面的精密加工服务",
+      "es": "Comprehensive Precision Machining Services",
+      "pt": "Comprehensive Precision Machining Services",
+      "fr": "Comprehensive Precision Machining Services",
+      "ar": "Comprehensive Precision Machining Services",
+      "el": "Comprehensive Precision Machining Services",
+      "ru": "Comprehensive Precision Machining Services",
+      "de": "Comprehensive Precision Machining Services",
+      "nl": "Comprehensive Precision Machining Services",
+      "it": "Comprehensive Precision Machining Services"
+    },
+    "t.services.turning": {
+      "en": "CNC Turning",
+      "zh": "车削加工",
+      "es": "CNC Turning",
+      "pt": "CNC Turning",
+      "fr": "CNC Turning",
+      "ar": "CNC Turning",
+      "el": "CNC Turning",
+      "ru": "CNC Turning",
+      "de": "CNC Turning",
+      "nl": "CNC Turning",
+      "it": "CNC Turning"
+    },
+    "t.services.turningDesc": {
+      "en": "High-precision turning operations for complex cylindrical parts",
+      "zh": "高精度车削加工，适用于复杂圆柱形零件",
+      "es": "High-precision turning operations for complex cylindrical parts",
+      "pt": "High-precision turning operations for complex cylindrical parts",
+      "fr": "High-precision turning operations for complex cylindrical parts",
+      "ar": "High-precision turning operations for complex cylindrical parts",
+      "el": "High-precision turning operations for complex cylindrical parts",
+      "ru": "High-precision turning operations for complex cylindrical parts",
+      "de": "High-precision turning operations for complex cylindrical parts",
+      "nl": "High-precision turning operations for complex cylindrical parts",
+      "it": "High-precision turning operations for complex cylindrical parts"
+    },
+    "t.services.milling": {
+      "en": "CNC Milling",
+      "zh": "铣削加工",
+      "es": "CNC Milling",
+      "pt": "CNC Milling",
+      "fr": "CNC Milling",
+      "ar": "CNC Milling",
+      "el": "CNC Milling",
+      "ru": "CNC Milling",
+      "de": "CNC Milling",
+      "nl": "CNC Milling",
+      "it": "CNC Milling"
+    },
+    "t.services.millingDesc": {
+      "en": "Multi-axis milling for intricate geometries and surfaces",
+      "zh": "多轴铣削，适用于复杂几何形状和表面",
+      "es": "Multi-axis milling for intricate geometries and surfaces",
+      "pt": "Multi-axis milling for intricate geometries and surfaces",
+      "fr": "Multi-axis milling for intricate geometries and surfaces",
+      "ar": "Multi-axis milling for intricate geometries and surfaces",
+      "el": "Multi-axis milling for intricate geometries and surfaces",
+      "ru": "Multi-axis milling for intricate geometries and surfaces",
+      "de": "Multi-axis milling for intricate geometries and surfaces",
+      "nl": "Multi-axis milling for intricate geometries and surfaces",
+      "it": "Multi-axis milling for intricate geometries and surfaces"
+    },
+    "t.services.drilling": {
+      "en": "Drilling",
+      "zh": "钻孔加工",
+      "es": "Drilling",
+      "pt": "Drilling",
+      "fr": "Drilling",
+      "ar": "Drilling",
+      "el": "Drilling",
+      "ru": "Drilling",
+      "de": "Drilling",
+      "nl": "Drilling",
+      "it": "Drilling"
+    },
+    "t.services.drillingDesc": {
+      "en": "Precision drilling operations with tight tolerances",
+      "zh": "精密钻孔加工，公差严格",
+      "es": "Precision drilling operations with tight tolerances",
+      "pt": "Precision drilling operations with tight tolerances",
+      "fr": "Precision drilling operations with tight tolerances",
+      "ar": "Precision drilling operations with tight tolerances",
+      "el": "Precision drilling operations with tight tolerances",
+      "ru": "Precision drilling operations with tight tolerances",
+      "de": "Precision drilling operations with tight tolerances",
+      "nl": "Precision drilling operations with tight tolerances",
+      "it": "Precision drilling operations with tight tolerances"
+    },
+    "t.services.grinding": {
+      "en": "Grinding",
+      "zh": "磨削加工",
+      "es": "Grinding",
+      "pt": "Grinding",
+      "fr": "Grinding",
+      "ar": "Grinding",
+      "el": "Grinding",
+      "ru": "Grinding",
+      "de": "Grinding",
+      "nl": "Grinding",
+      "it": "Grinding"
+    },
+    "t.services.grindingDesc": {
+      "en": "Surface and cylindrical grinding for superior finish",
+      "zh": "平面和圆柱磨削，表面质量优异",
+      "es": "Surface and cylindrical grinding for superior finish",
+      "pt": "Surface and cylindrical grinding for superior finish",
+      "fr": "Surface and cylindrical grinding for superior finish",
+      "ar": "Surface and cylindrical grinding for superior finish",
+      "el": "Surface and cylindrical grinding for superior finish",
+      "ru": "Surface and cylindrical grinding for superior finish",
+      "de": "Surface and cylindrical grinding for superior finish",
+      "nl": "Surface and cylindrical grinding for superior finish",
+      "it": "Surface and cylindrical grinding for superior finish"
+    },
+    "t.services.wirecut": {
+      "en": "Wire EDM",
+      "zh": "线切割",
+      "es": "Wire EDM",
+      "pt": "Wire EDM",
+      "fr": "Wire EDM",
+      "ar": "Wire EDM",
+      "el": "Wire EDM",
+      "ru": "Wire EDM",
+      "de": "Wire EDM",
+      "nl": "Wire EDM",
+      "it": "Wire EDM"
+    },
+    "t.services.wirecutDesc": {
+      "en": "Wire cutting for complex shapes and hard materials",
+      "zh": "适用于复杂形状和硬质材料的线切割",
+      "es": "Wire cutting for complex shapes and hard materials",
+      "pt": "Wire cutting for complex shapes and hard materials",
+      "fr": "Wire cutting for complex shapes and hard materials",
+      "ar": "Wire cutting for complex shapes and hard materials",
+      "el": "Wire cutting for complex shapes and hard materials",
+      "ru": "Wire cutting for complex shapes and hard materials",
+      "de": "Wire cutting for complex shapes and hard materials",
+      "nl": "Wire cutting for complex shapes and hard materials",
+      "it": "Wire cutting for complex shapes and hard materials"
+    },
+    "t.services.edm": {
+      "en": "EDM",
+      "zh": "电火花加工",
+      "es": "EDM",
+      "pt": "EDM",
+      "fr": "EDM",
+      "ar": "EDM",
+      "el": "EDM",
+      "ru": "EDM",
+      "de": "EDM",
+      "nl": "EDM",
+      "it": "EDM"
+    },
+    "t.services.edmDesc": {
+      "en": "Electrical discharge machining for detailed cavities",
+      "zh": "用于精细型腔的电火花加工",
+      "es": "Electrical discharge machining for detailed cavities",
+      "pt": "Electrical discharge machining for detailed cavities",
+      "fr": "Electrical discharge machining for detailed cavities",
+      "ar": "Electrical discharge machining for detailed cavities",
+      "el": "Electrical discharge machining for detailed cavities",
+      "ru": "Electrical discharge machining for detailed cavities",
+      "de": "Electrical discharge machining for detailed cavities",
+      "nl": "Electrical discharge machining for detailed cavities",
+      "it": "Electrical discharge machining for detailed cavities"
+    },
+    "t.services.laser": {
+      "en": "Laser Cutting",
+      "zh": "激光切割",
+      "es": "Laser Cutting",
+      "pt": "Laser Cutting",
+      "fr": "Laser Cutting",
+      "ar": "Laser Cutting",
+      "el": "Laser Cutting",
+      "ru": "Laser Cutting",
+      "de": "Laser Cutting",
+      "nl": "Laser Cutting",
+      "it": "Laser Cutting"
+    },
+    "t.services.laserDesc": {
+      "en": "High-precision laser cutting for various materials",
+      "zh": "各种材料的高精度激光切割",
+      "es": "High-precision laser cutting for various materials",
+      "pt": "High-precision laser cutting for various materials",
+      "fr": "High-precision laser cutting for various materials",
+      "ar": "High-precision laser cutting for various materials",
+      "el": "High-precision laser cutting for various materials",
+      "ru": "High-precision laser cutting for various materials",
+      "de": "High-precision laser cutting for various materials",
+      "nl": "High-precision laser cutting for various materials",
+      "it": "High-precision laser cutting for various materials"
+    },
+    "t.services.sheetmetal": {
+      "en": "Sheet Metal",
+      "zh": "钣金加工",
+      "es": "Sheet Metal",
+      "pt": "Sheet Metal",
+      "fr": "Sheet Metal",
+      "ar": "Sheet Metal",
+      "el": "Sheet Metal",
+      "ru": "Sheet Metal",
+      "de": "Sheet Metal",
+      "nl": "Sheet Metal",
+      "it": "Sheet Metal"
+    },
+    "t.services.sheetmetalDesc": {
+      "en": "Complete sheet metal fabrication services",
+      "zh": "完整的钣金制造服务",
+      "es": "Complete sheet metal fabrication services",
+      "pt": "Complete sheet metal fabrication services",
+      "fr": "Complete sheet metal fabrication services",
+      "ar": "Complete sheet metal fabrication services",
+      "el": "Complete sheet metal fabrication services",
+      "ru": "Complete sheet metal fabrication services",
+      "de": "Complete sheet metal fabrication services",
+      "nl": "Complete sheet metal fabrication services",
+      "it": "Complete sheet metal fabrication services"
+    },
+    "t.materials.title": {
+      "en": "Materials We Work With",
+      "zh": "加工材料",
+      "es": "Materials We Work With",
+      "pt": "Materials We Work With",
+      "fr": "Materials We Work With",
+      "ar": "Materials We Work With",
+      "el": "Materials We Work With",
+      "ru": "Materials We Work With",
+      "de": "Materials We Work With",
+      "nl": "Materials We Work With",
+      "it": "Materials We Work With"
+    },
+    "t.materials.carbonSteel": {
+      "en": "Carbon Steel",
+      "zh": "碳钢",
+      "es": "Carbon Steel",
+      "pt": "Carbon Steel",
+      "fr": "Carbon Steel",
+      "ar": "Carbon Steel",
+      "el": "Carbon Steel",
+      "ru": "Carbon Steel",
+      "de": "Carbon Steel",
+      "nl": "Carbon Steel",
+      "it": "Carbon Steel"
+    },
+    "t.materials.stainlessSteel": {
+      "en": "Stainless Steel",
+      "zh": "不锈钢",
+      "es": "Stainless Steel",
+      "pt": "Stainless Steel",
+      "fr": "Stainless Steel",
+      "ar": "Stainless Steel",
+      "el": "Stainless Steel",
+      "ru": "Stainless Steel",
+      "de": "Stainless Steel",
+      "nl": "Stainless Steel",
+      "it": "Stainless Steel"
+    },
+    "t.materials.aluminum": {
+      "en": "Aluminum Alloy",
+      "zh": "铝合金",
+      "es": "Aluminum Alloy",
+      "pt": "Aluminum Alloy",
+      "fr": "Aluminum Alloy",
+      "ar": "Aluminum Alloy",
+      "el": "Aluminum Alloy",
+      "ru": "Aluminum Alloy",
+      "de": "Aluminum Alloy",
+      "nl": "Aluminum Alloy",
+      "it": "Aluminum Alloy"
+    },
+    "t.materials.copper": {
+      "en": "Copper",
+      "zh": "铜",
+      "es": "Copper",
+      "pt": "Copper",
+      "fr": "Copper",
+      "ar": "Copper",
+      "el": "Copper",
+      "ru": "Copper",
+      "de": "Copper",
+      "nl": "Copper",
+      "it": "Copper"
+    },
+    "t.industries.title": {
+      "en": "Industries We Serve",
+      "zh": "服务行业",
+      "es": "Industries We Serve",
+      "pt": "Industries We Serve",
+      "fr": "Industries We Serve",
+      "ar": "Industries We Serve",
+      "el": "Industries We Serve",
+      "ru": "Industries We Serve",
+      "de": "Industries We Serve",
+      "nl": "Industries We Serve",
+      "it": "Industries We Serve"
+    },
+    "t.industries.subtitle": {
+      "en": "Trusted by Leading Companies Worldwide",
+      "zh": "受到全球领先企业的信赖",
+      "es": "Trusted by Leading Companies Worldwide",
+      "pt": "Trusted by Leading Companies Worldwide",
+      "fr": "Trusted by Leading Companies Worldwide",
+      "ar": "Trusted by Leading Companies Worldwide",
+      "el": "Trusted by Leading Companies Worldwide",
+      "ru": "Trusted by Leading Companies Worldwide",
+      "de": "Trusted by Leading Companies Worldwide",
+      "nl": "Trusted by Leading Companies Worldwide",
+      "it": "Trusted by Leading Companies Worldwide"
+    },
+    "t.industries.medical": {
+      "en": "Medical",
+      "zh": "医疗",
+      "es": "Medical",
+      "pt": "Medical",
+      "fr": "Medical",
+      "ar": "Medical",
+      "el": "Medical",
+      "ru": "Medical",
+      "de": "Medical",
+      "nl": "Medical",
+      "it": "Medical"
+    },
+    "t.industries.electronics": {
+      "en": "Electronics",
+      "zh": "电子",
+      "es": "Electronics",
+      "pt": "Electronics",
+      "fr": "Electronics",
+      "ar": "Electronics",
+      "el": "Electronics",
+      "ru": "Electronics",
+      "de": "Electronics",
+      "nl": "Electronics",
+      "it": "Electronics"
+    },
+    "t.industries.aerospace": {
+      "en": "Aerospace",
+      "zh": "航空",
+      "es": "Aerospace",
+      "pt": "Aerospace",
+      "fr": "Aerospace",
+      "ar": "Aerospace",
+      "el": "Aerospace",
+      "ru": "Aerospace",
+      "de": "Aerospace",
+      "nl": "Aerospace",
+      "it": "Aerospace"
+    },
+    "t.industries.automotive": {
+      "en": "Automotive",
+      "zh": "汽车",
+      "es": "Automotive",
+      "pt": "Automotive",
+      "fr": "Automotive",
+      "ar": "Automotive",
+      "el": "Automotive",
+      "ru": "Automotive",
+      "de": "Automotive",
+      "nl": "Automotive",
+      "it": "Automotive"
+    },
+    "t.industries.semiconductor": {
+      "en": "Semiconductor",
+      "zh": "半导体",
+      "es": "Semiconductor",
+      "pt": "Semiconductor",
+      "fr": "Semiconductor",
+      "ar": "Semiconductor",
+      "el": "Semiconductor",
+      "ru": "Semiconductor",
+      "de": "Semiconductor",
+      "nl": "Semiconductor",
+      "it": "Semiconductor"
+    },
+    "t.industries.optical": {
+      "en": "Optical",
+      "zh": "光学",
+      "es": "Optical",
+      "pt": "Optical",
+      "fr": "Optical",
+      "ar": "Optical",
+      "el": "Optical",
+      "ru": "Optical",
+      "de": "Optical",
+      "nl": "Optical",
+      "it": "Optical"
+    },
+    "t.industries.newEnergy": {
+      "en": "New Energy",
+      "zh": "新能源",
+      "es": "New Energy",
+      "pt": "New Energy",
+      "fr": "New Energy",
+      "ar": "New Energy",
+      "el": "New Energy",
+      "ru": "New Energy",
+      "de": "New Energy",
+      "nl": "New Energy",
+      "it": "New Energy"
+    },
+    "t.industries.automation": {
+      "en": "Automation",
+      "zh": "精密自动化",
+      "es": "Automation",
+      "pt": "Automation",
+      "fr": "Automation",
+      "ar": "Automation",
+      "el": "Automation",
+      "ru": "Automation",
+      "de": "Automation",
+      "nl": "Automation",
+      "it": "Automation"
+    },
+    "t.specs.title": {
+      "en": "Technical Specifications",
+      "zh": "技术规格",
+      "es": "Technical Specifications",
+      "pt": "Technical Specifications",
+      "fr": "Technical Specifications",
+      "ar": "Technical Specifications",
+      "el": "Technical Specifications",
+      "ru": "Technical Specifications",
+      "de": "Technical Specifications",
+      "nl": "Technical Specifications",
+      "it": "Technical Specifications"
+    },
+    "t.specs.sizeRange": {
+      "en": "Size Range",
+      "zh": "尺寸范围",
+      "es": "Size Range",
+      "pt": "Size Range",
+      "fr": "Size Range",
+      "ar": "Size Range",
+      "el": "Size Range",
+      "ru": "Size Range",
+      "de": "Size Range",
+      "nl": "Size Range",
+      "it": "Size Range"
+    },
+    "t.specs.sizeValue": {
+      "en": "20mm - 5000mm",
+      "zh": "20mm - 5000mm",
+      "es": "20mm - 5000mm",
+      "pt": "20mm - 5000mm",
+      "fr": "20mm - 5000mm",
+      "ar": "20mm - 5000mm",
+      "el": "20mm - 5000mm",
+      "ru": "20mm - 5000mm",
+      "de": "20mm - 5000mm",
+      "nl": "20mm - 5000mm",
+      "it": "20mm - 5000mm"
+    },
+    "t.specs.precision": {
+      "en": "Precision",
+      "zh": "加工精度",
+      "es": "Precision",
+      "pt": "Precision",
+      "fr": "Precision",
+      "ar": "Precision",
+      "el": "Precision",
+      "ru": "Precision",
+      "de": "Precision",
+      "nl": "Precision",
+      "it": "Precision"
+    },
+    "t.specs.precisionValue": {
+      "en": "±0.005mm",
+      "zh": "±0.005mm",
+      "es": "±0.005mm",
+      "pt": "±0.005mm",
+      "fr": "±0.005mm",
+      "ar": "±0.005mm",
+      "el": "±0.005mm",
+      "ru": "±0.005mm",
+      "de": "±0.005mm",
+      "nl": "±0.005mm",
+      "it": "±0.005mm"
+    },
+    "t.specs.facility": {
+      "en": "Facility Size",
+      "zh": "厂房面积",
+      "es": "Facility Size",
+      "pt": "Facility Size",
+      "fr": "Facility Size",
+      "ar": "Facility Size",
+      "el": "Facility Size",
+      "ru": "Facility Size",
+      "de": "Facility Size",
+      "nl": "Facility Size",
+      "it": "Facility Size"
+    },
+    "t.specs.facilityValue": {
+      "en": "4,500 m²",
+      "zh": "4,500 平方米",
+      "es": "4,500 m²",
+      "pt": "4,500 m²",
+      "fr": "4,500 m²",
+      "ar": "4,500 m²",
+      "el": "4,500 m²",
+      "ru": "4,500 m²",
+      "de": "4,500 m²",
+      "nl": "4,500 m²",
+      "it": "4,500 m²"
+    },
+    "t.specs.equipment": {
+      "en": "Equipment",
+      "zh": "设备",
+      "es": "Equipment",
+      "pt": "Equipment",
+      "fr": "Equipment",
+      "ar": "Equipment",
+      "el": "Equipment",
+      "ru": "Equipment",
+      "de": "Equipment",
+      "nl": "Equipment",
+      "it": "Equipment"
+    },
+    "t.specs.equipmentValue": {
+      "en": "20+ CNC Machines",
+      "zh": "20+ 台数控机床",
+      "es": "20+ CNC Machines",
+      "pt": "20+ CNC Machines",
+      "fr": "20+ CNC Machines",
+      "ar": "20+ CNC Machines",
+      "el": "20+ CNC Machines",
+      "ru": "20+ CNC Machines",
+      "de": "20+ CNC Machines",
+      "nl": "20+ CNC Machines",
+      "it": "20+ CNC Machines"
+    },
+    "t.equipment.title": {
+      "en": "Our Equipment",
+      "zh": "设备展示",
+      "es": "Our Equipment",
+      "pt": "Our Equipment",
+      "fr": "Our Equipment",
+      "ar": "Our Equipment",
+      "el": "Our Equipment",
+      "ru": "Our Equipment",
+      "de": "Our Equipment",
+      "nl": "Our Equipment",
+      "it": "Our Equipment"
+    },
+    "t.equipment.subtitle": {
+      "en": "Advanced CNC Machines & Testing Equipment",
+      "zh": "先进的数控机床及检测设备",
+      "es": "Advanced CNC Machines & Testing Equipment",
+      "pt": "Advanced CNC Machines & Testing Equipment",
+      "fr": "Advanced CNC Machines & Testing Equipment",
+      "ar": "Advanced CNC Machines & Testing Equipment",
+      "el": "Advanced CNC Machines & Testing Equipment",
+      "ru": "Advanced CNC Machines & Testing Equipment",
+      "de": "Advanced CNC Machines & Testing Equipment",
+      "nl": "Advanced CNC Machines & Testing Equipment",
+      "it": "Advanced CNC Machines & Testing Equipment"
+    },
+    "t.equipment.machining": {
+      "en": "Machining Equipment",
+      "zh": "机械加工设备",
+      "es": "Machining Equipment",
+      "pt": "Machining Equipment",
+      "fr": "Machining Equipment",
+      "ar": "Machining Equipment",
+      "el": "Machining Equipment",
+      "ru": "Machining Equipment",
+      "de": "Machining Equipment",
+      "nl": "Machining Equipment",
+      "it": "Machining Equipment"
+    },
+    "t.equipment.testing": {
+      "en": "Testing Equipment",
+      "zh": "检测设备",
+      "es": "Testing Equipment",
+      "pt": "Testing Equipment",
+      "fr": "Testing Equipment",
+      "ar": "Testing Equipment",
+      "el": "Testing Equipment",
+      "ru": "Testing Equipment",
+      "de": "Testing Equipment",
+      "nl": "Testing Equipment",
+      "it": "Testing Equipment"
+    },
+    "t.equipment.accuracy": {
+      "en": "Accuracy",
+      "zh": "精度",
+      "es": "Accuracy",
+      "pt": "Accuracy",
+      "fr": "Accuracy",
+      "ar": "Accuracy",
+      "el": "Accuracy",
+      "ru": "Accuracy",
+      "de": "Accuracy",
+      "nl": "Accuracy",
+      "it": "Accuracy"
+    },
+    "l:CNC Machining": {
+      "en": "CNC Machining",
+      "zh": "数控加工",
+      "es": "Mecanizado CNC",
+      "pt": "Usinagem CNC",
+      "fr": "Usinage CNC",
+      "ar": "تصنيع CNC",
+      "el": "Κατεργασία CNC",
+      "ru": "Обработка на станках с ЧПУ",
+      "de": "CNC-Bearbeitung",
+      "nl": "CNC-bewerking",
+      "it": "Lavorazione CNC"
+    },
+    "l:Scroll": {
+      "en": "Scroll",
+      "zh": "滚动",
+      "es": "Desplazarse",
+      "pt": "Rolar",
+      "fr": "Défiler",
+      "ar": "مرر",
+      "el": "Κύλιση",
+      "ru": "Прокрутить",
+      "de": "Scrollen",
+      "nl": "Scrollen",
+      "it": "Scorri"
+    },
+    "l:Our Facility": {
+      "en": "Our Facility",
+      "zh": "我们的厂区",
+      "es": "Nuestras instalaciones",
+      "pt": "Nossa Instalação",
+      "fr": "Notre installation",
+      "ar": "منشأتنا",
+      "el": "Η Εγκατάστασή μας",
+      "ru": "Наше предприятие",
+      "de": "Unsere Anlage",
+      "nl": "Onze faciliteit",
+      "it": "La nostra struttura"
+    },
+    "l:Precision Parts": {
+      "en": "Precision Parts",
+      "zh": "精密零部件",
+      "es": "Piezas de precisión",
+      "pt": "Peças de Precisão",
+      "fr": "Pièces de précision",
+      "ar": "قطع دقيقة",
+      "el": "Εξαρτήματα Ακριβείας",
+      "ru": "Прецизионные детали",
+      "de": "Präzisionsteile",
+      "nl": "Precisieonderdelen",
+      "it": "Componenti di precisione"
+    },
+    "l:Founded": {
+      "en": "Founded",
+      "zh": "成立",
+      "es": "Fundada",
+      "pt": "Fundada",
+      "fr": "Fondée",
+      "ar": "تأسست",
+      "el": "Ίδρυση",
+      "ru": "Основание",
+      "de": "Gegründet",
+      "nl": "Opgericht",
+      "it": "Fondata"
+    },
+    "l:Established in Wuxi, China": {
+      "en": "Established in Wuxi, China",
+      "zh": "在中国无锡成立",
+      "es": "Establecida en Wuxi, China",
+      "pt": "Estabelecida em Wuxi, China",
+      "fr": "Établie à Wuxi, Chine",
+      "ar": "تأسست في ووشي، الصين",
+      "el": "Ιδρύθηκε στο Wuxi της Κίνας",
+      "ru": "Основана в Уси, Китай",
+      "de": "Gegründet in Wuxi, China",
+      "nl": "Gevestigd in Wuxi, China",
+      "it": "Fondata a Wuxi, Cina"
+    },
+    "l:Expansion": {
+      "en": "Expansion",
+      "zh": "扩建",
+      "es": "Expansión",
+      "pt": "Expansão",
+      "fr": "Expansion",
+      "ar": "التوسع",
+      "el": "Επέκταση",
+      "ru": "Расширение",
+      "de": "Erweiterung",
+      "nl": "Uitbreiding",
+      "it": "Espansione"
+    },
+    "l:Moved to 4,500m² facility": {
+      "en": "Moved to 4,500m² facility",
+      "zh": "迁入4,500平方米厂区",
+      "es": "Mudanza a instalaciones de 4.500 m²",
+      "pt": "Mudou para instalações de 4.500m²",
+      "fr": "Déménagement dans une installation de 4 500 m²",
+      "ar": "انتقلت إلى منشأة بمساحة 4,500 متر مربع",
+      "el": "Μετακόμιση σε εγκαταστάσεις 4.500m²",
+      "ru": "Переезд на предприятие площадью 4500 м²",
+      "de": "Umzug in eine 4.500 m² große Anlage",
+      "nl": "Verhuisd naar faciliteit van 4.500 m²",
+      "it": "Trasferimento in struttura di 4.500 m²"
+    },
+    "l:Quality certification achieved": {
+      "en": "Quality certification achieved",
+      "zh": "通过质量体系认证",
+      "es": "Certificación de calidad obtenida",
+      "pt": "Certificação de qualidade alcançada",
+      "fr": "Certification qualité obtenue",
+      "ar": "تحقيق شهادة الجودة",
+      "el": "Επίτευξη πιστοποίησης ποιότητας",
+      "ru": "Получен сертификат качества",
+      "de": "Qualitätszertifizierung erreicht",
+      "nl": "Kwaliteitscertificering behaald",
+      "it": "Certificazione di qualità ottenuta"
+    },
+    "l:Global": {
+      "en": "Global",
+      "zh": "全球业务",
+      "es": "Global",
+      "pt": "Global",
+      "fr": "Mondial",
+      "ar": "عالمي",
+      "el": "Παγκόσμια",
+      "ru": "Глобально",
+      "de": "Global",
+      "nl": "Wereldwijd",
+      "it": "Globale"
+    },
+    "l:Export to 20+ countries": {
+      "en": "Export to 20+ countries",
+      "zh": "出口至20多个国家",
+      "es": "Exportación a más de 20 países",
+      "pt": "Exportação para mais de 20 países",
+      "fr": "Exportation vers plus de 20 pays",
+      "ar": "تصدير إلى أكثر من 20 دولة",
+      "el": "Εξαγωγή σε 20+ χώρες",
+      "ru": "Экспорт в более чем 20 стран",
+      "de": "Export in über 20 Länder",
+      "nl": "Export naar meer dan 20 landen",
+      "it": "Esportazione in oltre 20 paesi"
+    },
+    "l:Our Team": {
+      "en": "Our Team",
+      "zh": "我们的团队",
+      "es": "Nuestro equipo",
+      "pt": "Nossa Equipe",
+      "fr": "Notre équipe",
+      "ar": "فريقنا",
+      "el": "Η Ομάδα μας",
+      "ru": "Наша команда",
+      "de": "Unser Team",
+      "nl": "Ons team",
+      "it": "Il nostro team"
+    },
+    "l:Our Journey": {
+      "en": "Our Journey",
+      "zh": "发展历程",
+      "es": "Nuestra trayectoria",
+      "pt": "Nossa Jornada",
+      "fr": "Notre parcours",
+      "ar": "رحلتنا",
+      "el": "Το Ταξίδι μας",
+      "ru": "Наш путь",
+      "de": "Unsere Reise",
+      "nl": "Onze reis",
+      "it": "Il nostro percorso"
+    },
+    "l:Machining Machines": {
+      "en": "Machining Machines",
+      "zh": "台机加工设备",
+      "es": "Máquinas de mecanizado",
+      "pt": "Máquinas de Usinagem",
+      "fr": "Machines d'usinage",
+      "ar": "آلات التصنيع",
+      "el": "Μηχανές Κατεργασίας",
+      "ru": "Металлообрабатывающие станки",
+      "de": "Bearbeitungsmaschinen",
+      "nl": "Bewerkingsmachines",
+      "it": "Macchine utensili"
+    },
+    "l:Testing Devices": {
+      "en": "Testing Devices",
+      "zh": "台检测设备",
+      "es": "Dispositivos de prueba",
+      "pt": "Dispositivos de Teste",
+      "fr": "Dispositifs de test",
+      "ar": "أجهزة الاختبار",
+      "el": "Συσκευές Δοκιμών",
+      "ru": "Контрольно-измерительное оборудование",
+      "de": "Prüfgeräte",
+      "nl": "Testapparatuur",
+      "it": "Dispositivi di prova"
+    },
+    "l:Best Accuracy": {
+      "en": "Best Accuracy",
+      "zh": "最高精度",
+      "es": "Mejor precisión",
+      "pt": "Melhor Precisão",
+      "fr": "Meilleure précision",
+      "ar": "أفضل دقة",
+      "el": "Καλύτερη Ακρίβεια",
+      "ru": "Наилучшая точность",
+      "de": "Beste Genauigkeit",
+      "nl": "Beste nauwkeurigheid",
+      "it": "Precisione massima"
+    },
+    "l:Max Machining Size": {
+      "en": "Max Machining Size",
+      "zh": "最大加工尺寸",
+      "es": "Tamaño máximo de mecanizado",
+      "pt": "Tamanho Máximo de Usinagem",
+      "fr": "Taille d'usinage maximale",
+      "ar": "أقصى حجم تصنيع",
+      "el": "Μέγιστο Μέγεθος Κατεργασίας",
+      "ru": "Максимальный размер обработки",
+      "de": "Max. Bearbeitungsgröße",
+      "nl": "Maximale bewerkingsgrootte",
+      "it": "Dimensione massima di lavorazione"
+    },
+    "l:Equipment Categories": {
+      "en": "Equipment Categories",
+      "zh": "设备类别",
+      "es": "Categorías de equipos",
+      "pt": "Categorias de Equipamentos",
+      "fr": "Catégories d'équipement",
+      "ar": "فئات المعدات",
+      "el": "Κατηγορίες Εξοπλισμού",
+      "ru": "Категории оборудования",
+      "de": "Gerätekategorien",
+      "nl": "Machinecategorieën",
+      "it": "Categorie di attrezzature"
+    },
+    "l:CNC Lathes": {
+      "en": "CNC Lathes",
+      "zh": "数控车床",
+      "es": "Tornos CNC",
+      "pt": "Tornos CNC",
+      "fr": "Tours CNC",
+      "ar": "مخارط CNC",
+      "el": "CNC Τόρνοι",
+      "ru": "Токарные станки с ЧПУ",
+      "de": "CNC-Drehmaschinen",
+      "nl": "CNC-draaibanken",
+      "it": "Torni CNC"
+    },
+    "l:Vertical Lathes": {
+      "en": "Vertical Lathes",
+      "zh": "数控立车",
+      "es": "Tornos verticales",
+      "pt": "Tornos Verticais",
+      "fr": "Tours verticaux",
+      "ar": "مخارط رأسية",
+      "el": "Κάθετοι Τόρνοι",
+      "ru": "Вертикальные токарные станки",
+      "de": "Vertikaldrehmaschinen",
+      "nl": "Verticale draaibanken",
+      "it": "Torni verticali"
+    },
+    "l:Boring Mills": {
+      "en": "Boring Mills",
+      "zh": "镗铣床",
+      "es": "Mandrinadoras",
+      "pt": "Mandriladoras",
+      "fr": "Aléseuses",
+      "ar": "مكائن التجويف",
+      "el": "Μηχανές Διάτρησης",
+      "ru": "Расточные станки",
+      "de": "Bohrwerke",
+      "nl": "Boormachines",
+      "it": "Alesatrici"
+    },
+    "l:Machining Centers": {
+      "en": "Machining Centers",
+      "zh": "加工中心",
+      "es": "Centros de mecanizado",
+      "pt": "Centros de Usinagem",
+      "fr": "Centres d'usinage",
+      "ar": "مراكز التصنيع",
+      "el": "Κέντρα Κατεργασίας",
+      "ru": "Обрабатывающие центры",
+      "de": "Bearbeitungszentren",
+      "nl": "Bewerkingscentra",
+      "it": "Centri di lavoro"
+    },
+    "l:Products & Specifications": {
+      "en": "Products & Specifications",
+      "zh": "产品与规格类",
+      "es": "Productos y especificaciones",
+      "pt": "Produtos e Especificações",
+      "fr": "Produits et spécifications",
+      "ar": "المنتجات والمواصفات",
+      "el": "Προϊόντα & Προδιαγραφές",
+      "ru": "Продукция и спецификации",
+      "de": "Produkte & Spezifikationen",
+      "nl": "Producten en specificaties",
+      "it": "Prodotti e specifiche"
+    },
+    "l:faq:What specifications or models are available?:question": {
+      "en": "What specifications or models are available?",
+      "zh": "你们的产品有哪些规格/型号可选？",
+      "es": "¿Qué especificaciones o modelos están disponibles?",
+      "pt": "Quais especificações ou modelos estão disponíveis?",
+      "fr": "Quelles spécifications ou modèles sont disponibles ?",
+      "ar": "ما هي المواصفات أو الموديلات المتاحة؟",
+      "el": "Ποιες προδιαγραφές ή μοντέλα είναι διαθέσιμα;",
+      "ru": "Какие спецификации или модели доступны?",
+      "de": "Welche Spezifikationen oder Modelle sind verfügbar?",
+      "nl": "Welke specificaties of modellen zijn beschikbaar?",
+      "it": "Quali specifiche o modelli sono disponibili?"
+    },
+    "l:faq:What specifications or models are available?:answer": {
+      "en": "We do not have standard products. We produce based on customer's drawings.",
+      "zh": "我们没有标准产品，根据客户图纸生产。",
+      "es": "No tenemos productos estándar. Producimos según los planos del cliente.",
+      "pt": "Não temos produtos padrão. Produzimos com base nos desenhos do cliente.",
+      "fr": "Nous n'avons pas de produits standard. Nous produisons selon les dessins du client.",
+      "ar": "ليس لدينا منتجات قياسية. نحن ننتج بناءً على رسومات العميل.",
+      "el": "Δεν έχουμε τυποποιημένα προϊόντα. Παράγουμε βάσει των σχεδίων του πελάτη.",
+      "ru": "У нас нет стандартной продукции. Мы производим по чертежам заказчика.",
+      "de": "Wir haben keine Standardprodukte. Wir fertigen nach Kundenspezifikationen.",
+      "nl": "We hebben geen standaardproducten. We produceren op basis van de tekeningen van de klant.",
+      "it": "Non abbiamo prodotti standard. Produciamo in base ai disegni del cliente."
+    },
+    "l:faq:Do you support customized size, material, color, or process?:question": {
+      "en": "Do you support customized size, material, color, or process?",
+      "zh": "是否支持定制尺寸 / 材质 / 颜色 / 工艺？",
+      "es": "¿Soportan tamaño, material, color o proceso personalizado?",
+      "pt": "Vocês suportam tamanho, material, cor ou processo personalizado?",
+      "fr": "Supportez-vous les tailles, matériaux, couleurs ou procédés personnalisés ?",
+      "ar": "هل تدعمون الحجم أو المادة أو اللون أو العملية المخصصة؟",
+      "el": "Υποστηρίζετε προσαρμοσμένο μέγεθος, υλικό, χρώμα ή διαδικασία;",
+      "ru": "Поддерживаете ли вы индивидуальные размеры, материалы, цвета или процессы?",
+      "de": "Unterstützen Sie kundenspezifische Größen, Materialien, Farben oder Prozesse?",
+      "nl": "Ondersteunt u aangepaste maat, materiaal, kleur of proces?",
+      "it": "Supportate dimensioni, materiali, colori o processi personalizzati?"
+    },
+    "l:faq:Do you support customized size, material, color, or process?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Can you provide samples?:question": {
+      "en": "Can you provide samples?",
+      "zh": "是否可以提供样品？",
+      "es": "¿Pueden proporcionar muestras?",
+      "pt": "Vocês fornecem amostras?",
+      "fr": "Pouvez-vous fournir des échantillons ?",
+      "ar": "هل يمكنكم توفير عينات؟",
+      "el": "Μπορείτε να παρέχετε δείγματα;",
+      "ru": "Можете ли вы предоставить образцы?",
+      "de": "Können Sie Muster bereitstellen?",
+      "nl": "Kunt u monsters verstrekken?",
+      "it": "Potete fornire campioni?"
+    },
+    "l:faq:Can you provide samples?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Do you provide technical data sheets or test reports?:question": {
+      "en": "Do you provide technical data sheets or test reports?",
+      "zh": "产品是否有技术参数表 / 检测报告？",
+      "es": "¿Proporcionan hojas de datos técnicos o informes de prueba?",
+      "pt": "Vocês fornecem fichas técnicas ou relatórios de teste?",
+      "fr": "Fournissez-vous des fiches techniques ou des rapports de test ?",
+      "ar": "هل توفرون أوراق بيانات فنية أو تقارير اختبار؟",
+      "el": "Παρέχετε τεχνικά φύλλα δεδομένων ή εκθέσεις δοκιμών;",
+      "ru": "Предоставляете ли вы технические паспорта или протоколы испытаний?",
+      "de": "Stellen Sie technische Datenblätter oder Prüfberichte zur Verfügung?",
+      "nl": "Verstrekt u technische gegevensbladen of testrapporten?",
+      "it": "Fornite schede tecniche o rapporti di prova?"
+    },
+    "l:faq:Do you provide technical data sheets or test reports?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:What industries or applications are your products suitable for?:question": {
+      "en": "What industries or applications are your products suitable for?",
+      "zh": "产品适用于哪些行业或应用场景？",
+      "es": "¿Para qué industrias o aplicaciones son adecuados sus productos?",
+      "pt": "Para quais indústrias ou aplicações seus produtos são adequados?",
+      "fr": "À quelles industries ou applications vos produits conviennent-ils ?",
+      "ar": "ما هي الصناعات أو التطبيقات التي تناسب منتجاتكم؟",
+      "el": "Για ποιες βιομηχανίες ή εφαρμογές είναι κατάλληλα τα προϊόντα σας;",
+      "ru": "Для каких отраслей или применений подходит ваша продукция?",
+      "de": "Für welche Branchen oder Anwendungen sind Ihre Produkte geeignet?",
+      "nl": "Voor welke industrieën of toepassingen zijn uw producten geschikt?",
+      "it": "Per quali settori o applicazioni sono adatti i vostri prodotti?"
+    },
+    "l:faq:What industries or applications are your products suitable for?:answer": {
+      "en": "All mechanical parts, like components for automotive application; parts for all kinds of machines.",
+      "zh": "所有机械零部件，如汽车应用部件；各种机器的零部件。",
+      "es": "Todas las piezas mecánicas, como componentes para aplicaciones automotrices; piezas para todo tipo de máquinas.",
+      "pt": "Todas as peças mecânicas, como componentes para aplicação automotiva; peças para todos os tipos de máquinas.",
+      "fr": "Toutes pièces mécaniques, comme les composants pour applications automobiles ; pièces pour toutes sortes de machines.",
+      "ar": "جميع الأجزاء الميكانيكية، مثل مكونات تطبيقات السيارات؛ أجزاء لجميع أنواع الآلات.",
+      "el": "Όλα τα μηχανικά εξαρτήματα, όπως εξαρτήματα για εφαρμογές αυτοκινήτων· εξαρτήματα για κάθε είδους μηχανές.",
+      "ru": "Все механические детали, например, компоненты для автомобильной промышленности; детали для различных машин.",
+      "de": "Alle mechanischen Teile, wie Komponenten für Automobilanwendungen; Teile für alle Arten von Maschinen.",
+      "nl": "Alle mechanische onderdelen, zoals componenten voor automobieltoepassingen; onderdelen voor allerlei machines.",
+      "it": "Tutti i componenti meccanici, come componenti per applicazioni automobilistiche; parti per tutti i tipi di macchine."
+    },
+    "l:faq:Do you support OEM / ODM services?:question": {
+      "en": "Do you support OEM / ODM services?",
+      "zh": "是否支持 OEM / ODM？",
+      "es": "¿Ofrecen servicios OEM / ODM?",
+      "pt": "Vocês oferecem serviços OEM / ODM?",
+      "fr": "Proposez-vous des services d'OEM / ODM ?",
+      "ar": "هل تدعمون خدمات OEM / ODM؟",
+      "el": "Υποστηρίζετε υπηρεσίες OEM / ODM;",
+      "ru": "Поддерживаете ли вы услуги OEM / ODM?",
+      "de": "Unterstützen Sie OEM-/ODM-Dienstleistungen?",
+      "nl": "Ondersteunt u OEM/ODM-diensten?",
+      "it": "Supportate servizi OEM / ODM?"
+    },
+    "l:faq:Do you support OEM / ODM services?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:What is the service life or performance advantage of the product?:question": {
+      "en": "What is the service life or performance advantage of the product?",
+      "zh": "产品的使用寿命 / 性能优势是什么？",
+      "es": "¿Cuál es la vida útil o la ventaja de rendimiento del producto?",
+      "pt": "Qual é a vida útil ou vantagem de desempenho do produto?",
+      "fr": "Quelle est la durée de vie ou l'avantage de performance du produit ?",
+      "ar": "ما هو عمر الخدمة أو ميزة الأداء للمنتج؟",
+      "el": "Ποια είναι η διάρκεια ζωής ή το πλεονέκτημα απόδοσης του προϊόντος;",
+      "ru": "Каков срок службы или преимущество по производительности продукта?",
+      "de": "Wie ist die Lebensdauer oder der Leistungsvorteil des Produkts?",
+      "nl": "Wat is de levensduur of prestatievoordeel van het product?",
+      "it": "Qual è la durata o il vantaggio prestazionale del prodotto?"
+    },
+    "l:faq:What is the service life or performance advantage of the product?:answer": {
+      "en": "Depends on the specific product and application requirements.",
+      "zh": "取决于具体产品和应用要求。",
+      "es": "Depende del producto específico y los requisitos de la aplicación.",
+      "pt": "Depende do produto específico e dos requisitos da aplicação.",
+      "fr": "Cela dépend du produit spécifique et des exigences de l'application.",
+      "ar": "يعتمد على المنتج المحدد ومتطلبات التطبيق.",
+      "el": "Εξαρτάται από το συγκεκριμένο προϊόν και τις απαιτήσεις εφαρμογής.",
+      "ru": "Зависит от конкретного продукта и требований применения.",
+      "de": "Hängt vom spezifischen Produkt und den Anwendungsanforderungen ab.",
+      "nl": "Afhankelijk van het specifieke product en de toepassingsvereisten.",
+      "it": "Dipende dal prodotto specifico e dai requisiti applicativi."
+    },
+    "l:MOQ & Pricing": {
+      "en": "MOQ & Pricing",
+      "zh": "起订量与价格类",
+      "es": "MOQ y precios",
+      "pt": "MOQ e Preços",
+      "fr": "MOQ et tarification",
+      "ar": "الحد الأدنى لكمية الطلب والتسعير",
+      "el": "Ελάχιστη Ποσότητα Παραγγελίας & Τιμολόγηση",
+      "ru": "MOQ и цены",
+      "de": "MOQ & Preise",
+      "nl": "MOQ en prijzen",
+      "it": "MOQ e prezzi"
+    },
+    "l:faq:What is the minimum order quantity (MOQ)?:question": {
+      "en": "What is the minimum order quantity (MOQ)?",
+      "zh": "最小起订量（MOQ）是多少？",
+      "es": "¿Cuál es la cantidad mínima de pedido (MOQ)?",
+      "pt": "Qual é a quantidade mínima do pedido (MOQ)?",
+      "fr": "Quelle est la quantité minimale de commande (MOQ) ?",
+      "ar": "ما هو الحد الأدنى لكمية الطلب (MOQ)؟",
+      "el": "Ποια είναι η ελάχιστη ποσότητα παραγγελίας (MOQ);",
+      "ru": "Каков минимальный объем заказа (MOQ)?",
+      "de": "Wie hoch ist die Mindestbestellmenge (MOQ)?",
+      "nl": "Wat is de minimale bestelhoeveelheid (MOQ)?",
+      "it": "Qual è la quantità minima d'ordine (MOQ)?"
+    },
+    "l:faq:What is the minimum order quantity (MOQ)?:answer": {
+      "en": "Depends on the components.",
+      "zh": "取决于具体部件。",
+      "es": "Depende de los componentes.",
+      "pt": "Depende dos componentes.",
+      "fr": "Cela dépend des composants.",
+      "ar": "يعتمد على المكونات.",
+      "el": "Εξαρτάται από τα εξαρτήματα.",
+      "ru": "Зависит от компонентов.",
+      "de": "Hängt von den Komponenten ab.",
+      "nl": "Afhankelijk van de componenten.",
+      "it": "Dipende dai componenti."
+    },
+    "l:faq:Do you offer tiered pricing?:question": {
+      "en": "Do you offer tiered pricing?",
+      "zh": "价格是否为阶梯报价？",
+      "es": "¿Ofrecen precios escalonados?",
+      "pt": "Vocês oferecem preços escalonados?",
+      "fr": "Proposez-vous une tarification par paliers ?",
+      "ar": "هل تقدمون أسعارًا متدرجة؟",
+      "el": "Προσφέρετε τιμολόγηση με κλίμακες;",
+      "ru": "Предлагаете ли вы дифференцированные цены?",
+      "de": "Bieten Sie gestaffelte Preise an?",
+      "nl": "Biedt u staffelprijzen?",
+      "it": "Offrite prezzi scaglionati?"
+    },
+    "l:faq:Do you offer tiered pricing?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Does the price include packaging, shipping, or taxes?:question": {
+      "en": "Does the price include packaging, shipping, or taxes?",
+      "zh": "报价是否包含包装、运输或税费？",
+      "es": "¿El precio incluye embalaje, envío o impuestos?",
+      "pt": "O preço inclui embalagem, frete ou impostos?",
+      "fr": "Le prix inclut-il l'emballage, l'expédition ou les taxes ?",
+      "ar": "هل يشمل السعر التغليف أو الشحن أو الضرائب؟",
+      "el": "Η τιμή περιλαμβάνει συσκευασία, αποστολή ή φόρους;",
+      "ru": "Включает ли цена упаковку, доставку или налоги?",
+      "de": "Sind Verpackung, Versand oder Steuern im Preis enthalten?",
+      "nl": "Is de prijs inclusief verpakking, verzending of belastingen?",
+      "it": "Il prezzo include imballaggio, spedizione o tasse?"
+    },
+    "l:faq:Does the price include packaging, shipping, or taxes?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Do you offer long-term cooperation pricing or bulk discounts?:question": {
+      "en": "Do you offer long-term cooperation pricing or bulk discounts?",
+      "zh": "是否支持长期合作价格 / 批量折扣？",
+      "es": "¿Ofrecen precios de cooperación a largo plazo o descuentos por volumen?",
+      "pt": "Vocês oferecem preços para cooperação de longo prazo ou descontos por volume?",
+      "fr": "Proposez-vous des tarifs de coopération à long terme ou des remises sur volume ?",
+      "ar": "هل تقدمون أسعار تعاون طويل الأجل أو خصومات للكميات الكبيرة؟",
+      "el": "Προσφέρετε τιμολόγηση μακροχρόνιας συνεργασίας ή εκπτώσεις για χονδρική;",
+      "ru": "Предлагаете ли вы цены для долгосрочного сотрудничества или скидки за объем?",
+      "de": "Bieten Sie Preise für langfristige Zusammenarbeit oder Mengenrabatte an?",
+      "nl": "Biedt u prijzen voor langdurige samenwerking of kortingen voor bulk?",
+      "it": "Offrite prezzi per collaborazione a lungo termine o sconti per quantità?"
+    },
+    "l:faq:Do you offer long-term cooperation pricing or bulk discounts?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Will prices fluctuate due to raw materials or exchange rates?:question": {
+      "en": "Will prices fluctuate due to raw materials or exchange rates?",
+      "zh": "价格是否会随原材料或汇率波动？",
+      "es": "¿Los precios fluctuarán debido a materias primas o tipos de cambio?",
+      "pt": "Os preços flutuam devido a matérias-primas ou taxas de câmbio?",
+      "fr": "Les prix fluctueront-ils en raison des matières premières ou des taux de change ?",
+      "ar": "هل ستتقلب الأسعار بسبب المواد الخام أو أسعار الصرف؟",
+      "el": "Θα κυμαίνονται οι τιμές λόγω πρώτων υλών ή συναλλαγματικών ισοτιμιών;",
+      "ru": "Будут ли цены колебаться из-за сырья или обменных курсов?",
+      "de": "Können sich die Preise aufgrund von Rohstoffen oder Wechselkursen ändern?",
+      "nl": "Zullen prijzen fluctueren als gevolg van grondstoffen of wisselkoersen?",
+      "it": "I prezzi fluttueranno a causa delle materie prime o dei tassi di cambio?"
+    },
+    "l:faq:Will prices fluctuate due to raw materials or exchange rates?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:Samples": {
+      "en": "Samples",
+      "zh": "样品与打样类",
+      "es": "Muestras",
+      "pt": "Amostras",
+      "fr": "Échantillons",
+      "ar": "العينات",
+      "el": "Δείγματα",
+      "ru": "Образцы",
+      "de": "Muster",
+      "nl": "Monsters",
+      "it": "Campioni"
+    },
+    "l:faq:Can samples be shipped?:question": {
+      "en": "Can samples be shipped?",
+      "zh": "是否可以寄送样品？",
+      "es": "¿Se pueden enviar muestras?",
+      "pt": "As amostras podem ser enviadas?",
+      "fr": "Les échantillons peuvent-ils être expédiés ?",
+      "ar": "هل يمكن شحن العينات؟",
+      "el": "Μπορούν να αποσταλούν δείγματα;",
+      "ru": "Можно ли отправить образцы?",
+      "de": "Können Muster versendet werden?",
+      "nl": "Kunnen monsters worden verzonden?",
+      "it": "I campioni possono essere spediti?"
+    },
+    "l:faq:Can samples be shipped?:answer": {
+      "en": "Yes, but we need to charge the cost.",
+      "zh": "可以，但需要收取费用。",
+      "es": "Sí, pero necesitamos cobrar el costo.",
+      "pt": "Sim, mas precisamos cobrar o custo.",
+      "fr": "Oui, mais nous devons facturer le coût.",
+      "ar": "نعم، لكننا بحاجة إلى تحصيل التكلفة.",
+      "el": "Ναι, αλλά θα χρεώσουμε το κόστος.",
+      "ru": "Да, но мы взимаем плату за стоимость.",
+      "de": "Ja, aber wir müssen die Kosten berechnen.",
+      "nl": "Ja, maar we moeten de kosten in rekening brengen.",
+      "it": "Sì, ma dobbiamo addebitare il costo."
+    },
+    "l:faq:Are samples charged? Are they refundable?:question": {
+      "en": "Are samples charged? Are they refundable?",
+      "zh": "样品是否收费？是否可退？",
+      "es": "¿Se cobran las muestras? ¿Son reembolsables?",
+      "pt": "As amostras são cobradas? São reembolsáveis?",
+      "fr": "Les échantillons sont-ils payants ? Sont-ils remboursables ?",
+      "ar": "هل العينات مدفوعة؟ هل هي قابلة للاسترداد؟",
+      "el": "Χρεώνονται τα δείγματα; Επιστρέφονται;",
+      "ru": "Взимается ли плата за образцы? Возвращается ли она?",
+      "de": "Sind Muster kostenpflichtig? Sind sie erstattungsfähig?",
+      "nl": "Worden monsters in rekening gebracht? Zijn ze restitueerbaar?",
+      "it": "I campioni sono a pagamento? Sono rimborsabili?"
+    },
+    "l:faq:Are samples charged? Are they refundable?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:What is the sample lead time?:question": {
+      "en": "What is the sample lead time?",
+      "zh": "样品交期是多久？",
+      "es": "¿Cuál es el plazo de entrega de las muestras?",
+      "pt": "Qual é o prazo de entrega da amostra?",
+      "fr": "Quel est le délai de livraison des échantillons ?",
+      "ar": "ما هو المهلة الزمنية للعينات؟",
+      "el": "Ποιος είναι ο χρόνος παράδοσης των δειγμάτων;",
+      "ru": "Каков срок изготовления образца?",
+      "de": "Wie ist die Lieferzeit für Muster?",
+      "nl": "Wat is de doorlooptijd voor monsters?",
+      "it": "Qual è il tempo di consegna per i campioni?"
+    },
+    "l:faq:What is the sample lead time?:answer": {
+      "en": "Depends on the sample.",
+      "zh": "取决于样品。",
+      "es": "Depende de la muestra.",
+      "pt": "Depende da amostra.",
+      "fr": "Cela dépend de l'échantillon.",
+      "ar": "يعتمد على العينة.",
+      "el": "Εξαρτάται από το δείγμα.",
+      "ru": "Зависит от образца.",
+      "de": "Hängt vom Muster ab.",
+      "nl": "Afhankelijk van het monster.",
+      "it": "Dipende dal campione."
+    },
+    "l:faq:Do you support sample approval before mass production?:question": {
+      "en": "Do you support sample approval before mass production?",
+      "zh": "定制产品是否支持先打样确认？",
+      "es": "¿Soportan la aprobación de muestras antes de la producción en masa?",
+      "pt": "Vocês apoiam a aprovação de amostras antes da produção em massa?",
+      "fr": "Supportez-vous l'approbation des échantillons avant la production en série ?",
+      "ar": "هل تدعمون الموافقة على العينة قبل الإنتاج الضخم؟",
+      "el": "Υποστηρίζετε έγκριση δείγματος πριν από τη μαζική παραγωγή;",
+      "ru": "Поддерживаете ли вы утверждение образца перед массовым производством?",
+      "de": "Unterstützen Sie die Musterfreigabe vor der Serienproduktion?",
+      "nl": "Ondersteunt u monstergoedkeuring vóór massaproductie?",
+      "it": "Supportate l'approvazione del campione prima della produzione di massa?"
+    },
+    "l:faq:Do you support sample approval before mass production?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Are samples consistent with mass production?:question": {
+      "en": "Are samples consistent with mass production?",
+      "zh": "样品与大货是否一致？",
+      "es": "¿Las muestras son consistentes con la producción en masa?",
+      "pt": "As amostras são consistentes com a produção em massa?",
+      "fr": "Les échantillons sont-ils conformes à la production en série ?",
+      "ar": "هل العينات مطابقة للإنتاج الضخم؟",
+      "el": "Είναι τα δείγματα συνεπή με τη μαζική παραγωγή;",
+      "ru": "Соответствуют ли образцы массовой продукции?",
+      "de": "Sind Muster mit der Serienproduktion identisch?",
+      "nl": "Zijn monsters consistent met massaproductie?",
+      "it": "I campioni sono conformi alla produzione di massa?"
+    },
+    "l:faq:Are samples consistent with mass production?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:Production & Delivery": {
+      "en": "Production & Delivery",
+      "zh": "生产与交期类",
+      "es": "Producción y entrega",
+      "pt": "Produção e Entrega",
+      "fr": "Production et livraison",
+      "ar": "الإنتاج والتسليم",
+      "el": "Παραγωγή & Παράδοση",
+      "ru": "Производство и доставка",
+      "de": "Produktion & Lieferung",
+      "nl": "Productie en levering",
+      "it": "Produzione e consegna"
+    },
+    "l:faq:What is the production lead time after ordering?:question": {
+      "en": "What is the production lead time after ordering?",
+      "zh": "下单后的生产周期是多久？",
+      "es": "¿Cuál es el plazo de producción después del pedido?",
+      "pt": "Qual é o prazo de produção após o pedido?",
+      "fr": "Quel est le délai de production après commande ?",
+      "ar": "ما هي المهلة الزمنية للإنتاج بعد الطلب؟",
+      "el": "Ποιος είναι ο χρόνος παράδοσης της παραγωγής μετά την παραγγελία;",
+      "ru": "Каков срок производства после заказа?",
+      "de": "Wie ist die Produktionsvorlaufzeit nach der Bestellung?",
+      "nl": "Wat is de productiedoorlooptijd na bestelling?",
+      "it": "Qual è il tempo di produzione dopo l'ordine?"
+    },
+    "l:faq:What is the production lead time after ordering?:answer": {
+      "en": "Normally 45-60 days.",
+      "zh": "通常45-60天。",
+      "es": "Normalmente 45-60 días.",
+      "pt": "Normalmente 45-60 dias.",
+      "fr": "Normalement 45 à 60 jours.",
+      "ar": "عادة 45-60 يومًا.",
+      "el": "Κανονικά 45-60 ημέρες.",
+      "ru": "Обычно 45-60 дней.",
+      "de": "Normalerweise 45-60 Tage.",
+      "nl": "Normaal 45-60 dagen.",
+      "it": "Normalmente 45-60 giorni."
+    },
+    "l:faq:Is the delivery time for bulk orders stable?:question": {
+      "en": "Is the delivery time for bulk orders stable?",
+      "zh": "大货交期是否稳定？",
+      "es": "¿Es estable el tiempo de entrega para pedidos al por mayor?",
+      "pt": "O prazo de entrega para pedidos em massa é estável?",
+      "fr": "Le délai de livraison pour les commandes en gros est-il stable ?",
+      "ar": "هل وقت تسليم الطلبات بالجملة مستقر؟",
+      "el": "Είναι σταθερός ο χρόνος παράδοσης για μαζικές παραγγελίες;",
+      "ru": "Стабильны ли сроки доставки для оптовых заказов?",
+      "de": "Ist die Lieferzeit für Großbestellungen stabil?",
+      "nl": "Is de levertijd voor bulkorders stabiel?",
+      "it": "Il tempo di consegna per ordini all'ingrosso è stabile?"
+    },
+    "l:faq:Is the delivery time for bulk orders stable?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Will lead time be extended during peak seasons?:question": {
+      "en": "Will lead time be extended during peak seasons?",
+      "zh": "旺季是否会延长交期？",
+      "es": "¿Se extenderá el plazo de entrega durante las temporadas altas?",
+      "pt": "O prazo será estendido durante as temporadas de pico?",
+      "fr": "Le délai sera-t-il prolongé pendant les périodes de pointe ?",
+      "ar": "هل سيتم تمديد المهلة الزمنية خلال المواسم الذروة؟",
+      "el": "Θα παραταθεί ο χρόνος παράδοσης κατά τις περιόδους αιχμής;",
+      "ru": "Будет ли срок увеличен в пиковые сезоны?",
+      "de": "Verlängert sich die Vorlaufzeit in der Hochsaison?",
+      "nl": "Wordt de doorlooptijd verlengd tijdens piekseizoenen?",
+      "it": "Il tempo di consegna sarà prolungato durante le stagioni di punta?"
+    },
+    "l:faq:Will lead time be extended during peak seasons?:answer": {
+      "en": "Normally not.",
+      "zh": "通常不会。",
+      "es": "Normalmente no.",
+      "pt": "Normalmente não.",
+      "fr": "Normalement non.",
+      "ar": "عادة لا.",
+      "el": "Κανονικά όχι.",
+      "ru": "Обычно нет.",
+      "de": "Normalerweise nicht.",
+      "nl": "Normaal niet.",
+      "it": "Normalmente no."
+    },
+    "l:faq:Do you support urgent or expedited production?:question": {
+      "en": "Do you support urgent or expedited production?",
+      "zh": "是否支持加急生产？",
+      "es": "¿Soportan producción urgente o acelerada?",
+      "pt": "Vocês apoiam produção urgente ou acelerada?",
+      "fr": "Supportez-vous la production urgente ou accélérée ?",
+      "ar": "هل تدعمون الإنتاج العاجل أو المعجل؟",
+      "el": "Υποστηρίζετε επείγουσα ή ταχεία παραγωγή;",
+      "ru": "Поддерживаете ли вы срочное или ускоренное производство?",
+      "de": "Unterstützen Sie dringende oder beschleunigte Produktion?",
+      "nl": "Ondersteunt u spoed- of versnelde productie?",
+      "it": "Supportate produzione urgente o accelerata?"
+    },
+    "l:faq:Do you support urgent or expedited production?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Can you provide production progress updates?:question": {
+      "en": "Can you provide production progress updates?",
+      "zh": "生产过程中是否可提供进度反馈？",
+      "es": "¿Pueden proporcionar actualizaciones del progreso de producción?",
+      "pt": "Vocês fornecem atualizações sobre o progresso da produção?",
+      "fr": "Pouvez-vous fournir des mises à jour sur l'avancement de la production ?",
+      "ar": "هل يمكنكم توفير تحديثات تقدم الإنتاج؟",
+      "el": "Μπορείτε να παρέχετε ενημερώσεις προόδου παραγωγής;",
+      "ru": "Можете ли вы предоставлять обновления о ходе производства?",
+      "de": "Können Sie Produktionsfortschrittsupdates bereitstellen?",
+      "nl": "Kunt u productievoortgangsupdates verstrekken?",
+      "it": "Potete fornire aggiornamenti sullo stato di avanzamento della produzione?"
+    },
+    "l:faq:Can you provide production progress updates?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:Quality & Inspection": {
+      "en": "Quality & Inspection",
+      "zh": "质量与质检类",
+      "es": "Calidad e inspección",
+      "pt": "Qualidade e Inspeção",
+      "fr": "Qualité et inspection",
+      "ar": "الجودة والفحص",
+      "el": "Ποιότητα & Έλεγχος",
+      "ru": "Качество и контроль",
+      "de": "Qualität & Prüfung",
+      "nl": "Kwaliteit en inspectie",
+      "it": "Qualità e ispezione"
+    },
+    "l:faq:Do you have a quality control process?:question": {
+      "en": "Do you have a quality control process?",
+      "zh": "是否有质量控制流程？",
+      "es": "¿Tienen un proceso de control de calidad?",
+      "pt": "Vocês têm um processo de controle de qualidade?",
+      "fr": "Avez-vous un processus de contrôle qualité ?",
+      "ar": "هل لديكم عملية مراقبة الجودة؟",
+      "el": "Έχετε διαδικασία ποιοτικού ελέγχου;",
+      "ru": "Есть ли у вас процесс контроля качества?",
+      "de": "Haben Sie einen Qualitätskontrollprozess?",
+      "nl": "Heeft u een kwaliteitscontroleproces?",
+      "it": "Avete un processo di controllo qualità?"
+    },
+    "l:faq:Do you have a quality control process?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Do you support third-party inspection?:question": {
+      "en": "Do you support third-party inspection?",
+      "zh": "是否支持第三方验货？",
+      "es": "¿Soportan inspección de terceros?",
+      "pt": "Vocês apoiam inspeção por terceiros?",
+      "fr": "Supportez-vous l'inspection par un tiers ?",
+      "ar": "هل تدعمون الفحص من طرف ثالث؟",
+      "el": "Υποστηρίζετε έλεγχο από τρίτους;",
+      "ru": "Поддерживаете ли вы стороннюю инспекцию?",
+      "de": "Unterstützen Sie Prüfungen durch Dritte?",
+      "nl": "Ondersteunt u inspectie door derden?",
+      "it": "Supportate ispezioni di terze parti?"
+    },
+    "l:faq:Do you support third-party inspection?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:Do you provide inspection or quality reports?:question": {
+      "en": "Do you provide inspection or quality reports?",
+      "zh": "是否提供质检报告 / 出厂验？",
+      "es": "¿Proporcionan informes de inspección o calidad?",
+      "pt": "Vocês fornecem relatórios de inspeção ou qualidade?",
+      "fr": "Fournissez-vous des rapports d'inspection ou de qualité ?",
+      "ar": "هل توفرون تقارير الفحص أو الجودة؟",
+      "el": "Παρέχετε εκθέσεις επιθεώρησης ή ποιότητας;",
+      "ru": "Предоставляете ли вы отчеты об инспекции или качестве?",
+      "de": "Stellen Sie Prüf- oder Qualitätsberichte zur Verfügung?",
+      "nl": "Verstrekt u inspectie- of kwaliteitsrapporten?",
+      "it": "Fornite rapporti di ispezione o di qualità?"
+    },
+    "l:faq:Do you provide inspection or quality reports?:answer": {
+      "en": "Yes",
+      "zh": "是",
+      "es": "Sí",
+      "pt": "Sim",
+      "fr": "Oui",
+      "ar": "نعم",
+      "el": "Ναι",
+      "ru": "Да",
+      "de": "Ja",
+      "nl": "Ja",
+      "it": "Sì"
+    },
+    "l:faq:How do you handle quality issues?:question": {
+      "en": "How do you handle quality issues?",
+      "zh": "出现质量问题如何处理？",
+      "es": "¿Cómo manejan los problemas de calidad?",
+      "pt": "Como vocês lidam com problemas de qualidade?",
+      "fr": "Comment gérez-vous les problèmes de qualité ?",
+      "ar": "كيف تتعاملون مع مشاكل الجودة؟",
+      "el": "Πώς χειρίζεστε τα ζητήματα ποιότητας;",
+      "ru": "Как вы решаете проблемы с качеством?",
+      "de": "Wie gehen Sie mit Qualitätsproblemen um?",
+      "nl": "Hoe handelt u kwaliteitsproblemen af?",
+      "it": "Come gestite i problemi di qualità?"
+    },
+    "l:faq:How do you handle quality issues?:answer": {
+      "en": "Do analysis and replace the NG components.",
+      "zh": "进行分析并更换不合格部件。",
+      "es": "Realizar análisis y reemplazar los componentes NG.",
+      "pt": "Fazemos análise e substituímos os componentes NG.",
+      "fr": "Faire une analyse et remplacer les composants non conformes.",
+      "ar": "نقوم بالتحليل واستبدال المكونات غير المطابقة.",
+      "el": "Κάνουμε ανάλυση και αντικαθιστούμε τα μη συμμορφούμενα εξαρτήματα.",
+      "ru": "Проводим анализ и заменяем несоответствующие компоненты.",
+      "de": "Wir analysieren und ersetzen die fehlerhaften Komponenten.",
+      "nl": "Analyseer en vervang de NG-componenten.",
+      "it": "Facciamo analisi e sostituiamo i componenti non conformi."
+    },
+    "l:Frequently Asked Questions": {
+      "en": "Frequently Asked Questions",
+      "zh": "常见问题（FAQ）",
+      "es": "Preguntas Frecuentes",
+      "pt": "Perguntas Frequentes",
+      "fr": "Questions Fréquemment Posées",
+      "ar": "الأسئلة الشائعة",
+      "el": "Συχνές Ερωτήσεις",
+      "ru": "Часто задаваемые вопросы",
+      "de": "Häufig gestellte Fragen",
+      "nl": "Veelgestelde vragen",
+      "it": "Domande Frequenti"
+    },
+    "l:Find answers to common questions about our products, services, pricing, and quality inspection.": {
+      "en": "Find answers to common questions about our products, services, pricing, and quality inspection.",
+      "zh": "查找有关我们产品、服务、价格和质量检验的常见问题解答。",
+      "es": "Encuentre respuestas a preguntas comunes sobre nuestros productos, servicios, precios e inspección de calidad.",
+      "pt": "Encontre respostas para perguntas comuns sobre nossos produtos, serviços, preços e inspeção de qualidade.",
+      "fr": "Trouvez des réponses aux questions courantes sur nos produits, services, tarifs et contrôle qualité.",
+      "ar": "ابحث عن إجابات للأسئلة الشائعة حول منتجاتنا وخدماتنا وأسعارنا وفحص الجودة.",
+      "el": "Βρείτε απαντήσεις σε κοινές ερωτήσεις σχετικά με τα προϊόντα, τις υπηρεσίες, την τιμολόγηση και τον ποιοτικό έλεγχο.",
+      "ru": "Найдите ответы на распространенные вопросы о нашей продукции, услугах, ценах и контроле качества.",
+      "de": "Finden Sie Antworten auf häufige Fragen zu unseren Produkten, Dienstleistungen, Preisen und Qualitätsprüfungen.",
+      "nl": "Vind antwoorden op veelgestelde vragen over onze producten, diensten, prijzen en kwaliteitsinspectie.",
+      "it": "Trova risposte alle domande comuni sui nostri prodotti, servizi, prezzi e controllo qualità."
+    },
+    "l:questions": {
+      "en": "questions",
+      "zh": "个问题",
+      "es": "preguntas",
+      "pt": "perguntas",
+      "fr": "questions",
+      "ar": "الأسئلة",
+      "el": "ερωτήσεις",
+      "ru": "вопросы",
+      "de": "Fragen",
+      "nl": "vragen",
+      "it": "domande"
+    },
+    "l:Still have questions?": {
+      "en": "Still have questions?",
+      "zh": "还有其他问题？",
+      "es": "¿Aún tiene preguntas?",
+      "pt": "Ainda tem perguntas?",
+      "fr": "Encore des questions ?",
+      "ar": "لا تزال لديك أسئلة؟",
+      "el": "Έχετε ακόμα ερωτήσεις;",
+      "ru": "Остались вопросы?",
+      "de": "Noch Fragen?",
+      "nl": "Heeft u nog vragen?",
+      "it": "Hai ancora domande?"
+    },
+    "l:Contact us directly and we'll be happy to help.": {
+      "en": "Contact us directly and we'll be happy to help.",
+      "zh": "直接联系我们，我们很乐意为您提供帮助。",
+      "es": "Contáctenos directamente y estaremos encantados de ayudarle.",
+      "pt": "Entre em contato conosco diretamente e teremos prazer em ajudar.",
+      "fr": "Contactez-nous directement et nous serons heureux de vous aider.",
+      "ar": "اتصل بنا مباشرة وسيسعدنا مساعدتك.",
+      "el": "Επικοινωνήστε μαζί μας απευθείας και θα χαρούμε να σας βοηθήσουμε.",
+      "ru": "Свяжитесь с нами напрямую, и мы с радостью поможем.",
+      "de": "Kontaktieren Sie uns direkt, wir helfen Ihnen gerne weiter.",
+      "nl": "Neem rechtstreeks contact met ons op en we helpen u graag verder.",
+      "it": "Contattaci direttamente e saremo lieti di aiutarti."
+    },
+    "l:Contact Us": {
+      "en": "Contact Us",
+      "zh": "联系我们",
+      "es": "Contáctenos",
+      "pt": "Fale Conosco",
+      "fr": "Contactez-nous",
+      "ar": "اتصل بنا",
+      "el": "Επικοινωνήστε μαζί μας",
+      "ru": "Связаться с нами",
+      "de": "Kontakt",
+      "nl": "Neem contact op",
+      "it": "Contattaci"
+    },
+    "l:Submission failed. Please check the verification code and try again.": {
+      "en": "Submission failed. Please check the verification code and try again.",
+      "zh": "提交失败，请检查验证码后重试。",
+      "es": "Envío fallido. Por favor, verifique el código de verificación e intente nuevamente.",
+      "pt": "Falha no envio. Verifique o código de verificação e tente novamente.",
+      "fr": "Échec de l'envoi. Veuillez vérifier le code de vérification et réessayer.",
+      "ar": "فشل الإرسال. يرجى التحقق من رمز التحقق والمحاولة مرة أخرى.",
+      "el": "Η υποβολή απέτυχε. Ελέγξτε τον κωδικό επαλήθευσης και δοκιμάστε ξανά.",
+      "ru": "Не удалось отправить. Проверьте проверочный код и попробуйте снова.",
+      "de": "Übermittlung fehlgeschlagen. Bitte überprüfen Sie den Verifizierungscode und versuchen Sie es erneut.",
+      "nl": "Verzending mislukt. Controleer de verificatiecode en probeer het opnieuw.",
+      "it": "Invio non riuscito. Controlla il codice di verifica e riprova."
+    },
+    "l:Message Sent!": {
+      "en": "Message Sent!",
+      "zh": "消息已发送！",
+      "es": "¡Mensaje enviado!",
+      "pt": "Mensagem Enviada!",
+      "fr": "Message envoyé !",
+      "ar": "تم إرسال الرسالة!",
+      "el": "Το μήνυμα στάλθηκε!",
+      "ru": "Сообщение отправлено!",
+      "de": "Nachricht gesendet!",
+      "nl": "Bericht verzonden!",
+      "it": "Messaggio inviato!"
+    },
+    "l:Thank you for contacting us. We will get back to you soon.": {
+      "en": "Thank you for contacting us. We will get back to you soon.",
+      "zh": "感谢您的联系，我们会尽快回复。",
+      "es": "Gracias por contactarnos. Le responderemos pronto.",
+      "pt": "Obrigado por entrar em contato. Retornaremos em breve.",
+      "fr": "Merci de nous avoir contactés. Nous vous répondrons bientôt.",
+      "ar": "شكرًا لتواصلك معنا. سنعاود الاتصال بك قريبًا.",
+      "el": "Σας ευχαριστούμε που επικοινωνήσατε μαζί μας. Θα επικοινωνήσουμε σύντομα.",
+      "ru": "Спасибо, что связались с нами. Мы скоро свяжемся с вами.",
+      "de": "Vielen Dank für Ihre Kontaktaufnahme. Wir werden uns bald bei Ihnen melden.",
+      "nl": "Bedankt voor uw bericht. We nemen spoedig contact met u op.",
+      "it": "Grazie per averci contattato. Ti risponderemo presto."
+    },
+    "l:Send Another Message": {
+      "en": "Send Another Message",
+      "zh": "发送另一条消息",
+      "es": "Enviar otro mensaje",
+      "pt": "Enviar Outra Mensagem",
+      "fr": "Envoyer un autre message",
+      "ar": "إرسال رسالة أخرى",
+      "el": "Στείλτε άλλο μήνυμα",
+      "ru": "Отправить еще одно сообщение",
+      "de": "Weitere Nachricht senden",
+      "nl": "Nog een bericht verzenden",
+      "it": "Invia un altro messaggio"
+    },
+    "l:Tell us about your project requirements...": {
+      "en": "Tell us about your project requirements...",
+      "zh": "请告诉我们您的项目需求……",
+      "es": "Cuéntenos sobre los requisitos de su proyecto...",
+      "pt": "Conte-nos sobre os requisitos do seu projeto...",
+      "fr": "Parlez-nous des exigences de votre projet...",
+      "ar": "أخبرنا عن متطلبات مشروعك...",
+      "el": "Πείτε μας για τις απαιτήσεις του έργου σας...",
+      "ru": "Расскажите нам о требованиях вашего проекта...",
+      "de": "Erzählen Sie uns von Ihren Projektanforderungen...",
+      "nl": "Vertel ons over uw projectvereisten...",
+      "it": "Parlaci dei requisiti del tuo progetto..."
+    },
+    "l:Sending...": {
+      "en": "Sending...",
+      "zh": "发送中……",
+      "es": "Enviando...",
+      "pt": "Enviando...",
+      "fr": "Envoi en cours...",
+      "ar": "جارٍ الإرسال...",
+      "el": "Αποστολή...",
+      "ru": "Отправка...",
+      "de": "Senden...",
+      "nl": "Verzenden...",
+      "it": "Invio in corso..."
+    },
+    "l:Business Hours": {
+      "en": "Business Hours",
+      "zh": "营业时间",
+      "es": "Horario comercial",
+      "pt": "Horário Comercial",
+      "fr": "Heures d'ouverture",
+      "ar": "ساعات العمل",
+      "el": "Ώρες Λειτουργίας",
+      "ru": "Часы работы",
+      "de": "Geschäftszeiten",
+      "nl": "Zakelijke uren",
+      "it": "Orari di lavoro"
+    },
+    "l:Monday - Friday": {
+      "en": "Monday - Friday",
+      "zh": "周一至周五",
+      "es": "Lunes - Viernes",
+      "pt": "Segunda - Sexta",
+      "fr": "Lundi - Vendredi",
+      "ar": "الاثنين - الجمعة",
+      "el": "Δευτέρα - Παρασκευή",
+      "ru": "Понедельник - Пятница",
+      "de": "Montag - Freitag",
+      "nl": "Maandag - Vrijdag",
+      "it": "Lunedì - Venerdì"
+    },
+    "l:Saturday": {
+      "en": "Saturday",
+      "zh": "周六",
+      "es": "Sábado",
+      "pt": "Sábado",
+      "fr": "Samedi",
+      "ar": "السبت",
+      "el": "Σάββατο",
+      "ru": "Суббота",
+      "de": "Samstag",
+      "nl": "Zaterdag",
+      "it": "Sabato"
+    },
+    "l:Sunday": {
+      "en": "Sunday",
+      "zh": "周日",
+      "es": "Domingo",
+      "pt": "Domingo",
+      "fr": "Dimanche",
+      "ar": "الأحد",
+      "el": "Κυριακή",
+      "ru": "Воскресенье",
+      "de": "Sonntag",
+      "nl": "Zondag",
+      "it": "Domenica"
+    },
+    "l:Closed": {
+      "en": "Closed",
+      "zh": "休息",
+      "es": "Cerrado",
+      "pt": "Fechado",
+      "fr": "Fermé",
+      "ar": "مغلق",
+      "el": "Κλειστά",
+      "ru": "Закрыто",
+      "de": "Geschlossen",
+      "nl": "Gesloten",
+      "it": "Chiuso"
+    },
+    "l:Our Location": {
+      "en": "Our Location",
+      "zh": "我们的位置",
+      "es": "Nuestra ubicación",
+      "pt": "Nossa Localização",
+      "fr": "Notre emplacement",
+      "ar": "موقعنا",
+      "el": "Η Τοποθεσία μας",
+      "ru": "Наше местоположение",
+      "de": "Unser Standort",
+      "nl": "Onze locatie",
+      "it": "La nostra sede"
+    }
+  },
+  "images": {
+    "/:/images/1.jpg": "/images/1.jpg",
+    "/:/images/3.jpg": "/images/3.jpg",
+    "/:/images/2.jpg": "/images/2.jpg",
+    "/about:/images/1.jpg": "/images/1.jpg",
+    "/about:/images/8.jpg": "/images/8.jpg",
+    "/services:/images/2.jpg": "/images/2.jpg",
+    "/services:/images/3.jpg": "/images/3.jpg",
+    "/services:/images/8.jpg": "/images/8.jpg",
+    "/services:/images/9.jpg": "/images/9.jpg",
+    "/services:/images/5.jpg": "/images/5.jpg",
+    "/services:/images/11.jpg": "/images/11.jpg",
+    "/services:/images/1.jpg": "/images/1.jpg",
+    "/services:/images/6.jpg": "/images/6.jpg",
+    "/equipment:/images/1.jpg": "/images/1.jpg",
+    "/contact:/images/9.jpg": "/images/9.jpg"
+  },
+  "equipment": [
+    {
+      "id": "ck-6132",
+      "model": "CK-6132",
+      "nameCn": "CK-6132数控车床",
+      "nameEn": "CK-6132 CNC Lathe",
+      "category": "CNC Lathe",
+      "categoryCn": "数控车床",
+      "descEn": "Primarily employed for rough machining and select stainless steel precision machining, with a machining accuracy of ≤0.005mm and a maximum machining diameter of φ35.0mm.",
+      "descCn": "主要用于公司粗加工和部分不锈钢精密加工，加工精度≤0.005mm，最大加工直径φ35.0mm。",
+      "accuracy": "≤0.005mm",
+      "maxDiameter": "φ35.0mm",
+      "image": "/images/equipment/ck-6132.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 0,
+      "translations": {
+        "es": {
+          "name": "Torno CNC CK-6132",
+          "category": "Torno CNC",
+          "description": "Utilizado principalmente para mecanizado de desbaste y mecanizado de precisión selectivo de acero inoxidable, con una precisión de mecanizado de ≤0.005mm y un diámetro máximo de mecanizado de φ35.0mm."
+        },
+        "pt": {
+          "name": "Torno CNC CK-6132",
+          "category": "Torno CNC",
+          "description": "Empregado principalmente para usinagem bruta e usinagem de precisão seletiva de aço inoxidável, com precisão de usinagem de ≤0,005mm e diâmetro máximo de usinagem de φ35,0mm."
+        },
+        "fr": {
+          "name": "Tour CNC CK-6132",
+          "category": "Tour CNC",
+          "description": "Principalement utilisé pour l'usinage grossier et certains usinages de précision en acier inoxydable, avec une précision d'usinage de ≤0,005 mm et un diamètre d'usinage maximal de φ35,0 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC CK-6132",
+          "category": "مخرطة CNC",
+          "description": "تستخدم بشكل أساسي للتشغيل الخشن وبعض عمليات التشغيل الدقيق للفولاذ المقاوم للصدأ، بدقة تصنيع ≤0.005 مم وأقصى قطر تصنيع φ35.0 مم."
+        },
+        "el": {
+          "name": "Τόρνος CNC CK-6132",
+          "category": "Τόρνος CNC",
+          "description": "Χρησιμοποιείται κυρίως για τραχιά κατεργασία και επιλεγμένη κατεργασία ακριβείας ανοξείδωτου χάλυβα, με ακρίβεια κατεργασίας ≤0.005mm και μέγιστη διάμετρο κατεργασίας φ35.0mm."
+        },
+        "ru": {
+          "name": "Токарный станок с ЧПУ CK-6132",
+          "category": "Токарный станок с ЧПУ",
+          "description": "В основном используется для черновой обработки и выборочной прецизионной обработки нержавеющей стали, с точностью обработки ≤0,005 мм и максимальным диаметром обработки φ35,0 мм."
+        },
+        "de": {
+          "name": "CK-6132 CNC-Drehmaschine",
+          "category": "CNC-Drehmaschine",
+          "description": "Hauptsächlich für die Schruppbearbeitung und ausgewählte Edelstahl-Präzisionsbearbeitung, mit einer Bearbeitungsgenauigkeit von ≤0,005 mm und einem maximalen Bearbeitungsdurchmesser von φ35,0 mm."
+        },
+        "nl": {
+          "name": "CK-6132 CNC-draaibank",
+          "category": "CNC-draaibank",
+          "description": "Voornamelijk gebruikt voor voorbewerking en selectieve precisiebewerking van roestvrij staal, met een bewerkingsnauwkeurigheid van ≤0,005 mm en een maximale bewerkingsdiameter van φ35,0 mm."
+        },
+        "it": {
+          "name": "Tornio CNC CK-6132",
+          "category": "Tornio CNC",
+          "description": "Utilizzato principalmente per lavorazioni di sgrossatura e lavorazioni di precisione selezionate su acciaio inossidabile, con precisione di lavorazione ≤0,005 mm e diametro massimo di lavorazione φ35,0 mm."
+        }
+      }
+    },
+    {
+      "id": "gtx300",
+      "model": "GTX300",
+      "nameCn": "GTX300数控车床",
+      "nameEn": "GTX300 CNC Lathe",
+      "category": "CNC Lathe",
+      "categoryCn": "数控车床",
+      "descEn": "Primarily used for machining blanks.",
+      "descCn": "主要用于毛坯加工。",
+      "accuracy": "-",
+      "image": "/images/equipment/gtx300.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 1,
+      "translations": {
+        "es": {
+          "name": "Torno CNC GTX300",
+          "category": "Torno CNC",
+          "description": "Utilizado principalmente para mecanizar piezas en bruto."
+        },
+        "pt": {
+          "name": "Torno CNC GTX300",
+          "category": "Torno CNC",
+          "description": "Usado principalmente para usinagem de blanks."
+        },
+        "fr": {
+          "name": "Tour CNC GTX300",
+          "category": "Tour CNC",
+          "description": "Principalement utilisé pour l'usinage des ébauches."
+        },
+        "ar": {
+          "name": "مخرطة CNC GTX300",
+          "category": "مخرطة CNC",
+          "description": "تستخدم بشكل أساسي لتصنيع المشغولات."
+        },
+        "el": {
+          "name": "Τόρνος CNC GTX300",
+          "category": "Τόρνος CNC",
+          "description": "Χρησιμοποιείται κυρίως για κατεργασία ημικατεργασμένων τεμαχίων."
+        },
+        "ru": {
+          "name": "Токарный станок с ЧПУ GTX300",
+          "category": "Токарный станок с ЧПУ",
+          "description": "В основном используется для обработки заготовок."
+        },
+        "de": {
+          "name": "GTX300 CNC-Drehmaschine",
+          "category": "CNC-Drehmaschine",
+          "description": "Hauptsächlich für die Bearbeitung von Rohteilen."
+        },
+        "nl": {
+          "name": "GTX300 CNC-draaibank",
+          "category": "CNC-draaibank",
+          "description": "Voornamelijk gebruikt voor het bewerken van werkstukken."
+        },
+        "it": {
+          "name": "Tornio CNC GTX300",
+          "category": "Tornio CNC",
+          "description": "Utilizzato principalmente per la lavorazione di grezzi."
+        }
+      }
+    },
+    {
+      "id": "j-d-s30",
+      "model": "J-D-S30",
+      "nameCn": "J-D-S30全自动化数控卧式车床",
+      "nameEn": "J-D-S30 Fully Automated CNC Horizontal Lathe",
+      "category": "CNC Horizontal Lathe",
+      "categoryCn": "数控卧式车床",
+      "descEn": "Primary Application: Batch processing of steel components. Maximum Machining Diameter: φ35.0mm. Machine Accuracy: ≤0.001mm.",
+      "descCn": "主要应用：钢材零部件批量加工。最大加工直径：φ35.0mm。机床精度：≤0.001mm。",
+      "accuracy": "≤0.001mm",
+      "maxDiameter": "φ35.0mm",
+      "image": "/images/equipment/j-d-s30.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 2,
+      "translations": {
+        "es": {
+          "name": "Torno horizontal CNC totalmente automático J-D-S30",
+          "category": "Torno horizontal CNC",
+          "description": "Aplicación principal: Procesamiento por lotes de componentes de acero. Diámetro máximo de mecanizado: φ35.0mm. Precisión de la máquina: ≤0.001mm."
+        },
+        "pt": {
+          "name": "Torno Horizontal CNC Totalmente Automático J-D-S30",
+          "category": "Torno Horizontal CNC",
+          "description": "Aplicação principal: Processamento em lote de componentes de aço. Diâmetro máximo de usinagem: φ35,0mm. Precisão da máquina: ≤0,001mm."
+        },
+        "fr": {
+          "name": "Tour horizontal CNC entièrement automatique J-D-S30",
+          "category": "Tour horizontal CNC",
+          "description": "Application principale : traitement par lots de composants en acier. Diamètre d'usinage maximal : φ35,0 mm. Précision de la machine : ≤0,001 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC أفقية أوتوماتيكية بالكامل J-D-S30",
+          "category": "مخرطة CNC أفقية",
+          "description": "التطبيق الأساسي: المعالجة بالدفعات للمكونات الفولاذية. أقصى قطر تصنيع: φ35.0 مم. دقة الآلة: ≤0.001 مم."
+        },
+        "el": {
+          "name": "Πλήρως αυτόματος οριζόντιος τόρνος CNC J-D-S30",
+          "category": "Οριζόντιος τόρνος CNC",
+          "description": "Κύρια εφαρμογή: Μαζική επεξεργασία χαλύβδινων εξαρτημάτων. Μέγιστη διάμετρος κατεργασίας: φ35.0mm. Ακρίβεια μηχανής: ≤0.001mm."
+        },
+        "ru": {
+          "name": "J-D-S30 Полностью автоматический горизонтальный токарный станок с ЧПУ",
+          "category": "Горизонтальный токарный станок с ЧПУ",
+          "description": "Основное применение: серийная обработка стальных компонентов. Максимальный диаметр обработки: φ35,0 мм. Точность станка: ≤0,001 мм."
+        },
+        "de": {
+          "name": "J-D-S30 Vollautomatische CNC-Horizontal-Drehmaschine",
+          "category": "CNC-Horizontal-Drehmaschine",
+          "description": "Hauptanwendung: Serienbearbeitung von Stahlkomponenten. Maximaler Bearbeitungsdurchmesser: φ35,0 mm. Maschinengenauigkeit: ≤0,001 mm."
+        },
+        "nl": {
+          "name": "J-D-S30 Volledig geautomatiseerde CNC horizontale draaibank",
+          "category": "CNC horizontale draaibank",
+          "description": "Primaire toepassing: serieproductie van stalen componenten. Maximale bewerkingsdiameter: φ35,0 mm. Machine nauwkeurigheid: ≤0,001 mm."
+        },
+        "it": {
+          "name": "Tornio orizzontale CNC completamente automatico J-D-S30",
+          "category": "Tornio orizzontale CNC",
+          "description": "Applicazione principale: lavorazione in lotti di componenti in acciaio. Diametro massimo di lavorazione: φ35,0 mm. Precisione della macchina: ≤0,001 mm."
+        }
+      }
+    },
+    {
+      "id": "xknc-203",
+      "model": "XKNC-203",
+      "nameCn": "XKNC-203数控卧式车床",
+      "nameEn": "XKNC-203 CNC Horizontal Lathe",
+      "category": "CNC Horizontal Lathe",
+      "categoryCn": "数控卧式车床",
+      "descEn": "Primary Application: Finishing of steel and stainless steel components. Maximum Machining Diameter: φ45.0mm. Maximum Travel: 200mm. Machine Accuracy: ≤0.001mm.",
+      "descCn": "主要应用：钢和不锈钢零部件精加工。最大加工直径：φ45.0mm。最大行程：200mm。机床精度：≤0.001mm。",
+      "accuracy": "≤0.001mm",
+      "maxDiameter": "φ45.0mm",
+      "travel": "200mm",
+      "image": "/images/equipment/xknc-203.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 3,
+      "translations": {
+        "es": {
+          "name": "Torno horizontal CNC XKNC-203",
+          "category": "Torno horizontal CNC",
+          "description": "Aplicación principal: Acabado de componentes de acero y acero inoxidable. Diámetro máximo de mecanizado: φ45.0mm. Recorrido máximo: 200mm. Precisión de la máquina: ≤0.001mm."
+        },
+        "pt": {
+          "name": "Torno Horizontal CNC XKNC-203",
+          "category": "Torno Horizontal CNC",
+          "description": "Aplicação principal: Acabamento de componentes de aço e aço inoxidável. Diâmetro máximo de usinagem: φ45,0mm. Curso máximo: 200mm. Precisão da máquina: ≤0,001mm."
+        },
+        "fr": {
+          "name": "Tour horizontal CNC XKNC-203",
+          "category": "Tour horizontal CNC",
+          "description": "Application principale : finition de composants en acier et en acier inoxydable. Diamètre d'usinage maximal : φ45,0 mm. Course maximale : 200 mm. Précision de la machine : ≤0,001 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC أفقية XKNC-203",
+          "category": "مخرطة CNC أفقية",
+          "description": "التطبيق الأساسي: التشطيب للمكونات الفولاذية والفولاذ المقاوم للصدأ. أقصى قطر تصنيع: φ45.0 مم. أقصى حركة: 200 مم. دقة الآلة: ≤0.001 مم."
+        },
+        "el": {
+          "name": "Οριζόντιος τόρνος CNC XKNC-203",
+          "category": "Οριζόντιος τόρνος CNC",
+          "description": "Κύρια εφαρμογή: Φινίρισμα χαλύβδινων και ανοξείδωτων εξαρτημάτων. Μέγιστη διάμετρος κατεργασίας: φ45.0mm. Μέγιστη διαδρομή: 200mm. Ακρίβεια μηχανής: ≤0.001mm."
+        },
+        "ru": {
+          "name": "XKNC-203 Горизонтальный токарный станок с ЧПУ",
+          "category": "Горизонтальный токарный станок с ЧПУ",
+          "description": "Основное применение: финишная обработка стальных и нержавеющих компонентов. Максимальный диаметр обработки: φ45,0 мм. Максимальный ход: 200 мм. Точность станка: ≤0,001 мм."
+        },
+        "de": {
+          "name": "XKNC-203 CNC-Horizontal-Drehmaschine",
+          "category": "CNC-Horizontal-Drehmaschine",
+          "description": "Hauptanwendung: Fertigbearbeitung von Stahl- und Edelstahlkomponenten. Maximaler Bearbeitungsdurchmesser: φ45,0 mm. Maximaler Verfahrweg: 200 mm. Maschinengenauigkeit: ≤0,001 mm."
+        },
+        "nl": {
+          "name": "XKNC-203 CNC horizontale draaibank",
+          "category": "CNC horizontale draaibank",
+          "description": "Primaire toepassing: nabewerking van stalen en roestvrijstalen componenten. Maximale bewerkingsdiameter: φ45,0 mm. Maximale verplaatsing: 200 mm. Machine nauwkeurigheid: ≤0,001 mm."
+        },
+        "it": {
+          "name": "Tornio orizzontale CNC XKNC-203",
+          "category": "Tornio orizzontale CNC",
+          "description": "Applicazione principale: finitura di componenti in acciaio e acciaio inossidabile. Diametro massimo di lavorazione: φ45,0 mm. Corsa massima: 200 mm. Precisione della macchina: ≤0,001 mm."
+        }
+      }
+    },
+    {
+      "id": "xknc-20gl",
+      "model": "XKNC-20GL",
+      "nameCn": "XKNC-20GL全自动化数控卧式车床",
+      "nameEn": "XKNC-20GL Fully Automated CNC Horizontal Lathe",
+      "category": "CNC Horizontal Lathe",
+      "categoryCn": "数控卧式车床",
+      "descEn": "Primary Application: Mass processing of steel components. Maximum Machining Diameter: φ30.0mm. Machine Accuracy: ≤0.002mm.",
+      "descCn": "主要应用：钢材零部件批量加工。最大加工直径：φ30.0mm。机床精度：≤0.002mm。",
+      "accuracy": "≤0.002mm",
+      "maxDiameter": "φ30.0mm",
+      "image": "/images/equipment/xknc-20gl.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 4,
+      "translations": {
+        "es": {
+          "name": "Torno horizontal CNC totalmente automático XKNC-20GL",
+          "category": "Torno horizontal CNC",
+          "description": "Aplicación principal: Procesamiento masivo de componentes de acero. Diámetro máximo de mecanizado: φ30.0mm. Precisión de la máquina: ≤0.002mm."
+        },
+        "pt": {
+          "name": "Torno Horizontal CNC Totalmente Automático XKNC-20GL",
+          "category": "Torno Horizontal CNC",
+          "description": "Aplicação principal: Processamento em massa de componentes de aço. Diâmetro máximo de usinagem: φ30,0mm. Precisão da máquina: ≤0,002mm."
+        },
+        "fr": {
+          "name": "Tour horizontal CNC entièrement automatique XKNC-20GL",
+          "category": "Tour horizontal CNC",
+          "description": "Application principale : traitement en masse de composants en acier. Diamètre d'usinage maximal : φ30,0 mm. Précision de la machine : ≤0,002 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC أفقية أوتوماتيكية بالكامل XKNC-20GL",
+          "category": "مخرطة CNC أفقية",
+          "description": "التطبيق الأساسي: المعالجة الجماعية للمكونات الفولاذية. أقصى قطر تصنيع: φ30.0 مم. دقة الآلة: ≤0.002 مم."
+        },
+        "el": {
+          "name": "Πλήρως αυτόματος οριζόντιος τόρνος CNC XKNC-20GL",
+          "category": "Οριζόντιος τόρνος CNC",
+          "description": "Κύρια εφαρμογή: Μαζική επεξεργασία χαλύβδινων εξαρτημάτων. Μέγιστη διάμετρος κατεργασίας: φ30.0mm. Ακρίβεια μηχανής: ≤0.002mm."
+        },
+        "ru": {
+          "name": "XKNC-20GL Полностью автоматический горизонтальный токарный станок с ЧПУ",
+          "category": "Горизонтальный токарный станок с ЧПУ",
+          "description": "Основное применение: массовая обработка стальных компонентов. Максимальный диаметр обработки: φ30,0 мм. Точность станка: ≤0,002 мм."
+        },
+        "de": {
+          "name": "XKNC-20GL Vollautomatische CNC-Horizontal-Drehmaschine",
+          "category": "CNC-Horizontal-Drehmaschine",
+          "description": "Hauptanwendung: Massenbearbeitung von Stahlkomponenten. Maximaler Bearbeitungsdurchmesser: φ30,0 mm. Maschinengenauigkeit: ≤0,002 mm."
+        },
+        "nl": {
+          "name": "XKNC-20GL Volledig geautomatiseerde CNC horizontale draaibank",
+          "category": "CNC horizontale draaibank",
+          "description": "Primaire toepassing: massaproductie van stalen componenten. Maximale bewerkingsdiameter: φ30,0 mm. Machine nauwkeurigheid: ≤0,002 mm."
+        },
+        "it": {
+          "name": "Tornio orizzontale CNC completamente automatico XKNC-20GL",
+          "category": "Tornio orizzontale CNC",
+          "description": "Applicazione principale: lavorazione di massa di componenti in acciaio. Diametro massimo di lavorazione: φ30,0 mm. Precisione della macchina: ≤0,002 mm."
+        }
+      }
+    },
+    {
+      "id": "jhl1-6",
+      "model": "JHL1-6",
+      "nameCn": "JHL1-6珩磨机",
+      "nameEn": "JHL1-6 Honing Machine",
+      "category": "Honing Machine",
+      "categoryCn": "珩磨机",
+      "descEn": "Primary Application: Machining of inner bores in floating bearings. Maximum Machinable Bore Diameter: φ30.0mm. Equipment Accuracy: ≤0.001mm.",
+      "descCn": "主要应用：浮动轴承内孔加工。最大可加工内孔直径：φ30.0mm。设备精度：≤0.001mm。",
+      "accuracy": "≤0.001mm",
+      "maxDiameter": "φ30.0mm",
+      "image": "/images/equipment/jhl1-6.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 5,
+      "translations": {
+        "es": {
+          "name": "Máquina de bruñido JHL1-6",
+          "category": "Máquina de bruñido",
+          "description": "Aplicación principal: Mecanizado de orificios interiores en cojinetes flotantes. Diámetro máximo de orificio mecanizable: φ30.0mm. Precisión del equipo: ≤0.001mm."
+        },
+        "pt": {
+          "name": "Mandriladora JHL1-6",
+          "category": "Mandriladora",
+          "description": "Aplicação principal: Usinagem de furos internos em mancais flutuantes. Diâmetro máximo de furo usinável: φ30,0mm. Precisão do equipamento: ≤0,001mm."
+        },
+        "fr": {
+          "name": "Machine de rodage JHL1-6",
+          "category": "Machine de rodage",
+          "description": "Application principale : usinage des alésages internes des paliers flottants. Diamètre d'alésage maximal usinable : φ30,0 mm. Précision de l'équipement : ≤0,001 mm."
+        },
+        "ar": {
+          "name": "آلة التجليخ JHL1-6",
+          "category": "آلة تجليخ",
+          "description": "التطبيق الأساسي: تصنيع الثقوب الداخلية في المحامل العائمة. أقصى قطر ثقب قابل للتصنيع: φ30.0 مم. دقة المعدات: ≤0.001 مم."
+        },
+        "el": {
+          "name": "Μηχανή λείανσης JHL1-6",
+          "category": "Μηχανή λείανσης",
+          "description": "Κύρια εφαρμογή: Κατεργασία εσωτερικών οπών σε πλωτά έδρανα. Μέγιστη διάμετρος οπής προς κατεργασία: φ30.0mm. Ακρίβεια εξοπλισμού: ≤0.001mm."
+        },
+        "ru": {
+          "name": "Хонинговальный станок JHL1-6",
+          "category": "Хонинговальный станок",
+          "description": "Основное применение: обработка внутренних отверстий в плавающих подшипниках. Максимальный диаметр обрабатываемого отверстия: φ30,0 мм. Точность оборудования: ≤0,001 мм."
+        },
+        "de": {
+          "name": "JHL1-6 Honmaschine",
+          "category": "Honmaschine",
+          "description": "Hauptanwendung: Bearbeitung von Innenbohrungen in Gleitlagern. Maximaler bearbeitbarer Bohrungsdurchmesser: φ30,0 mm. Gerätegenauigkeit: ≤0,001 mm."
+        },
+        "nl": {
+          "name": "JHL1-6 Honmachine",
+          "category": "Honmachine",
+          "description": "Primaire toepassing: bewerken van binnenboringen in glijlagers. Maximale bewerkbare boordiameter: φ30,0 mm. Apparatuurnauwkeurigheid: ≤0,001 mm."
+        },
+        "it": {
+          "name": "Lappatrice JHL1-6",
+          "category": "Lappatrice",
+          "description": "Applicazione principale: lavorazione di fori interni in cuscinetti flottanti. Diametro massimo del foro lavorabile: φ30,0 mm. Precisione dell'attrezzatura: ≤0,001 mm."
+        }
+      }
+    },
+    {
+      "id": "cincom-a20",
+      "model": "Cincom-A20",
+      "nameCn": "Cincom-A20主轴箱移动性数控自动车床",
+      "nameEn": "Cincom-A20 Spindle Head Mobile CNC Automatic Lathe",
+      "category": "CNC Automatic Lathe",
+      "categoryCn": "数控自动车床",
+      "descEn": "Primary Application: Machining VTG (Variable Turbine Geometry) nozzle ring components and floating bearings. Maximum Machining Diameter: φ25.0mm. Machine Accuracy: ≤0.001mm.",
+      "descCn": "主要应用：VTG（可变涡轮几何）喷嘴环零部件及浮动轴承加工。最大加工直径：φ25.0mm。机床精度：≤0.001mm。",
+      "accuracy": "≤0.001mm",
+      "maxDiameter": "φ25.0mm",
+      "image": "/images/equipment/cincom-a20.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 6,
+      "translations": {
+        "es": {
+          "name": "Torno automático CNC de cabezal móvil Cincom-A20",
+          "category": "Torno automático CNC",
+          "description": "Aplicación principal: Mecanizado de componentes de anillos de boquilla VTG (Geometría de Turbina Variable) y cojinetes flotantes. Diámetro máximo de mecanizado: φ25.0mm. Precisión de la máquina: ≤0.001mm."
+        },
+        "pt": {
+          "name": "Torno Automático CNC de Cabeçote Móvel Cincom-A20",
+          "category": "Torno Automático CNC",
+          "description": "Aplicação principal: Usinagem de componentes de anel de bico VTG (Geometria Variável de Turbina) e mancais flutuantes. Diâmetro máximo de usinagem: φ25,0mm. Precisão da máquina: ≤0,001mm."
+        },
+        "fr": {
+          "name": "Tour automatique CNC à tête mobile Cincom-A20",
+          "category": "Tour automatique CNC",
+          "description": "Application principale : usinage des composants de la bague de buse VTG (géométrie variable de turbine) et des paliers flottants. Diamètre d'usinage maximal : φ25,0 mm. Précision de la machine : ≤0,001 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC أوتوماتيكية ذات رأس مغزل متحرك Cincom-A20",
+          "category": "مخرطة CNC أوتوماتيكية",
+          "description": "التطبيق الأساسي: تصنيع مكونات حلقة فوهة VTG (هندسة هندسية متغيرة) والمحامل العائمة. أقصى قطر تصنيع: φ25.0 مم. دقة الآلة: ≤0.001 مم."
+        },
+        "el": {
+          "name": "Αυτόματος τόρνος CNC με κινητή κεφαλή Cincom-A20",
+          "category": "Αυτόματος τόρνος CNC",
+          "description": "Κύρια εφαρμογή: Κατεργασία εξαρτημάτων δακτυλίου ακροφυσίου VTG (μεταβλητής γεωμετρίας στροβίλου) και πλωτών εδράνων. Μέγιστη διάμετρος κατεργασίας: φ25.0mm. Ακρίβεια μηχανής: ≤0.001mm."
+        },
+        "ru": {
+          "name": "Cincom-A20 Токарный автомат с подвижной шпиндельной головкой",
+          "category": "Токарный автомат с ЧПУ",
+          "description": "Основное применение: обработка деталей соплового кольца VTG (регулируемая геометрия турбины) и плавающих подшипников. Максимальный диаметр обработки: φ25,0 мм. Точность станка: ≤0,001 мм."
+        },
+        "de": {
+          "name": "Cincom-A20 Spindelkopf-Mobile CNC-Automatendrehmaschine",
+          "category": "CNC-Automatendrehmaschine",
+          "description": "Hauptanwendung: Bearbeitung von VTG (Variable Turbinengeometrie) Düsenringkomponenten und Gleitlagern. Maximaler Bearbeitungsdurchmesser: φ25,0 mm. Maschinengenauigkeit: ≤0,001 mm."
+        },
+        "nl": {
+          "name": "Cincom-A20 CNC automatische draaibank met verplaatsbare spindelkop",
+          "category": "CNC automatische draaibank",
+          "description": "Primaire toepassing: bewerken van VTG (Variable Turbine Geometry) ringcomponenten en glijlagers. Maximale bewerkingsdiameter: φ25,0 mm. Machine nauwkeurigheid: ≤0,001 mm."
+        },
+        "it": {
+          "name": "Tornio automatico CNC a testa mobile Cincom-A20",
+          "category": "Tornio automatico CNC",
+          "description": "Applicazione principale: lavorazione di componenti di anelli ugelli VTG (geometria variabile della turbina) e cuscinetti flottanti. Diametro massimo di lavorazione: φ25,0 mm. Precisione della macchina: ≤0,001 mm."
+        }
+      }
+    },
+    {
+      "id": "vtl2500atc",
+      "model": "VTL2500ATC+C-2R",
+      "nameCn": "数控立车VTL2500ATC+C-2R",
+      "nameEn": "CNC Vertical Lathe VTL2500ATC+C-2R",
+      "category": "CNC Vertical Lathe",
+      "categoryCn": "数控立车",
+      "descEn": "Machining range: 3000 × 2000 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：3000 × 2000 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "3000 × 2000 mm",
+      "image": "/images/equipment/vtl2500atc.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 7,
+      "translations": {
+        "es": {
+          "name": "Torno vertical CNC VTL2500ATC+C-2R",
+          "category": "Torno vertical CNC",
+          "description": "Rango de mecanizado: 3000 × 2000 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Torno Vertical CNC VTL2500ATC+C-2R",
+          "category": "Torno Vertical CNC",
+          "description": "Faixa de usinagem: 3000 × 2000 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Tour vertical CNC VTL2500ATC+C-2R",
+          "category": "Tour vertical CNC",
+          "description": "Plage d'usinage : 3000 × 2000 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC رأسية VTL2500ATC+C-2R",
+          "category": "مخرطة CNC رأسية",
+          "description": "نطاق التصنيع: 3000 × 2000 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Κάθετος τόρνος CNC VTL2500ATC+C-2R",
+          "category": "Κάθετος τόρνος CNC",
+          "description": "Εύρος κατεργασίας: 3000 × 2000 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Вертикальный токарный станок с ЧПУ VTL2500ATC+C-2R",
+          "category": "Вертикальный токарный станок с ЧПУ",
+          "description": "Диапазон обработки: 3000 × 2000 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "CNC-Vertikaldrehmaschine VTL2500ATC+C-2R",
+          "category": "CNC-Vertikaldrehmaschine",
+          "description": "Bearbeitungsbereich: 3000 × 2000 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "CNC verticale draaibank VTL2500ATC+C-2R",
+          "category": "CNC verticale draaibank",
+          "description": "Bewerkingsbereik: 3000 × 2000 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Tornio verticale CNC VTL2500ATC+C-2R",
+          "category": "Tornio verticale CNC",
+          "description": "Campo di lavorazione: 3000 × 2000 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "hankook-vtc3040",
+      "model": "HANKOOK VTC3040",
+      "nameCn": "数控立车 HANKOOK VTC3040",
+      "nameEn": "CNC Vertical Lathe HANKOOK VTC3040",
+      "category": "CNC Vertical Lathe",
+      "categoryCn": "数控立车",
+      "descEn": "Machining range: 4000 × 2700 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：4000 × 2700 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "4000 × 2700 mm",
+      "image": "/images/equipment/hankook-vtc3040.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 8,
+      "translations": {
+        "es": {
+          "name": "Torno vertical CNC HANKOOK VTC3040",
+          "category": "Torno vertical CNC",
+          "description": "Rango de mecanizado: 4000 × 2700 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Torno Vertical CNC HANKOOK VTC3040",
+          "category": "Torno Vertical CNC",
+          "description": "Faixa de usinagem: 4000 × 2700 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Tour vertical CNC HANKOOK VTC3040",
+          "category": "Tour vertical CNC",
+          "description": "Plage d'usinage : 4000 × 2700 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC رأسية HANKOOK VTC3040",
+          "category": "مخرطة CNC رأسية",
+          "description": "نطاق التصنيع: 4000 × 2700 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Κάθετος τόρνος CNC HANKOOK VTC3040",
+          "category": "Κάθετος τόρνος CNC",
+          "description": "Εύρος κατεργασίας: 4000 × 2700 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Вертикальный токарный станок с ЧПУ HANKOOK VTC3040",
+          "category": "Вертикальный токарный станок с ЧПУ",
+          "description": "Диапазон обработки: 4000 × 2700 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "CNC-Vertikaldrehmaschine HANKOOK VTC3040",
+          "category": "CNC-Vertikaldrehmaschine",
+          "description": "Bearbeitungsbereich: 4000 × 2700 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "CNC verticale draaibank HANKOOK VTC3040",
+          "category": "CNC verticale draaibank",
+          "description": "Bewerkingsbereik: 4000 × 2700 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Tornio verticale CNC HANKOOK VTC3040",
+          "category": "Tornio verticale CNC",
+          "description": "Campo di lavorazione: 4000 × 2700 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "toshiba-tss-c",
+      "model": "TOSHIBA TSS-C",
+      "nameCn": "数控立车 TOSHIBA TSS-C",
+      "nameEn": "CNC Vertical Lathe TOSHIBA TSS-C",
+      "category": "CNC Vertical Lathe",
+      "categoryCn": "数控立车",
+      "descEn": "Machining range: 5500 × 2600 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：5500 × 2600 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "5500 × 2600 mm",
+      "image": "/images/equipment/toshiba-tss-c.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 9,
+      "translations": {
+        "es": {
+          "name": "Torno vertical CNC TOSHIBA TSS-C",
+          "category": "Torno vertical CNC",
+          "description": "Rango de mecanizado: 5500 × 2600 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Torno Vertical CNC TOSHIBA TSS-C",
+          "category": "Torno Vertical CNC",
+          "description": "Faixa de usinagem: 5500 × 2600 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Tour vertical CNC TOSHIBA TSS-C",
+          "category": "Tour vertical CNC",
+          "description": "Plage d'usinage : 5500 × 2600 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مخرطة CNC رأسية TOSHIBA TSS-C",
+          "category": "مخرطة CNC رأسية",
+          "description": "نطاق التصنيع: 5500 × 2600 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Κάθετος τόρνος CNC TOSHIBA TSS-C",
+          "category": "Κάθετος τόρνος CNC",
+          "description": "Εύρος κατεργασίας: 5500 × 2600 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Вертикальный токарный станок с ЧПУ TOSHIBA TSS-C",
+          "category": "Вертикальный токарный станок с ЧПУ",
+          "description": "Диапазон обработки: 5500 × 2600 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "CNC-Vertikaldrehmaschine TOSHIBA TSS-C",
+          "category": "CNC-Vertikaldrehmaschine",
+          "description": "Bearbeitungsbereich: 5500 × 2600 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "CNC verticale draaibank TOSHIBA TSS-C",
+          "category": "CNC verticale draaibank",
+          "description": "Bewerkingsbereik: 5500 × 2600 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Tornio verticale CNC TOSHIBA TSS-C",
+          "category": "Tornio verticale CNC",
+          "description": "Campo di lavorazione: 5500 × 2600 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "kc-130-1",
+      "model": "KC 130/1",
+      "nameCn": "卧式落地镗铣床 KC 130/1",
+      "nameEn": "Horizontal Boring Mill KC 130/1",
+      "category": "Horizontal Boring Mill",
+      "categoryCn": "卧式落地镗铣床",
+      "descEn": "Machining range: 3200 × 2800 × 1900 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：3200 × 2800 × 1900 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "3200 × 2800 × 1900 mm",
+      "image": "/images/equipment/kc-130-1.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 10,
+      "translations": {
+        "es": {
+          "name": "Mandrinadora horizontal KC 130/1",
+          "category": "Mandrinadora horizontal",
+          "description": "Rango de mecanizado: 3200 × 2800 × 1900 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Mandriladora Horizontal KC 130/1",
+          "category": "Mandriladora Horizontal",
+          "description": "Faixa de usinagem: 3200 × 2800 × 1900 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Aléseuse horizontale KC 130/1",
+          "category": "Aléseuse horizontale",
+          "description": "Plage d'usinage : 3200 × 2800 × 1900 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مخرطة تجويف أفقية KC 130/1",
+          "category": "مخرطة تجويف أفقية",
+          "description": "نطاق التصنيع: 3200 × 2800 × 1900 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Οριζόντια μηχανή διάτρησης KC 130/1",
+          "category": "Οριζόντια μηχανή διάτρησης",
+          "description": "Εύρος κατεργασίας: 3200 × 2800 × 1900 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Горизонтальный расточной станок KC 130/1",
+          "category": "Горизонтальный расточной станок",
+          "description": "Диапазон обработки: 3200 × 2800 × 1900 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "Horizontal-Bohrwerk KC 130/1",
+          "category": "Horizontal-Bohrwerk",
+          "description": "Bearbeitungsbereich: 3200 × 2800 × 1900 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "Horizontale boormachine KC 130/1",
+          "category": "Horizontale boormachine",
+          "description": "Bewerkingsbereik: 3200 × 2800 × 1900 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Alesatrice orizzontale KC 130/1",
+          "category": "Alesatrice orizzontale",
+          "description": "Campo di lavorazione: 3200 × 2800 × 1900 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "whn15cnc",
+      "model": "WHN15CNC",
+      "nameCn": "卧式落地镗铣床 WHN15CNC",
+      "nameEn": "Horizontal Boring Mill WHN15CNC",
+      "category": "Horizontal Boring Mill",
+      "categoryCn": "卧式落地镗铣床",
+      "descEn": "Machining range: 3200 × 2500 × 1500 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：3200 × 2500 × 1500 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "3200 × 2500 × 1500 mm",
+      "image": "/images/equipment/whn15cnc.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 11,
+      "translations": {
+        "es": {
+          "name": "Mandrinadora horizontal WHN15CNC",
+          "category": "Mandrinadora horizontal",
+          "description": "Rango de mecanizado: 3200 × 2500 × 1500 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Mandriladora Horizontal WHN15CNC",
+          "category": "Mandriladora Horizontal",
+          "description": "Faixa de usinagem: 3200 × 2500 × 1500 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Aléseuse horizontale WHN15CNC",
+          "category": "Aléseuse horizontale",
+          "description": "Plage d'usinage : 3200 × 2500 × 1500 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مخرطة تجويف أفقية WHN15CNC",
+          "category": "مخرطة تجويف أفقية",
+          "description": "نطاق التصنيع: 3200 × 2500 × 1500 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Οριζόντια μηχανή διάτρησης WHN15CNC",
+          "category": "Οριζόντια μηχανή διάτρησης",
+          "description": "Εύρος κατεργασίας: 3200 × 2500 × 1500 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Горизонтальный расточной станок WHN15CNC",
+          "category": "Горизонтальный расточной станок",
+          "description": "Диапазон обработки: 3200 × 2500 × 1500 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "Horizontal-Bohrwerk WHN15CNC",
+          "category": "Horizontal-Bohrwerk",
+          "description": "Bearbeitungsbereich: 3200 × 2500 × 1500 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "Horizontale boormachine WHN15CNC",
+          "category": "Horizontale boormachine",
+          "description": "Bewerkingsbereik: 3200 × 2500 × 1500 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Alesatrice orizzontale WHN15CNC",
+          "category": "Alesatrice orizzontale",
+          "description": "Campo di lavorazione: 3200 × 2500 × 1500 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "kbn135",
+      "model": "KBN135",
+      "nameCn": "卧式落地镗铣床 KBN135",
+      "nameEn": "Horizontal Boring Mill KBN135",
+      "category": "Horizontal Boring Mill",
+      "categoryCn": "卧式落地镗铣床",
+      "descEn": "Machining range: 3000 × 2000 × 1600 mm. Machining accuracy: 0.009 mm.",
+      "descCn": "加工范围：3000 × 2000 × 1600 mm。加工精度：0.009 mm。",
+      "accuracy": "0.009mm",
+      "range": "3000 × 2000 × 1600 mm",
+      "image": "/images/equipment/kbn135.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 12,
+      "translations": {
+        "es": {
+          "name": "Mandrinadora horizontal KBN135",
+          "category": "Mandrinadora horizontal",
+          "description": "Rango de mecanizado: 3000 × 2000 × 1600 mm. Precisión de mecanizado: 0.009 mm."
+        },
+        "pt": {
+          "name": "Mandriladora Horizontal KBN135",
+          "category": "Mandriladora Horizontal",
+          "description": "Faixa de usinagem: 3000 × 2000 × 1600 mm. Precisão de usinagem: 0,009 mm."
+        },
+        "fr": {
+          "name": "Aléseuse horizontale KBN135",
+          "category": "Aléseuse horizontale",
+          "description": "Plage d'usinage : 3000 × 2000 × 1600 mm. Précision d'usinage : 0,009 mm."
+        },
+        "ar": {
+          "name": "مخرطة تجويف أفقية KBN135",
+          "category": "مخرطة تجويف أفقية",
+          "description": "نطاق التصنيع: 3000 × 2000 × 1600 مم. دقة التصنيع: 0.009 مم."
+        },
+        "el": {
+          "name": "Οριζόντια μηχανή διάτρησης KBN135",
+          "category": "Οριζόντια μηχανή διάτρησης",
+          "description": "Εύρος κατεργασίας: 3000 × 2000 × 1600 mm. Ακρίβεια κατεργασίας: 0.009 mm."
+        },
+        "ru": {
+          "name": "Горизонтальный расточной станок KBN135",
+          "category": "Горизонтальный расточной станок",
+          "description": "Диапазон обработки: 3000 × 2000 × 1600 мм. Точность обработки: 0,009 мм."
+        },
+        "de": {
+          "name": "Horizontal-Bohrwerk KBN135",
+          "category": "Horizontal-Bohrwerk",
+          "description": "Bearbeitungsbereich: 3000 × 2000 × 1600 mm. Bearbeitungsgenauigkeit: 0,009 mm."
+        },
+        "nl": {
+          "name": "Horizontale boormachine KBN135",
+          "category": "Horizontale boormachine",
+          "description": "Bewerkingsbereik: 3000 × 2000 × 1600 mm. Bewerkingsnauwkeurigheid: 0,009 mm."
+        },
+        "it": {
+          "name": "Alesatrice orizzontale KBN135",
+          "category": "Alesatrice orizzontale",
+          "description": "Campo di lavorazione: 3000 × 2000 × 1600 mm. Precisione di lavorazione: 0,009 mm."
+        }
+      }
+    },
+    {
+      "id": "mcr-a5c2",
+      "model": "MCR-A5CII",
+      "nameCn": "龙门五面体加工中心 MCR-A5CⅡ",
+      "nameEn": "Gantry Five Face CNC MCR-A5CII",
+      "category": "Gantry Machining Center",
+      "categoryCn": "龙门加工中心",
+      "descEn": "Machining range: 5200 × 3600 × 800 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：5200 × 3600 × 800 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "5200 × 3600 × 800 mm",
+      "image": "/images/equipment/mcr-a5cii.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 13,
+      "translations": {
+        "es": {
+          "name": "Centro de mecanizado de pórtico de cinco caras CNC MCR-A5CII",
+          "category": "Centro de mecanizado de pórtico",
+          "description": "Rango de mecanizado: 5200 × 3600 × 800 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Centro de Usinagem Pórtico de Cinco Faces CNC MCR-A5CII",
+          "category": "Centro de Usinagem Pórtico",
+          "description": "Faixa de usinagem: 5200 × 3600 × 800 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Centre d'usinage à portique cinq faces CNC MCR-A5CII",
+          "category": "Centre d'usinage à portique",
+          "description": "Plage d'usinage : 5200 × 3600 × 800 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مركز تصنيع جسر بخمسة أوجه CNC MCR-A5CII",
+          "category": "مركز تصنيع جسر",
+          "description": "نطاق التصنيع: 5200 × 3600 × 800 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Γερανογέφυρα πέντε όψεων CNC MCR-A5CII",
+          "category": "Κέντρο κατεργασίας γερανογέφυρας",
+          "description": "Εύρος κατεργασίας: 5200 × 3600 × 800 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Портальный пятигранный обрабатывающий центр с ЧПУ MCR-A5CII",
+          "category": "Портальный обрабатывающий центр",
+          "description": "Диапазон обработки: 5200 × 3600 × 800 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "Portalfräsmaschine mit fünf Achsen CNC MCR-A5CII",
+          "category": "Portalbearbeitungszentrum",
+          "description": "Bearbeitungsbereich: 5200 × 3600 × 800 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "Portaal vijfzijdige CNC MCR-A5CII",
+          "category": "Portaalbewerkingscentrum",
+          "description": "Bewerkingsbereik: 5200 × 3600 × 800 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Centro di lavoro a portale a cinque facce CNC MCR-A5CII",
+          "category": "Centro di lavoro a portale",
+          "description": "Campo di lavorazione: 5200 × 3600 × 800 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "mpc-e2-2650",
+      "model": "MPC-EII 2650",
+      "nameCn": "龙门五面体加工中心 MPC-EⅡ2650",
+      "nameEn": "Gantry Five Face CNC MPC-EII 2650",
+      "category": "Gantry Machining Center",
+      "categoryCn": "龙门加工中心",
+      "descEn": "Machining range: 5500 × 3400 × 1750 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：5500 × 3400 × 1750 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "5500 × 3400 × 1750 mm",
+      "image": "/images/equipment/mpc-eii-2650.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 14,
+      "translations": {
+        "es": {
+          "name": "Centro de mecanizado de pórtico de cinco caras CNC MPC-EII 2650",
+          "category": "Centro de mecanizado de pórtico",
+          "description": "Rango de mecanizado: 5500 × 3400 × 1750 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Centro de Usinagem Pórtico de Cinco Faces CNC MPC-EII 2650",
+          "category": "Centro de Usinagem Pórtico",
+          "description": "Faixa de usinagem: 5500 × 3400 × 1750 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "Centre d'usinage à portique cinq faces CNC MPC-EII 2650",
+          "category": "Centre d'usinage à portique",
+          "description": "Plage d'usinage : 5500 × 3400 × 1750 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مركز تصنيع جسر بخمسة أوجه CNC MPC-EII 2650",
+          "category": "مركز تصنيع جسر",
+          "description": "نطاق التصنيع: 5500 × 3400 × 1750 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Γερανογέφυρα πέντε όψεων CNC MPC-EII 2650",
+          "category": "Κέντρο κατεργασίας γερανογέφυρας",
+          "description": "Εύρος κατεργασίας: 5500 × 3400 × 1750 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Портальный пятигранный обрабатывающий центр с ЧПУ MPC-EII 2650",
+          "category": "Портальный обрабатывающий центр",
+          "description": "Диапазон обработки: 5500 × 3400 × 1750 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "Portalfräsmaschine mit fünf Achsen CNC MPC-EII 2650",
+          "category": "Portalbearbeitungszentrum",
+          "description": "Bearbeitungsbereich: 5500 × 3400 × 1750 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "Portaal vijfzijdige CNC MPC-EII 2650",
+          "category": "Portaalbewerkingscentrum",
+          "description": "Bewerkingsbereik: 5500 × 3400 × 1750 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "Centro di lavoro a portale a cinque facce CNC MPC-EII 2650",
+          "category": "Centro di lavoro a portale",
+          "description": "Campo di lavorazione: 5500 × 3400 × 1750 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "csw-1160",
+      "model": "CSW-1160",
+      "nameCn": "三轴加工中心 CSW-1160",
+      "nameEn": "VMC CSW-1160",
+      "category": "Vertical Machining Center",
+      "categoryCn": "三轴加工中心",
+      "descEn": "Machining range: 1000 × 600 mm. Machining accuracy: 0.02 mm.",
+      "descCn": "加工范围：1000 × 600 mm。加工精度：0.02 mm。",
+      "accuracy": "0.02mm",
+      "range": "1000 × 600 mm",
+      "image": "/images/equipment/csw-1160.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 15,
+      "translations": {
+        "es": {
+          "name": "VMC CSW-1160",
+          "category": "Centro de mecanizado vertical",
+          "description": "Rango de mecanizado: 1000 × 600 mm. Precisión de mecanizado: 0.02 mm."
+        },
+        "pt": {
+          "name": "Centro de Usinagem Vertical VMC CSW-1160",
+          "category": "Centro de Usinagem Vertical",
+          "description": "Faixa de usinagem: 1000 × 600 mm. Precisão de usinagem: 0,02 mm."
+        },
+        "fr": {
+          "name": "VMC CSW-1160",
+          "category": "Centre d'usinage vertical",
+          "description": "Plage d'usinage : 1000 × 600 mm. Précision d'usinage : 0,02 mm."
+        },
+        "ar": {
+          "name": "مركز تصنيع عمودي VMC CSW-1160",
+          "category": "مركز تصنيع عمودي",
+          "description": "نطاق التصنيع: 1000 × 600 مم. دقة التصنيع: 0.02 مم."
+        },
+        "el": {
+          "name": "Κέντρο κατεργασίας VMC CSW-1160",
+          "category": "Κατακόρυφο κέντρο κατεργασίας",
+          "description": "Εύρος κατεργασίας: 1000 × 600 mm. Ακρίβεια κατεργασίας: 0.02 mm."
+        },
+        "ru": {
+          "name": "Вертикальный обрабатывающий центр VMC CSW-1160",
+          "category": "Вертикальный обрабатывающий центр",
+          "description": "Диапазон обработки: 1000 × 600 мм. Точность обработки: 0,02 мм."
+        },
+        "de": {
+          "name": "VMC CSW-1160",
+          "category": "Vertikalbearbeitungszentrum",
+          "description": "Bearbeitungsbereich: 1000 × 600 mm. Bearbeitungsgenauigkeit: 0,02 mm."
+        },
+        "nl": {
+          "name": "VMC CSW-1160",
+          "category": "Verticaal bewerkingscentrum",
+          "description": "Bewerkingsbereik: 1000 × 600 mm. Bewerkingsnauwkeurigheid: 0,02 mm."
+        },
+        "it": {
+          "name": "VMC CSW-1160",
+          "category": "Centro di lavoro verticale",
+          "description": "Campo di lavorazione: 1000 × 600 mm. Precisione di lavorazione: 0,02 mm."
+        }
+      }
+    },
+    {
+      "id": "csw-850",
+      "model": "CSW-850",
+      "nameCn": "三轴加工中心 CSW-850",
+      "nameEn": "VMC CSW-850",
+      "category": "Vertical Machining Center",
+      "categoryCn": "三轴加工中心",
+      "descEn": "Machining range: 800 × 500 mm. Machining accuracy: 0.02 mm.",
+      "descCn": "加工范围：800 × 500 mm。加工精度：0.02 mm。",
+      "accuracy": "0.02mm",
+      "range": "800 × 500 mm",
+      "image": "/images/equipment/csw-850.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 16,
+      "translations": {
+        "es": {
+          "name": "VMC CSW-850",
+          "category": "Centro de mecanizado vertical",
+          "description": "Rango de mecanizado: 800 × 500 mm. Precisión de mecanizado: 0.02 mm."
+        },
+        "pt": {
+          "name": "Centro de Usinagem Vertical VMC CSW-850",
+          "category": "Centro de Usinagem Vertical",
+          "description": "Faixa de usinagem: 800 × 500 mm. Precisão de usinagem: 0,02 mm."
+        },
+        "fr": {
+          "name": "VMC CSW-850",
+          "category": "Centre d'usinage vertical",
+          "description": "Plage d'usinage : 800 × 500 mm. Précision d'usinage : 0,02 mm."
+        },
+        "ar": {
+          "name": "مركز تصنيع عمودي VMC CSW-850",
+          "category": "مركز تصنيع عمودي",
+          "description": "نطاق التصنيع: 800 × 500 مم. دقة التصنيع: 0.02 مم."
+        },
+        "el": {
+          "name": "Κέντρο κατεργασίας VMC CSW-850",
+          "category": "Κατακόρυφο κέντρο κατεργασίας",
+          "description": "Εύρος κατεργασίας: 800 × 500 mm. Ακρίβεια κατεργασίας: 0.02 mm."
+        },
+        "ru": {
+          "name": "Вертикальный обрабатывающий центр VMC CSW-850",
+          "category": "Вертикальный обрабатывающий центр",
+          "description": "Диапазон обработки: 800 × 500 мм. Точность обработки: 0,02 мм."
+        },
+        "de": {
+          "name": "VMC CSW-850",
+          "category": "Vertikalbearbeitungszentrum",
+          "description": "Bearbeitungsbereich: 800 × 500 mm. Bearbeitungsgenauigkeit: 0,02 mm."
+        },
+        "nl": {
+          "name": "VMC CSW-850",
+          "category": "Verticaal bewerkingscentrum",
+          "description": "Bewerkingsbereik: 800 × 500 mm. Bewerkingsnauwkeurigheid: 0,02 mm."
+        },
+        "it": {
+          "name": "VMC CSW-850",
+          "category": "Centro di lavoro verticale",
+          "description": "Campo di lavorazione: 800 × 500 mm. Precisione di lavorazione: 0,02 mm."
+        }
+      }
+    },
+    {
+      "id": "alpha-d21m",
+      "model": "α-D21M",
+      "nameCn": "三轴加工中心 α-D21M",
+      "nameEn": "VMC α-D21M",
+      "category": "Vertical Machining Center",
+      "categoryCn": "三轴加工中心",
+      "descEn": "Machining range: 800 × 500 mm. Machining accuracy: 0.01 mm.",
+      "descCn": "加工范围：800 × 500 mm。加工精度：0.01 mm。",
+      "accuracy": "0.01mm",
+      "range": "800 × 500 mm",
+      "image": "/images/equipment/a-d21m.jpg",
+      "group": "machining",
+      "active": true,
+      "sortOrder": 17,
+      "translations": {
+        "es": {
+          "name": "VMC α-D21M",
+          "category": "Centro de mecanizado vertical",
+          "description": "Rango de mecanizado: 800 × 500 mm. Precisión de mecanizado: 0.01 mm."
+        },
+        "pt": {
+          "name": "Centro de Usinagem Vertical VMC α-D21M",
+          "category": "Centro de Usinagem Vertical",
+          "description": "Faixa de usinagem: 800 × 500 mm. Precisão de usinagem: 0,01 mm."
+        },
+        "fr": {
+          "name": "VMC α-D21M",
+          "category": "Centre d'usinage vertical",
+          "description": "Plage d'usinage : 800 × 500 mm. Précision d'usinage : 0,01 mm."
+        },
+        "ar": {
+          "name": "مركز تصنيع عمودي VMC α-D21M",
+          "category": "مركز تصنيع عمودي",
+          "description": "نطاق التصنيع: 800 × 500 مم. دقة التصنيع: 0.01 مم."
+        },
+        "el": {
+          "name": "Κέντρο κατεργασίας VMC α-D21M",
+          "category": "Κατακόρυφο κέντρο κατεργασίας",
+          "description": "Εύρος κατεργασίας: 800 × 500 mm. Ακρίβεια κατεργασίας: 0.01 mm."
+        },
+        "ru": {
+          "name": "Вертикальный обрабатывающий центр VMC α-D21M",
+          "category": "Вертикальный обрабатывающий центр",
+          "description": "Диапазон обработки: 800 × 500 мм. Точность обработки: 0,01 мм."
+        },
+        "de": {
+          "name": "VMC α-D21M",
+          "category": "Vertikalbearbeitungszentrum",
+          "description": "Bearbeitungsbereich: 800 × 500 mm. Bearbeitungsgenauigkeit: 0,01 mm."
+        },
+        "nl": {
+          "name": "VMC α-D21M",
+          "category": "Verticaal bewerkingscentrum",
+          "description": "Bewerkingsbereik: 800 × 500 mm. Bewerkingsnauwkeurigheid: 0,01 mm."
+        },
+        "it": {
+          "name": "VMC α-D21M",
+          "category": "Centro di lavoro verticale",
+          "description": "Campo di lavorazione: 800 × 500 mm. Precisione di lavorazione: 0,01 mm."
+        }
+      }
+    },
+    {
+      "id": "cv-2100m4",
+      "model": "CV-2100M4",
+      "nameCn": "CV-2100M4三丰轮廓仪",
+      "nameEn": "CV-2100M4 Mitutoyo Profile Tester",
+      "category": "Profile Tester",
+      "categoryCn": "轮廓仪",
+      "descEn": "Primary Application: Measuring specialised dimensions with tight tolerances, e.g., angles, arcs, and widths. Equipment Accuracy: ≤0.001mm.",
+      "descCn": "主要应用：测量具有严格公差的特殊尺寸，如角度、弧度和宽度。设备精度：≤0.001mm。",
+      "accuracy": "≤0.001mm",
+      "image": "/images/equipment/cv-2100m4.jpg",
+      "group": "testing",
+      "active": true,
+      "sortOrder": 0,
+      "translations": {
+        "es": {
+          "name": "Perfilómetro Mitutoyo CV-2100M4",
+          "category": "Perfilómetro",
+          "description": "Aplicación principal: Medición de dimensiones especializadas con tolerancias ajustadas, por ejemplo, ángulos, arcos y anchos. Precisión del equipo: ≤0.001mm."
+        },
+        "pt": {
+          "name": "Perfilômetro Mitutoyo CV-2100M4",
+          "category": "Perfilômetro",
+          "description": "Aplicação principal: Medição de dimensões especializadas com tolerâncias apertadas, por exemplo, ângulos, arcos e larguras. Precisão do equipamento: ≤0,001mm."
+        },
+        "fr": {
+          "name": "Projecteur de profil CV-2100M4 Mitutoyo",
+          "category": "Projecteur de profil",
+          "description": "Application principale : mesure de dimensions spécialisées avec tolérances serrées, par exemple angles, arcs et largeurs. Précision de l'équipement : ≤0,001 mm."
+        },
+        "ar": {
+          "name": "جهاز قياس الملف الشخصي Mitutoyo CV-2100M4",
+          "category": "جهاز قياس الملف الشخصي",
+          "description": "التطبيق الأساسي: قياس الأبعاد المتخصصة بتفاوتات ضيقة، مثل الزوايا والأقواس والعرض. دقة المعدات: ≤0.001 مم."
+        },
+        "el": {
+          "name": "Μηχανή ελέγχου προφίλ CV-2100M4 Mitutoyo",
+          "category": "Μηχανή ελέγχου προφίλ",
+          "description": "Κύρια εφαρμογή: Μέτρηση εξειδικευμένων διαστάσεων με στενές ανοχές, π.χ. γωνίες, τόξα και πλάτη. Ακρίβεια εξοπλισμού: ≤0.001mm."
+        },
+        "ru": {
+          "name": "Профилометр Mitutoyo CV-2100M4",
+          "category": "Профилометр",
+          "description": "Основное применение: измерение специальных размеров с жесткими допусками, например, углов, дуг и ширин. Точность оборудования: ≤0,001 мм."
+        },
+        "de": {
+          "name": "CV-2100M4 Mitutoyo Profiltester",
+          "category": "Profiltester",
+          "description": "Hauptanwendung: Messung spezieller Maße mit engen Toleranzen, z. B. Winkel, Bögen und Breiten. Gerätegenauigkeit: ≤0,001 mm."
+        },
+        "nl": {
+          "name": "CV-2100M4 Mitutoyo profieltester",
+          "category": "Profieltester",
+          "description": "Primaire toepassing: meten van speciale afmetingen met nauwe toleranties, zoals hoeken, bogen en breedtes. Apparatuurnauwkeurigheid: ≤0,001 mm."
+        },
+        "it": {
+          "name": "Profilometro Mitutoyo CV-2100M4",
+          "category": "Profilometro",
+          "description": "Applicazione principale: misurazione di dimensioni speciali con tolleranze strette, ad esempio angoli, archi e larghezze. Precisione dell'attrezzatura: ≤0,001 mm."
+        }
+      }
+    },
+    {
+      "id": "vm-s200",
+      "model": "VM-S200",
+      "nameCn": "智泰VM-S200影像仪",
+      "nameEn": "Zhite VM-S200 Imaging System",
+      "category": "Imaging System",
+      "categoryCn": "影像仪",
+      "descEn": "Primary purpose: Observing burrs and measuring specialised dimensions with larger tolerances, e.g. angles, arcs, and lengths. Equipment accuracy: ≤0.005mm.",
+      "descCn": "主要用途：观察毛刺和测量公差较大的特殊尺寸，如角度、弧度和长度。设备精度：≤0.005mm。",
+      "accuracy": "≤0.005mm",
+      "image": "/images/equipment/vm-s200.jpg",
+      "group": "testing",
+      "active": true,
+      "sortOrder": 1,
+      "translations": {
+        "es": {
+          "name": "Sistema de imagen Zhite VM-S200",
+          "category": "Sistema de imagen",
+          "description": "Propósito principal: Observar rebabas y medir dimensiones especializadas con tolerancias mayores, por ejemplo, ángulos, arcos y longitudes. Precisión del equipo: ≤0.005mm."
+        },
+        "pt": {
+          "name": "Sistema de Imagem Zhite VM-S200",
+          "category": "Sistema de Imagem",
+          "description": "Objetivo principal: Observar rebarbas e medir dimensões especializadas com tolerâncias maiores, por exemplo, ângulos, arcos e comprimentos. Precisão do equipamento: ≤0,005mm."
+        },
+        "fr": {
+          "name": "Système d'imagerie Zhite VM-S200",
+          "category": "Système d'imagerie",
+          "description": "Objectif principal : observation des bavures et mesure de dimensions spécialisées avec tolérances plus larges, par exemple angles, arcs et longueurs. Précision de l'équipement : ≤0,005 mm."
+        },
+        "ar": {
+          "name": "نظام التصوير Zhite VM-S200",
+          "category": "نظام التصوير",
+          "description": "الغرض الأساسي: مراقبة النتوءات وقياس الأبعاد المتخصصة بتفاوتات أكبر، مثل الزوايا والأقواس والأطوال. دقة المعدات: ≤0.005 مم."
+        },
+        "el": {
+          "name": "Σύστημα απεικόνισης Zhite VM-S200",
+          "category": "Σύστημα απεικόνισης",
+          "description": "Κύριος σκοπός: Παρατήρηση γρεζιών και μέτρηση εξειδικευμένων διαστάσεων με μεγαλύτερες ανοχές, π.χ. γωνίες, τόξα και μήκη. Ακρίβεια εξοπλισμού: ≤0.005mm."
+        },
+        "ru": {
+          "name": "Измерительная система Zhite VM-S200",
+          "category": "Измерительная система",
+          "description": "Основное назначение: наблюдение за заусенцами и измерение специальных размеров с большими допусками, например, углов, дуг и длин. Точность оборудования: ≤0,005 мм."
+        },
+        "de": {
+          "name": "Zhite VM-S200 Bildverarbeitungssystem",
+          "category": "Bildverarbeitungssystem",
+          "description": "Hauptzweck: Beobachtung von Graten und Messung spezieller Maße mit größeren Toleranzen, z. B. Winkel, Bögen und Längen. Gerätegenauigkeit: ≤0,005 mm."
+        },
+        "nl": {
+          "name": "Zhite VM-S200 beeldvormingssysteem",
+          "category": "Beeldvormingssysteem",
+          "description": "Primair doel: observeren van bramen en meten van speciale afmetingen met grotere toleranties, zoals hoeken, bogen en lengtes. Apparatuurnauwkeurigheid: ≤0,005 mm."
+        },
+        "it": {
+          "name": "Sistema di imaging Zhite VM-S200",
+          "category": "Sistema di imaging",
+          "description": "Scopo principale: osservazione di bave e misurazione di dimensioni speciali con tolleranze più ampie, ad esempio angoli, archi e lunghezze. Precisione dell'attrezzatura: ≤0,005 mm."
+        }
+      }
+    },
+    {
+      "id": "mmd-r100s",
+      "model": "MMD-R100S",
+      "nameCn": "MMD-R100S粗糙度仪",
+      "nameEn": "MMD-R100S Roughness Tester",
+      "category": "Roughness Tester",
+      "categoryCn": "粗糙度仪",
+      "descEn": "Primary Application: Roughness Tester. Equipment Accuracy: ≤0.05mm.",
+      "descCn": "主要应用：粗糙度测试。设备精度：≤0.05mm。",
+      "accuracy": "≤0.05mm",
+      "image": "/images/equipment/mmd-r100s.jpg",
+      "group": "testing",
+      "active": true,
+      "sortOrder": 2,
+      "translations": {
+        "es": {
+          "name": "Medidor de rugosidad MMD-R100S",
+          "category": "Medidor de rugosidad",
+          "description": "Aplicación principal: Medidor de rugosidad. Precisión del equipo: ≤0.05mm."
+        },
+        "pt": {
+          "name": "Rugosímetro MMD-R100S",
+          "category": "Rugosímetro",
+          "description": "Aplicação principal: Rugosímetro. Precisão do equipamento: ≤0,05mm."
+        },
+        "fr": {
+          "name": "Rugosimètre MMD-R100S",
+          "category": "Rugosimètre",
+          "description": "Application principale : rugosimètre. Précision de l'équipement : ≤0,05 mm."
+        },
+        "ar": {
+          "name": "جهاز قياس الخشونة MMD-R100S",
+          "category": "جهاز قياس الخشونة",
+          "description": "التطبيق الأساسي: قياس الخشونة. دقة المعدات: ≤0.05 مم."
+        },
+        "el": {
+          "name": "Μηχανή μέτρησης τραχύτητας MMD-R100S",
+          "category": "Μηχανή μέτρησης τραχύτητας",
+          "description": "Κύρια εφαρμογή: Μέτρηση τραχύτητας. Ακρίβεια εξοπλισμού: ≤0.05mm."
+        },
+        "ru": {
+          "name": "Профилометр MMD-R100S",
+          "category": "Профилометр",
+          "description": "Основное применение: измерение шероховатости. Точность оборудования: ≤0,05 мм."
+        },
+        "de": {
+          "name": "MMD-R100S Rauheitsmessgerät",
+          "category": "Rauheitsmessgerät",
+          "description": "Hauptanwendung: Rauheitsmessung. Gerätegenauigkeit: ≤0,05 mm."
+        },
+        "nl": {
+          "name": "MMD-R100S ruwheidsmeter",
+          "category": "Ruwheidsmeter",
+          "description": "Primaire toepassing: ruwheidsmeter. Apparatuurnauwkeurigheid: ≤0,05 mm."
+        },
+        "it": {
+          "name": "Rugosimetro MMD-R100S",
+          "category": "Rugosimetro",
+          "description": "Applicazione principale: rugosimetro. Precisione dell'attrezzatura: ≤0,05 mm."
+        }
+      }
+    },
+    {
+      "id": "sinapc10a",
+      "model": "SinAPC10A",
+      "nameCn": "清洁度分析系统 SinAPC10A",
+      "nameEn": "Cleanliness Analysis System SinAPC10A",
+      "category": "Cleanliness Analyzer",
+      "categoryCn": "清洁度分析系统",
+      "descEn": "This analytical system is employed for cleanliness testing of automotive component samples. It automatically quantifies, analyses and classifies impurity particles on filter membranes by type, size and quantity. It complies with cleanliness testing standards for components as specified by VDA19, ISO16232, NAS1638, ISO4406 and ISO4407. Equipment accuracy: 0.5μm/pixel.",
+      "descCn": "该分析系统用于汽车零部件样品的清洁度测试。它自动量化、分析和分类滤膜上的杂质颗粒的类型、大小和数量。符合VDA19、ISO16232、NAS1638、ISO4406和ISO4407规定的零部件清洁度测试标准。设备精度：0.5μm/pixel。",
+      "accuracy": "0.5μm/pixel",
+      "image": "/images/equipment/sinapc10a.jpg",
+      "group": "testing",
+      "active": true,
+      "sortOrder": 3,
+      "translations": {
+        "es": {
+          "name": "Sistema de análisis de limpieza SinAPC10A",
+          "category": "Analizador de limpieza",
+          "description": "Este sistema analítico se emplea para pruebas de limpieza de muestras de componentes automotrices. Cuantifica, analiza y clasifica automáticamente partículas de impurezas en membranas de filtro por tipo, tamaño y cantidad. Cumple con los estándares de prueba de limpieza para componentes según VDA19, ISO16232, NAS1638, ISO4406 e ISO4407. Precisión del equipo: 0.5μm/píxel."
+        },
+        "pt": {
+          "name": "Sistema de Análise de Limpeza SinAPC10A",
+          "category": "Analisador de Limpeza",
+          "description": "Este sistema analítico é empregado para teste de limpeza de amostras de componentes automotivos. Ele quantifica, analisa e classifica automaticamente partículas de impurezas em membranas filtrantes por tipo, tamanho e quantidade. Está em conformidade com os padrões de teste de limpeza para componentes conforme especificado por VDA19, ISO16232, NAS1638, ISO4406 e ISO4407. Precisão do equipamento: 0,5μm/pixel."
+        },
+        "fr": {
+          "name": "Système d'analyse de propreté SinAPC10A",
+          "category": "Analyseur de propreté",
+          "description": "Ce système d'analyse est utilisé pour les tests de propreté des échantillons de composants automobiles. Il quantifie, analyse et classe automatiquement les particules d'impuretés sur les membranes filtrantes par type, taille et quantité. Il est conforme aux normes de test de propreté des composants spécifiées par VDA19, ISO16232, NAS1638, ISO4406 et ISO4407. Précision de l'équipement : 0,5 μm/pixel."
+        },
+        "ar": {
+          "name": "نظام تحليل النظافة SinAPC10A",
+          "category": "محلل النظافة",
+          "description": "يستخدم هذا النظام التحليلي لاختبار نظافة عينات مكونات السيارات. يقوم تلقائيًا بقياس وتحليل وتصنيف جزيئات الشوائب على أغشية الترشيح حسب النوع والحجم والكمية. يتوافق مع معايير اختبار النظافة للمكونات كما هو محدد في VDA19 وISO16232 وNAS1638 وISO4406 وISO4407. دقة المعدات: 0.5 ميكرومتر/بكسل."
+        },
+        "el": {
+          "name": "Σύστημα ανάλυσης καθαρότητας SinAPC10A",
+          "category": "Αναλυτής καθαρότητας",
+          "description": "Αυτό το αναλυτικό σύστημα χρησιμοποιείται για δοκιμές καθαρότητας δειγμάτων εξαρτημάτων αυτοκινήτων. Ποσοτικοποιεί, αναλύει και ταξινομεί αυτόματα τα σωματίδια ακαθαρσιών σε μεμβράνες φίλτρου ανά τύπο, μέγεθος και ποσότητα. Συμμορφώνεται με τα πρότυπα δοκιμών καθαρότητας εξαρτημάτων όπως ορίζονται από τα VDA19, ISO16232, NAS1638, ISO4406 και ISO4407. Ακρίβεια εξοπλισμού: 0.5μm/pixel."
+        },
+        "ru": {
+          "name": "Система анализа чистоты SinAPC10A",
+          "category": "Анализатор чистоты",
+          "description": "Эта аналитическая система используется для контроля чистоты образцов автомобильных компонентов. Она автоматически количественно определяет, анализирует и классифицирует частицы примесей на мембранах фильтров по типу, размеру и количеству. Она соответствует стандартам контроля чистоты компонентов, указанным в VDA19, ISO16232, NAS1638, ISO4406 и ISO4407. Точность оборудования: 0,5 мкм/пиксель."
+        },
+        "de": {
+          "name": "Reinheitsanalysesystem SinAPC10A",
+          "category": "Reinheitsanalysator",
+          "description": "Dieses Analysesystem wird für die Reinheitsprüfung von Automobilkomponentenproben verwendet. Es quantifiziert, analysiert und klassifiziert automatisch Verunreinigungspartikel auf Filtermembranen nach Typ, Größe und Anzahl. Es entspricht den Reinheitsprüfstandards für Komponenten gemäß VDA19, ISO16232, NAS1638, ISO4406 und ISO4407. Gerätegenauigkeit: 0,5 μm/Pixel."
+        },
+        "nl": {
+          "name": "Reinheidsanalysesysteem SinAPC10A",
+          "category": "Reinheidsanalysator",
+          "description": "Dit analysesysteem wordt gebruikt voor reinheidstesten van automobielcomponentmonsters. Het kwantificeert, analyseert en classificeert automatisch onzuiverheidsdeeltjes op filtermembranen op type, grootte en aantal. Het voldoet aan reinheidstestnormen voor componenten zoals gespecificeerd door VDA19, ISO16232, NAS1638, ISO4406 en ISO4407. Apparatuurnauwkeurigheid: 0,5 μm/pixel."
+        },
+        "it": {
+          "name": "Sistema di analisi della pulizia SinAPC10A",
+          "category": "Analizzatore di pulizia",
+          "description": "Questo sistema analitico è utilizzato per il test di pulizia di campioni di componenti automobilistici. Quantifica, analizza e classifica automaticamente le particelle di impurità su membrane filtranti per tipo, dimensione e quantità. È conforme agli standard di test di pulizia per componenti come specificato da VDA19, ISO16232, NAS1638, ISO4406 e ISO4407. Precisione dell'attrezzatura: 0,5 μm/pixel."
+        }
+      }
+    },
+    {
+      "id": "hexacon-15-30-10",
+      "model": "Hexacon 15.30.10",
+      "nameCn": "三坐标测量仪 Hexacon 15.30.10",
+      "nameEn": "Coordinate Measuring Machine Hexacon 15.30.10",
+      "category": "CMM",
+      "categoryCn": "三坐标测量仪",
+      "descEn": "High-precision coordinate measuring machine for dimensional inspection and quality control.",
+      "descCn": "高精度三坐标测量仪，用于尺寸检测和质量控制。",
+      "accuracy": "-",
+      "image": null,
+      "group": "testing",
+      "active": true,
+      "sortOrder": 4,
+      "translations": {
+        "es": {
+          "name": "Máquina de medición por coordenadas Hexacon 15.30.10",
+          "category": "MMC",
+          "description": "Máquina de medición por coordenadas de alta precisión para inspección dimensional y control de calidad."
+        },
+        "pt": {
+          "name": "Máquina de Medição por Coordenadas Hexacon 15.30.10",
+          "category": "CMM",
+          "description": "Máquina de medição por coordenadas de alta precisão para inspeção dimensional e controle de qualidade."
+        },
+        "fr": {
+          "name": "Machine à mesurer tridimensionnelle Hexacon 15.30.10",
+          "category": "MMT",
+          "description": "Machine à mesurer tridimensionnelle de haute précision pour l'inspection dimensionnelle et le contrôle qualité."
+        },
+        "ar": {
+          "name": "آلة قياس الإحداثيات Hexacon 15.30.10",
+          "category": "CMM",
+          "description": "آلة قياس إحداثيات عالية الدقة لفحص الأبعاد ومراقبة الجودة."
+        },
+        "el": {
+          "name": "Μηχανή συντεταγμένων Hexacon 15.30.10",
+          "category": "Μηχανή συντεταγμένων",
+          "description": "Μηχανή συντεταγμένων υψηλής ακρίβειας για έλεγχο διαστάσεων και ποιοτικό έλεγχο."
+        },
+        "ru": {
+          "name": "Координатно-измерительная машина Hexacon 15.30.10",
+          "category": "КИМ",
+          "description": "Высокоточная координатно-измерительная машина для контроля размеров и управления качеством."
+        },
+        "de": {
+          "name": "Koordinatenmessmaschine Hexacon 15.30.10",
+          "category": "KMM",
+          "description": "Hochpräzise Koordinatenmessmaschine für Dimensionsprüfung und Qualitätskontrolle."
+        },
+        "nl": {
+          "name": "Coördinatenmeetmachine Hexacon 15.30.10",
+          "category": "CMM",
+          "description": "Hoogprecisie coördinatenmeetmachine voor dimensionale inspectie en kwaliteitscontrole."
+        },
+        "it": {
+          "name": "Macchina di misura a coordinate Hexacon 15.30.10",
+          "category": "CMM",
+          "description": "Macchina di misura a coordinate ad alta precisione per ispezione dimensionale e controllo qualità."
+        }
+      }
+    }
+  ],
+  "parameters": {
+    "homeYears": "17+",
+    "homePrecision": "±0.005mm",
+    "homeEmployees": "50+",
+    "homeMachines": "20+",
+    "equipmentAccuracy": "0.001mm",
+    "equipmentSize": "5500mm"
+  }
+}

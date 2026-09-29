@@ -1,8 +1,10 @@
 'use client'
 
-import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect, useMemo, type ReactNode } from 'react'
 import { type Locale, defaultLocale, getTranslations } from './i18n'
 import { isRtlLocale, localizePath } from './locales'
+import { useSiteContent } from './site-content-context'
+import { overlayTranslations } from './site-content-model'
 
 type LanguageContextType = {
   locale: Locale
@@ -38,8 +40,10 @@ export function LanguageProvider({ children, initialLocale = defaultLocale }: { 
 
 export function useLanguage() {
   const context = useContext(LanguageContext)
+  const content = useSiteContent()
+  const t = useMemo(()=>context && content ? overlayTranslations(context.t,content.texts,context.locale) : context?.t,[context,content])
   if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider')
   }
-  return context
+  return { ...context, t:t! }
 }

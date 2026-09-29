@@ -8,6 +8,7 @@ import { LanguageProvider } from '@/lib/language-context'
 import { Toaster } from '@/components/ui/sonner'
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES, isRtlLocale, isSupportedLocale, localizePath, stripLocalePrefix } from '@/lib/locales'
 import { getTranslations } from '@/lib/i18n'
+import { getSiteTranslations } from '@/lib/site-content-server'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -18,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const requestedLocale = requestHeaders.get('x-site-locale')
   const locale = isSupportedLocale(requestedLocale) ? requestedLocale : DEFAULT_LOCALE
   const pathname = stripLocalePrefix(requestHeaders.get('x-site-pathname') || '/').pathname
-  const t = getTranslations(locale)
+  const t = requestHeaders.get('x-pathname')?.startsWith('/admin') ? getTranslations(locale) : await getSiteTranslations(locale)
   const languages = Object.fromEntries(
     SUPPORTED_LOCALES.map((item) => [item.code, localizePath(pathname, item.code)]),
   )

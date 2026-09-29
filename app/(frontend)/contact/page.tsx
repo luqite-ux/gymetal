@@ -3,7 +3,7 @@
 import React from "react"
 
 import { useState } from 'react'
-import Image from 'next/image'
+import Image from '@/components/managed-image'
 import { Mail, Phone, MapPin, MessageCircle, Clock, Send } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
@@ -11,11 +11,11 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { InquiryCaptchaField } from '@/components/inquiry-captcha-field'
-import { pageText } from '@/lib/page-content'
+import { usePageText } from '@/lib/use-page-text'
 
 export default function ContactPage() {
   const { t, locale } = useLanguage()
-  const l = (english: string, chinese?: string) => pageText(locale, english, chinese)
+  const l = usePageText()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')

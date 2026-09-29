@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Image from '@/components/managed-image'
 import { ArrowRight, Cog, CircleDot, Target, Zap, Layers, Grid3X3, Sparkles, Box } from 'lucide-react'
 import { useLanguage } from '@/lib/language-context'
 import { Button } from '@/components/ui/button'
