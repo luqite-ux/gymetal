@@ -1,3 +1,5 @@
+import { NextResponse as ServiceGuardNextResponse, type NextRequest as ServiceGuardRequest } from 'next/server'
+import { isServiceGuardExcludedPath, isWebsiteServiceAvailable } from './lib/service-status'
 import { NextResponse, type NextRequest } from "next/server"
 import { requestHeadersWithPathname, updateSession } from "@/lib/supabase/proxy"
 import {
@@ -13,7 +15,7 @@ import {
  * 若 cookie 与 DB 会话不一致，RSC 会 redirect 回登录，中间件再拉回 /admin，形成
  * 无限重定向 + 白屏闪烁（线上 Vercel 比本地更容易触发）。
  */
-export async function middleware(request: NextRequest) {
+async function existingServiceExpiryIntegration(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith("/api")) return updateSession(request)
@@ -72,4 +74,9 @@ export const config = {
   matcher: [
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
+}
+
+export async function middleware(request: ServiceGuardRequest) {
+  if (!isServiceGuardExcludedPath(request.nextUrl.pathname) && !await isWebsiteServiceAvailable()) return ServiceGuardNextResponse.rewrite(new URL('/service-expired', request.url))
+  return existingServiceExpiryIntegration(request)
 }
