@@ -51,7 +51,12 @@ test('customer-facing contact details use the approved email, phone and WhatsApp
 
 test('every equipment image reference resolves to a bundled customer asset', () => {
   const source = JSON.parse(read('lib/site-content-defaults.json'))
-  const references = source.equipment.map(item => item.image).filter(Boolean)
+  const activeEquipment = source.equipment.filter(item => item.active)
+  for (const item of activeEquipment) {
+    assert.equal(typeof item.image, 'string', `active equipment must have an image: ${item.id}`)
+    assert.ok(item.image.length > 0, `active equipment must have a non-empty image: ${item.id}`)
+  }
+  const references = activeEquipment.map(item => item.image)
   assert.ok(references.length > 0)
   for (const reference of references) {
     assert.equal(
