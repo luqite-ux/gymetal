@@ -15,6 +15,7 @@
    - `HOSTNAME=127.0.0.1`
    - `PORT=3000`
 6. 重启 Node.js 服务，并先在服务器本机访问 `http://127.0.0.1:3000`。
+7. 部署前在 `.env.production.local` 写入部署包标明的 `DEPLOYMENT_COMMIT_SHA`；启动后请求 `http://127.0.0.1:3000/api/version`，确认返回的 commit 与部署包一致。
 
 ## Caddy 免费 HTTPS
 
@@ -50,5 +51,6 @@ Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -in 80,443,3000
 - 前端语言菜单可以切换十一种语言，切换后站内链接保留当前语言。
 - 产品、新闻、FAQ、设备和联系页显示目标语言；错误验证码不写入询盘，正确验证码可提交。
 - `/sitemap.xml` 包含十一语 URL 与 `hreflang`。
+- `/api/version` 返回部署包对应的 Git commit，响应设置为 `no-store`。
 
 若 Caddy 未签发证书，先检查 DNS 是否已全球生效、80/443 是否可从公网访问，再查看 Caddy 服务日志；不要购买证书作为首选处理方式。
