@@ -39,3 +39,9 @@ test('guardrail catalog preserves all customer-supplied categories and images', 
   assert.equal(catalog.find((category) => category.slug === 'aluminum-pavilion').images.length, 5)
   assert.deepEqual(catalog.find((category) => category.slug === 'road-barrier').captions, ['', ''])
 })
+
+test('guardrail captions cover the full embedded catalog label strip', () => {
+  const page = fs.readFileSync(path.join(root, 'app', '(frontend)', 'guardrails', 'page.tsx'), 'utf8')
+  assert.match(page, /figcaption className="absolute inset-x-0 bottom-0/)
+  assert.doesNotMatch(page, /figcaption className="[^"]*max-w-/)
+})

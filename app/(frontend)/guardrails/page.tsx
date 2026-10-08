@@ -49,7 +49,7 @@ export default async function GuardrailsPage() {
               {category.images.map((src, imageIndex) => (
                 <figure key={src} className="group relative aspect-[4/3] overflow-hidden rounded-xl border bg-[#f3f5f7] shadow-sm">
                   <Image src={src} alt={category.captions[imageIndex] || `${category.title} ${imageIndex + 1}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover:scale-[1.03]" />
-                  {category.captions[imageIndex] ? <figcaption className="absolute bottom-0 left-0 max-w-[90%] bg-[#244d9b] px-4 py-2 text-sm font-medium text-white shadow-md">{category.captions[imageIndex]}</figcaption> : null}
+                  {category.captions[imageIndex] ? <figcaption className="absolute inset-x-0 bottom-0 bg-[#244d9b] px-4 py-2 text-sm font-medium text-white shadow-md">{category.captions[imageIndex]}</figcaption> : null}
                 </figure>
               ))}
             </div>
