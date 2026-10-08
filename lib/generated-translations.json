@@ -6,6 +6,7 @@
       "services": "Servicios",
       "equipment": "Equipos",
       "products": "Productos",
+      "guardrails": "Barandillas",
       "news": "Noticias",
       "faq": "Preguntas Frecuentes",
       "contact": "Contacto"
@@ -158,6 +159,7 @@
       "services": "Serviços",
       "equipment": "Equipamentos",
       "products": "Produtos",
+      "guardrails": "Guarda-corpos",
       "news": "Notícias",
       "faq": "FAQ",
       "contact": "Contato"
@@ -310,6 +312,7 @@
       "services": "Services",
       "equipment": "Équipement",
       "products": "Produits",
+      "guardrails": "Garde-corps",
       "news": "Actualités",
       "faq": "FAQ",
       "contact": "Contact"
@@ -462,6 +465,7 @@
       "services": "الخدمات",
       "equipment": "المعدات",
       "products": "المنتجات",
+      "guardrails": "حواجز الحماية",
       "news": "الأخبار",
       "faq": "الأسئلة الشائعة",
       "contact": "اتصل بنا"
@@ -614,6 +618,7 @@
       "services": "Υπηρεσίες",
       "equipment": "Εξοπλισμός",
       "products": "Προϊόντα",
+      "guardrails": "Προστατευτικά κιγκλιδώματα",
       "news": "Νέα",
       "faq": "Συχνές Ερωτήσεις",
       "contact": "Επικοινωνία"
@@ -766,6 +771,7 @@
       "services": "Услуги",
       "equipment": "Оборудование",
       "products": "Продукция",
+      "guardrails": "Защитные ограждения",
       "news": "Новости",
       "faq": "Вопросы и ответы",
       "contact": "Контакты"
@@ -918,6 +924,7 @@
       "services": "Dienstleistungen",
       "equipment": "Ausrüstung",
       "products": "Produkte",
+      "guardrails": "Schutzgeländer",
       "news": "Neuigkeiten",
       "faq": "FAQ",
       "contact": "Kontakt"
@@ -1070,6 +1077,7 @@
       "services": "Diensten",
       "equipment": "Apparatuur",
       "products": "Producten",
+      "guardrails": "Veiligheidsleuningen",
       "news": "Nieuws",
       "faq": "FAQ",
       "contact": "Contact"
@@ -1222,6 +1230,7 @@
       "services": "Servizi",
       "equipment": "Attrezzature",
       "products": "Prodotti",
+      "guardrails": "Parapetti",
       "news": "Notizie",
       "faq": "FAQ",
       "contact": "Contatti"

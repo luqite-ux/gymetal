@@ -34,6 +34,7 @@ export function Header() {
     { href: '/services', label: t.nav.services },
     { href: '/equipment', label: t.nav.equipment },
     { href: '/products', label: t.nav.products },
+    { href: '/guardrails', label: t.nav.guardrails },
     { href: '/news', label: t.nav.news },
     { href: '/faq', label: t.nav.faq },
     { href: '/contact', label: t.nav.contact },
@@ -58,7 +59,7 @@ export function Header() {
         </LocalizedLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 xl:gap-8 lg:flex">
           {navItems.map((item, index) => (
             <LocalizedLink
               key={item.href}
@@ -113,7 +114,7 @@ export function Header() {
       {/* Mobile Navigation */}
       <div className={cn(
         "border-t border-border bg-background lg:hidden overflow-hidden transition-all duration-300",
-        isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 border-transparent"
+        isOpen ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0 border-transparent"
       )}>
         <nav className="container mx-auto flex flex-col px-4 py-4">
           {navItems.map((item, index) => (
