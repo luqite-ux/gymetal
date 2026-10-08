@@ -47,8 +47,9 @@ export default async function GuardrailsPage() {
             {'features' in category && category.features ? <ul className="mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{category.features.map((feature) => <li key={feature} className="flex items-start gap-3 rounded-lg border bg-muted/30 p-4 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{feature}</li>)}</ul> : null}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {category.images.map((src, imageIndex) => (
-                <figure key={src} className="relative aspect-[4/3] overflow-hidden rounded-xl border bg-[#f3f5f7] shadow-sm">
-                  <Image src={src} alt={`${category.title} ${imageIndex + 1}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain transition-transform duration-500 hover:scale-[1.03]" />
+                <figure key={src} className="group relative aspect-[4/3] overflow-hidden rounded-xl border bg-[#f3f5f7] shadow-sm">
+                  <Image src={src} alt={category.captions[imageIndex] || `${category.title} ${imageIndex + 1}`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover:scale-[1.03]" />
+                  {category.captions[imageIndex] ? <figcaption className="absolute bottom-0 left-0 max-w-[90%] bg-[#244d9b] px-4 py-2 text-sm font-medium text-white shadow-md">{category.captions[imageIndex]}</figcaption> : null}
                 </figure>
               ))}
             </div>

@@ -25,8 +25,17 @@ test('guardrail catalog preserves all customer-supplied categories and images', 
     'Safety Guardrail for Road Barrier',
   ])
   for (const category of catalog) {
+    assert.equal(Array.isArray(category.captions), true, `${category.title} captions are missing`)
+    assert.equal(category.captions.length, category.images.length, `${category.title} captions`)
     for (const image of category.images) {
       assert.equal(fs.existsSync(path.join(root, 'public', image.replace(/^\//, ''))), true, image)
     }
   }
+  assert.deepEqual(catalog[0].captions.slice(0, 6), [
+    'Model A Pointy', 'Model B Pointy', 'Model B Flathead',
+    'Model C Pointy', 'Wave type', 'Model D Flathead',
+  ])
+  assert.equal(catalog.find((category) => category.slug === 'mesh').images.at(-1), '/images/guardrails/47.jpeg')
+  assert.equal(catalog.find((category) => category.slug === 'aluminum-pavilion').images.length, 5)
+  assert.deepEqual(catalog.find((category) => category.slug === 'road-barrier').captions, ['', ''])
 })
