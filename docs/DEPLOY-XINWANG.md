@@ -3,8 +3,8 @@
 ## 覆盖与启动
 
 1. 停止当前网站 Node.js 服务。
-2. 备份 `D:\www\gymetaltech` 后，将源码部署包解压并覆盖到该目录。
-3. 保留服务器现有 `.env.production.local` 和其它 `.env*` 文件。本次内容维护包不包含任何环境文件，禁止用空文件或本机配置覆盖服务器配置；邮件转发、验证码和数据库凭据全部沿用现有值。
+2. 备份 `D:\www\gymetaltech`，并单独保存服务器现有 `.env.production.local` 和其它 `.env*` 文件。
+3. 本次版本已删除整个护栏栏目。不要直接覆盖旧目录，否则旧的护栏页面和图片文件会残留。请将原 `D:\www\gymetaltech` 重命名为备份目录，新建空的 `D:\www\gymetaltech`，再把本部署包完整解压到新目录，并将上一步保存的 `.env.production.local` 和其它 `.env*` 文件复制回新目录。本包不包含任何环境文件，邮件转发、验证码和数据库凭据全部沿用服务器现有值。
 4. 在部署目录执行 `npm ci` 和 `npm run build:windows`。部署包不包含 `node_modules`；Windows 使用 npm 安装，避免 pnpm 符号链接导致 standalone 打包权限错误。
 5. 确认进程使用 Node.js 24，工作目录为 `D:\www\gymetaltech`。`npm run build:windows` 后执行：
    ```powershell
@@ -52,5 +52,6 @@ Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -in 80,443,3000
 - 产品、新闻、FAQ、设备和联系页显示目标语言；错误验证码不写入询盘，正确验证码可提交。
 - `/sitemap.xml` 包含十一语 URL 与 `hreflang`。
 - `/api/version` 返回部署包对应的 Git commit，响应设置为 `no-store`。
+- 顶部导航和页脚不再显示 `Guardrails`，访问 `/guardrails` 及其多语言路径返回 404，`/sitemap.xml` 不再包含相关 URL。
 
 若 Caddy 未签发证书，先检查 DNS 是否已全球生效、80/443 是否可从公网访问，再查看 Caddy 服务日志；不要购买证书作为首选处理方式。
